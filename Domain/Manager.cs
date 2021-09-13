@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain
 {
-    public class Person
+    public class Manager:Role
     {
     }
 }

@@ -5,9 +5,10 @@ using System.Text;
 
 namespace Domain
 {
-    public class Worker
+    public class ShiftAssignment
     {
-        public Department Department
+
+        public Worker Worker
         {
             get => default;
             set
@@ -15,7 +16,7 @@ namespace Domain
             }
         }
 
-        public List<Role> Roles
+        public DateTime EndTime
         {
             get => default;
             set
@@ -23,7 +24,7 @@ namespace Domain
             }
         }
 
-        public Occupation Occupation
+        public DateTime StartTime
         {
             get => default;
             set
@@ -31,15 +32,7 @@ namespace Domain
             }
         }
 
-        public List<ShiftAssignment> ShiftAssignments
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Contact Contact
+        public Location Location
         {
             get => default;
             set

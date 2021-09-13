@@ -5,9 +5,17 @@ using System.Text;
 
 namespace Domain
 {
-    public class Department
+    public class WeekDay
     {
-        public Contact Contact
+        public int Id
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public int Name
         {
             get => default;
             set

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain
 {
-    public class ScheduleUnit
+    public class Scheduler:Role
     {
     }
 }

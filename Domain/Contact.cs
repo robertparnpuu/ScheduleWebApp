@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Domain
 {
-    public class Occupation
+    public class Contact
     {
-        public int OccupationId
+        public string Email
         {
             get => default;
             set
@@ -15,7 +15,15 @@ namespace Domain
             }
         }
 
-        public string OccupationName
+        public string Address
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public string PhoneNumber
         {
             get => default;
             set

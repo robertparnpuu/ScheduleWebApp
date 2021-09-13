@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain
 {
-    public class ManualShift
+    public class Viewer:Role
     {
     }
 }

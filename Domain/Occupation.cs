@@ -22,5 +22,13 @@ namespace Domain
             {
             }
         }
+
+        public List<OccupationAssignment> OccupationAssignment
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Domain
 {
-    public class Location
+    public class Address
     {
-
-        public int LocationID
+        public string Country
         {
             get => default;
             set
@@ -16,7 +15,7 @@ namespace Domain
             }
         }
 
-        public List<ShiftAssignment> ShiftAssignments
+        public string City
         {
             get => default;
             set
@@ -24,7 +23,23 @@ namespace Domain
             }
         }
 
-        public Contact Contact
+        public string StreetName
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public String HouseNumber
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public string AppartmentNumber
         {
             get => default;
             set

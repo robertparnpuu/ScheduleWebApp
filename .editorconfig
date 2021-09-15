@@ -1,0 +1,7 @@
+
+[*]
+
+# ReSharper properties
+resharper_continuous_indent_multiplier = 0
+resharper_indent_nested_foreach_stmt = true
+resharper_indent_nested_for_stmt = true

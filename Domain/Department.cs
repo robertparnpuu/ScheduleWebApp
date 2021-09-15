@@ -14,5 +14,13 @@ namespace Domain
             {
             }
         }
+
+        public List<Worker> Workers
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

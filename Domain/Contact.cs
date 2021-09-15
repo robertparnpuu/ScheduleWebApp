@@ -15,7 +15,7 @@ namespace Domain
             }
         }
 
-        public string Address
+        public string PhoneNumber
         {
             get => default;
             set
@@ -23,7 +23,7 @@ namespace Domain
             }
         }
 
-        public string PhoneNumber
+        public Address Aadress
         {
             get => default;
             set

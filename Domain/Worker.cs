@@ -15,22 +15,6 @@ namespace Domain
             }
         }
 
-        public List<Role> Roles
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Occupation Occupation
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public List<ShiftAssignment> ShiftAssignments
         {
             get => default;
@@ -40,6 +24,22 @@ namespace Domain
         }
 
         public Contact Contact
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public List<RoleAssignment> RoleAssignments
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public List<OccupationAssignment> OccupationAssignments
         {
             get => default;
             set

@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Domain
 {
-    public class Location
+    public class RoleAssignment
     {
-
-        public int LocationID
+        public Role Role
         {
             get => default;
             set
@@ -16,15 +15,7 @@ namespace Domain
             }
         }
 
-        public List<ShiftAssignment> ShiftAssignments
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Contact Contact
+        public Worker Worker
         {
             get => default;
             set

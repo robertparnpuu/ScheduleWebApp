@@ -22,5 +22,21 @@ namespace Domain
             {
             }
         }
+
+        public System.DateTime validFrom
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public System.DateTime validTo
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

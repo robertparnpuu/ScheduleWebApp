@@ -23,14 +23,6 @@ namespace Domain
             }
         }
 
-        public Contact Contact
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public List<RoleAssignment> RoleAssignments
         {
             get => default;
@@ -40,6 +32,14 @@ namespace Domain
         }
 
         public List<OccupationAssignment> OccupationAssignments
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Person Person
         {
             get => default;
             set

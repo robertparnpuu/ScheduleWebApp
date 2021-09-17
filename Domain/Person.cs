@@ -5,9 +5,10 @@ using System.Text;
 
 namespace Domain
 {
-    public class OccupationAssignment
+    public class Person
     {
-        public Occupation Occupation
+
+        public string name
         {
             get => default;
             set
@@ -15,7 +16,7 @@ namespace Domain
             }
         }
 
-        public Worker Worker
+        public System.DateTime birthday
         {
             get => default;
             set
@@ -23,7 +24,7 @@ namespace Domain
             }
         }
 
-        public System.DateTime validFrom
+        public string idCode
         {
             get => default;
             set
@@ -31,7 +32,7 @@ namespace Domain
             }
         }
 
-        public System.DateTime validTo
+        public Contact Contact
         {
             get => default;
             set

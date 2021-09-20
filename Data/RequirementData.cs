@@ -1,13 +1,9 @@
 ﻿using Data.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data
 {
-    class RequirementData : BaseEntityData
+    public class RequirementData : BaseEntityData
     {
         public int locationId { get; set;  }
         public int occupationId { get; set;  }

@@ -4,7 +4,7 @@
 namespace Tests.Data
 {
     [TestClass]
-    public class WeekdayDataTests
+    public class WeekdayDataTests : BaseEntityDataTests
     {
     }
 }

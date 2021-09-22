@@ -4,7 +4,7 @@
 namespace Tests.Data
 {
     [TestClass]
-    public class WorkerDataTests
+    public class WorkerDataTests:PersonDataTests
     {
     }
 }

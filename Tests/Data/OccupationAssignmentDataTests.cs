@@ -4,7 +4,7 @@
 namespace Tests.Data
 {
     [TestClass]
-    public class OccupationAssignmentDataTests
+    public class OccupationAssignmentDataTests:BaseEntityDataTests
     {
     }
 }

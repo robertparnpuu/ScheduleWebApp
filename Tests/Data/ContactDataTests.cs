@@ -4,7 +4,7 @@
 namespace Tests.Data
 {
     [TestClass]
-    public class ContactDataTests
+    public class ContactDataTests:BaseEntityDataTests
     {
     }
 }

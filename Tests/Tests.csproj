@@ -19,6 +19,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Aids\Aids.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Facade\Facade.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
+    <ProjectReference Include="..\Pages\Pages.csproj" />
+    <ProjectReference Include="..\Soft\Soft.csproj" />
   </ItemGroup>
 
 </Project>

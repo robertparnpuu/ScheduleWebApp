@@ -1,8 +1,9 @@
-﻿
+﻿using Core;
+
 namespace Data.Common
 {
-    public class BaseEntityData
+    public class BaseEntityData:IBaseEntity
     {
-        public int id {  get; set; }
+        public string id {  get; set; }
     }
 }

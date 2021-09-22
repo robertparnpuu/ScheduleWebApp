@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-
+﻿using Core;
+using Data;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class OccupationDataTests
+    public class OccupationDataTests : BaseTests<OccupationData, INamedEntity>
     {
     }
 }

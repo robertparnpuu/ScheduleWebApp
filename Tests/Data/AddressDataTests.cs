@@ -7,10 +7,10 @@ namespace Tests.Data
     [TestClass]
     public class AddressDataTests:NamedEntityData
     {
-        [TestMethod]
-        public void AparmentNumberTest() => IsProperty<string>(nameof(obj.apartmentNumber));
-        [TestMethod]
-        public void IdTest() => IsProperty<string>(nameof(obj.id));
+        //[TestMethod]
+        //public void AparmentNumberTest() => IsProperty<string>(nameof(bj.apartmentNumber));
+        //[TestMethod]
+        //public void IdTest() => IsProperty<string>(nameof(obj.id));
 
         public string apartmentNumber { get; set; }
         public string streetName { get; set; }

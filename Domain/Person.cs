@@ -1,7 +1,10 @@
 ﻿
+using Data;
+using Domain.Common;
+
 namespace Domain
 {
-    public class Person
+    public class Person : BaseEntity<PersonData>
     {
 
         public string name

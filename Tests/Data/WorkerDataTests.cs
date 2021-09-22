@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Data;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace Tests.Data
 {
     [TestClass]
-    public class WorkerDataTests:PersonDataTests
+    public class WorkerDataTests:PersonDataTests<WorkerData,PersonData>
     {
     }
 }

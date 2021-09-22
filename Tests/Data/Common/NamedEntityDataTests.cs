@@ -7,11 +7,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data.Common
 {
     [TestClass]
-    public class NamedEntityDataTests:BaseTests<NamedEntityData, BaseEntityData>
+    public class NamedEntityDataTests<TClass,TBaseClass>:BaseEntityDataTests<NamedEntityData,BaseEntityData>
+        where TClass : class, new()
+        where TBaseClass : class
     {
         private class TestClass : NamedEntityData { }
-        protected override NamedEntityData GetObject() => GetRandom.ObjectOf<TestClass>();
+        protected override NamedEntityData CreateObject() => new();
         [TestMethod]
-        public void NameTest() => IsProperty<string>(nameof(obj.name));
+        public void NameTest() => IsProperty<string>(obj.id);
+
     }
 }

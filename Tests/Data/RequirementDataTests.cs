@@ -1,10 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Data;
+using Data.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace Tests.Data
 {
     [TestClass]
-    public class RequirementDataTests:BaseEntityDataTests
+    public class RequirementDataTests:BaseEntityDataTests<RequirementData,BaseEntityData>
     {
     }
 }

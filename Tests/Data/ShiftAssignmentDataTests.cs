@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data
 {
     [TestClass]
-    public class ShiftAssignmentDataTests : BaseTests<ShiftAssignmentData,BaseEntityData>
+    public class ShiftAssignmentDataTests : BaseEntityDataTests<ShiftAssignmentData,BaseEntityData>
     {
     }
 }

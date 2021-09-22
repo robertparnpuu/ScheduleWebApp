@@ -17,4 +17,8 @@
     <Folder Include="Domain\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aids\Aids.csproj" />
+  </ItemGroup>
+
 </Project>

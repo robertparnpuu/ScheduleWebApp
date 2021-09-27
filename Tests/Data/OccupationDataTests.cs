@@ -6,7 +6,7 @@ using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class OccupationDataTests : NamedEntityDataTests<OccupationData, NamedEntityData>
+    public class OccupationDataTests : BaseTests<OccupationData, NamedEntityData>
     {
     }
 }

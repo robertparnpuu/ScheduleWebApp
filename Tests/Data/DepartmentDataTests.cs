@@ -1,13 +1,17 @@
-﻿using Core;
-using Data;
+﻿using Data;
 using Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tests.Data.Common;
 
 namespace Tests.Data
 {
     [TestClass]
-    public class DepartmentDataTests:NamedEntityDataTests<DepartmentData,NamedEntityData>
+    public class DepartmentDataTests:BaseTests<DepartmentData,NamedEntityData>
     {
+        [TestMethod]
+        public void ContactTest() => IsProperty<string>(nameof(obj.contactId));
+        [TestMethod]
+        public void IDTest() => IsProperty<string>(nameof(obj.id));
+        [TestMethod]
+        public void NameTest() => IsProperty<string>(nameof(obj.name));
     }
 }

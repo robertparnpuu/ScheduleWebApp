@@ -4,7 +4,7 @@ namespace Data
 {
     public class OccupationAssignmentData : BaseEntityData
     {
-        public int workerId { get; set;  }
-        public int occupationId { get; set; }
+        public string workerId { get; set;  }
+        public string occupationId { get; set; }
     }
 }

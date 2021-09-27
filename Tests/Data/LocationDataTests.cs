@@ -7,7 +7,9 @@ using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class LocationDataTests:NamedEntityDataTests<LocationData, NamedEntityData>
+    public class LocationDataTests:BaseTests<LocationData, NamedEntityData>
     {
+        [TestMethod]
+        public void ContactTest() => IsProperty<string>(nameof(obj.contactId));
     }
 }

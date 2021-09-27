@@ -4,6 +4,6 @@ namespace Data
 {
     public class DepartmentData : NamedEntityData
     {
-        public int contactId { get; set; }
+        public string contactId { get; set; }
     }
 }

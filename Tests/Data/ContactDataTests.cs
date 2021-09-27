@@ -6,7 +6,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data
 {
     [TestClass]
-    public class ContactDataTests:BaseEntityDataTests<ContactData,BaseEntityData>
+    public class ContactDataTests:BaseTests<ContactData,BaseEntityData>
     {
+        [TestMethod]
+        public void EmailTest() => IsProperty<string>(nameof(obj.email));
+        [TestMethod]
+        public void PhoneNumberTest() => IsProperty<string>(nameof(obj.phoneNumber));
+        [TestMethod]
+        public void AddressTest() => IsProperty<string>(nameof(obj.addressId));
     }
 }

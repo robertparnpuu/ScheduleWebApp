@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Soft\Soft.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\Common\" />
+  </ItemGroup>
+
 </Project>

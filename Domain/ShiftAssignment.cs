@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class ShiftAssignment
+    public class ShiftAssignment : BaseEntity<ShiftAssignmentData>
     {
 
         public Worker Worker

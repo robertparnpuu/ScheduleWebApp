@@ -2,7 +2,7 @@
 
 namespace Data.Common
 {
-    public class BaseEntityData:IBaseEntity
+    public class BaseEntityData:IEntityData
     {
         public string id {  get; set; }
     }

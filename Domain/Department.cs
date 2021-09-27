@@ -10,6 +10,7 @@ namespace Domain
 {
     public class Department : BaseEntity<DepartmentData>
     {
+
         public Contact Contact
         {
             get => default;

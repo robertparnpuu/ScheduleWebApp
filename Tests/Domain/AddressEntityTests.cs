@@ -8,8 +8,10 @@ using Tests;
 namespace Tests.Domain
 {
     [TestClass]
-    public class AddressEntityTests:SealedClassTests<Address,BaseEntity<AddressData>>
+    public class AddressEntityTests:BaseTests<Address,BaseEntity<AddressData>>
     {
-        protected override Address GetObject() => GetRandom.ObjectOf<Address>();
+        protected override Address CreateObject() => GetRandom.ObjectOf<Address>();
+        [TestMethod]
+        public void ApartmentNumberTest() => IsProperty<string>(nameof(obj.apartmentNumber));
     }
 }

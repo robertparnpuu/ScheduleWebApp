@@ -6,7 +6,7 @@ using Domain.Repos;
 namespace Domain.Common 
 {
     public abstract class BaseEntity<TData> :IBaseEntity
-        where TData : class, IEntityData, new() {
+        where TData : class, IBaseEntity, new() {
         protected readonly TData data;
 
         protected BaseEntity() :this(null) { }
@@ -20,6 +20,7 @@ namespace Domain.Common
             new(() => func(GetRepo<TRepo>()));
 
         internal static TRepo GetRepo<TRepo>() => new GetRepo().Instance<TRepo>();
+
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-namespace Data.Common
+﻿namespace Data.Common
 {
     public class NamedEntityData : BaseEntityData
     {

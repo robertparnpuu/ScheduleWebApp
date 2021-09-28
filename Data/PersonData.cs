@@ -10,6 +10,6 @@ namespace Data
         public string idCode { get; set; }
         //Todo: Debate country specifier need
         public DateTime dateOfBirth { get; set;  }
-        public int contactId { get; set; }
+        public string contactId { get; set; }
     }
 }

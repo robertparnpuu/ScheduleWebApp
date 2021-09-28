@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class Location
+    public class Location : BaseEntity<LocationData>
     {
 
         public int LocationID

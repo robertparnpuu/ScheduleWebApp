@@ -1,51 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class Address
+    public class Address : BaseEntity<AddressData>
     {
-        public string Country
-        {
-            get => default;
-            set
-            {
-                //TODO test
-            }
-        }
-
-        public string City
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string StreetName
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public String HouseNumber
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string AppartmentNumber
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string apartmentNumber { get; set; }
+        public string streetName { get; set; }
+        public string houseNumber { get; set; }
+        public string city { get; set; }
+        public string zipCode { get; set; }
+        public string region { get; set; }
+        public string country { get; set; }
     }
 }

@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Pages\Pages.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Address\" />
+  </ItemGroup>
+
 </Project>

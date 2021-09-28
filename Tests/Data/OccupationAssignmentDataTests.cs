@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data
 {
     [TestClass]
-    public class OccupationAssignmentDataTests:BaseTests<OccupationAssignmentData, BaseEntityData>
+    public class OccupationAssignmentDataTests:IdBaseTest<OccupationAssignmentData, BaseEntityData>
     {
         [TestMethod]
         public void WorkerTest() => IsProperty<string>(nameof(obj.workerId));

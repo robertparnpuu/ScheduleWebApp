@@ -5,13 +5,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data
 {
     [TestClass]
-    public class DepartmentDataTests:BaseTests<DepartmentData,NamedEntityData>
+    public class DepartmentDataTests:NamedBaseTest<DepartmentData,NamedEntityData>
     {
         [TestMethod]
         public void ContactTest() => IsProperty<string>(nameof(obj.contactId));
-        [TestMethod]
-        public void IDTest() => IsProperty<string>(nameof(obj.id));
-        [TestMethod]
-        public void NameTest() => IsProperty<string>(nameof(obj.name));
     }
 }

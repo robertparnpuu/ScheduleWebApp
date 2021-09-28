@@ -3,7 +3,6 @@ using Aids;
 using Data;
 using Domain;
 using Domain.Common;
-using Tests;
 
 namespace Tests.Domain
 {

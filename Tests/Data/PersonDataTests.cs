@@ -6,7 +6,7 @@ using System;
 namespace Tests.Data
 {
     [TestClass]
-    public class PersonDataTests : BaseTests<PersonData, BaseEntityData>
+    public class PersonDataTests : IdBaseTest<PersonData, BaseEntityData>
     {
         [TestMethod]
         public void FirstNameTest() => IsProperty<string>(nameof(obj.firstName));

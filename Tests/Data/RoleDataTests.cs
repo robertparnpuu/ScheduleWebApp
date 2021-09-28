@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data
 {
     [TestClass]
-    public class RoleDataTests : BaseTests<RoleData, NamedEntityData>
+    public class RoleDataTests : NamedBaseTest<RoleData, NamedEntityData>
     {
     }
 }

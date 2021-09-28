@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data
 {
     [TestClass]
-    public class AddressDataTests:BaseTests<AddressData,BaseEntityData>
+    public class AddressDataTests:IdBaseTest<AddressData,BaseEntityData>
     {
        
         [TestMethod]

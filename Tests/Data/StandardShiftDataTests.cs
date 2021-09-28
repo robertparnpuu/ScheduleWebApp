@@ -6,7 +6,7 @@ using System;
 namespace Tests.Data
 {
     [TestClass]
-    public class StandardShiftDataTests : BaseTests<StandardShiftData,BaseEntityData>
+    public class StandardShiftDataTests : IdBaseTest<StandardShiftData,BaseEntityData>
     {
         [TestMethod]
         public void OccupationTest() => IsProperty<string>(nameof(obj.occupationId));

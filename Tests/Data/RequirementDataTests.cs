@@ -6,12 +6,12 @@ using System;
 namespace Tests.Data
 {
     [TestClass]
-    public class RequirementDataTests:BaseTests<RequirementData,BaseEntityData>
+    public class RequirementDataTests:IdBaseTest<RequirementData,BaseEntityData>
     {
         [TestMethod]
         public void LocationTest() => IsProperty<string>(nameof(obj.locationId));
         [TestMethod]
-        public void FirstNameTest() => IsProperty<string>(nameof(obj.occupationId));
+        public void OccupationTest() => IsProperty<string>(nameof(obj.occupationId));
         [TestMethod]
         public void WeekDayTest() => IsProperty<string>(nameof(obj.weekDayId));
         [TestMethod]

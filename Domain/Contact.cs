@@ -9,28 +9,14 @@ namespace Domain
 {
     public class Contact : BaseEntity<ContactData>
     {
-        public string Email
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Contact() : this(null) { }
+        public Contact(ContactData d) : base(d) { }
+        public string email => Data?.email ?? "-";
 
-        public string PhoneNumber
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string phoneNumber => Data?.phoneNumber ?? "-";
 
-        public Address Aadress
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string addressId => Data?.addressId ?? "-";
+        public Address contactAddress => lazyReadAddress.Value;
+        internal Lazy<Address> lazyReadAddress { get; }
     }
 }

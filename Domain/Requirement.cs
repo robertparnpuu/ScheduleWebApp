@@ -9,60 +9,25 @@ namespace Domain
 {
     public class Requirement : BaseEntity<RequirementData>
     {
-        public Location Location
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Requirement() : this(null) { }
+        public Requirement(RequirementData d) : base(d) { }
 
-        public Occupation Occupation
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string locationId => Data?.locationId ?? "-";
+        public Location requiredLocation => lazyReadLocation.Value;
+        internal Lazy<Location> lazyReadLocation { get; }
 
-        public int MinEmployees 
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string occupationId => Data?.occupationId ?? "-";
+        public Occupation requiredOccupation => lazyReadOccupation.Value;
+        internal Lazy<Occupation> lazyReadOccupation { get; }
 
-        public int MaxEmployees
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int? minEmployees => Data?.minEmployees;
+        public int? maxEmployees => Data?.maxEmployees;
 
-        public System.DateTime StartTimeClock
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime? startTimeClock => Data?.startTime;
+        public DateTime? endTimeClock => Data?.endTime;
 
-        public System.DateTime EndTimeClock
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public WeekDay DayOfWeek
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        //TODO: oleks vajalik, et saaks valida mitmed päevad ühele nõudele
+        public string weekdayId => Data.weekDayId;
+        // public List<WeekDay> weekDays; 
     }
 }

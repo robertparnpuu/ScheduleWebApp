@@ -6,11 +6,28 @@ namespace Domain
 {
     public class Occupation : BaseEntity<OccupationData>
     {
-        public Occupation() : this(null) { }
-        public Occupation(OccupationData d) : base(d) { }
-        public string name => Data?.name ?? "-";
+        public int OccupationId
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-        //TODO: Worker list
-       // public List<Worker> workers;
+        public string OccupationName
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public List<OccupationAssignment> OccupationAssignment
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

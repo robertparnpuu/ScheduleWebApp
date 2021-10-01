@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Data;
 using Domain.Common;
 
@@ -6,15 +9,44 @@ namespace Domain
 {
     public class Worker : BaseEntity<WorkerData>
     {
-        public Worker() : this(null) { }
-        public Worker(WorkerData d) : base(d) { }
+        public Department Department
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-        public string departmentId => Data?.departmentId ?? "-";
-        public Department workerDepartment => lazyReadDepartment.Value;
-        internal Lazy<Department> lazyReadDepartment { get; }
+        public List<ShiftAssignment> ShiftAssignments
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-        public string personId => Data?.personId ?? "-";
-        public Person person=> lazyReadPerson.Value;
-        internal Lazy<Person> lazyReadPerson { get; }
+        public List<RoleAssignment> RoleAssignments
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public List<OccupationAssignment> OccupationAssignments
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Person Person
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

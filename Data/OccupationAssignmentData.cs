@@ -1,5 +1,4 @@
-﻿using System;
-using Data.Common;
+﻿using Data.Common;
 
 namespace Data
 {
@@ -7,7 +6,5 @@ namespace Data
     {
         public string workerId { get; set;  }
         public string occupationId { get; set; }
-        public DateTime validFrom { get; set; }
-        public DateTime validTo { get; set; }
     }
 }

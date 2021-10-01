@@ -6,6 +6,5 @@ namespace Data
         public string email { get; set;  }
         public string phoneNumber {  get; set; }
         public string addressId { get; set;  }
-
     }
 }

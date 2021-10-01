@@ -1,9 +1,9 @@
 ﻿using Aids;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace Tests.Data.Common
 {
-    public abstract class BaseTests<TClass, TBaseClass>
+    public abstract class BaseDataTests<TClass, TBaseClass>
         where TClass : class, new()
         where TBaseClass : class
     {

@@ -6,7 +6,7 @@ using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class WeekdayDataTests : NamedBaseTest<WeekDayData, NamedEntityData>
+    public class WeekdayDataTests : NamedBaseDataTests<WeekDayData, NamedEntityData>
     {
     }
 }

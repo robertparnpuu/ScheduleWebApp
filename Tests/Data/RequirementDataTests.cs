@@ -2,11 +2,11 @@
 using Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-
+using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class RequirementDataTests:IdBaseTest<RequirementData,BaseEntityData>
+    public class RequirementDataTests:IdBaseDataTests<RequirementData,BaseEntityData>
     {
         [TestMethod]
         public void LocationTest() => IsProperty<string>(nameof(obj.locationId));

@@ -1,35 +1,29 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Aids;
-using Data;
+﻿using Core;
 using Domain.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.Domain.Common {
 
-    [TestClass] public class BaseEntityTests : AbstractClassTests<BaseEntity<AddressData>, object>
+    public abstract class BaseEntityTests<TEntity, TData>
+        where TEntity : BaseEntity<TData>, new()
+        where TData : class, IBaseEntity, new()
     {
-        private class TestClass : BaseEntity<AddressData>
-        { 
-            public TestClass(AddressData d = null) : base(d) { }
-        }
+        protected TEntity obj;
+        [TestInitialize]
+        public virtual void TestInitialize() => obj = CreateObject();
 
-        protected override BaseEntity<AddressData> GetObject() => new TestClass(GetRandom.ObjectOf<AddressData>());
-        
-        [TestMethod] public void DataTest() 
+        [TestMethod]
+        public void IdTest() => isReadOnlyProperty(obj.Data.id);
+
+        protected virtual TEntity CreateObject() => new();
+
+        protected virtual T getPropertyValue<T>(bool canWrite = false) => default;
+
+        protected void isReadOnlyProperty<T>(T expected)
         {
-            IsReadOnlyProperty<AddressData>();
-            Assert.AreNotSame(Obj.Data, Obj.Data);
-            Assert.AreNotEqual(Obj.Data, Obj.Data);
-            ArePropertiesEqual(Obj.Data, Obj.Data);
-            var actual = Obj.Data;
-            var expected = GetRandom.ObjectOf<AddressData>();
-            Copy.Members(expected, actual);
-            ArePropertiesEqual(expected, actual);
-            ArePropertiesNotEqual(expected, Obj.Data);
+            var actual = getPropertyValue<T>();
+
+            Assert.AreEqual(expected, actual);
         }
-
-        [TestMethod] public void idTest() => IsReadOnlyProperty(Obj.Data.id);
-
-        [TestMethod] public void apartmentNumberTest() => IsReadOnlyProperty(Obj.Data.apartmentNumber);
-
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Data;
 using Domain.Common;
 
@@ -12,8 +11,8 @@ namespace Domain
 
         public string name => Data?.name ?? "-";
 
-        public DateTime endTime => Data.endTime;
         public DateTime startTime => Data.startTime;
+        public DateTime endTime => Data.endTime;
 
         public string locationId => Data.locationId;
         public Location shiftLocation => lazyReadLocation.Value;

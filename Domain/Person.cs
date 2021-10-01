@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Data;
 using Domain.Common;
 

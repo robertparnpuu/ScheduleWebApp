@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Data;
 using Domain.Common;
 
@@ -16,8 +13,8 @@ namespace Domain
         public Worker worker => lazyReadWorker.Value;
         internal Lazy<Worker> lazyReadWorker { get; }
 
-        public DateTime endTime => Data.endTime;
         public DateTime startTime => Data.startTime;
+        public DateTime endTime => Data.endTime;
 
         public string locationId => Data.locationId;
         public Location location => lazyReadLocation.Value;

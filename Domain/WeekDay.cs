@@ -9,9 +9,20 @@ namespace Domain
 {
     public class WeekDay : BaseEntity<WeekDayData>
     {
-        public WeekDay() : this(null) { }
-        public WeekDay(WeekDayData d) : base(d) { }
+        public int Id
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
-        public string name => Data?.name ?? "-";
+        public int Name
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

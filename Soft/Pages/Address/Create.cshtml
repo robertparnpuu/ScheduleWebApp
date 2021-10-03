@@ -1,0 +1,69 @@
+﻿@page
+@model Soft.Pages.Address.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AddressData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AddressData.apartmentNumber" class="control-label"></label>
+                <input asp-for="AddressData.apartmentNumber" class="form-control" />
+                <span asp-validation-for="AddressData.apartmentNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.streetName" class="control-label"></label>
+                <input asp-for="AddressData.streetName" class="form-control" />
+                <span asp-validation-for="AddressData.streetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.houseNumber" class="control-label"></label>
+                <input asp-for="AddressData.houseNumber" class="form-control" />
+                <span asp-validation-for="AddressData.houseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.city" class="control-label"></label>
+                <input asp-for="AddressData.city" class="form-control" />
+                <span asp-validation-for="AddressData.city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.zipCode" class="control-label"></label>
+                <input asp-for="AddressData.zipCode" class="form-control" />
+                <span asp-validation-for="AddressData.zipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.region" class="control-label"></label>
+                <input asp-for="AddressData.region" class="form-control" />
+                <span asp-validation-for="AddressData.region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.country" class="control-label"></label>
+                <input asp-for="AddressData.country" class="form-control" />
+                <span asp-validation-for="AddressData.country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressData.id" class="control-label"></label>
+                <input asp-for="AddressData.id" class="form-control" />
+                <span asp-validation-for="AddressData.id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

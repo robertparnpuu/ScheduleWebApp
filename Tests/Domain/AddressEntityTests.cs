@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Data;
 using Domain;
-using Domain.Common;
 using Tests.Domain.Common;
 
 namespace Tests.Domain

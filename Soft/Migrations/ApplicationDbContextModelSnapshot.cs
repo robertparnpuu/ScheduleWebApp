@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Soft.Data;
 
-namespace Soft.Data.Migrations
+namespace Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -21,10 +21,8 @@ namespace Soft.Data.Migrations
 
             modelBuilder.Entity("Data.AddressData", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("apartmentNumber")
                         .HasColumnType("nvarchar(max)");
@@ -50,6 +48,243 @@ namespace Soft.Data.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("Data.ContactData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("addressId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Contact");
+                });
+
+            modelBuilder.Entity("Data.DepartmentData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("contactId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Department");
+                });
+
+            modelBuilder.Entity("Data.LocationData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("contactId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Location");
+                });
+
+            modelBuilder.Entity("Data.OccupationAssignmentData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("validFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("validTo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("workerId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("OccupationAssignment");
+                });
+
+            modelBuilder.Entity("Data.OccupationData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Occupation");
+                });
+
+            modelBuilder.Entity("Data.PersonData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("contactId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("dateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("firstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("idCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Person");
+                });
+
+            modelBuilder.Entity("Data.RequirementData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("endTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("locationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("maxEmployees")
+                        .HasColumnType("int");
+
+                    b.Property<int>("minEmployees")
+                        .HasColumnType("int");
+
+                    b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("startTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("weekDayId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Requirement");
+                });
+
+            modelBuilder.Entity("Data.RoleAssignmentData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("roleId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("validFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("validTo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("workerId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("RoleAssignment");
+                });
+
+            modelBuilder.Entity("Data.RoleData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("Data.ShiftAssignmentData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("endTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("locationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("startTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("workerId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ShiftAssignment");
+                });
+
+            modelBuilder.Entity("Data.StandardShiftData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("endTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("locationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("startTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("StandardShift");
+                });
+
+            modelBuilder.Entity("Data.WeekDayData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("WeekDay");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -252,6 +487,25 @@ namespace Soft.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Data.WorkerData", b =>
+                {
+                    b.HasBaseType("Data.PersonData");
+
+                    b.Property<string>("departmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("occupationAssignmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("roleAssignmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("Worker");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -300,6 +554,15 @@ namespace Soft.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.WorkerData", b =>
+                {
+                    b.HasOne("Data.PersonData", null)
+                        .WithOne()
+                        .HasForeignKey("Data.WorkerData", "id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

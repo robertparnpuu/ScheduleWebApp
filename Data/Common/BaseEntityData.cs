@@ -2,8 +2,8 @@
 
 namespace Data.Common
 {
-    public class BaseEntityData:IBaseEntity
+    public class BaseEntityData : IBaseEntity
     {
-        public string id {  get; set; }
+        public string id { get; set; }
     }
 }

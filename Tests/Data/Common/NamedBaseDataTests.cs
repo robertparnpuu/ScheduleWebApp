@@ -1,9 +1,9 @@
 ﻿using Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace Tests.Data.Common
 {
-    public abstract class NamedBaseTest<TClass, TBaseClass> : IdBaseTest<TClass, TBaseClass>
+    public abstract class NamedBaseDataTests<TClass, TBaseClass> : IdBaseDataTests<TClass, TBaseClass>
         where TClass : NamedEntityData, new()
         where TBaseClass : class
     {

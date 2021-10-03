@@ -2,11 +2,12 @@
 using Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Tests.Data.Common;
 
 namespace Tests.Data
 {
     [TestClass]
-    public class StandardShiftDataTests : IdBaseTest<StandardShiftData,BaseEntityData>
+    public class StandardShiftDataTests : IdBaseDataTests<StandardShiftData,NamedEntityData>
     {
         [TestMethod]
         public void OccupationTest() => IsProperty<string>(nameof(obj.occupationId));

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Data;
 using Domain.Common;
 
@@ -9,29 +6,12 @@ namespace Domain
 {
     public class Location : BaseEntity<LocationData>
     {
+        public Location() : this(null) { }
+        public Location(LocationData d) : base(d) { }
+        public string name => Data?.name ?? ".";
 
-        public int LocationID
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public List<ShiftAssignment> ShiftAssignments
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Contact Contact
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string contactId => Data?.contactId ?? "-";
+        public Contact contact => lazyReadContact.Value;
+        internal Lazy<Contact> lazyReadContact { get; }
     }
 }

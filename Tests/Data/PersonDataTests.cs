@@ -2,11 +2,12 @@
 using Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Tests.Data.Common;
 
 namespace Tests.Data
 {
     [TestClass]
-    public class PersonDataTests : IdBaseTest<PersonData, BaseEntityData>
+    public class PersonDataTests : IdBaseDataTests<PersonData, BaseEntityData>
     {
         [TestMethod]
         public void FirstNameTest() => IsProperty<string>(nameof(obj.firstName));

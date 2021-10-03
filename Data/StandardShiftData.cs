@@ -3,7 +3,7 @@ using System;
 
 namespace Data
 {
-    public class StandardShiftData : BaseEntityData
+    public class StandardShiftData : NamedEntityData
     {
         public string locationId { get; set; }
         public string occupationId { get; set;  }

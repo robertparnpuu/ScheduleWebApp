@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Data;
 using Domain.Common;
 
@@ -9,37 +6,18 @@ namespace Domain
 {
     public class ShiftAssignment : BaseEntity<ShiftAssignmentData>
     {
+        public ShiftAssignment() : this(null) { }
+        public ShiftAssignment(ShiftAssignmentData d) : base(d) { }
 
-        public Worker Worker
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string workerId => Data.workerId;
+        public Worker worker => lazyReadWorker.Value;
+        internal Lazy<Worker> lazyReadWorker { get; }
 
-        public DateTime EndTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime startTime => Data.startTime;
+        public DateTime endTime => Data.endTime;
 
-        public DateTime StartTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Location Location
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string locationId => Data.locationId;
+        public Location location => lazyReadLocation.Value;
+        internal Lazy<Location> lazyReadLocation { get; }
     }
 }

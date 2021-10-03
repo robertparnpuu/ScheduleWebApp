@@ -1,11 +1,11 @@
 ﻿using Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Tests.Data.Common;
 
 namespace Tests.Data
 {
     [TestClass]
-    public class WorkerDataTests:IdBaseTest<WorkerData,PersonData>
+    public class WorkerDataTests:IdBaseDataTests<WorkerData,PersonData>
     {
         [TestMethod]
         public void PersonTest() => IsProperty<string>(nameof(obj.personId));

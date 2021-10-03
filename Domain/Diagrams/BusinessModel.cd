@@ -14,7 +14,7 @@
   <Class Name="Domain.Department">
     <Position X="10.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAQAAAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAQAEAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Department.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -32,27 +32,24 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAEAAACAIQAAAAAAAgACACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAICAIQAAAAAAAgACACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShiftAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="location" />
       <Property Name="worker" />
+      <Property Name="location" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Domain.Requirement" Collapsed="true">
+  <Class Name="Domain.Requirement">
     <Position X="7.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAEAAgCAAAIQAAAAAAAQAAAAAAAAAASAAACAAAIAA=</HashCode>
+      <HashCode>ACAAEAAACAAAIQAAAAAAAQAAAAAAAAAASAAACAIAIAA=</HashCode>
       <FileName>Requirement.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="requiredLocation" />
       <Property Name="requiredOccupation" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="weekDays" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Domain.Location">
     <Position X="14.5" Y="5.25" Width="1.5" />
@@ -74,12 +71,12 @@
   <Class Name="Domain.Role" Collapsed="true">
     <Position X="12.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Role.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.WeekDay" Collapsed="true">
-    <Position X="7.5" Y="9.25" Width="1.5" />
+  <Class Name="Domain.WeekDay">
+    <Position X="7.5" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDay.cs</FileName>
@@ -102,8 +99,8 @@
       <FileName>RoleAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="worker" />
       <Property Name="role" />
+      <Property Name="worker" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Address">
@@ -120,8 +117,8 @@
       <FileName>OccupationAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="worker" />
       <Property Name="occupation" />
+      <Property Name="worker" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Person">
@@ -166,7 +163,7 @@
   <Class Name="Domain.StandardShift" Collapsed="true">
     <Position X="6.75" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAAgACAAAAAEAAAAAAAAABAABAA=</HashCode>
+      <HashCode>ACAAEAAACAAAAAAAAAAgACAAAAAEAAAAQAAAABAABAA=</HashCode>
       <FileName>StandardShift.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

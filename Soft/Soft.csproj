@@ -28,4 +28,11 @@
     <ProjectReference Include="..\Pages\Pages.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Worker\" />
+    <Folder Include="Pages\Weekday\" />
+    <Folder Include="Pages\Role\" />
+    <Folder Include="Pages\RoleAssignment\" />
+  </ItemGroup>
+
 </Project>

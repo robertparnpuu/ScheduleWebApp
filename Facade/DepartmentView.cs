@@ -3,7 +3,7 @@ using Facade.Common;
 
 namespace Facade
 {
-    class DepartmentView: BaseView
+    public class DepartmentView: BaseView
     {
         [Display(Name = "Osakonna nimetus")]
         public string name { get; set; }

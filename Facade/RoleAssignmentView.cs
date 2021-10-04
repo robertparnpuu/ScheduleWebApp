@@ -4,21 +4,21 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class OccupationAssignmentView : BaseView
+    public class RoleAssignmentView : BaseView
     {
         [Required]
         public string workerId { get; set; }
-        
         [Required]
-        public string occupationId { get; set; }
+        public string roleId { get; set; }
+
 
         [Required]
         [Display(Name = "Töötaja nimi")]
         public string workerName { get; set; }
 
         [Required]
-        [Display(Name = "Ametikoht")]
-        public string occupationName { get; set; }
+        [Display(Name = "Roll")]
+        public string roleName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

@@ -4,7 +4,7 @@ using Facade.Common;
 
 namespace Facade
 {
-    class PersonView : BaseView
+    public class PersonView : BaseView
     {
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Eesnime pikkus võib olla maksimaalselt 50 tähte")]

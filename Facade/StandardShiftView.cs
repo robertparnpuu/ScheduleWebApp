@@ -4,30 +4,30 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class OccupationAssignmentView : BaseView
+    public class StandardShiftView: BaseView
     {
         [Required]
-        public string workerId { get; set; }
-        
-        [Required]
         public string occupationId { get; set; }
-
         [Required]
-        [Display(Name = "Töötaja nimi")]
-        public string workerName { get; set; }
+        public string locationId { get; set; }
+
 
         [Required]
         [Display(Name = "Ametikoht")]
         public string occupationName { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Kehtiv alates")]
-        public DateTime validFrom { get; set; }
+        [Display(Name = "Asukoht")]
+        public string locationName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Kehtiv kuni")]
-        public DateTime validTo { get; set; }
+        [Display(Name = "Vahetuse algusaeg")]
+        public DateTime startTime { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Vahetuse lõpuaeg")]
+        public DateTime endTime { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using Facade.Common;
 
 namespace Facade
 {
-    class OccupationView: BaseView
+    public class OccupationView: BaseView
     {
         [Required]
         [Display(Name = "Ametikoha nimetus")]

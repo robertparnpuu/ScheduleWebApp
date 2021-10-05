@@ -15,7 +15,7 @@ namespace Tests.Domain.Common {
         public virtual void TestInitialize() => obj = CreateObject();
 
         [TestMethod]
-        public void IdTest() => isReadOnlyProperty(obj.id);
+        public void IdTest() => isReadOnlyProperty(obj.Data.id);
 
         protected virtual TEntity CreateObject() => new();
 

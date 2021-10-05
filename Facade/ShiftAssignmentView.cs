@@ -13,21 +13,21 @@ namespace Facade
 
 
         [Required]
-        [Display(Name = "Töötaja nimi")]
+        [Display(Name = "Workers name")]
         public string workerName { get; set; }
 
         [Required]
-        [Display(Name = "Asukoht")]
+        [Display(Name = "Location")]
         public string locationName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Vahetuse algusaeg")]
+        [Display(Name = "Shift start time")]
         public DateTime startTime { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Vahetuse lõpuaeg")]
+        [Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
 
     }

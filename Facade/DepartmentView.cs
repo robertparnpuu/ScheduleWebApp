@@ -5,7 +5,7 @@ namespace Facade
 {
     public class DepartmentView: BaseView
     {
-        [Display(Name = "Osakonna nimetus")]
+        [Display(Name = "Department name")]
         public string name { get; set; }
         public string contactId { get; set; }
 

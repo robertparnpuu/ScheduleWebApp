@@ -6,7 +6,7 @@ namespace Facade
     public class RoleView :BaseView
     {
         [Required]
-        [Display(Name = "Rolli nimetus")]
+        [Display(Name = "Role")]
         public string name { get; set; }
     }
 }

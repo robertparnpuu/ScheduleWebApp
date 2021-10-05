@@ -6,7 +6,7 @@ namespace Facade
     public class OccupationView: BaseView
     {
         [Required]
-        [Display(Name = "Ametikoha nimetus")]
+        [Display(Name = "Occupation")]
         public string name { get; set; }
 
         //TODO: töötajate list

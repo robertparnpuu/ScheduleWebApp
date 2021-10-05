@@ -7,25 +7,25 @@ namespace Facade
     public class PersonView : BaseView
     {
         [Required]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "Eesnime pikkus võib olla maksimaalselt 50 tähte")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "First name max length is 50 characters")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
-        [Display(Name = "Eesnimi")]
+        [Display(Name = "First name")]
         public string firstName { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 2,ErrorMessage = "Perekonnanime pikkus võib olla maksimaalselt 50 tähte")]
+        [StringLength(50, MinimumLength = 2,ErrorMessage = "Last name max length is 50 characters")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
-        [Display(Name = "Perekonnanimi")]
+        [Display(Name = "Last name")]
         public string lastName { get; set; }
 
         [Required]
-        [StringLength(11, MinimumLength = 11, ErrorMessage = "Isikukood peab koosnema 11st numbrist")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "ID code must consist of 11 numbers")]
         [RegularExpression("^[0-9]")]
-        [Display(Name = "Isikukood")]
+        [Display(Name = "ID code")]
         public string idCode { get; set; }
 
         [Required]
-        [Display(Name = "Sünnikuupäev")]
+        [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
 
         public string contactId { get; set; }

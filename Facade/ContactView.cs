@@ -10,34 +10,34 @@ namespace Facade
         public string email { get; set; }
 
         [Required]
-        [Display(Name = "Telefoni nr")]
+        [Display(Name = "Phone nr")]
         public string phoneNumber { get; set; }
 
-        [Display(Name = "Korteri number")]
+        [Display(Name = "Apartment nr")]
         public string apartmentNumber { get; set; }
 
         [Required]
-        [Display(Name = "Tänav")]
+        [Display(Name = "Street")]
         public string streetName { get; set; }
 
         [Required]
-        [Display(Name = "Maja number")]
+        [Display(Name = "House number")]
         public string houseNumber { get; set; }
 
         [Required]
-        [Display(Name = "Linn/asula")]
+        [Display(Name = "City")]
         public string city { get; set; }
 
         [Required]
-        [Display(Name = "Sihtnumber")]
+        [Display(Name = "Zipcode")]
         public string zipCode { get; set; }
 
         [Required]
-        [Display(Name = "Maakond")]
+        [Display(Name = "Region")]
         public string region { get; set; }
 
         [Required]
-        [Display(Name = "Riik")]
+        [Display(Name = "Country")]
         public string country { get; set; }
     }
 }

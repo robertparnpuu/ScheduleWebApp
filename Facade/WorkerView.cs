@@ -9,7 +9,7 @@ namespace Facade
         public string personId { get; set; }
 
         [Required]
-        [Display(Name = "Töötaja nimi")]
+        [Display(Name = "Worker name")]
         public string workerName { get; set; }
         
         public string roleAssignmentId { get; set; }

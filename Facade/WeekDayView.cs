@@ -6,7 +6,7 @@ namespace Facade
     public class WeekDayView: BaseView
     {
         [Required]
-        [Display(Name = "Nädalapäev")]
+        [Display(Name = "Weekday")]
         public string name { get; set; }
     }
 }

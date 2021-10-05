@@ -7,29 +7,29 @@ namespace Facade
     public class RequirementView: BaseView
     {
         [Required]
-        [Display(Name = "Asukoht")]
+        [Display(Name = "Location")]
         public string locationId { get; set; }
 
         [Required]
-        [Display(Name = "Ametikoht")]
+        [Display(Name = "Occupation")]
         public string occupationId { get; set; }
 
-        [Display(Name = "Nädalapäev")]
+        [Display(Name = "Weekday")]
         public string weekDayId { get; set; }
 
 
         [DataType(DataType.DateTime)]
-        [Display(Name = "Tööaja algusaeg")]
+        [Display(Name = "Start time")]
         public DateTime startTime { get; set; }
         
         [DataType(DataType.DateTime)]
-        [Display(Name = "Tööaja lõpuaeg")]
+        [Display(Name = "End time")]
         public DateTime endTime { get; set; }
 
-        [Display(Name = "Minimaalne töötajate arv")]
+        [Display(Name = "Minimum number of workers")]
         public int minEmployees { get; set; }
 
-        [Display(Name = "Maksimaalne töötajate arv")]
+        [Display(Name = "Maximum number of workers")]
         public int maxEmployees { get; set; }
     }
 }

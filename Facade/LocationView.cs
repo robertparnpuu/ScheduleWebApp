@@ -6,7 +6,7 @@ namespace Facade
     public class LocationView:BaseView
     {
         [Required]
-        [Display(Name = "Asukoha nimetus")]
+        [Display(Name = "Location name")]
         public string name { get; set; }
 
         public string contactId { get; set; }

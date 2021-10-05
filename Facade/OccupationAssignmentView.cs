@@ -13,21 +13,21 @@ namespace Facade
         public string occupationId { get; set; }
 
         [Required]
-        [Display(Name = "Töötaja nimi")]
+        [Display(Name = "Worker name")]
         public string workerName { get; set; }
 
         [Required]
-        [Display(Name = "Ametikoht")]
+        [Display(Name = "Occupation")]
         public string occupationName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Kehtiv alates")]
+        [Display(Name = "Valid from")]
         public DateTime validFrom { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Kehtiv kuni")]
+        [Display(Name = "Valid to")]
         public DateTime validTo { get; set; }
     }
 }

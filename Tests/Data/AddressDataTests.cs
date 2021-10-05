@@ -7,8 +7,7 @@ namespace Tests.Data
 {
     [TestClass]
     public class AddressDataTests:IdBaseDataTests<AddressData,BaseEntityData>
-    {
-       
+    {       
         [TestMethod]
         public void ApartmentNumberTest() => IsProperty<string>(nameof(obj.apartmentNumber));
         [TestMethod]

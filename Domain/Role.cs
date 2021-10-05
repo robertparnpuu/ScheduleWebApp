@@ -7,6 +7,6 @@ namespace Domain
     {
         public Role() : this(null) { }
         public Role(RoleData d) : base(d) { }
-        public string name => Data?.name ?? ".";
+        public string name => Data?.name ?? "-";
     }
 }

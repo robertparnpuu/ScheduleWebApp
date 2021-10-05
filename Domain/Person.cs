@@ -10,7 +10,6 @@ namespace Domain
         public Person(PersonData d) : base(d) { }
         public string firstName => Data?.firstName ?? "-";
         public string lastName => Data?.lastName ?? "-";
-        public string FullName => lastName + ", " + firstName;
 
         public DateTime? dateOfBirth => Data?.dateOfBirth;
 

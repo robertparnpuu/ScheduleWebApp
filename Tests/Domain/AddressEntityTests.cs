@@ -20,7 +20,7 @@ namespace Tests.Domain
         [TestMethod]
         public void ZipCodeTest() => isReadOnlyProperty(obj.Data.zipCode);
         [TestMethod]
-        public void RegopmTest() => isReadOnlyProperty(obj.Data.region);
+        public void RegionTest() => isReadOnlyProperty(obj.Data.region);
         [TestMethod]
         public void CountryTest() => isReadOnlyProperty(obj.Data.country);
     }

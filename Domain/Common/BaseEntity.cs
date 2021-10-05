@@ -7,7 +7,7 @@ namespace Domain.Common
 {
     public abstract class BaseEntity<TData> :IBaseEntity
         where TData : class, IBaseEntity, new() {
-        protected readonly TData data;
+        protected TData data;
 
         protected BaseEntity() :this(null) { }
         protected BaseEntity(TData d) => data = d;

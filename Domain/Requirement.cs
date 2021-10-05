@@ -24,7 +24,7 @@ namespace Domain
         public DateTime? endTimeClock => Data?.endTime;
 
         //TODO: oleks vajalik, et saaks valida mitmed päevad ühele nõudele
-        public string weekdayId => Data.weekDayId;
+        public string weekdayId => Data?.weekDayId ?? "-";
         // public List<WeekDay> weekDays; 
     }
 }

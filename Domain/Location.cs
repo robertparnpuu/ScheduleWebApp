@@ -8,7 +8,7 @@ namespace Domain
     {
         public Location() : this(null) { }
         public Location(LocationData d) : base(d) { }
-        public string name => Data?.name ?? ".";
+        public string name => Data?.name ?? "-";
 
         public string contactId => Data?.contactId ?? "-";
         public Contact contact => lazyReadContact.Value;

@@ -14,7 +14,7 @@ namespace Domain
         public DateTime startTime => Data.startTime;
         public DateTime endTime => Data.endTime;
 
-        public string locationId => Data.locationId;
+        public string locationId => Data?.locationId ?? "-";
         public Location shiftLocation => lazyReadLocation.Value;
         internal Lazy<Location> lazyReadLocation { get; }
 

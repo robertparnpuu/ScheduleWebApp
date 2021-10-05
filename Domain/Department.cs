@@ -9,7 +9,7 @@ namespace Domain
         public Department() : this(null) { }
         public Department(DepartmentData d) : base(d) { }
 
-        public string name => Data.name;
+        public string name => Data?.name ?? "-";
 
         public string contactId => Data?.contactId ?? "-";
         public Contact departmentContact => lazyReadContact.Value;

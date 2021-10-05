@@ -9,11 +9,11 @@ namespace Domain
         public RoleAssignment() : this(null) { }
         public RoleAssignment(RoleAssignmentData d) : base(d) { }
 
-        public string roleId => Data.roleId;
+        public string roleId => Data?.roleId ?? "-";
         public Role role => lazyReadRole.Value;
         internal Lazy<Role> lazyReadRole { get; }
 
-        public string workerId => Data.workerId;
+        public string workerId => Data?.workerId ?? "-";
         public Worker worker => lazyReadWorker.Value;
         internal Lazy<Worker> lazyReadWorker { get; }
 

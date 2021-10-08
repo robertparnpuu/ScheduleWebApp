@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model Soft.Pages.Occupation.CreateModel
 
 @{
@@ -13,16 +14,10 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="OccupationData.name" class="control-label"></label>
-                <input asp-for="OccupationData.name" class="form-control" />
-                <span asp-validation-for="OccupationData.name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OccupationData.id" class="control-label"></label>
-                <input asp-for="OccupationData.id" class="form-control" />
-                <span asp-validation-for="OccupationData.id" class="text-danger"></span>
-            </div>
+
+            @Html.Editor(model => model.OccupationData.id)
+            @Html.Editor(model=>model.OccupationData.name)
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

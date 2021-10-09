@@ -1,6 +1,6 @@
 ﻿@page
 @using Core.Extensions
-@model Soft.Pages.Occupation.DetailsModel
+@model PageModels.OccupationModel
 
 @{
     ViewData["Title"] = "Details";
@@ -8,7 +8,7 @@
 
 <h1>Details</h1>
 
-@Html.Show(model=>model.OccupationData.name)
+@Html.Show(model => model.OccupationData.name)
 
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.OccupationData.id">Edit</a> |

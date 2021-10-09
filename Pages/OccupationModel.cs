@@ -30,51 +30,51 @@ namespace PageModels
         }
 
         [BindProperty]
-        public OccupationData OccupationData { get; set; }
+        public Occupation item { get; set; }
 
         public async Task<IActionResult> OnPostCreateAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
-            _context.Occupations.Add(OccupationData);
-            await _context.SaveChangesAsync();
+            //_context.Occupations.Add(Occupation);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
 
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
+            //OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
 
-            if (OccupationData == null)
-            {
-                return NotFound();
-            }
+            //if (OccupationData == null)
+            //{
+            //    return NotFound();
+            //}
             return Page();
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            OccupationData = await _context.Occupations.FindAsync(id);
+            //OccupationData = await _context.Occupations.FindAsync(id);
 
-            if (OccupationData != null)
-            {
-                _context.Occupations.Remove(OccupationData);
-                await _context.SaveChangesAsync();
-            }
+            //if (OccupationData != null)
+            //{
+            //    _context.Occupations.Remove(OccupationData);
+            //    await _context.SaveChangesAsync();
+            //}
 
             return RedirectToPage("./Index");
         }
@@ -86,9 +86,9 @@ namespace PageModels
                 return NotFound();
             }
 
-            OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
+            item = await repo.GetEntityAsync(id);
 
-            if (OccupationData == null)
+            if (item == null)
             {
                 return NotFound();
             }
@@ -97,44 +97,44 @@ namespace PageModels
 
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
+            //OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
 
-            if (OccupationData == null)
-            {
-                return NotFound();
-            }
+            //if (OccupationData == null)
+            //{
+            //    return NotFound();
+            //}
             return Page();
         }
     
         public async Task<IActionResult> OnPostEditAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
-            _context.Attach(OccupationData).State = EntityState.Modified;
+            //_context.Attach(OccupationData).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OccupationDataExists(OccupationData.id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!OccupationDataExists(OccupationData.id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return RedirectToPage("./Index");
         }
@@ -148,7 +148,7 @@ namespace PageModels
 
         public async Task OnGetIndexAsync()
         {
-            items = await repo.GetEntityAsync();
+            items = await repo.GetEntityListAsync();
         }
 
 

@@ -15,8 +15,8 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            @Html.Editor(model => model.OccupationData.id)
-            @Html.Editor(model=>model.OccupationData.name)
+            @Html.Editor(model => model.item.id)
+            @Html.Editor(model=>model.item.name)
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

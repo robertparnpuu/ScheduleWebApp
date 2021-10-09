@@ -19,19 +19,20 @@ namespace Infra
             dbSet = c?.Occupations;
         }
 
-        protected internal Task<List<OccupationData>> getDataAsync() => dbSet.AsNoTracking().ToListAsync();
+        protected internal Task<List<OccupationData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
 
-        public async Task<List<Occupation>> GetEntityAsync() => (await getDataAsync()).Select(ToEntity).ToList();
+        public async Task<List<Occupation>> GetEntityListAsync() => (await GetDataListAsync()).Select(ToEntity).ToList();
 
         protected internal Occupation ToEntity(OccupationData o) => new Occupation(o);
 
-        public async Task<Occupation> GetAsync(string id)
+        protected internal async Task<OccupationData> GetDataAsync(string id)
         {
-            throw new System.NotImplementedException();
-            //    if (id is null) return null;
-            //    if (dbSet is null) return null;
-            //    return await dbSet.AsNoTracking().FirstOrDefaultAsync(r => r.id == id);
+            if (id is null) return null;
+            if (dbSet is null) return null;
+            return await dbSet.AsNoTracking().FirstOrDefaultAsync(r => r.id == id);
         }
+
+        public async Task<Occupation> GetEntityAsync(string id) => ToEntity(await GetDataAsync(id));
 
         public Task<bool> DeleteAsync(Occupation obj)
         {

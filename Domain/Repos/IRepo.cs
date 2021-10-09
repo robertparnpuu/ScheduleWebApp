@@ -5,8 +5,8 @@ namespace Domain.Repos
 {
     public interface IRepo<T>
     {
-        Task<List<T>> GetEntityAsync();
-        Task<T> GetAsync(string id);
+        Task<List<T>> GetEntityListAsync();
+        Task<T> GetEntityAsync(string id);
         Task<bool> DeleteAsync(T obj);
         Task<bool> AddAsync(T obj);
         Task<bool> UpdateAsync(T obj);

@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model Soft.Pages.Occupation.EditModel
 
 @{
@@ -9,15 +10,14 @@
 
 <h4>OccupationData</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="OccupationData.name" class="control-label"></label>
-                <input asp-for="OccupationData.name" class="form-control" />
-                <span asp-validation-for="OccupationData.name" class="text-danger"></span>
-            </div>
+
+            @Html.Editor(model => model.OccupationData.name)
+
             <input type="hidden" asp-for="OccupationData.id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

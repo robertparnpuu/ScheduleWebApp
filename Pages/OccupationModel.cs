@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aids;
 using Core;
 using Data;
 using Domain;
 using Domain.Repos;
+using Facade;
 using Infra;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -24,13 +26,31 @@ namespace PageModels
             _context = context;
         }
 
+        [BindProperty]
+        public OccupationView item { get; set; }
+
+        public IList<OccupationView> items { get; set; }
+
+        public async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
+
+        protected internal OccupationView ToView(Occupation obj)
+        {
+            OccupationView view = new OccupationView();
+            Copy.Members(obj, view);
+            return view;
+        }
+
+        protected internal Occupation ToEntity(OccupationView view)
+        {
+            if (view is null) return null;
+            var data = Copy.Members(view, new OccupationData());
+            return new Occupation(data);
+        }
+
         public IActionResult OnGetCreate()
         {
             return Page();
         }
-
-        [BindProperty]
-        public Occupation item { get; set; }
 
         public async Task<IActionResult> OnPostCreateAsync()
         {
@@ -38,12 +58,11 @@ namespace PageModels
             //{
             //    return Page();
             //}
-
-            //_context.Occupations.Add(Occupation);
-            //await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            
+            return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
         }
+
+        internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
 
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
@@ -81,17 +100,11 @@ namespace PageModels
 
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return null;
 
-            item = await repo.GetEntityAsync(id);
+            item = ToView(await repo.GetEntityAsync(id));
 
-            if (item == null)
-            {
-                return NotFound();
-            }
+            if (item == null) return null;
             return Page();
         }
 
@@ -143,14 +156,5 @@ namespace PageModels
         {
             return _context.Occupations.Any(e => e.id == id);
         }
-
-        public IList<Occupation> items { get; set; }
-
-        public async Task OnGetIndexAsync()
-        {
-            items = await repo.GetEntityListAsync();
-        }
-
-
-}
+    }
 }

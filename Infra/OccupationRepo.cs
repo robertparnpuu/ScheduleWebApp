@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infra
 {
-   public class OccupationRepo: IOccupationRepo
-   {
+    public class OccupationRepo : IOccupationRepo
+    {
         public readonly DbSet<OccupationData> dbSet;
         public readonly DbContext db;
 
@@ -21,9 +21,11 @@ namespace Infra
 
         protected internal Task<List<OccupationData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
 
-        public async Task<List<Occupation>> GetEntityListAsync() => (await GetDataListAsync()).Select(ToEntity).ToList();
+        public async Task<List<Occupation>> GetEntityListAsync() =>
+        (await GetDataListAsync()).Select(ToEntity).ToList();
 
-        protected internal Occupation ToEntity(OccupationData o) => new Occupation(o);
+        protected internal Occupation ToEntity(OccupationData d) => new Occupation(d);
+        protected internal OccupationData ToData(Occupation e) => e?.Data ?? new OccupationData();
 
         protected internal async Task<OccupationData> GetDataAsync(string id)
         {
@@ -39,9 +41,20 @@ namespace Infra
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> AddAsync(Occupation obj)
+        public async Task<bool> AddAsync(Occupation obj)
         {
-            throw new System.NotImplementedException();
+            if (obj is null) return false;
+            if (dbSet is null) return false;
+            return await AddToDatabase(ToData(obj));
+        }
+
+
+        protected internal async Task<bool> AddToDatabase(OccupationData obj)
+        {
+            if (!IsEntityOk(obj)) return false;
+            await dbSet.AddAsync(obj);
+            await db.SaveChangesAsync();
+            return true;
         }
 
         public Task<bool> UpdateAsync(Occupation obj)
@@ -52,6 +65,13 @@ namespace Infra
         public Occupation Get(string id)
         {
             throw new System.NotImplementedException();
+        }
+
+        private bool IsEntityOk(object obj)
+        {
+            if (obj is null) return false;
+            if (dbSet is null) return false;
+            return true;
         }
     }
 }

@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class Department
+    public class Department : BaseEntity<DepartmentData>
     {
-        public Contact Contact
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Department() : this(null) { }
+        public Department(DepartmentData d) : base(d) { }
 
-        public List<Worker> Workers
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string name => Data?.name ?? "-";
+
+        public string contactId => Data?.contactId ?? "-";
+        public Contact departmentContact => lazyReadContact.Value;
+        internal Lazy<Contact> lazyReadContact { get; }
+
+        //TODO: LIST
+        //public List<Worker> workers;
     }
 }

@@ -1,58 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class StandardShift
+    public class StandardShift : BaseEntity<StandardShiftData>
     {
+        public StandardShift() : this(null) { }
+        public StandardShift(StandardShiftData d) : base(d) { }
 
-        public System.DateTime StartTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string name => Data?.name ?? "-";
 
-        public System.DateTime EndTime
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime startTime => Data.startTime;
+        public DateTime endTime => Data.endTime;
 
-        public Location Location
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string locationId => Data?.locationId ?? "-";
+        public Location shiftLocation => lazyReadLocation.Value;
+        internal Lazy<Location> lazyReadLocation { get; }
 
-        public Occupation Occupation
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string occupationId => Data?.occupationId ?? "-";
+        public Occupation shiftOccupation => lazyReadOccupation.Value;
+        internal Lazy<Occupation> lazyReadOccupation { get; }
 
-        public void CreateStandardShift()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Edit()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

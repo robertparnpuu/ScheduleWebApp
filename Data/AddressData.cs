@@ -1,13 +1,8 @@
 ﻿using Data.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data
 {
-    class AddressData : BaseEntityData
+    public class AddressData : BaseEntityData
     {
         public string apartmentNumber { get; set;  }
         public string streetName { get; set;  }

@@ -1,50 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class Address
+    public class Address : BaseEntity<AddressData>
     {
-        public string Country
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Address() : this(null) { }
+        public Address(AddressData d) : base(d) { }
 
-        public string City
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string StreetName
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public String HouseNumber
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string AppartmentNumber
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string apartmentNumber => Data?.apartmentNumber ?? "-";
+        public string streetName => Data?.streetName ?? "-";
+        public string houseNumber => Data?.houseNumber ?? "-";
+        public string city => Data?.city ?? "-";
+        public string zipCode => Data?.zipCode ?? "-";
+        public string region => Data?.region ?? "-";
+        public string country => Data?.country ?? "-";
     }
 }

@@ -7,7 +7,7 @@ namespace Domain.Repos
     {
         Task<List<T>> GetEntityListAsync();
         Task<T> GetEntityAsync(string id);
-        Task<bool> DeleteAsync(T obj);
+        Task<bool> DeleteAsync(string id);
         Task<bool> AddAsync(T obj);
         Task<bool> UpdateAsync(T obj);
         T Get(string id);

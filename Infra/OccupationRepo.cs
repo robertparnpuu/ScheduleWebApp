@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aids;
 using Data;
 using Domain;
 using Domain.Repos;
@@ -36,9 +37,15 @@ namespace Infra
 
         public async Task<Occupation> GetEntityAsync(string id) => ToEntity(await GetDataAsync(id));
 
-        public Task<bool> DeleteAsync(Occupation obj)
+        public async Task<bool> DeleteAsync(string id) => await DeleteFromDatabase(id);
+        
+        protected internal async Task<bool> DeleteFromDatabase(string id)
         {
-            throw new System.NotImplementedException();
+            var o = await dbSet.FindAsync(id);
+            var isOk = IsEntityOk(o);
+            if (isOk) dbSet.Remove(o);
+            await db.SaveChangesAsync();
+            return isOk;
         }
 
         public async Task<bool> AddAsync(Occupation obj)
@@ -57,9 +64,21 @@ namespace Infra
             return true;
         }
 
-        public Task<bool> UpdateAsync(Occupation obj)
+        public async Task<bool> UpdateAsync(Occupation obj)
         {
-            throw new System.NotImplementedException();
+            if (obj is null) return false;
+            if (dbSet is null) return false;
+            return await UpdateInDatabase(ToData(obj));
+        }
+
+        protected internal async Task<bool> UpdateInDatabase(OccupationData obj)
+        {
+            var o = await dbSet.FindAsync(obj.id);
+            Copy.Members(obj, o);
+            var isOk = IsEntityOk(o);
+            if (isOk) dbSet.Update(o);
+            await db.SaveChangesAsync();
+            return isOk;
         }
 
         public Occupation Get(string id)

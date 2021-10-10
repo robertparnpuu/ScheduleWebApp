@@ -16,6 +16,7 @@ namespace PageModels
 {
     public class OccupationModel: PageModel, IBasePage
     {
+        //TODO: Concurrency pls
 
         private readonly IOccupationRepo repo;
         private readonly ApplicationDbContext _context;
@@ -47,111 +48,42 @@ namespace PageModels
             return new Occupation(data);
         }
 
-        public IActionResult OnGetCreate()
-        {
-            return Page();
-        }
+        public IActionResult OnGetCreate() => Page();
+
+        public async Task<IActionResult> OnGetDeleteAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
+        public async Task<IActionResult> OnGetDetailsAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
+        public async Task<IActionResult> OnGetEditAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
 
         public async Task<IActionResult> OnPostCreateAsync()
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-            
+            if (!ModelState.IsValid) return Page();
             return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
-        }
-
-        internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
-
-        public async Task<IActionResult> OnGetDeleteAsync(string id)
-        {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
-
-            //if (OccupationData == null)
-            //{
-            //    return NotFound();
-            //}
-            return Page();
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //OccupationData = await _context.Occupations.FindAsync(id);
-
-            //if (OccupationData != null)
-            //{
-            //    _context.Occupations.Remove(OccupationData);
-            //    await _context.SaveChangesAsync();
-            //}
-
-            return RedirectToPage("./Index");
+            if (id == null) return NotFound();
+            return await repo.DeleteAsync(id) ? IndexPage() : Page();
         }
 
-        public async Task<IActionResult> OnGetDetailsAsync(string id)
+        public async Task<IActionResult> OnPostEditAsync()
         {
-            if (id == null) return null;
+            if (!ModelState.IsValid) return Page();
+            return await repo.UpdateAsync(ToEntity(item)) ? IndexPage() : Page();
+        }
+
+        protected internal async Task<bool> GetItemAsync(string id)
+        {
+            if (id == null) return false;
 
             item = ToView(await repo.GetEntityAsync(id));
 
-            if (item == null) return null;
-            return Page();
+            if (item == null || item.id == "Unspecified") return false;
+            return true;
         }
 
-        public async Task<IActionResult> OnGetEditAsync(string id)
-        {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //OccupationData = await _context.Occupations.FirstOrDefaultAsync(m => m.id == id);
-
-            //if (OccupationData == null)
-            //{
-            //    return NotFound();
-            //}
-            return Page();
-        }
-    
-        public async Task<IActionResult> OnPostEditAsync()
-        {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-
-            //_context.Attach(OccupationData).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!OccupationDataExists(OccupationData.id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            return RedirectToPage("./Index");
-        }
-
+        internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
+        
         private bool OccupationDataExists(string id)
         {
             return _context.Occupations.Any(e => e.id == id);

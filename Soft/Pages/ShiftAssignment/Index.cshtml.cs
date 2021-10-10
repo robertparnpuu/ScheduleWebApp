@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Data;
-using Soft.Data;
+using Infra;
 
 namespace Soft.Pages.ShiftAssignment
 {

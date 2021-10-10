@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{4676C020-CB31-4E50-9085-E6DCE26C8049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pages", "Pages\Pages.csproj", "{B968AD4A-E053-479E-B14C-7DE1469B8143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageModels", "Pages\PageModels.csproj", "{B968AD4A-E053-479E-B14C-7DE1469B8143}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aids", "Aids\Aids.csproj", "{2806F159-EFB7-4AFB-9E9D-EAA3614A1351}"
 EndProject

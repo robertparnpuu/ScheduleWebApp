@@ -1,6 +1,6 @@
 ﻿@page
 @using Core.Extensions
-@model Soft.Pages.Occupation.CreateModel
+@model PageModels.OccupationModel
 
 @{
     ViewData["Title"] = "Create";
@@ -15,8 +15,8 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            @Html.Editor(model => model.OccupationData.id)
-            @Html.Editor(model=>model.OccupationData.name)
+            @Html.Editor(model => model.item.id)
+            @Html.Editor(model => model.item.name)
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -26,7 +26,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index" asp-route-handler="Index">Back to List</a>
 </div>
 
 @section Scripts {

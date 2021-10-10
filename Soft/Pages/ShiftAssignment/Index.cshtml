@@ -1,0 +1,54 @@
+﻿@page
+@model Soft.Pages.ShiftAssignment.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].workerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].locationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].startTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].endTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.shiftAssignmentData) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.workerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.locationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endTime)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

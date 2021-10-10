@@ -1,42 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Data;
+using Domain.Common;
 
 namespace Domain
 {
-    public class OccupationAssignment
+    public class OccupationAssignment : BaseEntity<OccupationAssignmentData>
     {
-        public Occupation Occupation
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public OccupationAssignment() : this(null) { }
+        public OccupationAssignment(OccupationAssignmentData d) : base(d) { }
 
-        public Worker Worker
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string occupationId => Data?.occupationId ?? "-";
+        public Occupation occupation => lazyReadOccupation.Value;
+        internal Lazy<Occupation> lazyReadOccupation { get; }
 
-        public System.DateTime validFrom
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string workerId => Data.workerId ?? "-";
+        public Worker worker => lazyReadWorker.Value;
+        internal Lazy<Worker> lazyReadWorker { get; }
 
-        public System.DateTime validTo
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime validFrom => Data.validFrom;
+        public DateTime validTo => Data.validTo;
+
+
+
     }
 }

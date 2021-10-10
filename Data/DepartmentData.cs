@@ -1,14 +1,9 @@
 ﻿using Data.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data
 {
-    class DepartmentData : NamedEntityData
+    public class DepartmentData : NamedEntityData
     {
-        public int contactId { get; set; }
+        public string contactId { get; set; }
     }
 }

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core;
 
 namespace Data.Common
 {
-    public class BaseEntityData
+    public class BaseEntityData : IBaseEntity
     {
-        public int id {  get; set; }
+        public string id { get; set; }
     }
 }

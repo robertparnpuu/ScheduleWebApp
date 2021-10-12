@@ -1,44 +1,42 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Aids;
+﻿using Aids;
 using Data;
 using Domain;
 using Domain.Repos;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infra
 {
-    public class OccupationRepo : IOccupationRepo
+    public class AddressRepo : IAddressRepo
     {
-        public readonly DbSet<OccupationData> dbSet;
+        public readonly DbSet<AddressData> dbSet;
         public readonly DbContext db;
 
-        public OccupationRepo(ApplicationDbContext c)
+        public AddressRepo(ApplicationDbContext c)
         {
             db = c;
-            dbSet = c?.Occupations;
+            dbSet = c?.Addresses;
         }
+        protected internal Task<List<AddressData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
 
-        protected internal Task<List<OccupationData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
-
-        public async Task<List<Occupation>> GetEntityListAsync() =>
+        public async Task<List<Address>> GetEntityListAsync() =>
         (await GetDataListAsync()).Select(ToEntity).ToList();
 
-        protected internal Occupation ToEntity(OccupationData d) => new Occupation(d);
-        protected internal OccupationData ToData(Occupation e) => e?.Data ?? new OccupationData();
-
-        protected internal async Task<OccupationData> GetDataAsync(string id)
+        protected internal Address ToEntity(AddressData d) => new Address(d);
+        protected internal AddressData ToData(Address e) => e?.Data ?? new AddressData();
+        protected internal async Task<AddressData> GetDataAsync(string id)
         {
             if (id is null) return null;
             if (dbSet is null) return null;
             return await dbSet.AsNoTracking().FirstOrDefaultAsync(r => r.id == id);
         }
 
-        public async Task<Occupation> GetEntityAsync(string id) => ToEntity(await GetDataAsync(id));
+        public async Task<Address> GetEntityAsync(string id) => ToEntity(await GetDataAsync(id));
 
         public async Task<bool> DeleteAsync(string id) => await DeleteFromDatabase(id);
-        
+
         protected internal async Task<bool> DeleteFromDatabase(string id)
         {
             var o = await dbSet.FindAsync(id);
@@ -48,15 +46,14 @@ namespace Infra
             return isOk;
         }
 
-        public async Task<bool> AddAsync(Occupation obj)
+        public async Task<bool> AddAsync(Address obj)
         {
             if (obj is null) return false;
             if (dbSet is null) return false;
             return await AddToDatabase(ToData(obj));
         }
 
-
-        protected internal async Task<bool> AddToDatabase(OccupationData obj)
+        protected internal async Task<bool> AddToDatabase(AddressData obj)
         {
             if (!IsEntityOk(obj)) return false;
             await dbSet.AddAsync(obj);
@@ -64,14 +61,14 @@ namespace Infra
             return true;
         }
 
-        public async Task<bool> UpdateAsync(Occupation obj)
+        public async Task<bool> UpdateAsync(Address obj)
         {
             if (obj is null) return false;
             if (dbSet is null) return false;
             return await UpdateInDatabase(ToData(obj));
         }
 
-        protected internal async Task<bool> UpdateInDatabase(OccupationData obj)
+        protected internal async Task<bool> UpdateInDatabase(AddressData obj)
         {
             var o = await dbSet.FindAsync(obj.id);
             Copy.Members(obj, o);

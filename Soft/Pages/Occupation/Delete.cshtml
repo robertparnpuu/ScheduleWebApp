@@ -15,6 +15,6 @@
     <form method="post">
         <input type="hidden" asp-for="item.id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./Index" asp-route-handler="Index">Back to List</a>
     </form>
 </div>

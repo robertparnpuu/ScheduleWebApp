@@ -7,11 +7,9 @@ namespace Infra
 {
     public class AddressRepo : BaseRepo<AddressData, Address>, IAddressRepo
     {
-        public AddressRepo(ApplicationDbContext c) : base(c, c?.Addresses){}
+        public AddressRepo(ApplicationDbContext c) : base(c, c?.Addresses){ }
 
         public override Address ToEntity(AddressData d) => new(d);
         public override AddressData ToData(Address e) => e?.Data ?? new AddressData();
-        
-
     }
 }

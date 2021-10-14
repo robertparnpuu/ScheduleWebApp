@@ -6,26 +6,16 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Infra.Common;
 
 namespace Infra
 {
-    public class AddressRepo : IAddressRepo
+    public class AddressRepo : BaseRepo<AddressData, Address>, IAddressRepo
     {
-        public readonly DbSet<AddressData> dbSet;
-        public readonly DbContext db;
+        public AddressRepo(ApplicationDbContext c) : base(c, c?.Addresses){}
 
-        public AddressRepo(ApplicationDbContext c)
-        {
-            db = c;
-            dbSet = c?.Addresses;
-        }
-        protected internal Task<List<AddressData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
-
-        public async Task<List<Address>> GetEntityListAsync() =>
-        (await GetDataListAsync()).Select(ToEntity).ToList();
-
-        protected internal Address ToEntity(AddressData d) => new Address(d);
-        protected internal AddressData ToData(Address e) => e?.Data ?? new AddressData();
+        public override Address ToEntity(AddressData d) => new(d);
+        public override AddressData ToData(Address e) => e?.Data ?? new AddressData();
         protected internal async Task<AddressData> GetDataAsync(string id)
         {
             if (id is null) return null;

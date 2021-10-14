@@ -25,7 +25,7 @@ namespace Infra
         public async Task<List<Occupation>> GetEntityListAsync() =>
         (await GetDataListAsync()).Select(ToEntity).ToList();
 
-        protected internal Occupation ToEntity(OccupationData d) => new Occupation(d);
+        protected internal Occupation ToEntity(OccupationData d) => new(d);
         protected internal OccupationData ToData(Occupation e) => e?.Data ?? new OccupationData();
 
         protected internal async Task<OccupationData> GetDataAsync(string id)

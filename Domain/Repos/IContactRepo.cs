@@ -1,6 +1,6 @@
 ﻿namespace Domain.Repos
 {
-    interface IContactRepo:IRepo<Contact>
+    public interface IContactRepo:IRepo<Contact>
     {
     }
 }

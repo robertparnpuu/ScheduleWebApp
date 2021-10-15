@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Diagrams\" />
+    <Compile Remove="Diagrams\**" />
+    <EmbeddedResource Remove="Diagrams\**" />
+    <None Remove="Diagrams\**" />
   </ItemGroup>
 
   <ItemGroup>

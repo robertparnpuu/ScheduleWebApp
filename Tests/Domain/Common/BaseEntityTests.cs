@@ -36,12 +36,20 @@ namespace Tests.Domain.Common {
 
             foreach (PropertyInfo property in properties)
             {
-                if (property.Name == "id") Assert.AreEqual("Unspecified", property.GetValue(obj));
+                if (property.Name == "id") Assert.IsTrue(IsGuid(property.GetValue(obj)));
                 else if (property.PropertyType == typeof(string)) Assert.AreEqual("-", property.GetValue(obj));
                 else if (property.PropertyType == typeof(int)) Assert.IsNull(property.GetValue(obj));
                 else if (property.PropertyType == typeof(DateTime)) Assert.AreEqual(default(DateTime), property.GetValue(obj));
-                else if (property.PropertyType == typeof(object)) ;
+                else if (property.PropertyType == typeof(object));
             }
         }
+        
+        public static bool IsGuid(object value) 
+        { 
+            Guid x; 
+
+            return Guid.TryParse(value.ToString(), out x);
+        }
+        
     }
 }       

@@ -2,10 +2,9 @@
 @using Core.Extensions
 @model PageModels.AddressModel
 @{
+    Layout = "_Details";
     ViewData["Title"] = "Details";
 }
-
-<h1>Details</h1>
 
 @Html.Show(model => model.item.streetName)
 @Html.Show(model => model.item.houseNumber)
@@ -14,8 +13,3 @@
 @Html.Show(model => model.item.city)
 @Html.Show(model => model.item.region)
 @Html.Show(model => model.item.country)
-
-<div>
-    <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@Model.item.id">Edit</a>
-    <a asp-page="Index" asp-route-handler="Index">Back to List</a>
-</div>

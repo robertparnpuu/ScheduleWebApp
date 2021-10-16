@@ -16,6 +16,8 @@ namespace Facade
         [Required]
         [Display(Name = "Address")]  
         public string addressId { get; set; }
+
+        [Display(Name = "Address")]
         public string fullAddress { get; set; }
         
 

@@ -11,13 +11,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace PageModels.Common
 {
-    public abstract class BaseModel<TEntity, TView> : PageModel, IBasePage
+
+    public abstract class BaseModel : PageModel, IBasePage
+    { 
+        [BindProperty] 
+        public IBaseEntity item { get; set; }
+    }
+
+    public abstract class BaseModel<TEntity, TView> : BaseModel
     where TEntity : class, IBaseEntity, new()
     where TView : class, IBaseEntity, new()
     {
         protected readonly IRepo<TEntity> repo;
         protected readonly ApplicationDbContext _context;
-
         public BaseModel(IRepo<TEntity> r, ApplicationDbContext context)
         {
             repo = r;
@@ -25,8 +31,11 @@ namespace PageModels.Common
         }
 
         [BindProperty]
-        public TView item { get; set; }
-
+        public new TView item
+        {
+            get => (TView)base.item;
+            set => base.item = value;
+        }
         public IList<TView> items { get; set; }
         protected internal abstract TView ToView(TEntity obj);
         protected internal abstract TEntity ToEntity(TView view);

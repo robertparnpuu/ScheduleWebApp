@@ -1,10 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.OccupationModel
+
 @{
     Layout = "_Details";
-    ViewData["Title"] = "Details";
 }
 
-@Html.Show(model => model.item.name)
-
+<partial name="_ShowOccupation.cshtml" />

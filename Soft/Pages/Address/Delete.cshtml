@@ -1,16 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.AddressModel
 
 @{
-    ViewData["Title"] = "Delete";
     Layout = "_Delete";
 }
 
-@Html.Show(model => model.item.streetName)
-@Html.Show(model => model.item.houseNumber)
-@Html.Show(model => model.item.apartmentNumber)
-@Html.Show(model => model.item.zipCode)
-@Html.Show(model => model.item.city)
-@Html.Show(model => model.item.region)
-@Html.Show(model => model.item.country)
+<partial name="_ShowAddress.cshtml" />

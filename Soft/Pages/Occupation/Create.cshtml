@@ -1,10 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.OccupationModel
 
 @{
-    ViewData["Title"] = "Create";
     Layout = "_Create";
 }
 
-@Html.Editor(model => model.item.name)
+<partial name="_EditOccupation.cshtml"/>

@@ -1,16 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.AddressModel
 
 @{
-    ViewData["Title"] = "Create";
     Layout = "_Create";
 }
 
-@Html.Editor(model => model.item.streetName)
-@Html.Editor(model => model.item.houseNumber)
-@Html.Editor(model => model.item.apartmentNumber)
-@Html.Editor(model => model.item.zipCode)
-@Html.Editor(model => model.item.city)
-@Html.Editor(model => model.item.region)
-@Html.Editor(model => model.item.country)
+<partial name ="_EditAddress.cshtml"/>

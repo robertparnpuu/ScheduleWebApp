@@ -1,12 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.ContactModel
 
 @{
-    ViewData["Title"] = "Delete";
     Layout = "_Delete";
 }
 
-@Html.Show(model => model.item.email)
-@Html.Show(model => model.item.phoneNumber)
-@Html.Show(model => model.item.fullAddress)
+<partial name="_ShowContact.cshtml"/>

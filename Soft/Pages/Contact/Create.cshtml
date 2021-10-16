@@ -1,12 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.ContactModel
 
 @{
-    ViewData["Title"] = "Create";
     Layout = "_Create";
 }
 
-@Html.Editor(model => model.item.email)
-@Html.Editor(model => model.item.phoneNumber)
-@Html.Select(model => model.item.addressId, Model.Addresses, "-- Select Address --")
+<partial name="_EditContact.cshtml"/>

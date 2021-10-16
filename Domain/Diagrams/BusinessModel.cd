@@ -3,7 +3,7 @@
   <Class Name="Domain.Worker">
     <Position X="8" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAIIAAAAIAAAAAAAAEAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAABAAAIIAAAAIBAAAAAAAEAAAAABCAAAA=</HashCode>
       <FileName>Worker.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -23,14 +23,6 @@
   </Class>
   <Class Name="Domain.ShiftAssignment" Collapsed="true">
     <Position X="8" Y="5.75" Width="1.5" />
-    <AssociationLine Name="worker" Type="Domain.Worker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="8.812" Y="5.75" />
-        <Point X="8.812" Y="5.375" />
-        <Point X="8.812" Y="5.375" />
-        <Point X="8.812" Y="5.011" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAEAAICAIQAAAAAAAgACACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShiftAssignment.cs</FileName>
@@ -93,14 +85,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.RoleAssignment" Collapsed="true">
-    <Position X="8.25" Y="1.25" Width="1.5" />
+    <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAYAAISAAAAAAAAABAAIAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAQAAACAAAAAAAAABIAIAAAAAAEAAAAAACgAAA=</HashCode>
       <FileName>RoleAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="role" />
-      <Property Name="worker" />
+      <Property Name="person" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Address">
@@ -132,7 +124,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAIAAEAAABAgAAQAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAAABAgAAQAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

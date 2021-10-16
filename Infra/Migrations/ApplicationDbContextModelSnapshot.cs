@@ -156,6 +156,9 @@ namespace Infra.Migrations
                     b.Property<string>("lastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("roleAssignmentId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.ToTable("Person");
@@ -197,6 +200,9 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("roleId")
                         .HasColumnType("nvarchar(max)");
 
@@ -205,9 +211,6 @@ namespace Infra.Migrations
 
                     b.Property<DateTime>("validTo")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -498,9 +501,6 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("personId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("roleAssignmentId")
                         .HasColumnType("nvarchar(max)");
 
                     b.ToTable("Worker");

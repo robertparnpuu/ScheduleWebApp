@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -138,6 +138,7 @@ namespace Infra.Migrations
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     firstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     lastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    roleAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     idCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     dateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     contactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -182,7 +183,7 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    workerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     roleId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     validFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
                     validTo = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -347,7 +348,6 @@ namespace Infra.Migrations
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    roleAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     occupationAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

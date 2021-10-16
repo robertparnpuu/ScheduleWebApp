@@ -3,6 +3,7 @@ using Domain.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Reflection;
+using Aids;
 
 namespace Tests.Domain.Common {
 
@@ -15,7 +16,7 @@ namespace Tests.Domain.Common {
         public virtual void TestInitialize() => obj = CreateObject();
 
         [TestMethod]
-        public void IdTest() => isReadOnlyProperty(obj.Data.id);
+        public void IdTest() => IsProperty<Guid>(obj.Data.id);
 
         protected virtual TEntity CreateObject() => new();
 
@@ -25,6 +26,17 @@ namespace Tests.Domain.Common {
         {
             var actual = getPropertyValue<T>();
 
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void IsProperty<TResult>(string propertyName)
+        {
+            var propertyInfo = obj.GetType().GetProperty(propertyName);
+            Assert.IsNotNull(propertyInfo);
+
+            var expected = GetRandom.ValueOf<TResult>();
+            propertyInfo.SetValue(obj, expected);
+            var actual = propertyInfo.GetValue(obj);
             Assert.AreEqual(expected, actual);
         }
 

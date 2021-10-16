@@ -10,7 +10,7 @@ namespace Tests.Data
     public class RoleAssignmentDataTests : IdBaseDataTests<RoleAssignmentData,BaseEntityData>
     {
         [TestMethod]
-        public void WorkerTest() => IsProperty<string>(nameof(obj.workerId));
+        public void PersonTest() => IsProperty<string>(nameof(obj.personId));
         [TestMethod]
         public void RoleTest() => IsProperty<string>(nameof(obj.roleId));
         [TestMethod]

@@ -10,5 +10,7 @@ namespace Domain.Repos
         Task<bool> DeleteAsync(string id);
         Task<bool> AddAsync(T obj);
         Task<bool> UpdateAsync(T obj);
+        T GetEntity(string id);
+        List<T> GetById();
     }
 }

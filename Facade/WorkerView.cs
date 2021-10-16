@@ -11,10 +11,7 @@ namespace Facade
         [Required]
         [Display(Name = "Worker name")]
         public string workerName { get; set; }
-        
-        public string roleAssignmentId { get; set; }
         public string occupationAssignmentId { get; set; }
-
         public string departmentId { get; set; }
     }
 }

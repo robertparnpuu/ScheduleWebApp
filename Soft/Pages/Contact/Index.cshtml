@@ -1,5 +1,6 @@
 ﻿@page
-@model Soft.Pages.Contact.IndexModel
+@using Core.Extensions
+@model PageModels.ContactModel
 
 @{
     ViewData["Title"] = "Index";
@@ -8,25 +9,25 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-route-handler="Create" asp-page="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ContactData[0].email)
+                @Html.DisplayNameFor(model => model.items[0].email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContactData[0].phoneNumber)
+                @Html.DisplayNameFor(model => model.items[0].phoneNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContactData[0].addressId)
+                @Html.DisplayNameFor(model => model.items[0].fullAddress)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ContactData) {
+@foreach (var item in Model.items) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.email)
@@ -35,12 +36,12 @@
                 @Html.DisplayFor(modelItem => item.phoneNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.addressId)
+                @Html.DisplayFor(modelItem => item.fullAddress)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

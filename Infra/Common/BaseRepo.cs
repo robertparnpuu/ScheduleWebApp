@@ -18,9 +18,14 @@ namespace Infra.Common
         public abstract TData ToData(TEntity e);
 
         public new async Task<List<TEntity>> GetEntityListAsync() => (await base.GetEntityListAsync()).Select(ToEntity).ToList();
-        public new async Task<TEntity> GetEntityAsync(string id)=>ToEntity(await base.GetEntityAsync(id));
+        public new async Task<TEntity> GetEntityAsync(string id) => ToEntity(await base.GetDataAsync(id));
         public async Task<bool> AddAsync(TEntity obj) => await AddAsync(ToData(obj));
         public async Task<bool> UpdateAsync(TEntity obj) => await UpdateAsync(ToData(obj));
+
+        public TEntity GetEntity(string id) => ToEntity(base.GetData(id));
+
+        public List<TEntity> GetById() => GetDropDownList().Select(ToEntity).ToList();
+
     }
 
     public abstract class BaseRepo<TData>
@@ -37,8 +42,11 @@ namespace Infra.Common
 
         public async Task<List<TData>> GetEntityListAsync()=> (await GetDataListAsync()).ToList();
         protected internal Task<List<TData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
+        protected internal List<TData> GetDropDownList() => dbSet.AsNoTracking().ToList();
 
-        public async Task<TData> GetEntityAsync(string id)=> (await GetDataAsync(id));
+        //public async Task<TData> GetEntityAsync(string id)=> (await GetDataAsync(id));
+        public TData GetData(string id) => GetDataAsync(id).GetAwaiter().GetResult();
+
         protected internal async Task<TData> GetDataAsync(string id)
         {
             if (id is null) return null;

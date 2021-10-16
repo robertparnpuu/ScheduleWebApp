@@ -11,7 +11,7 @@ namespace Tests.Domain
         [TestMethod]
         public void RoleIdTest() => isReadOnlyProperty(obj.Data.roleId);
         [TestMethod]
-        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.workerId);
+        public void PersonIdTest() => isReadOnlyProperty(obj.Data.personId);
         [TestMethod]
         public void ValidFromTest() => isReadOnlyProperty(obj.Data.validFrom);
         [TestMethod]

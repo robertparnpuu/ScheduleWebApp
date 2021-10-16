@@ -7,14 +7,14 @@ namespace Facade
     public class RoleAssignmentView : BaseView
     {
         [Required]
-        public string workerId { get; set; }
+        public string personId { get; set; }
         [Required]
         public string roleId { get; set; }
 
 
         [Required]
-        [Display(Name = "Worker name")]
-        public string workerName { get; set; }
+        [Display(Name = "Person name")]
+        public string personName { get; set; }
 
         [Required]
         [Display(Name = "Role")]

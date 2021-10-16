@@ -1,0 +1,13 @@
+﻿@model PageModels.Common.BaseModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-route-handler="Create" asp-page="Create">Create New</a>
+</p>
+ 
+@RenderBody()

@@ -2,26 +2,18 @@
 @model PageModels.AddressModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-route-handler="Create" asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.items[0].streetName)
-                @Html.DisplayNameFor(model => model.items[0].houseNumber)
-                @Html.DisplayNameFor(model => model.items[0].apartmentNumber)
-                @Html.DisplayNameFor(model => model.items[0].zipCode)
-                @Html.DisplayNameFor(model => model.items[0].city)
-                @Html.DisplayNameFor(model => model.items[0].region)
-                @Html.DisplayNameFor(model => model.items[0].country)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.items[0].streetName)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].houseNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].apartmentNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].zipCode)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].city)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].region)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].country)</th>
             <th></th>
         </tr>
     </thead>
@@ -29,15 +21,14 @@
         @foreach (var item in Model.items)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.streetName)
-                    @Html.DisplayFor(modelItem => item.houseNumber)
-                    @Html.DisplayFor(modelItem => item.apartmentNumber)
-                    @Html.DisplayFor(modelItem => item.zipCode)
-                    @Html.DisplayFor(modelItem => item.city)
-                    @Html.DisplayFor(modelItem => item.region)
-                    @Html.DisplayFor(modelItem => item.country)
-                </td>
+                <td>@Html.DisplayFor(modelItem => item.streetName)</td>
+                <td>@Html.DisplayFor(modelItem => item.houseNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.apartmentNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.zipCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.city)</td>
+                <td>@Html.DisplayFor(modelItem => item.region)</td>
+                <td>@Html.DisplayFor(modelItem => item.country)</td>
+
                 <td>
                     <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
                     <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |

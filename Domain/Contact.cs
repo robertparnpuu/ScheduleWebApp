@@ -13,9 +13,11 @@ namespace Domain
         {
             lazyReadAddress = GetLazy<Address, IAddressRepo>(x => x?.GetEntity(addressId));
         }
-        public string email => Data?.email ?? "-";
 
+        public string email => Data?.email ?? "-";
         public string phoneNumber => Data?.phoneNumber ?? "-";
+        public string fullContact => $"{email}, {phoneNumber}";
+
 
         public string addressId => Data?.addressId ?? "-";
         public Address contactAddress => lazyReadAddress.Value;

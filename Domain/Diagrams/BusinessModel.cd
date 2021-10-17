@@ -46,11 +46,11 @@
   <Class Name="Domain.Location">
     <Position X="14.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABAgAAQAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAAAABAAAAQAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Location.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="contact" />
+      <Property Name="locationContact" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Occupation">
@@ -77,14 +77,14 @@
   <Class Name="Domain.Contact">
     <Position X="14.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAQAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAIAAQAAAAAAAAAgAAAAAAIAAEAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Contact.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="contactAddress" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Domain.RoleAssignment">
+  <Class Name="Domain.RoleAssignment" Collapsed="true">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAACAAAAAAAAABAAIAAAAAAEAAAAAAAgAAA=</HashCode>

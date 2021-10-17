@@ -1,40 +1,8 @@
 ﻿@page
-@model Soft.Pages.Location.EditModel
+@model PageModels.LocationModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "_Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>LocationData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="LocationData.contactId" class="control-label"></label>
-                <input asp-for="LocationData.contactId" class="form-control" />
-                <span asp-validation-for="LocationData.contactId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LocationData.name" class="control-label"></label>
-                <input asp-for="LocationData.name" class="form-control" />
-                <span asp-validation-for="LocationData.name" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="LocationData.id" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<partial name="_EditLocation.cshtml" />

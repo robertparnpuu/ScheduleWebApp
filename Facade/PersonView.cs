@@ -20,7 +20,6 @@ namespace Facade
 
         [Required]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "ID code must consist of 11 numbers")]
-        [RegularExpression("^[0-9]")]
         [Display(Name = "ID code")]
         public string idCode { get; set; }
 
@@ -29,5 +28,11 @@ namespace Facade
         public DateTime dateOfBirth { get; set; }
 
         public string contactId { get; set; }
+
+        [Display(Name = "E-mail")]
+        public string personEmail { get; set; }
+
+        [Display(Name = "Phone nr")]
+        public string personPhoneNr { get; set; }
     }
 }

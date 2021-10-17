@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Data;
+﻿using Data;
 using Domain.Common;
 
 namespace Domain

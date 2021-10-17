@@ -24,7 +24,8 @@ namespace PageModels.Common
     {
         protected readonly IRepo<TEntity> repo;
         protected readonly ApplicationDbContext _context;
-        public BaseModel(IRepo<TEntity> r, ApplicationDbContext context)
+
+        protected BaseModel(IRepo<TEntity> r, ApplicationDbContext context)
         {
             repo = r;
             _context = context;
@@ -54,8 +55,7 @@ namespace PageModels.Common
 
             item = ToView(await repo.GetEntityAsync(id));
 
-            if (item == null || item.id == "Unspecified") return false;
-            return true;
+            return item != null && item.id != "Unspecified";
         }
 
         public async Task<IActionResult> OnPostCreateAsync()

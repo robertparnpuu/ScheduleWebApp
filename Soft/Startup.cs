@@ -28,6 +28,12 @@ namespace Soft
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            AddServices(services);
+
+        }
+
+        public void AddServices(IServiceCollection services)
+        {
             services.AddTransient<IOccupationRepo, OccupationRepo>();
             services.AddTransient<IAddressRepo, AddressRepo>();
             services.AddTransient<IContactRepo, ContactRepo>();
@@ -42,7 +48,6 @@ namespace Soft
             services.AddTransient<IStandardShiftRepo, StandardShiftRepo>();
             services.AddTransient<IWeekDayRepo, WeekDayRepo>();
             services.AddTransient<IWorkerRepo, WorkerRepo>();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

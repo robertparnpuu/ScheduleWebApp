@@ -87,7 +87,7 @@
   <Class Name="Domain.RoleAssignment" Collapsed="true">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAACAAAAAAAAABAAIAAAAAAEAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAQAAACAAAAAAAAABIAIAAAAAAEAAAAAACgAAA=</HashCode>
       <FileName>RoleAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -114,20 +114,11 @@
   </Class>
   <Class Name="Domain.Person">
     <Position X="5.75" Y="0.5" Width="1.5" />
-    <AssociationLine Name="contact" Type="Domain.Contact" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6.562" Y="0.5" />
-        <Point X="6.562" Y="0.125" />
-        <Point X="15.438" Y="0.125" />
-        <Point X="15.438" Y="2" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAABAgAAQAAAAAAAAAACAARAAQ=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAAABAAAAQAAAAAAAAAACAAVAAQ=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="contact" />
       <Property Name="roleAssignment" />
     </ShowAsAssociation>
   </Class>
@@ -152,7 +143,7 @@
       <FileName>Roles\Viewer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.StandardShift" Collapsed="true">
+  <Class Name="Domain.StandardShift">
     <Position X="6.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAEAAACAAAAAAAAAAgACAAAAAEAAAAQAAAABAABAA=</HashCode>

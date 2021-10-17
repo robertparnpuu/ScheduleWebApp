@@ -46,11 +46,11 @@
   <Class Name="Domain.Location">
     <Position X="14.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABAgAAQAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAAAABAAAAQAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Location.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="contact" />
+      <Property Name="locationContact" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Occupation">
@@ -77,7 +77,7 @@
   <Class Name="Domain.Contact">
     <Position X="14.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAQAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAIAAQAAAAAAAAAgAAAAAAIAAEAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Contact.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -87,18 +87,17 @@
   <Class Name="Domain.RoleAssignment" Collapsed="true">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAACAAAAAAAAABIAIAAAAAAEAAAAAACgAAA=</HashCode>
+      <HashCode>AAAAAAAQAAACAAAAAAAAABAAIAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>RoleAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="role" />
-      <Property Name="person" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Address">
     <Position X="17.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAQAAAAAAAAAAAAAACAAAAAAAAABCAAAABAAAAIA=</HashCode>
+      <HashCode>AACAAQAAAAAAAAAAAAEACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -124,11 +123,12 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAABAgAAQAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAAABAgAAQAAAAAAAAAACAARAAQ=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="contact" />
+      <Property Name="roleAssignment" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Roles.Manager" Collapsed="true">

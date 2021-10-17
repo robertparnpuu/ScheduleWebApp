@@ -84,21 +84,20 @@
       <Property Name="contactAddress" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Domain.RoleAssignment" Collapsed="true">
+  <Class Name="Domain.RoleAssignment">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAACAAAAAAAAABIAIAAAAAAEAAAAAACgAAA=</HashCode>
+      <HashCode>AAAAAAAQAAACAAAAAAAAABAAIAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>RoleAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="role" />
-      <Property Name="person" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Address">
     <Position X="17.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAQAAAAAAAAAAAAAACAAAAAAAAABCAAAABAAAAIA=</HashCode>
+      <HashCode>AACAAQAAAAAAAAAAAAEACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -124,11 +123,12 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAABAgAAQAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAAABAgAAQAAAAAAAAAACAARAAQ=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="contact" />
+      <Property Name="roleAssignment" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Roles.Manager" Collapsed="true">

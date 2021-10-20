@@ -1,0 +1,78 @@
+﻿@page
+@model Soft.Pages.Worker.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>WorkerData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WorkerData.personId" class="control-label"></label>
+                <input asp-for="WorkerData.personId" class="form-control" />
+                <span asp-validation-for="WorkerData.personId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.occupationAssignmentId" class="control-label"></label>
+                <input asp-for="WorkerData.occupationAssignmentId" class="form-control" />
+                <span asp-validation-for="WorkerData.occupationAssignmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.departmentId" class="control-label"></label>
+                <input asp-for="WorkerData.departmentId" class="form-control" />
+                <span asp-validation-for="WorkerData.departmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.firstName" class="control-label"></label>
+                <input asp-for="WorkerData.firstName" class="form-control" />
+                <span asp-validation-for="WorkerData.firstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.lastName" class="control-label"></label>
+                <input asp-for="WorkerData.lastName" class="form-control" />
+                <span asp-validation-for="WorkerData.lastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.roleAssignmentId" class="control-label"></label>
+                <input asp-for="WorkerData.roleAssignmentId" class="form-control" />
+                <span asp-validation-for="WorkerData.roleAssignmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.idCode" class="control-label"></label>
+                <input asp-for="WorkerData.idCode" class="form-control" />
+                <span asp-validation-for="WorkerData.idCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.dateOfBirth" class="control-label"></label>
+                <input asp-for="WorkerData.dateOfBirth" class="form-control" />
+                <span asp-validation-for="WorkerData.dateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.contactId" class="control-label"></label>
+                <input asp-for="WorkerData.contactId" class="form-control" />
+                <span asp-validation-for="WorkerData.contactId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkerData.id" class="control-label"></label>
+                <select asp-for="WorkerData.id" class ="form-control" asp-items="ViewBag.id"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

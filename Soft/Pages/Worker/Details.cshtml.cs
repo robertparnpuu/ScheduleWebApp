@@ -8,18 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using Infra;
 
-namespace Soft.Pages.ShiftAssignment
+namespace Soft.Pages.Worker
 {
     public class DetailsModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Infra.ApplicationDbContext _context;
 
-        public DetailsModel(ApplicationDbContext context)
+        public DetailsModel(Infra.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public ShiftAssignmentData ShiftAssignmentData { get; set; }
+        public WorkerData WorkerData { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -28,9 +28,9 @@ namespace Soft.Pages.ShiftAssignment
                 return NotFound();
             }
 
-            ShiftAssignmentData = await _context.ShiftAssignments.FirstOrDefaultAsync(m => m.id == id);
+            WorkerData = await _context.Workers.FirstOrDefaultAsync(m => m.id == id);
 
-            if (ShiftAssignmentData == null)
+            if (WorkerData == null)
             {
                 return NotFound();
             }

@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Data;
 using Infra;
 
-namespace Soft.Pages.ShiftAssignment
+namespace Soft.Pages.Worker
 {
     public class CreateModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Infra.ApplicationDbContext _context;
 
-        public CreateModel(ApplicationDbContext context)
+        public CreateModel(Infra.ApplicationDbContext context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace Soft.Pages.ShiftAssignment
         }
 
         [BindProperty]
-        public ShiftAssignmentData ShiftAssignmentData { get; set; }
+        public WorkerData WorkerData { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace Soft.Pages.ShiftAssignment
                 return Page();
             }
 
-            _context.ShiftAssignments.Add(ShiftAssignmentData);
+            _context.Workers.Add(WorkerData);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

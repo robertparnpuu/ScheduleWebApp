@@ -1,13 +1,19 @@
 ﻿using System;
 using Data;
 using Domain.Common;
+using Domain.Repos;
 
 namespace Domain
 {
     public class ShiftAssignment : BaseEntity<ShiftAssignmentData>
     {
         public ShiftAssignment() : this(null) { }
-        public ShiftAssignment(ShiftAssignmentData d) : base(d) { }
+
+        public ShiftAssignment(ShiftAssignmentData d) : base(d)
+        {
+            lazyReadLocation= GetLazy<Location, ILocationRepo>(x => x?.GetEntity(locationId));
+            lazyReadWorker = GetLazy<Worker, IWorkerRepo>(x => x?.GetEntity(workerId));
+        }
 
         public string workerId => Data?.workerId ?? "-";
         public Worker worker => lazyReadWorker.Value;

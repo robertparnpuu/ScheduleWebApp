@@ -9,19 +9,19 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using Infra;
 
-namespace Soft.Pages.ShiftAssignment
+namespace Soft.Pages.Worker
 {
     public class EditModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Infra.ApplicationDbContext _context;
 
-        public EditModel(ApplicationDbContext context)
+        public EditModel(Infra.ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public ShiftAssignmentData ShiftAssignmentData { get; set; }
+        public WorkerData WorkerData { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -30,9 +30,9 @@ namespace Soft.Pages.ShiftAssignment
                 return NotFound();
             }
 
-            ShiftAssignmentData = await _context.ShiftAssignments.FirstOrDefaultAsync(m => m.id == id);
+            WorkerData = await _context.Workers.FirstOrDefaultAsync(m => m.id == id);
 
-            if (ShiftAssignmentData == null)
+            if (WorkerData == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace Soft.Pages.ShiftAssignment
                 return Page();
             }
 
-            _context.Attach(ShiftAssignmentData).State = EntityState.Modified;
+            _context.Attach(WorkerData).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Soft.Pages.ShiftAssignment
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ShiftAssignmentDataExists(ShiftAssignmentData.id))
+                if (!WorkerDataExists(WorkerData.id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Soft.Pages.ShiftAssignment
             return RedirectToPage("./Index");
         }
 
-        private bool ShiftAssignmentDataExists(string id)
+        private bool WorkerDataExists(string id)
         {
-            return _context.ShiftAssignments.Any(e => e.id == id);
+            return _context.Workers.Any(e => e.id == id);
         }
     }
 }

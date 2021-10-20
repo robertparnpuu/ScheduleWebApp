@@ -8,19 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using Infra;
 
-namespace Soft.Pages.ShiftAssignment
+namespace Soft.Pages.Worker
 {
     public class DeleteModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Infra.ApplicationDbContext _context;
 
-        public DeleteModel(ApplicationDbContext context)
+        public DeleteModel(Infra.ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public ShiftAssignmentData ShiftAssignmentData { get; set; }
+        public WorkerData WorkerData { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,9 +29,9 @@ namespace Soft.Pages.ShiftAssignment
                 return NotFound();
             }
 
-            ShiftAssignmentData = await _context.ShiftAssignments.FirstOrDefaultAsync(m => m.id == id);
+            WorkerData = await _context.Workers.FirstOrDefaultAsync(m => m.id == id);
 
-            if (ShiftAssignmentData == null)
+            if (WorkerData == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace Soft.Pages.ShiftAssignment
                 return NotFound();
             }
 
-            ShiftAssignmentData = await _context.ShiftAssignments.FindAsync(id);
+            WorkerData = await _context.Workers.FindAsync(id);
 
-            if (ShiftAssignmentData != null)
+            if (WorkerData != null)
             {
-                _context.ShiftAssignments.Remove(ShiftAssignmentData);
+                _context.Workers.Remove(WorkerData);
                 await _context.SaveChangesAsync();
             }
 

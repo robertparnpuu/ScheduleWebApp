@@ -29,6 +29,7 @@ namespace Facade
         public string idCode { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
 

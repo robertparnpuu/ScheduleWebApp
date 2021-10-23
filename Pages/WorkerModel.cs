@@ -32,7 +32,7 @@ namespace PageModels
         protected internal WorkerView ToViewPerson(Worker obj)
         {
             WorkerView view = ToView(obj);
-            Person p = person.GetEntityAsync(obj.personId).GetAwaiter().GetResult();
+            Person p = person.GetEntity(obj.personId);
             view = PersonToView(p,view);
             return view;
         }
@@ -49,7 +49,7 @@ namespace PageModels
 
         protected internal WorkerView PersonToView(Person objPerson, WorkerView view)
         {
-            Copy.Members(objPerson, view);
+            Copy.Members(objPerson, view,"id");
             return view;
         }
 

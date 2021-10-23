@@ -1,7 +1,8 @@
-﻿
+﻿using Data.Common;
+
 namespace Data
 {
-    public class WorkerData : PersonData
+    public class WorkerData :BaseEntityData
     {
         public string personId { get; set; }
         public string occupationAssignmentId { get; set; }

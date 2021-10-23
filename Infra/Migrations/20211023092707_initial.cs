@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -237,6 +237,20 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Worker",
+                columns: table => new
+                {
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    occupationAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Worker", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -342,26 +356,6 @@ namespace Infra.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Worker",
-                columns: table => new
-                {
-                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    occupationAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Worker", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Worker_Person_id",
-                        column: x => x.id,
-                        principalTable: "Person",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -438,6 +432,9 @@ namespace Infra.Migrations
                 name: "OccupationAssignment");
 
             migrationBuilder.DropTable(
+                name: "Person");
+
+            migrationBuilder.DropTable(
                 name: "Requirement");
 
             migrationBuilder.DropTable(
@@ -463,9 +460,6 @@ namespace Infra.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Person");
         }
     }
 }

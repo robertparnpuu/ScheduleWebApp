@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Data;
 using Domain.Common;
-using Domain.Repos;
 
 namespace Domain
 {

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Domain.Worker">
-    <Position X="8" Y="2.75" Width="1.5" />
+    <Position X="5.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAABAAAIIAAAAIBAAAAAAAEAAAAABCAAAA=</HashCode>
       <FileName>Worker.cs</FileName>
@@ -12,7 +12,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Department">
-    <Position X="10.75" Y="3" Width="1.5" />
+    <Position X="10" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAQAEAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Department.cs</FileName>
@@ -22,7 +22,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.ShiftAssignment" Collapsed="true">
-    <Position X="8" Y="5.75" Width="1.5" />
+    <Position X="9" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAICAIQAAAAAAAgACACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShiftAssignment.cs</FileName>
@@ -32,7 +32,7 @@
       <Property Name="location" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Domain.Requirement">
+  <Class Name="Domain.Requirement" Collapsed="true">
     <Position X="7.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAEAAACAAAIQAAAAAAAQAAAAAAAAAASAAACAIAIAA=</HashCode>
@@ -54,7 +54,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Occupation">
-    <Position X="3.25" Y="6" Width="1.5" />
+    <Position X="2.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Occupation.cs</FileName>
@@ -101,8 +101,8 @@
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.OccupationAssignment">
-    <Position X="3.25" Y="2.5" Width="1.5" />
+  <Class Name="Domain.OccupationAssignment" Collapsed="true">
+    <Position X="0.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAIAAIQAAAAAAAAAAAAIAAAAAAAQAAAAAEgAAA=</HashCode>
       <FileName>OccupationAssignment.cs</FileName>
@@ -113,7 +113,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Person">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="1.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAABAAAAAEAAABAAAAQAAAAAAAAAACAAVAAQ=</HashCode>
       <FileName>Person.cs</FileName>
@@ -143,8 +143,8 @@
       <FileName>Roles\Viewer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.StandardShift">
-    <Position X="6.75" Y="7" Width="1.5" />
+  <Class Name="Domain.StandardShift" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAEAAACAAAAAAAAAAgACAAAAAEAAAAQAAAABAABAA=</HashCode>
       <FileName>StandardShift.cs</FileName>

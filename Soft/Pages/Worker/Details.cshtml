@@ -1,5 +1,5 @@
 ﻿@page
-@model Soft.Pages.Worker.DetailsModel
+@model PageModels.WorkerModel
 
 @{
     ViewData["Title"] = "Details";
@@ -11,63 +11,9 @@
     <h4>WorkerData</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.personId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.personId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.occupationAssignmentId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.occupationAssignmentId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.departmentId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.departmentId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.firstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.firstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.lastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.lastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.roleAssignmentId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.roleAssignmentId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.idCode)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.idCode)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.dateOfBirth)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.dateOfBirth)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkerData.contactId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.WorkerData.contactId)
-        </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.WorkerData.id">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.item.id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

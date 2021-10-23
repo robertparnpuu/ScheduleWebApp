@@ -1,0 +1,10 @@
+﻿@using Core.Extensions
+@model PageModels.RequirementModel
+
+@Html.Show(model => model.item.locationName)
+@Html.Show(model => model.item.occupationName)
+@Html.Show(model => model.item.weekDayName)
+@Html.Show(model => model.item.startTime)
+@Html.Show(model => model.item.endTime)
+@Html.Show(model => model.item.minEmployees)
+@Html.Show(model => model.item.maxEmployees)

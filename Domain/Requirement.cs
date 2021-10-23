@@ -13,6 +13,7 @@ namespace Domain
         {
             lazyReadLocation = GetLazy<Location, ILocationRepo>(x => x?.GetEntity(locationId));
             lazyReadOccupation = GetLazy<Occupation, IOccupationRepo>(x => x?.GetEntity(occupationId));
+            lazyReadWeekDay = GetLazy<WeekDay, IWeekDayRepo>(x => x?.GetEntity(weekDayId));
         }
 
         public string locationId => Data?.locationId ?? "-";
@@ -31,6 +32,9 @@ namespace Domain
 
         //TODO: oleks vajalik, et saaks valida mitmed päevad ühele nõudele
         public string weekDayId => Data?.weekDayId ?? "-";
+        public WeekDay requiredWeekDays => lazyReadWeekDay.Value;
+        internal Lazy<WeekDay> lazyReadWeekDay { get; }
+
 
     }
 }

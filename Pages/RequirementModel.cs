@@ -12,6 +12,7 @@ namespace PageModels
 {
     public class RequirementModel: BaseModel<Requirement, RequirementView>
     {
+        //TODO: Needs checkboxes for weekdays
         public RequirementModel(IRequirementRepo r, ApplicationDbContext context) : base(r, context) { }
 
         protected internal override RequirementView ToView(Requirement obj)
@@ -20,6 +21,7 @@ namespace PageModels
             Copy.Members(obj, view);
             view.locationName = obj.requiredLocation?.name;
             view.occupationName = obj.requiredOccupation?.name;
+            view.weekDayName = obj.requiredWeekDays?.name;
             return view;
         }
 
@@ -44,6 +46,15 @@ namespace PageModels
             {
                 var list = new GetRepo().Instance<IOccupationRepo>().GetById();
                 return new SelectList(list, "id", "name", item?.occupationId);
+            }
+        }
+
+        public SelectList WeekDays
+        {
+            get
+            {
+                var list = new GetRepo().Instance<IWeekDayRepo>().GetById();
+                return new SelectList(list, "id", "name", item?.weekDayId);
             }
         }
     }

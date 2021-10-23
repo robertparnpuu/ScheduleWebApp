@@ -3,7 +3,7 @@
 
 @Html.Select(model => model.item.locationId, Model.Locations, "Select location")
 @Html.Select(model => model.item.occupationId, Model.Occupations, "Select occupation")
-@Html.Editor(model => model.item.weekDayId)
+@Html.Select(model => model.item.weekDayId, Model.WeekDays, "Select weekday")
 @Html.Editor(model => model.item.startTime)
 @Html.Editor(model => model.item.endTime)
 @Html.Editor(model => model.item.minEmployees)

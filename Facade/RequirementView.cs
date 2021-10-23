@@ -18,19 +18,20 @@ namespace Facade
 
         [Display(Name = "Weekday")]
         public string weekDayId { get; set; }
+        public string weekDayName { get; set; }
 
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Time)]
         [Display(Name = "Start time")]
         public DateTime startTime { get; set; }
         
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Time)]
         [Display(Name = "End time")]
         public DateTime endTime { get; set; }
 
-        [Display(Name = "Minimum number of workers")]
+        [Display(Name = "Min nr of workers")]
         public int minEmployees { get; set; }
 
-        [Display(Name = "Maximum number of workers")]
+        [Display(Name = "Max nr of workers")]
         public int maxEmployees { get; set; }
     }
 }

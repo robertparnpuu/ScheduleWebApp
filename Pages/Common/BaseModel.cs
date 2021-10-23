@@ -56,17 +56,17 @@ namespace PageModels.Common
             return item != null && item.id != "Unspecified";
         }
 
-        public async Task<IActionResult> OnPostCreateAsync()
+        public virtual async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid) return Page();
             return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
         }
-        public async Task<IActionResult> OnPostDeleteAsync(string id)
+        public virtual async Task<IActionResult> OnPostDeleteAsync(string id)
         {
             if (id == null) return NotFound();
             return await repo.DeleteAsync(id) ? IndexPage() : Page();
         }
-        public async Task<IActionResult> OnPostEditAsync()
+        public virtual async Task<IActionResult> OnPostEditAsync()
         {
             if (!ModelState.IsValid) return Page();
             return await repo.UpdateAsync(ToEntity(item)) ? IndexPage() : Page();

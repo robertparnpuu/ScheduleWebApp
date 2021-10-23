@@ -13,9 +13,7 @@ namespace PageModels
     public class LocationModel : BaseModel<Location, LocationView>
     {
         //TODO: Concurrency pls
-        public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context)
-        {
-        }
+        public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context) { }
 
         protected internal override LocationView ToView(Location obj)
         {

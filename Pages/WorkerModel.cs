@@ -1,4 +1,6 @@
-﻿using Aids;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Aids;
 using Data;
 using Domain;
 using Domain.Common;
@@ -6,7 +8,6 @@ using Domain.Repos;
 using Facade;
 using Infra;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using PageModels.Common;
 
 namespace PageModels
@@ -20,12 +21,35 @@ namespace PageModels
         }
 
         internal IPersonRepo person;
-        protected internal override WorkerView ToView(Worker obj)
+        protected internal override WorkerView ToView(Worker objWorker)
         {
             WorkerView view = new WorkerView();
-            Copy.Members(obj, view);
-            //view.WorkerEmail = obj.WorkerContact?.email;
-            //view.WorkerPhoneNr = obj.WorkerContact?.phoneNumber;
+            Copy.Members(objWorker, view); 
+            
+            return view;
+        }
+
+        protected internal WorkerView ToViewPerson(Worker obj)
+        {
+            WorkerView view = ToView(obj);
+            Person p = person.GetEntityAsync(obj.personId).GetAwaiter().GetResult();
+            view = PersonToView(p,view);
+            return view;
+        }
+        public override async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToViewPerson).ToList();
+        protected internal override async Task<bool> GetItemAsync(string id)
+        {
+            if (id == null) return false;
+            Worker w = (await repo.GetEntityAsync(id));
+            item = ToView(w);
+            Person p = await person.GetEntityAsync(item.personId);
+            item = PersonToView(p, item);
+            return item != null && item.id != "Unspecified";
+        }
+
+        protected internal WorkerView PersonToView(Person objPerson, WorkerView view)
+        {
+            Copy.Members(objPerson, view);
             return view;
         }
 
@@ -36,13 +60,13 @@ namespace PageModels
             return new Worker(data);
         }
 
-        //public SelectList Contacts
-        //{
-        //    get
-        //    {
-        //        var list = new GetRepo().Instance<IContactRepo>().GetById();
-        //        return new SelectList(list, "id", "email", item?.contactId);
-        //    }
-        //}
+        public SelectList Departments
+        {
+            get
+            {
+                var list = new GetRepo().Instance<IDepartmentRepo>().GetById();
+                return new SelectList(list, "id", "name", item?.departmentId);
+            }
+        }
     }
 }

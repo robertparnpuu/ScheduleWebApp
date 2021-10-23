@@ -2,18 +2,7 @@
 @model PageModels.WorkerModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>WorkerData</h4>
-    <hr />
-    <dl class="row">
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.item.id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<partial name="_ShowWorker.cshtml" />

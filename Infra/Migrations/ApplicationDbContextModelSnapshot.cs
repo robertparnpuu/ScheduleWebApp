@@ -298,9 +298,6 @@ namespace Infra.Migrations
                     b.Property<string>("departmentId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("occupationAssignmentId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("personId")
                         .HasColumnType("nvarchar(max)");
 

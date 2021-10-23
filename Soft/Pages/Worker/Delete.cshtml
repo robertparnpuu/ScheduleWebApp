@@ -2,21 +2,7 @@
 @model PageModels.WorkerModel
 
 @{
-    ViewData["Title"] = "Delete";
+    Layout = "_Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>WorkerData</h4>
-    <hr />
-    <dl class="row">
-    </dl>
-
-    <form method="post">
-        <input type="hidden" asp-for="item.id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
-</div>
+<partial name="_ShowWorker.cshtml" />

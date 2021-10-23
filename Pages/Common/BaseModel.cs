@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Core;
 using Domain.Repos;
@@ -42,14 +40,14 @@ namespace PageModels.Common
         protected internal abstract TEntity ToEntity(TView view);
         internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
 
-        public async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
+        public virtual async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
         public IActionResult OnGetCreate() => Page();
 
         public async Task<IActionResult> OnGetDeleteAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
         public async Task<IActionResult> OnGetDetailsAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
         public async Task<IActionResult> OnGetEditAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
 
-        protected internal async Task<bool> GetItemAsync(string id)
+        protected internal virtual async Task<bool> GetItemAsync(string id)
         {
             if (id == null) return false;
 

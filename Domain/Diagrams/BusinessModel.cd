@@ -3,7 +3,7 @@
   <Class Name="Domain.Worker">
     <Position X="5.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAABAAAIIAAAAIBAAAAAAAEAAAAABCAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAIIAAAAIAAAAAAAAEAAAAAACAAAA=</HashCode>
       <FileName>Worker.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

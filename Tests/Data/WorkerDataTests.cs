@@ -10,8 +10,6 @@ namespace Tests.Data
         [TestMethod]
         public void PersonTest() => IsProperty<string>(nameof(obj.personId));
         [TestMethod]
-        public void OccupationAssignmentTest() => IsProperty<string>(nameof(obj.occupationAssignmentId));
-        [TestMethod]
         public void DepartmentTest() => IsProperty<string>(nameof(obj.departmentId));
     }
 }

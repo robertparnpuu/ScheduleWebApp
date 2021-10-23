@@ -17,10 +17,6 @@ namespace Domain
         public Person person => lazyReadPerson.Value;
         internal Lazy<Person> lazyReadPerson { get; }
 
-        public string occupationAssignmentId => Data?.occupationAssignmentId ?? "-";
-        public OccupationAssignment occupationAssignment => lazyReadOccupationAssignment.Value;
-        internal Lazy<OccupationAssignment> lazyReadOccupationAssignment { get; }
-
         //public ICollection<ShiftAssignment> ShiftAssignments => shiftAssignments.Value;
         //internal Lazy<ICollection<ShiftAssignment>> shiftAssignments { get; }
 

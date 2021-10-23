@@ -242,7 +242,6 @@ namespace Infra.Migrations
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    occupationAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

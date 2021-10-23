@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211023092707_initial")]
+    [Migration("20211023101606_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -298,9 +298,6 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("departmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("occupationAssignmentId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("personId")

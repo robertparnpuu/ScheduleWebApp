@@ -1,54 +1,35 @@
 ﻿@page
-@model Soft.Pages.OccupationAssignment.IndexModel
+@model PageModels.OccupationAssignmentModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OccupationAssignmentData[0].workerId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OccupationAssignmentData[0].occupationId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OccupationAssignmentData[0].validFrom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OccupationAssignmentData[0].validTo)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.item.workerName)</th>
+        <th>@Html.DisplayNameFor(model => model.item.occupationName)</th>
+        <th>@Html.DisplayNameFor(model => model.item.validFrom)</th>
+        <th>@Html.DisplayNameFor(model => model.item.validTo)</th>
+
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.OccupationAssignmentData) {
+    @foreach (var item in Model.items)
+    {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.workerName)</td>
+            <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
+            <td>@Html.DisplayFor(modelItem => item.validFrom)</td>
+            <td>@Html.DisplayFor(modelItem => item.validTo)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.workerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.occupationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.validFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.validTo)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

@@ -27,6 +27,8 @@ namespace Domain
         public RoleAssignment roleAssignment => lazyReadRoleAssignment.Value;
         internal Lazy<RoleAssignment> lazyReadRoleAssignment { get; }
 
+        public string fullName => $"{firstName} {lastName}";
+
         //TODO Siin peab ka olema mitu role assignmenti, list siis äkki
     }
 }

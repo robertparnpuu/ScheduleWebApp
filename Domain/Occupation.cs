@@ -8,8 +8,5 @@ namespace Domain
         public Occupation() : this(null) { }
         public Occupation(OccupationData d) : base(d) { }
         public string name => Data?.name ?? "-";
-
-        //TODO: Worker list
-       // public List<Worker> workers;
     }
 }

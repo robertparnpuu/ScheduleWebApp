@@ -22,7 +22,7 @@ namespace PageModels
             ShiftAssignmentView view = new ShiftAssignmentView();
             Copy.Members(obj, view);
             view.locationName = obj.location?.name;
-            view.workerName = obj.worker?.person?.lastName;
+            view.workerName = obj.worker?.person?.fullName;
             return view;
         }
 
@@ -37,16 +37,16 @@ namespace PageModels
         {
             get
             {
-                var list = new GetRepo().Instance<IAddressRepo>().GetById();
-                return new SelectList(list, "id", "name", item?.locationName);
+                var list = new GetRepo().Instance<IWorkerRepo>().GetById();
+                return new SelectList(list, "id", "id", item?.workerId);
             }
         }
         public SelectList Locations
         {
             get
             {
-                var list = new GetRepo().Instance<IAddressRepo>().GetById();
-                return new SelectList(list, "id", "name", item?.workerName);
+                var list = new GetRepo().Instance<ILocationRepo>().GetById();
+                return new SelectList(list, "id", "name", item?.locationId);
             }
         }
     }

@@ -9,7 +9,6 @@ namespace Data
         public string lastName {  get; set; }
         public string roleAssignmentId {  get; set; }
         public string idCode { get; set; }
-        //Todo: Debate country specifier need
         public DateTime dateOfBirth { get; set;  }
         public string contactId { get; set; }
     }

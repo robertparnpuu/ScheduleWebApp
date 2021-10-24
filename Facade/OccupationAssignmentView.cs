@@ -7,16 +7,18 @@ namespace Facade
     public class OccupationAssignmentView : BaseView
     {
         [Required]
+        [Display(Name = "Worker")]
         public string workerId { get; set; }
         
         [Required]
+        [Display(Name = "Occupation")]
         public string occupationId { get; set; }
 
-        [Required]
-        [Display(Name = "Worker name")]
+    
+        [Display(Name = "Worker")]
         public string workerName { get; set; }
 
-        [Required]
+     
         [Display(Name = "Occupation")]
         public string occupationName { get; set; }
 

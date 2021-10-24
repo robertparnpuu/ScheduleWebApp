@@ -7,10 +7,10 @@ namespace Facade
     public class ShiftAssignmentView:BaseView
     {
         [Required]
-        [Display(Name = "WorkerIDName")]
+        [Display(Name = "Worker ID")]
         public string workerId { get; set; }
         [Required]
-        [Display(Name = "LocationIDName")]
+        [Display(Name = "Location name")]
         public string locationId { get; set; }
 
         [Display(Name = "Worker name")]

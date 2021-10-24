@@ -1,6 +1,7 @@
 ﻿using System;
 using Data;
 using Domain.Common;
+using Domain.Repos;
 
 namespace Domain
 {
@@ -11,8 +12,11 @@ namespace Domain
         public Worker(WorkerData d) : base(d)
         {
             //shiftAssignments = GetLazy<ShiftAssignment, IShiftAssignmentRepo>(x => x?.GetById(id));
+            lazyReadPerson = GetLazy<Person, IPersonRepo>(x => x?.GetEntity(personId));
         }
 
+        //public string firstName => Data?.firstName ?? "-";
+        //public string lastName => Data?.lastName ?? "-";
         public string personId => Data?.personId ?? "-";
         public Person person => lazyReadPerson.Value;
         internal Lazy<Person> lazyReadPerson { get; }

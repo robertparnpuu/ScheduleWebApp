@@ -20,12 +20,12 @@ namespace Facade
         public string locationName { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [Display(Name = "Shift start time")]
         public DateTime startTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
 

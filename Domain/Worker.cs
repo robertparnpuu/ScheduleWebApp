@@ -27,5 +27,7 @@ namespace Domain
         public string departmentId => Data?.departmentId ?? "-";
         public Department workerDepartment => lazyReadDepartment.Value;
         internal Lazy<Department> lazyReadDepartment { get; }
+
+        public string fullName => person.fullName;
     }
 }

@@ -38,7 +38,7 @@ namespace PageModels
             get
             {
                 var list = new GetRepo().Instance<IWorkerRepo>().GetById();
-                return new SelectList(list, "id", "id", item?.workerId);
+                return new SelectList(list, "id", "fullName", item?.workerId);
             }
         }
         public SelectList Locations

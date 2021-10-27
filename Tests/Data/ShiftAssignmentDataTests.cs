@@ -10,7 +10,7 @@ namespace Tests.Data
     public class ShiftAssignmentDataTests : IdBaseDataTests<ShiftAssignmentData,BaseEntityData>
     {
         [TestMethod]
-        public void WorkerTest() => IsProperty<string>(nameof(obj.workerId));
+        public void WorkerTest() => IsProperty<string>(nameof(obj.personId));
         [TestMethod]
         public void LocationTest() => IsProperty<string>(nameof(obj.locationId));
         [TestMethod]

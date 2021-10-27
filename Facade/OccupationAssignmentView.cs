@@ -7,20 +7,27 @@ namespace Facade
     public class OccupationAssignmentView : BaseView
     {
         [Required]
-        [Display(Name = "Worker")]
-        public string workerId { get; set; }
+        [Display(Name = "Person")]
+        public string personId { get; set; }
         
         [Required]
         [Display(Name = "Occupation")]
         public string occupationId { get; set; }
+        
+        [Required]
+        [Display(Name = "Department")]
+        public string departmentId { get; set; }
 
-    
-        [Display(Name = "Worker")]
-        public string workerName { get; set; }
 
-     
+        [Display(Name = "Person")]
+        public string personName { get; set; }
+
         [Display(Name = "Occupation")]
         public string occupationName { get; set; }
+
+        [Display(Name = "Department")]
+        public string departmentName { get; set; }
+
 
         [Required]
         [DataType(DataType.Date)]
@@ -31,5 +38,7 @@ namespace Facade
         [DataType(DataType.Date)]
         [Display(Name = "Valid to")]
         public DateTime validTo { get; set; }
+
+
     }
 }

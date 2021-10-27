@@ -22,7 +22,8 @@ namespace PageModels
             OccupationAssignmentView view = new OccupationAssignmentView();
             Copy.Members(obj, view);
             view.occupationName = obj.occupation?.name;
-            view.workerName = obj.worker?.person?.fullName;
+            view.personName = obj.person?.fullName;
+            view.departmentName = obj.department?.name;
             return view;
         }
 
@@ -33,12 +34,12 @@ namespace PageModels
             return new OccupationAssignment(data);
         }
 
-        public SelectList Workers
+        public SelectList Persons
         {
             get
             {
-                var list = new GetRepo().Instance<IWorkerRepo>().GetById();
-                return new SelectList(list, "id", "fullName", item?.workerId);
+                var list = new GetRepo().Instance<IPersonRepo>().GetById();
+                return new SelectList(list, "id", "fullName", item?.personId);
             }
         }
 
@@ -48,6 +49,15 @@ namespace PageModels
             {
                 var list = new GetRepo().Instance<IOccupationRepo>().GetById();
                 return new SelectList(list, "id", "name", item?.occupationId);
+            }
+        }
+
+        public SelectList Departments
+        {
+            get
+            {
+                var list = new GetRepo().Instance<IDepartmentRepo>().GetById();
+                return new SelectList(list, "id", "name", item?.departmentId);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace Tests.Domain
     public class ShiftAssignmentEntityTests : BaseEntityTests<ShiftAssignment, ShiftAssignmentData>
     {
         [TestMethod]
-        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.workerId);
+        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.personId);
         [TestMethod]
         public void StartTimeTest() => isReadOnlyProperty(obj.Data.startTime);
         [TestMethod]

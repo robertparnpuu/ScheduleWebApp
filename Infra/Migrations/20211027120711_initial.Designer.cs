@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211024132211_initial")]
+    [Migration("20211027120711_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -108,7 +108,13 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("departmentId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("personId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("validFrom")
@@ -116,9 +122,6 @@ namespace Infra.Migrations
 
                     b.Property<DateTime>("validTo")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -243,11 +246,11 @@ namespace Infra.Migrations
                     b.Property<string>("locationId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("startTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -290,22 +293,6 @@ namespace Infra.Migrations
                     b.HasKey("id");
 
                     b.ToTable("WeekDay");
-                });
-
-            modelBuilder.Entity("Data.WorkerData", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("departmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("personId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Worker");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

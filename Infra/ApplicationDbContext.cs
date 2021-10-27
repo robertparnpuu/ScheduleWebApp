@@ -26,7 +26,6 @@ namespace Infra
         public DbSet<ShiftAssignmentData> ShiftAssignments { get; set; }
         public DbSet<StandardShiftData> StandardShifts { get; set; }
         public DbSet<WeekDayData> WeekDays { get; set; }
-        public DbSet<WorkerData> Workers { get; set; }
 
 
 
@@ -47,7 +46,6 @@ namespace Infra
             modelBuilder.Entity<ShiftAssignmentData>().ToTable("ShiftAssignment");
             modelBuilder.Entity<StandardShiftData>().ToTable("StandardShift");
             modelBuilder.Entity<WeekDayData>().ToTable("WeekDay");
-            modelBuilder.Entity<WorkerData>().ToTable("Worker");
 
 
         }

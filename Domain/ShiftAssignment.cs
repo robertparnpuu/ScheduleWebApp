@@ -12,12 +12,12 @@ namespace Domain
         public ShiftAssignment(ShiftAssignmentData d) : base(d)
         {
             lazyReadLocation= GetLazy<Location, ILocationRepo>(x => x?.GetEntity(locationId));
-            lazyReadWorker = GetLazy<Worker, IWorkerRepo>(x => x?.GetEntity(workerId));
+            lazyReadPerson = GetLazy<Person, IPersonRepo>(x => x?.GetEntity(personId));
         }
 
-        public string workerId => Data?.workerId ?? "-";
-        public Worker worker => lazyReadWorker.Value;
-        internal Lazy<Worker> lazyReadWorker { get; }
+        public string personId => Data?.personId ?? "-";
+        public Person person => lazyReadPerson.Value;
+        internal Lazy<Person> lazyReadPerson { get; }
 
         public DateTime startTime => Data.startTime;
         public DateTime endTime => Data.endTime;

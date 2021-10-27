@@ -4,9 +4,8 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class WorkerView:BaseView
+    public class PersonView:BaseView
     {
-        public string personId { get; set; }
         public string occupationAssignmentId { get; set; }
         public string departmentId { get; set; }
         public string contactId { get; set; }
@@ -33,7 +32,7 @@ namespace Facade
         [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
 
-      
-
+        [Display(Name = "Contact")]
+        public string fullContact { get; set; }
     }
 }

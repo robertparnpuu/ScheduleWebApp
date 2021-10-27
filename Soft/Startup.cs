@@ -47,7 +47,6 @@ namespace Soft
             services.AddTransient<IShiftAssignmentRepo, ShiftAssignmentRepo>();
             services.AddTransient<IStandardShiftRepo, StandardShiftRepo>();
             services.AddTransient<IWeekDayRepo, WeekDayRepo>();
-            services.AddTransient<IWorkerRepo, WorkerRepo>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -6,8 +6,7 @@ namespace Facade
 {
     public class PersonView:BaseView
     {
-        public string occupationAssignmentId { get; set; }
-        public string departmentId { get; set; }
+        [Display(Name = "Contact")]
         public string contactId { get; set; }
 
         [Required]

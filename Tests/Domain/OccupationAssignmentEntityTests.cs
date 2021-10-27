@@ -11,10 +11,12 @@ namespace Tests.Domain
         [TestMethod]
         public void OccupationIdTest() => isReadOnlyProperty(obj.Data.occupationId);
         [TestMethod]
-        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.workerId);
+        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.personId);
         [TestMethod]
         public void ValidFromTest() => isReadOnlyProperty(obj.Data.validFrom);
         [TestMethod]
         public void ValidToTest() => isReadOnlyProperty(obj.Data.validTo);
+        [TestMethod]
+        public void DepartmentTest() => isReadOnlyProperty(obj.Data.departmentId);
     }
 }

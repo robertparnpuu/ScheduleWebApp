@@ -1,7 +1,8 @@
 ﻿@using Core.Extensions
 @model PageModels.OccupationAssignmentModel
 
-@Html.Select(model => model.item.workerId, Model.Workers, "Select worker")
+@Html.Select(model => model.item.personId, Model.Persons, "Select person")
 @Html.Select(model => model.item.occupationId, Model.Occupations, "Select occupation")
+@Html.Select(model => model.item.departmentId, Model.Departments, "Select department")
 @Html.Editor(model => model.item.validFrom)
 @Html.Editor(model => model.item.validTo)

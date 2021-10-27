@@ -8,8 +8,9 @@
 <table class="table">
     <thead>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.item.workerName)</th>
-        <th>@Html.DisplayNameFor(model => model.item.occupationName)</th>
+        <th>@Html.DisplayNameFor(model => model.item.personId)</th>
+        <th>@Html.DisplayNameFor(model => model.item.occupationId)</th>
+        <th>@Html.DisplayNameFor(model => model.item.departmentId)</th>
         <th>@Html.DisplayNameFor(model => model.item.validFrom)</th>
         <th>@Html.DisplayNameFor(model => model.item.validTo)</th>
 
@@ -20,8 +21,9 @@
     @foreach (var item in Model.items)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.workerName)</td>
+            <td>@Html.DisplayFor(modelItem => item.personName)</td>
             <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
+            <td>@Html.DisplayFor(modelItem => item.departmentName)</td>
             <td>@Html.DisplayFor(modelItem => item.validFrom)</td>
             <td>@Html.DisplayFor(modelItem => item.validTo)</td>
             <td>

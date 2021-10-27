@@ -23,9 +23,9 @@ namespace Domain
         public Contact personContact => lazyReadContact.Value;
         internal Lazy<Contact> lazyReadContact { get; }
 
-        public string roleAssignmentId => Data?.roleAssignmentId ?? "-";
-        public RoleAssignment roleAssignment => lazyReadRoleAssignment.Value;
-        internal Lazy<RoleAssignment> lazyReadRoleAssignment { get; }
+        //public string roleAssignmentId => Data?.roleAssignmentId ?? "-";
+        //public RoleAssignment roleAssignment => lazyReadRoleAssignment.Value;
+        //internal Lazy<RoleAssignment> lazyReadRoleAssignment { get; }
 
         public string fullName => $"{firstName} {lastName}";
 

@@ -14,10 +14,10 @@ namespace Facade
         public string phoneNumber { get; set; }
 
         [Required]
-        [Display(Name = "AddressIDName")]  
+        [Display(Name = "Address")]  
         public string addressId { get; set; }
 
-        [Display(Name = "fullAddressName")]
+        [Display(Name = "Address")]
         public string fullAddress { get; set; }
         
     }

@@ -10,8 +10,6 @@ namespace Facade
         [Display(Name = "Name")]
         public string name { get; set; }
 
-
-
         [Required]
         [DataType(DataType.Time)]
         [Display(Name = "Shift start time")]

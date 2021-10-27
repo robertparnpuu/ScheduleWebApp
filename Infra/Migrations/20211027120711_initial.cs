@@ -121,10 +121,11 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    workerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     occupationId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     validFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    validTo = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    validTo = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -198,7 +199,7 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    workerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     locationId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     startTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     endTime = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -234,19 +235,6 @@ namespace Infra.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_WeekDay", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Worker",
-                columns: table => new
-                {
-                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Worker", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -450,9 +438,6 @@ namespace Infra.Migrations
 
             migrationBuilder.DropTable(
                 name: "WeekDay");
-
-            migrationBuilder.DropTable(
-                name: "Worker");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

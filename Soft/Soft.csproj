@@ -6,6 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\RoleAssignment\**" />
+    <Compile Remove="Pages\Role\**" />
+    <Compile Remove="Pages\Weekday\**" />
+    <Content Remove="Pages\RoleAssignment\**" />
+    <Content Remove="Pages\Role\**" />
+    <Content Remove="Pages\Weekday\**" />
+    <EmbeddedResource Remove="Pages\RoleAssignment\**" />
+    <EmbeddedResource Remove="Pages\Role\**" />
+    <EmbeddedResource Remove="Pages\Weekday\**" />
+    <None Remove="Pages\RoleAssignment\**" />
+    <None Remove="Pages\Role\**" />
+    <None Remove="Pages\Weekday\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.8" />
@@ -26,12 +41,6 @@
     <ProjectReference Include="..\Facade\Facade.csproj" />
     <ProjectReference Include="..\Infra\Infra.csproj" />
     <ProjectReference Include="..\Pages\PageModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Weekday\" />
-    <Folder Include="Pages\Role\" />
-    <Folder Include="Pages\RoleAssignment\" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ using Data.Common;
 
 namespace Data
 {
-    public class OccupationAssignmentData : BaseEntityData
+    public class ContractData : BaseEntityData
     {
         public string personId { get; set;  }
         public string occupationId { get; set; }

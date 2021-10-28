@@ -1,5 +1,5 @@
 ﻿@using Core.Extensions
-@model PageModels.OccupationAssignmentModel
+@model PageModels.ContractModel
 
 @Html.Select(model => model.item.personId, Model.Persons, "Select person")
 @Html.Select(model => model.item.occupationId, Model.Occupations, "Select occupation")

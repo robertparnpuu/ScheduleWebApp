@@ -79,6 +79,22 @@ namespace Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Contract",
+                columns: table => new
+                {
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    occupationId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    validFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    validTo = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contract", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Department",
                 columns: table => new
                 {
@@ -114,22 +130,6 @@ namespace Infra.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Occupation", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "OccupationAssignment",
-                columns: table => new
-                {
-                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    occupationId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    validFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    validTo = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    departmentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OccupationAssignment", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -407,6 +407,9 @@ namespace Infra.Migrations
                 name: "Contact");
 
             migrationBuilder.DropTable(
+                name: "Contract");
+
+            migrationBuilder.DropTable(
                 name: "Department");
 
             migrationBuilder.DropTable(
@@ -414,9 +417,6 @@ namespace Infra.Migrations
 
             migrationBuilder.DropTable(
                 name: "Occupation");
-
-            migrationBuilder.DropTable(
-                name: "OccupationAssignment");
 
             migrationBuilder.DropTable(
                 name: "Person");

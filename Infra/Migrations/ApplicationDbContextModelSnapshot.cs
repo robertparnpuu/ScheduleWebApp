@@ -69,6 +69,31 @@ namespace Infra.Migrations
                     b.ToTable("Contact");
                 });
 
+            modelBuilder.Entity("Data.ContractData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("departmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("validFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("validTo")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Contract");
+                });
+
             modelBuilder.Entity("Data.DepartmentData", b =>
                 {
                     b.Property<string>("id")
@@ -99,31 +124,6 @@ namespace Infra.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("Data.OccupationAssignmentData", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("departmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("occupationId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("personId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("validFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("validTo")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("id");
-
-                    b.ToTable("OccupationAssignment");
                 });
 
             modelBuilder.Entity("Data.OccupationData", b =>

@@ -6,7 +6,7 @@ using Tests.Domain.Common;
 namespace Tests.Domain
 {
     [TestClass]
-    public class OccupationAssignmentTests : BaseEntityTests<OccupationAssignment, OccupationAssignmentData>
+    public class ContractTests : BaseEntityTests<Contract, ContractData>
     {
         [TestMethod]
         public void OccupationIdTest() => isReadOnlyProperty(obj.Data.occupationId);

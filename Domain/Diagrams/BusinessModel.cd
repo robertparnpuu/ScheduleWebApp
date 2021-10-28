@@ -126,7 +126,7 @@
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.OccupationAssignment">
+  <Class Name="Domain.Contract">
     <Position X="0.75" Y="3" Width="1.5" />
     <AssociationLine Name="department" Type="Domain.Department" FixedFromPoint="true" FixedToPoint="true">
       <Path>
@@ -137,7 +137,7 @@
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAIIAAAAIQIAAAAAAEQAAAAAGgAAA=</HashCode>
-      <FileName>OccupationAssignment.cs</FileName>
+      <FileName>Contract.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="occupation" />

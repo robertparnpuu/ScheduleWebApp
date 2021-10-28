@@ -9,7 +9,7 @@ using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class OccupationAssignmentDataTests:IdBaseDataTests<OccupationAssignmentData, BaseEntityData>
+    public class ContractDataTests:IdBaseDataTests<ContractData, BaseEntityData>
     {
         [TestMethod]
         public void WorkerTest() => IsProperty<string>(nameof(obj.personId));

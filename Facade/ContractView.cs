@@ -4,7 +4,7 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class OccupationAssignmentView : BaseView
+    public class ContractView : BaseView
     {
         [Required]
         [Display(Name = "Person")]

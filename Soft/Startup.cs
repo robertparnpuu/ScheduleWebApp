@@ -39,7 +39,7 @@ namespace Soft
             services.AddTransient<IContactRepo, ContactRepo>();
             services.AddTransient<IDepartmentRepo, DepartmentRepo>();
             services.AddTransient<ILocationRepo, LocationRepo>();
-            services.AddTransient<IOccupationAssignmentRepo, OccupationAssignmentRepo>();
+            services.AddTransient<IContractRepo, ContractRepo>();
             services.AddTransient<IPersonRepo, PersonRepo>();
             services.AddTransient<IRequirementRepo, RequirementRepo>();
             services.AddTransient<IRoleRepo, RoleRepo>();

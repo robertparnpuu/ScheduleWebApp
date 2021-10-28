@@ -5,11 +5,11 @@ using Domain.Repos;
 
 namespace Domain
 {
-    public class OccupationAssignment : BaseEntity<OccupationAssignmentData>
+    public class Contract : BaseEntity<ContractData>
     {
-        public OccupationAssignment() : this(null) { }
+        public Contract() : this(null) { }
 
-        public OccupationAssignment(OccupationAssignmentData d) : base(d)
+        public Contract(ContractData d) : base(d)
         {
             lazyReadPerson = GetLazy<Person, IPersonRepo>(x => x?.GetEntity(personId));
             lazyReadOccupation = GetLazy<Occupation, IOccupationRepo>(x => x?.GetEntity(occupationId));

@@ -12,14 +12,14 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class OccupationAssignmentModel : BaseModel<OccupationAssignment, OccupationAssignmentView>
+    public class ContractModel : BaseModel<Contract, ContractView>
     {
         //TODO: Concurrency pls
-        public OccupationAssignmentModel(IOccupationAssignmentRepo r, ApplicationDbContext context) : base(r, context) { }
+        public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }
 
-        protected internal override OccupationAssignmentView ToView(OccupationAssignment obj)
+        protected internal override ContractView ToView(Contract obj)
         {
-            OccupationAssignmentView view = new OccupationAssignmentView();
+            ContractView view = new ContractView();
             Copy.Members(obj, view);
             view.occupationName = obj.occupation?.name;
             view.personName = obj.person?.fullName;
@@ -27,11 +27,11 @@ namespace PageModels
             return view;
         }
 
-        protected internal override OccupationAssignment ToEntity(OccupationAssignmentView view)
+        protected internal override Contract ToEntity(ContractView view)
         {
             if (view is null) return null;
-            var data = Copy.Members(view, new OccupationAssignmentData());
-            return new OccupationAssignment(data);
+            var data = Copy.Members(view, new ContractData());
+            return new Contract(data);
         }
 
         public SelectList Persons

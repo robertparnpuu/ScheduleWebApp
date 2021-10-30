@@ -1,13 +1,19 @@
 ﻿using System;
 using Data;
 using Domain.Common;
+using Domain.Repos;
 
 namespace Domain
 {
     public class RoleAssignment : BaseEntity<RoleAssignmentData>
     {
         public RoleAssignment() : this(null) { }
-        public RoleAssignment(RoleAssignmentData d) : base(d) { }
+
+        public RoleAssignment(RoleAssignmentData d) : base(d)
+        {
+            lazyReadPerson = GetLazy<Person, IPersonRepo>(x => x?.GetEntity(personId));
+            lazyReadRole = GetLazy<Role, IRoleRepo>(x => x?.GetEntity(roleId));
+        }
 
         public string roleId => Data?.roleId ?? "-";
         public Role role => lazyReadRole.Value;

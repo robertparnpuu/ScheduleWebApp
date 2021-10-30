@@ -16,5 +16,12 @@ namespace Tests.Domain
         public void ValidFromTest() => isReadOnlyProperty(obj.Data.validFrom);
         [TestMethod]
         public void ValidToTest() => isReadOnlyProperty(obj.Data.validTo);
+        [TestMethod]
+        public void LazyReadPersonTest() => LazyTest(() => obj.lazyReadPerson.IsValueCreated,
+        () => obj.person);
+
+        [TestMethod]
+        public void LazyReadRoleTest() => LazyTest(() => obj.lazyReadRole.IsValueCreated,
+        () => obj.role);
     }
 }

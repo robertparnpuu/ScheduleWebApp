@@ -10,5 +10,8 @@ namespace Tests.Domain
     {
         [TestMethod]
         public void ContactIdTest() => isReadOnlyProperty(obj.Data.contactId);
+        [TestMethod]
+        public void LazyReadContactTest() => LazyTest(() => obj.lazyReadContact.IsValueCreated,
+        () => obj.locationContact);
     }
 }

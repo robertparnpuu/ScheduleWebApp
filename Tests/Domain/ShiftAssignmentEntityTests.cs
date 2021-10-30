@@ -16,5 +16,13 @@ namespace Tests.Domain
         public void EndTimeTest() => isReadOnlyProperty(obj.Data.endTime);
         [TestMethod]
         public void LocationIdTest() => isReadOnlyProperty(obj.Data.locationId);
+
+        [TestMethod]
+        public void LazyReadPersonTest() => LazyTest(() => obj.lazyReadPerson.IsValueCreated,
+        () => obj.person);
+
+        [TestMethod]
+        public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,
+        () => obj.location);
     }
 }

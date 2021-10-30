@@ -7,6 +7,7 @@ using Domain;
 using Infra;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+// ReSharper disable All
 
 namespace Tests.Infra
 {
@@ -66,7 +67,6 @@ namespace Tests.Infra
         public async Task GetEntityListAsyncTest3()
         {
             List<Address> entities = new List<Address>();
-            List<Address> addresses = new List<Address>();
             int r = 4;
             for (int i = 0; i < r; i++)
             {
@@ -74,9 +74,7 @@ namespace Tests.Infra
                 entities.Add(a);
                 Assert.IsTrue(await mockRepo.AddAsync(a));
             }
-            addresses = await mockRepo.GetEntityListAsync();
-            addresses.OrderBy(x => x.Data.id);
-            entities.OrderBy(x => x.Data.id);
+            var addresses = await mockRepo.GetEntityListAsync();
             for (int i = 0; i < entities.Count; i++)
             {
                 ArePropertiesEqual(ToData(entities[i]), ToData(addresses[i]));

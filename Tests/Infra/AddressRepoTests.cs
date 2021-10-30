@@ -43,6 +43,21 @@ namespace Tests.Infra
             ArePropertiesEqual(expected, aEntity.Data);
         }
         [TestMethod]
+        public async Task UpdateAsyncTest()
+        {
+            await mockRepo.dbSet.AddAsync(aData);
+            await mockRepo.db.SaveChangesAsync();
+            var o = await mockRepo.GetEntityAsync(aData.id);
+            ArePropertiesEqual(aData, o.Data);
+
+            var newObj = GetRandom.ObjectOf<AddressData>();
+            Copy.Members(newObj, aData,"id");
+
+            await mockRepo.UpdateAsync(aData);
+
+            ArePropertiesEqual(aData, newObj, "id");
+        }
+        [TestMethod]
         public async Task DeleteAsyncTest()
         {
             await mockRepo.dbSet.AddAsync(ToData(aEntity));
@@ -106,6 +121,8 @@ namespace Tests.Infra
             l = await mockRepo.GetEntityListAsync();
             Assert.AreEqual( count, l.Count);
         }
+        
+        
         protected static void ArePropertiesEqual<T>(T expected, T actual, params string[] exceptProperties)
         {
             foreach (var p in typeof(T).GetProperties())
@@ -127,16 +144,14 @@ namespace Tests.Infra
             }
         }
         public AddressData ToData(Address e) => e?.Data ?? new AddressData();
-        public  Address ToEntity(AddressData d) => new(d);
-
+        public Address ToEntity(AddressData d) => new(d);
         [TestMethod]
         public void ToEntityTest()
         {
             AddressData a = GetRandom.ObjectOf<AddressData>();
             var b = ToEntity(a);
-            ArePropertiesEqual(a,b.Data);
-            Assert.IsInstanceOfType(b,typeof(Address));
+            ArePropertiesEqual(a, b.Data);
+            Assert.IsInstanceOfType(b, typeof(Address));
         }
-
     }
 }

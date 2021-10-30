@@ -31,6 +31,8 @@ namespace Tests.Infra
             mockRepo = CreateObject();
             aData= GetRandom.ObjectOf<AddressData>();
             aEntity = new Address(aData);
+            mockRepo.dbSet.RemoveRange(mockRepo.dbSet);
+            mockRepo.db.SaveChanges();
         }
         [TestMethod]
         public async Task AddAsyncTest()
@@ -60,41 +62,52 @@ namespace Tests.Infra
             ArePropertiesEqual(ToData(aEntity), ToData(await mockRepo.GetEntityAsync(aEntity.id)));
         }
 
-        //[TestMethod]
-        //public async Task GetEntityListAsyncTest()
-        //{
-        //    List<Address> entities = new List<Address>();
-        //    List<Address> addresses = new List<Address>();
-        //    int r = 4;
-        //    for (int i = 0; i < r; i++)
-        //    {
-        //        var a = new Address(GetRandom.ObjectOf<AddressData>());
-        //        entities.Add(a);
-        //        Assert.IsTrue(await mockRepo.AddAsync(a));
-        //    }
-        //    addresses = await mockRepo.GetEntityListAsync();
-        //    addresses.OrderBy(x => x.Data.id);
-        //    entities.OrderBy(x => x.Data.id);
-        //    for (int i = 0; i < entities.Count; i++)
-        //    {
-        //        ArePropertiesEqual(ToData(entities[i]),ToData(addresses[i]));
-        //    }
-        //    Assert.AreEqual(r, addresses.Count());
-        //}
+        [TestMethod]
+        public async Task GetEntityListAsyncTest3()
+        {
+            List<Address> entities = new List<Address>();
+            List<Address> addresses = new List<Address>();
+            int r = 4;
+            for (int i = 0; i < r; i++)
+            {
+                var a = new Address(GetRandom.ObjectOf<AddressData>());
+                entities.Add(a);
+                Assert.IsTrue(await mockRepo.AddAsync(a));
+            }
+            addresses = await mockRepo.GetEntityListAsync();
+            addresses.OrderBy(x => x.Data.id);
+            entities.OrderBy(x => x.Data.id);
+            for (int i = 0; i < entities.Count; i++)
+            {
+                ArePropertiesEqual(ToData(entities[i]), ToData(addresses[i]));
+            }
+            Assert.AreEqual(r, addresses.Count());
+        }
 
         [TestMethod]
-        public async Task GetEntityListAsyncTest()
+        public async Task GetEntityListAsyncTest2()
         {
             await mockRepo.AddAsync(aEntity);
             Address aEntity2 = new Address(GetRandom.ObjectOf<AddressData>());
             await mockRepo.AddAsync(aEntity2);
             List<Address> addresses = await mockRepo.GetEntityListAsync();
-            ArePropertiesEqual(ToData(aEntity), addresses[0].Data);
-            ArePropertiesEqual(ToData(aEntity2), addresses[1].Data);
+            ArePropertiesEqual(ToData(aEntity), addresses[1].Data);
+            ArePropertiesEqual(ToData(aEntity2), addresses[0].Data);
             Assert.AreEqual(2, addresses.Count);
         }
 
-
+        [TestMethod]
+        public async Task GetEntityListAsyncTest()
+        {
+            var l = await mockRepo.GetEntityListAsync();
+            Assert.AreEqual(0, l.Count);
+            var count = GetRandom.UInt8(10, 20);
+            for (var i = 1; i <= count; i++)
+                await mockRepo.dbSet.AddAsync(GetRandom.ObjectOf<AddressData>());
+            await mockRepo.db.SaveChangesAsync();
+            l = await mockRepo.GetEntityListAsync();
+            Assert.AreEqual( count, l.Count);
+        }
         protected static void ArePropertiesEqual<T>(T expected, T actual, params string[] exceptProperties)
         {
             foreach (var p in typeof(T).GetProperties())

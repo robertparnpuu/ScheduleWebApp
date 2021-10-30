@@ -18,11 +18,11 @@ namespace Infra.Common
         public abstract TData ToData(TEntity e);
 
         public new async Task<List<TEntity>> GetEntityListAsync() => (await base.GetEntityListAsync()).Select(ToEntity).ToList();
-        public new async Task<TEntity> GetEntityAsync(string id) => ToEntity(await base.GetDataAsync(id));
+        public async Task<TEntity> GetEntityAsync(string id) => ToEntity(await GetDataAsync(id));
         public async Task<bool> AddAsync(TEntity obj) => await AddAsync(ToData(obj));
         public async Task<bool> UpdateAsync(TEntity obj) => await UpdateAsync(ToData(obj));
 
-        public TEntity GetEntity(string id) => ToEntity(base.GetData(id));
+        public TEntity GetEntity(string id) => ToEntity(GetData(id));
 
         public List<TEntity> GetById() => GetDropDownList().Select(ToEntity).ToList();
 

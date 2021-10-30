@@ -27,16 +27,28 @@ namespace Tests.Infra
         public void TestInitialize()
         {
             mockRepo = CreateObject();
-            aEntity = new Address(GetRandom.ObjectOf<AddressData>());
+            aData= GetRandom.ObjectOf<AddressData>();
+            aEntity = new Address(aData);
         }
         [TestMethod]
         public async Task AddAsyncTest()
         {
-            Assert.IsInstanceOfType(mockRepo, typeof(AddressRepo));
-            Assert.IsInstanceOfType(aEntity, typeof(Address));
             var expected = ToData(aEntity);
             await mockRepo.AddAsync(aEntity);
             ArePropertiesEqual(expected, aEntity.Data);
+        }
+        [TestMethod]
+        public async Task DeleteAsyncTest()
+        {
+            await mockRepo.dbSet.AddAsync(ToData(aEntity));
+            await mockRepo.db.SaveChangesAsync();
+            var o = await mockRepo.GetEntityAsync(aData.id);
+            ArePropertiesEqual(aData, o.Data);
+
+            await mockRepo.DeleteAsync(aData.id);
+
+            o = await mockRepo.GetEntityAsync(aEntity.id);
+            ArePropertiesNotEqual(aData, o.Data);
         }
 
         protected static void ArePropertiesEqual<T>(T expected, T actual, params string[] exceptProperties)
@@ -49,7 +61,27 @@ namespace Tests.Infra
                 else Assert.AreEqual(expectedValue, actualValue);
             }
         }
+        protected static void ArePropertiesNotEqual<T>(T expected, T actual, params string[] exceptProperties)
+        {
+            foreach (var p in typeof(T).GetProperties())
+            {
+                var expectedValue = p.GetValue(expected);
+                var actualValue = p.GetValue(actual);
+                if (exceptProperties.Contains(p.Name)) Assert.AreEqual(expectedValue, actualValue);
+                else Assert.AreNotEqual(expectedValue, actualValue);
+            }
+        }
         public AddressData ToData(Address e) => e?.Data ?? new AddressData();
         public  Address ToEntity(AddressData d) => new(d);
+
+        [TestMethod]
+        public void ToEntityTest()
+        {
+            AddressData a = GetRandom.ObjectOf<AddressData>();
+            var b = ToEntity(a);
+            ArePropertiesEqual(a,b.Data);
+            Assert.IsInstanceOfType(b,typeof(Address));
+        }
+
     }
 }

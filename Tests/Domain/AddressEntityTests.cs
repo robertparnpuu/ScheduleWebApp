@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Runtime.Remoting;
+using Aids;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Data;
 using Domain;
 using Tests.Domain.Common;
@@ -8,6 +10,8 @@ namespace Tests.Domain
     [TestClass]
     public class AddressEntityTests : BaseEntityTests<Address, AddressData>
     {
+
+        
         [TestMethod]
         public void ApartmentNumberTest() => isReadOnlyProperty(obj.Data.apartmentNumber);
         [TestMethod]

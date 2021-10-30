@@ -16,9 +16,9 @@ namespace Tests.Domain.Common {
         public virtual void TestInitialize() => obj = CreateObject();
 
         [TestMethod]
-        public void IdTest() => IsProperty<Guid>(obj.Data.id);
+        public void IdTest() => Assert.IsTrue(IsGuid(obj.Data.id));
 
-        protected virtual TEntity CreateObject() => new();
+        protected virtual TEntity CreateObject() => GetRandom.ObjectOf<TEntity>();
 
         protected virtual T getPropertyValue<T>(bool canWrite = false) => default;
 
@@ -49,7 +49,7 @@ namespace Tests.Domain.Common {
             foreach (PropertyInfo property in properties)
             {
                 if (property.Name == "id") Assert.IsTrue(IsGuid(property.GetValue(obj)));                
-                else if (property.PropertyType == typeof(string)) Assert.AreEqual("-", property.GetValue(obj));
+                else if (property.PropertyType == typeof(string)) Assert.IsTrue(ContainsOnly(",- ",property.GetValue(obj)));
                 else if (property.PropertyType == typeof(int)) Assert.IsNull(property.GetValue(obj));
                 else if (property.PropertyType == typeof(DateTime)) Assert.AreEqual(default(DateTime), property.GetValue(obj));
                 else if (property.PropertyType == typeof(object));
@@ -62,6 +62,17 @@ namespace Tests.Domain.Common {
 
             return Guid.TryParse(value.ToString(), out x);
         }
-        
+        private bool ContainsOnly(string chars,dynamic format)
+        {
+            string allowableLetters = chars;
+
+            foreach (char c in format)
+            {
+                if (!allowableLetters.Contains(c.ToString()))
+                    return false;
+            }
+            return true;
+        }
     }
-}       
+    
+}

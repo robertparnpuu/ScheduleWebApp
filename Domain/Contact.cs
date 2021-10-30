@@ -18,7 +18,6 @@ namespace Domain
         public string phoneNumber => Data?.phoneNumber ?? "-";
         public string fullContact => $"{email}, {phoneNumber}";
 
-
         public string addressId => Data?.addressId ?? "-";
         public Address contactAddress => lazyReadAddress.Value;
         internal Lazy<Address> lazyReadAddress { get; }

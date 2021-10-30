@@ -10,9 +10,15 @@ namespace Tests.Domain
     {
         [TestMethod]
         public void ApartmentNumberTest() => isReadOnlyProperty(obj.Data.email);
+
         [TestMethod]
         public void StreetNameTest() => isReadOnlyProperty(obj.Data.phoneNumber);
+
         [TestMethod]
         public void HouseNumberTest() => isReadOnlyProperty(obj.Data.addressId);
+
+        [TestMethod]
+        public void LazyReadAddressTest() => LazyTest(() => obj.lazyReadAddress.IsValueCreated,
+        () => obj.contactAddress);
     }
 }

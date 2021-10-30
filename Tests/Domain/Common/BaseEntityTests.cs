@@ -73,6 +73,13 @@ namespace Tests.Domain.Common {
             }
             return true;
         }
+        protected static void LazyTest<TResult>(Func<bool> isValueCreated, Func<TResult> getValue, bool valueIsNull = true)
+        {
+            Assert.IsFalse(isValueCreated());
+            var d = getValue();
+            Assert.IsTrue(isValueCreated());
+            if (valueIsNull) Assert.IsNull(d); else Assert.IsNotNull(d);
+        }
     }
     
 }

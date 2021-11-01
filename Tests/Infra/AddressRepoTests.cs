@@ -121,8 +121,7 @@ namespace Tests.Infra
             l = await mockRepo.GetEntityListAsync();
             Assert.AreEqual( count, l.Count);
         }
-        
-        
+
         protected static void ArePropertiesEqual<T>(T expected, T actual, params string[] exceptProperties)
         {
             foreach (var p in typeof(T).GetProperties())

@@ -11,6 +11,7 @@ namespace Infra.Initializer
             InitializePerson(dataBase);
             InitializeAddress(dataBase);
             InitializeContact(dataBase);
+            InitializeWeekDays(dataBase);
         }
 
         public static void InitializePerson(ApplicationDbContext dataBase)
@@ -34,7 +35,7 @@ namespace Infra.Initializer
                 lastName = "Hurt",
                 roleAssignmentId = "roleAssignmentId1",
                 idCode = "39111111111",
-                dateOfBirth =DateTime.Parse("2020-05-01"),
+                dateOfBirth =DateTime.Parse("2020-05-02"),
                 contactId = "contactId2"
             },
             new PersonData 
@@ -44,7 +45,7 @@ namespace Infra.Initializer
                 lastName = "Tammsaare",
                 roleAssignmentId = "roleAssignmentId2",
                 idCode = "39222222222",
-                dateOfBirth =DateTime.Parse("2019-06-01"),
+                dateOfBirth =DateTime.Parse("2019-06-03"),
                 contactId = "contactId2"
             },
             new PersonData
@@ -53,8 +54,8 @@ namespace Infra.Initializer
                 firstName = "Jaak",
                 lastName = "Peterson",
                 roleAssignmentId = "roleAssignmentId2",
-                idCode = "39222222222",
-                dateOfBirth =DateTime.Parse("2019-06-01"),
+                idCode = "39333333333",
+                dateOfBirth =DateTime.Parse("2018-07-04"),
                 contactId = "contactId3"
             }
             };
@@ -118,6 +119,49 @@ namespace Infra.Initializer
             }
             };
             dataBase.Contacts.AddRange(contacts);
+            dataBase.SaveChanges();
+        }
+        public static void InitializeWeekDays(ApplicationDbContext dataBase)
+        {
+            var weekdays = new[]
+            {
+            new WeekDayData()
+            {
+                id = "1",
+                name = "Monday"
+            },
+            new WeekDayData()
+            {
+                id = "2",
+                name = "TuesDay"
+            },
+            new WeekDayData()
+            {
+                id = "3",
+                name = "Wednesday"
+            },
+            new WeekDayData()
+            {
+                id = "4",
+                name = "Thursday"
+            },
+            new WeekDayData()
+            {
+                id = "5",
+                name = "Friday"
+            },
+            new WeekDayData()
+            {
+                id = "6",
+                name = "Saturday"
+            },
+            new WeekDayData()
+            {
+                id = "7",
+                name = "Sunday"
+            }
+            };
+            dataBase.WeekDays.AddRange(weekdays);
             dataBase.SaveChanges();
         }
     }

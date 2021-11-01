@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Infra;
 using Infra.Initializer;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +20,16 @@ namespace Tests.Infra.Initializer
             TestDb.RemoveRange(TestDb.Persons);
             TestDb.RemoveRange(TestDb.Addresses);
             TestDb.RemoveRange(TestDb.Contacts);
+            TestDb.RemoveRange(TestDb.Departments);
+            TestDb.RemoveRange(TestDb.Locations);
+            TestDb.RemoveRange(TestDb.Contracts);
+            TestDb.RemoveRange(TestDb.Occupations);
+            TestDb.RemoveRange(TestDb.Requirements);
+            TestDb.RemoveRange(TestDb.RoleAssignments);
+            TestDb.RemoveRange(TestDb.Roles);
+            TestDb.RemoveRange(TestDb.ShiftAssignments);
+            TestDb.RemoveRange(TestDb.StandardShifts);
+            TestDb.RemoveRange(TestDb.WeekDays);
         }
 
         [TestMethod]
@@ -33,6 +39,16 @@ namespace Tests.Infra.Initializer
             Assert.AreEqual(4, TestDb.Persons.Count());
             Assert.AreEqual(2, TestDb.Addresses.Count());
             Assert.AreEqual(3, TestDb.Contacts.Count());
+            Assert.AreEqual(0, TestDb.Departments.Count());
+            Assert.AreEqual(0, TestDb.Locations.Count());
+            Assert.AreEqual(0, TestDb.Contracts.Count());
+            Assert.AreEqual(0, TestDb.Occupations.Count());
+            Assert.AreEqual(0, TestDb.Requirements.Count());
+            Assert.AreEqual(0, TestDb.RoleAssignments.Count());
+            Assert.AreEqual(0, TestDb.Roles.Count());
+            Assert.AreEqual(0, TestDb.ShiftAssignments.Count());
+            Assert.AreEqual(0, TestDb.StandardShifts.Count());
+            Assert.AreEqual(7, TestDb.WeekDays.Count());
         }
     }
 }

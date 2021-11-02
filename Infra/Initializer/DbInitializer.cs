@@ -19,7 +19,7 @@ namespace Infra.Initializer
             InitializeWeekDay(dataBase, newDb);
             InitializeRequirement(dataBase,newDb);
             InitializeShiftAssignment(dataBase,newDb);
-
+            InitializeStandardShift(dataBase, newDb);
         }
 
         public static void InitializeAddress(ApplicationDbContext dataBase, bool newDb)
@@ -326,7 +326,7 @@ namespace Infra.Initializer
             new ShiftAssignmentData()
             {
                 id="shiftAssignmentId1",
-                personId = "personId1",
+            personId = "personId1",
                 locationId = "locationId1",
                 startTime = DateTime.Parse("2021-04-01"),
                 endTime = DateTime.Parse("2021-04-01"),
@@ -349,6 +349,43 @@ namespace Infra.Initializer
             }
             };
             dataBase.ShiftAssignments.AddRange(sa);
+            dataBase.SaveChanges();
+        }
+        public static void InitializeStandardShift(ApplicationDbContext dataBase, bool newDb)
+        {
+            if (!newDb)
+                if (dataBase.ShiftAssignments.Any()) return;
+            var ss = new[]
+            {
+            new StandardShiftData()
+            {
+                id="standardShiftId1",
+                name="mustamäe ladu, kokk 9-5",
+                locationId = "locationId1",
+                occupationId = "occupationId1",
+                startTime = DateTime.Parse("2021-04-01"),
+                endTime = DateTime.Parse("2021-04-01"),
+            },
+            new StandardShiftData()
+            {
+                id="standardShiftId2",
+                name="mustamäe ladu, kokk, hommikune, nädalavahetus",
+                locationId = "locationId1",
+                occupationId = "occupationId1",
+                startTime = DateTime.Parse("2021-04-01"),
+                endTime = DateTime.Parse("2021-04-01"),
+            },
+            new StandardShiftData()
+            {
+                id="standardShiftId3",
+                name="Lasnamäe ladu, laomees 6-12",
+                locationId = "locationId2",
+                occupationId = "occupationId3",
+                startTime = DateTime.Parse("2021-04-01"),
+                endTime = DateTime.Parse("2021-04-01"),
+            }
+            };
+            dataBase.StandardShifts.AddRange(ss);
             dataBase.SaveChanges();
         }
         public static void InitializeWeekDay(ApplicationDbContext dataBase, bool newDb)

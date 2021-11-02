@@ -49,8 +49,8 @@ namespace Tests.Infra.Initializer
             Assert.AreEqual(7, TestDb.Requirements.Count());
             Assert.AreEqual(0, TestDb.RoleAssignments.Count());
             Assert.AreEqual(0, TestDb.Roles.Count());
-            Assert.AreEqual(0, TestDb.ShiftAssignments.Count());
-            Assert.AreEqual(0, TestDb.StandardShifts.Count());
+            Assert.AreEqual(3, TestDb.ShiftAssignments.Count());
+            Assert.AreEqual(3, TestDb.StandardShifts.Count());
             Assert.AreEqual(7, TestDb.WeekDays.Count());
         }
         [TestMethod]

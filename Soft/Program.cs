@@ -14,20 +14,21 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            CreateAndDropDb(host);
+            CreateAndDropDb(host, true);
             GetRepo.SetProvider(host.Services);
             host.Run();
         }
-        private static void CreateAndDropDb(IHost host)
+        private static void CreateAndDropDb(IHost host, bool newDb)
         {
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                context?.Database?.EnsureDeleted();
+                if(newDb) 
+                    context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
-                DbInitializer.Initialize(context);
+                DbInitializer.Initialize(context, newDb);
             }
             catch (Exception ex)
             {

@@ -77,26 +77,7 @@ namespace Tests.Infra
             Assert.IsTrue(await mockRepo.AddAsync(aEntity));
             ArePropertiesEqual(ToData(aEntity), ToData(await mockRepo.GetEntityAsync(aEntity.id)));
         }
-
-        [TestMethod]
-        public async Task GetEntityListAsyncTest3()
-        {
-            List<Address> entities = new List<Address>();
-            int r = 4;
-            for (int i = 0; i < r; i++)
-            {
-                var a = new Address(GetRandom.ObjectOf<AddressData>());
-                entities.Add(a);
-                Assert.IsTrue(await mockRepo.AddAsync(a));
-            }
-            var addresses = await mockRepo.GetEntityListAsync();
-            for (int i = 0; i < entities.Count; i++)
-            {
-                ArePropertiesEqual(ToData(entities[i]), ToData(addresses[i]));
-            }
-            Assert.AreEqual(r, addresses.Count());
-        }
-
+        
         [TestMethod]
         public async Task GetEntityListAsyncTest2()
         {

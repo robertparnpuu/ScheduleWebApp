@@ -37,9 +37,11 @@ namespace Soft
             services.AddTransient<IOccupationRepo, OccupationRepo>();
             services.AddTransient<IAddressRepo, AddressRepo>();
             services.AddTransient<IContactRepo, ContactRepo>();
+            services.AddTransient<IContactTypeRepo, ContactTypeRepo>();
             services.AddTransient<IDepartmentRepo, DepartmentRepo>();
             services.AddTransient<ILocationRepo, LocationRepo>();
             services.AddTransient<IContractRepo, ContractRepo>();
+            services.AddTransient<IPartyContactRepo, PartyContactRepo>();
             services.AddTransient<IPersonRepo, PersonRepo>();
             services.AddTransient<IRequirementRepo, RequirementRepo>();
             services.AddTransient<IRoleRepo, RoleRepo>();

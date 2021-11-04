@@ -25,13 +25,13 @@ namespace Tests.Domain
 
         [TestMethod]
         public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,
-        () => obj.requiredLocation);
+        () => obj.requirementLocation);
         [TestMethod]
         public void LazyReadOccupationTest() => LazyTest(() => obj.lazyReadOccupation.IsValueCreated,
-        () => obj.requiredOccupation);
+        () => obj.requirementOccupation);
 
         [TestMethod]
         public void LazyReadWeekDayTest() => LazyTest(() => obj.lazyReadWeekDay.IsValueCreated,
-        () => obj.requiredWeekDays);
+        () => obj.requirementWeekDay);
     }
 }

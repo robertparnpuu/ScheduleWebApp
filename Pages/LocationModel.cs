@@ -20,7 +20,6 @@ namespace PageModels
             LocationView view = new LocationView();
             Copy.Members(obj, view);
             //view.fullAddress = obj.locationContact.contactAddress?.fullAddress;
-            view.fullContact = obj.locationContact?.fullContact;
             return view;
         }
 

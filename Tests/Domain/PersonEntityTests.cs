@@ -16,5 +16,10 @@ namespace Tests.Domain
         public void DateOfBirthTest() => isReadOnlyProperty(obj.Data.dateOfBirth);
         [TestMethod]
         public void IdCodeTest() => isReadOnlyProperty(obj.Data.idCode);
+        [TestMethod]
+        public void RoleAssignmentIdTest() => isReadOnlyProperty(obj.Data.roleAssignmentId);
+
+        [TestMethod]
+        public void LazyReadAddressTest() => Assert.Inconclusive();
     }
 }

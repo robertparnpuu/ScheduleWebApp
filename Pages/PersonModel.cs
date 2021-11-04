@@ -19,7 +19,6 @@ namespace PageModels
         {
             PersonView view = new PersonView();
             Copy.Members(obj, view);
-            view.fullContact = obj.personContact?.fullContact;
             return view;
         }
 

@@ -96,19 +96,19 @@ namespace Infra.Initializer
             {
                 id = "departmentId1",
                 name = "Müük",
-                contactId = "contactId1"
+                partyContactId = "partyContactId1"
             },
             new DepartmentData()
             {
                 id = "departmentId2",
                 name = "Finants",
-                contactId = "contactId2"
+                partyContactId = "partyContactId2"
             },
             new DepartmentData()
             {
                 id = "departmentId3",
                 name = "Reklaam",
-                contactId = "contactId3"
+                partyContactId = "partyContactId3"
             }
             };
             dataBase.Departments.AddRange(departments);
@@ -124,19 +124,19 @@ namespace Infra.Initializer
             {
                 id = "locationId1",
                 name = "Mustamäe ladu",
-                contactId = "contactId3"
+                partyContactId = "partyContactId3"
             },
             new LocationData()
             {
                 id = "locationId2",
                 name = "Lasnamäe ladu",
-                contactId = "contactId3"
+                partyContactId = "partyContactId3"
             },
             new LocationData()
             {
                 id = "locationId3",
                 name = "Õismäe restoran",
-                contactId = "contactId4"
+                partyContactId = "partyContactId4"
             }
             };
             dataBase.Locations.AddRange(locations);

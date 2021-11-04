@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Data;
 using Domain.Common;
+using Domain.Repos;
 
 namespace Domain
 {
@@ -10,20 +12,18 @@ namespace Domain
 
         public Person(PersonData d) : base(d)
         {
+            lazyReadContacts= new Lazy<ICollection<Contact>>(GetPersonContacts());
         }
         public string firstName => Data?.firstName ?? "-";
         public string lastName => Data?.lastName ?? "-";
-
         public DateTime? dateOfBirth => Data?.dateOfBirth;
         public string idCode => Data?.idCode ?? "-";
-
-
         public string roleAssignmentId => Data?.roleAssignmentId ?? "-";
-        //public RoleAssignment roleAssignment => lazyReadRoleAssignment.Value;
-        //internal Lazy<RoleAssignment> lazyReadRoleAssignment { get; }
-
         public string fullName => $"{firstName} {lastName}";
-
-        //TODO Siin peab ka olema mitu role assignmenti, list siis äkki
+      
+        public ICollection<Contact> personContacts => lazyReadContacts.Value;
+        internal Lazy<ICollection<Contact>> lazyReadContacts { get; }
+        internal ICollection<Contact> GetPersonContacts()
+            => new GetRepo().Instance<IContactRepo>()?.GetByPersonId(id);
     }
 }

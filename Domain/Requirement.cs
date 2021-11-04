@@ -17,11 +17,11 @@ namespace Domain
         }
 
         public string locationId => Data?.locationId ?? "-";
-        public Location requiredLocation => lazyReadLocation.Value;
+        public Location requirementLocation => lazyReadLocation.Value;
         internal Lazy<Location> lazyReadLocation { get; }
 
         public string occupationId => Data?.occupationId ?? "-";
-        public Occupation requiredOccupation => lazyReadOccupation.Value;
+        public Occupation requirementOccupation => lazyReadOccupation.Value;
         internal Lazy<Occupation> lazyReadOccupation { get; }
 
         public int? minEmployees => Data?.minEmployees;
@@ -32,7 +32,7 @@ namespace Domain
 
         //TODO: oleks vajalik, et saaks valida mitmed päevad ühele nõudele
         public string weekDayId => Data?.weekDayId ?? "-";
-        public WeekDay requiredWeekDays => lazyReadWeekDay.Value;
+        public WeekDay requirementWeekDay => lazyReadWeekDay.Value;
         internal Lazy<WeekDay> lazyReadWeekDay { get; }
 
 

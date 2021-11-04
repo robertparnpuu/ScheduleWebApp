@@ -11,14 +11,14 @@ namespace Domain
 
         public Department(DepartmentData d) : base(d)
         {
-            lazyReadContact = GetLazy<Contact, IContactRepo>(x => x?.GetEntity(contactId));
+            lazyReadPartyContact = GetLazy<PartyContact, IPartyContactRepo>(x => x?.GetEntity(partyContactId));
         }
 
         public string name => Data?.name ?? "-";
 
-        public string contactId => Data?.contactId ?? "-";
-        public Contact departmentContact => lazyReadContact.Value;
-        internal Lazy<Contact> lazyReadContact { get; }
+        public string partyContactId => Data?.partyContactId ?? "-";
+        public PartyContact departmentPartyContact => lazyReadPartyContact.Value;
+        internal Lazy<PartyContact> lazyReadPartyContact { get; }
 
         //TODO: LIST
         //public List<Worker> workers;

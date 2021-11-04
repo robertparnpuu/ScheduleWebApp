@@ -11,12 +11,12 @@ namespace Domain
 
         public Location(LocationData d) : base(d)
         {
-            lazyReadContact = GetLazy<Contact, IContactRepo>(x => x?.GetEntity(contactId));
+            lazyReadPartyContact = GetLazy<PartyContact, IPartyContactRepo>(x => x?.GetEntity(partyContactId));
         }
         public string name => Data?.name ?? "-";
 
-        public string contactId => Data?.contactId ?? "-";
-        public Contact locationContact => lazyReadContact.Value;
-        internal Lazy<Contact> lazyReadContact { get; }
+        public string partyContactId => Data?.partyContactId ?? "-";
+        public PartyContact locationPartyContact => lazyReadPartyContact.Value;
+        internal Lazy<PartyContact> lazyReadPartyContact { get; }
     }
 }

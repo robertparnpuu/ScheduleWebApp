@@ -2,30 +2,14 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Domain.Department">
     <Position X="4" Y="0.5" Width="1.5" />
-    <AssociationLine Name="departmentContact" Type="Domain.Contact" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.5" Y="2.149" />
-        <Point X="11.875" Y="2.149" />
-        <Point X="11.875" Y="3.375" />
-        <Point X="12.25" Y="3.375" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAQAEAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAACAIAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Department.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="departmentContact" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Domain.ShiftAssignment">
     <Position X="10" Y="5" Width="1.5" />
-    <AssociationLine Name="person" Type="Domain.Person" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="6.492" />
-        <Point X="7.812" Y="6.492" />
-        <Point X="7.812" Y="5.78" />
-      </Path>
+    <AssociationLine Name="person" Type="Domain.Person">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="-1.212" Y="0.735" />
       </MemberNameLabel>
@@ -34,8 +18,8 @@
       <Path>
         <Point X="11.5" Y="7.5" />
         <Point X="11.875" Y="7.5" />
-        <Point X="11.875" Y="7.503" />
-        <Point X="15.5" Y="7.503" />
+        <Point X="11.875" Y="7.596" />
+        <Point X="15.5" Y="7.596" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -74,12 +58,9 @@
   <Class Name="Domain.Location">
     <Position X="15.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAABAAAAQAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAAIIAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Location.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="locationContact" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Occupation">
     <Position X="1" Y="7.75" Width="1.5" />
@@ -102,15 +83,13 @@
       <FileName>WeekDay.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.Contact">
-    <Position X="12.25" Y="2.75" Width="1.5" />
+  <Class Name="Domain.ContactType" Collapsed="true">
+    <Position X="18.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAQAAAAAAAAAgAAAAAAIAAEAAAAAAAAAAAEAAAAA=</HashCode>
-      <FileName>Contact.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContactType.cs</FileName>
+      <NewMemberFileName>Contact.cs</NewMemberFileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="contactAddress" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Domain.RoleAssignment" Collapsed="true">
     <Position X="7.25" Y="1" Width="1.5" />
@@ -123,7 +102,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Address">
-    <Position X="17.25" Y="2.5" Width="1.5" />
+    <Position X="21.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAQAAAAAAAAAAAAEACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>Address.cs</FileName>
@@ -136,16 +115,11 @@
         <Position X="0.069" Y="0.831" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="person" Type="Domain.Person">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="1.474" Y="0.129" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="department" Type="Domain.Department" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="1.312" Y="3" />
-        <Point X="1.312" Y="1.375" />
-        <Point X="4" Y="1.375" />
+        <Point X="1.312" Y="1.456" />
+        <Point X="4" Y="1.456" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -154,24 +128,16 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="occupation" />
-      <Property Name="person" />
       <Property Name="department" />
+      <Property Name="person" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Person">
     <Position X="7" Y="2.75" Width="1.5" />
-    <AssociationLine Name="personContact" Type="Domain.Contact">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="1.253" Y="0.088" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEACABAAAAQAAAAAAAAAACAAUAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEACAAAAAAAIAAAAAAAAgiAAQAAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="personContact" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Roles.Manager" Collapsed="true">
     <Position X="14.5" Y="0.5" Width="1.5" />
@@ -222,7 +188,7 @@
       <Path>
         <Point X="11" Y="9.781" />
         <Point X="16.312" Y="9.781" />
-        <Point X="16.312" Y="8.569" />
+        <Point X="16.312" Y="8.761" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.496" Y="0.873" />
@@ -245,6 +211,34 @@
     <ShowAsAssociation>
       <Property Name="shiftLocation" />
       <Property Name="shiftOccupation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.Contact">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <AssociationLine Name="contactType" Type="Domain.ContactType" FixedToPoint="true">
+      <Path>
+        <Point X="19.312" Y="4.954" />
+        <Point X="19.312" Y="5.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAQBAAAAAARAAABAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Contact.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="contactType" />
+      <Property Name="contactAddress" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.PartyContact">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAoAAQAAAAAEAAAAAACAAAA=</HashCode>
+      <FileName>PartyContact.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="contact" />
+      <Property Name="person" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

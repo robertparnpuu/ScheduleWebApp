@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Infra
 {
     [TestClass]
-    public class AddressRepoTests : BaseRepoTests<AddressRepo, AddressData, Address>
+    public class ShiftAssignmentRepoTests : BaseRepoTests<ShiftAssignmentRepo, ShiftAssignmentData, ShiftAssignment>
     {
     }
 }

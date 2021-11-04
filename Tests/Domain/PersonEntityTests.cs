@@ -16,11 +16,5 @@ namespace Tests.Domain
         public void DateOfBirthTest() => isReadOnlyProperty(obj.Data.dateOfBirth);
         [TestMethod]
         public void IdCodeTest() => isReadOnlyProperty(obj.Data.idCode);
-        [TestMethod]
-        public void ContactIdTest() => isReadOnlyProperty(obj.Data.contactId);
-
-        [TestMethod]
-        public void LazyReadContactTest() => LazyTest(() => obj.lazyReadContact.IsValueCreated,
-        () => obj.personContact);
     }
 }

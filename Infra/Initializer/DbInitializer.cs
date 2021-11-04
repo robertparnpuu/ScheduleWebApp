@@ -64,29 +64,21 @@ namespace Infra.Initializer
             new ContactData()
             {
                 id = "contactId1",
-                email = "contact1@hot.ee",
-                phoneNumber = "56111111",
-                addressId = "addressId1"
+            addressId = "addressId1"
             },
             new ContactData()
                 {
                 id = "contactId2",
-                email = "contact2@hot.ee",
-                phoneNumber = "56222222",
                 addressId = "addressId1"
             },
             new ContactData()
             {
                 id = "contactId3",
-                email = "contact3@hot.ee",
-                phoneNumber = "56333333",
-                addressId = "addressId2"
+            addressId = "addressId2"
             },
             new ContactData()
             {
                 id = "contactId4",
-                email = "contact4@hot.ee",
-                phoneNumber = "56444444",
                 addressId = "addressId1"
             }
             };
@@ -194,7 +186,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId1",
             idCode = "39000000000",
             dateOfBirth =DateTime.Parse("2021-04-01"),
-            contactId = "contactId1"
             },
             new PersonData
             {
@@ -204,7 +195,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId1",
             idCode = "39111111111",
             dateOfBirth =DateTime.Parse("2020-05-02"),
-            contactId = "contactId2"
             },
             new PersonData
             {
@@ -214,7 +204,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId2",
             idCode = "39222222222",
             dateOfBirth =DateTime.Parse("2019-06-03"),
-            contactId = "contactId2"
             },
             new PersonData
             {
@@ -224,7 +213,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId2",
             idCode = "39333333333",
             dateOfBirth =DateTime.Parse("2018-07-04"),
-            contactId = "contactId3"
             }
             };
             dataBase.Persons.AddRange(people);

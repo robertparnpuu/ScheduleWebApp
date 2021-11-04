@@ -8,11 +8,6 @@ namespace Tests.Domain
     [TestClass]
     public class ContactEntityTests : BaseEntityTests<Contact, ContactData>
     {
-        [TestMethod]
-        public void ApartmentNumberTest() => isReadOnlyProperty(obj.Data.email);
-
-        [TestMethod]
-        public void StreetNameTest() => isReadOnlyProperty(obj.Data.phoneNumber);
 
         [TestMethod]
         public void HouseNumberTest() => isReadOnlyProperty(obj.Data.addressId);

@@ -3,8 +3,8 @@ namespace Data
 {
     public class ContactData : BaseEntityData
     {
-        public string email { get; set;  }
-        public string phoneNumber {  get; set; }
+        public string contactTypeId { get; set;  }
+        public string contactValue {  get; set; }
         public string addressId { get; set;  }
 
     }

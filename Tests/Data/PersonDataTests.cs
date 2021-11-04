@@ -18,8 +18,6 @@ namespace Tests.Data
         [TestMethod]
         public void DateOfBirthTest() => IsProperty<DateTime>(nameof(obj.dateOfBirth));
         [TestMethod]
-        public void ContactTest() => IsProperty<string>(nameof(obj.contactId));
-        [TestMethod]
         public void RoleAssignmentIdTest() => IsProperty<string>(nameof(obj.roleAssignmentId));
     }
 }

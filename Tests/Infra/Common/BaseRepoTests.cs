@@ -86,18 +86,18 @@ namespace Tests.Infra
             ArePropertiesEqual(ToData(aEntity), ToData(await mockRepo.GetEntityAsync(aEntity.id)));
         }
 
-        [TestMethod]
-        public async Task GetEntityListAsyncTest2()
-        {
-            await mockRepo.AddAsync(aEntity);
-            //TEntity aEntity2 = new TEntity(GetRandom.ObjectOf<TData>());
-            TEntity aEntity2 = CreateInstance<TEntity>(GetRandom.ObjectOf<TData>());
-            await mockRepo.AddAsync(aEntity2);
-            List<TEntity> addresses = await mockRepo.GetEntityListAsync();
-            ArePropertiesEqual(ToData(aEntity), addresses[1].Data);
-            ArePropertiesEqual(ToData(aEntity2), addresses[0].Data);
-            Assert.AreEqual(2, addresses.Count);
-        }
+        //[TestMethod]
+        //public async Task GetEntityListAsyncTest2()
+        //{
+        //    await mockRepo.AddAsync(aEntity);
+        //    //TEntity aEntity2 = new TEntity(GetRandom.ObjectOf<TData>());
+        //    TEntity aEntity2 = CreateInstance<TEntity>(GetRandom.ObjectOf<TData>());
+        //    await mockRepo.AddAsync(aEntity2);
+        //    List<TEntity> addresses = await mockRepo.GetEntityListAsync();
+        //    ArePropertiesEqual(ToData(aEntity), addresses[1].Data);
+        //    ArePropertiesEqual(ToData(aEntity2), addresses[0].Data);
+        //    Assert.AreEqual(2, addresses.Count);
+        //}
 
         [TestMethod]
         public async Task GetEntityListAsyncTest()

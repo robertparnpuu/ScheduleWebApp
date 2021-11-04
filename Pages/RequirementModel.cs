@@ -19,9 +19,9 @@ namespace PageModels
         {
             RequirementView view = new RequirementView();
             Copy.Members(obj, view);
-            view.locationName = obj.requiredLocation?.name;
-            view.occupationName = obj.requiredOccupation?.name;
-            view.weekDayName = obj.requiredWeekDays?.name;
+            view.locationName = obj.requirementLocation?.name;
+            view.occupationName = obj.requirementOccupation?.name;
+            view.weekDayName = obj.requirementWeekDay?.name;
             return view;
         }
 

@@ -7,18 +7,14 @@ namespace Facade
     {
         [Required]
         [Display(Name = "E-mail")]
-        public string email { get; set; }
+        public string contactValue { get; set; }
 
         [Required]
         [Display(Name = "Phone nr")]
-        public string phoneNumber { get; set; }
+        public string contactTypeId { get; set; }
 
         [Required]
         [Display(Name = "Address")]  
         public string addressId { get; set; }
-
-        [Display(Name = "Address")]
-        public string fullAddress { get; set; }
-        
     }
 }

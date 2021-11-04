@@ -20,8 +20,8 @@ namespace Tests.Infra
     where TEntity : BaseEntity<TData>, new()
     {
         public TRepo mockRepo;
-        public TEntity aEntity;
-        public TData aData;
+        public TEntity entity;
+        public TData data;
 
         private dynamic CreateInstance<T>(dynamic input) => (T)Activator.CreateInstance(typeof(T), input);
 
@@ -37,65 +37,64 @@ namespace Tests.Infra
         public void TestInitialize()
         {
             mockRepo = CreateObject();
-            aData = GetRandom.ObjectOf<TData>();
-            //aEntity = new TEntity(aData);
-            aEntity = CreateInstance<TEntity>(aData);
+            data = GetRandom.ObjectOf<TData>();
+            entity = CreateInstance<TEntity>(data);
             mockRepo.dbSet.RemoveRange(mockRepo.dbSet);
             mockRepo.db.SaveChanges();
         }
         [TestMethod]
         public async Task AddAsyncTest()
         {
-            var expected = ToData(aEntity);
-            Assert.IsTrue(await mockRepo.AddAsync(aEntity));
-            ArePropertiesEqual(expected, aEntity.Data);
+            var expected = ToData(entity);
+            Assert.IsTrue(await mockRepo.AddAsync(entity));
+            ArePropertiesEqual(expected, entity.Data);
         }
         [TestMethod]
         public async Task UpdateAsyncTest()
         {
-            await mockRepo.dbSet.AddAsync(aData);
+            await mockRepo.dbSet.AddAsync(data);
             await mockRepo.db.SaveChangesAsync();
-            var o = await mockRepo.GetEntityAsync(aData.id);
-            ArePropertiesEqual(aData, o.Data);
+            var o = await mockRepo.GetEntityAsync(data.id);
+            ArePropertiesEqual(data, o.Data);
 
             var newObj = GetRandom.ObjectOf<TData>();
-            Copy.Members(newObj, aData, "id");
+            Copy.Members(newObj, data, "id");
 
-            await mockRepo.UpdateAsync(aData);
+            await mockRepo.UpdateAsync(data);
 
-            ArePropertiesEqual(aData, newObj, "id");
+            ArePropertiesEqual(data, newObj, "id");
         }
         [TestMethod]
         public async Task DeleteAsyncTest()
         {
-            await mockRepo.dbSet.AddAsync(ToData(aEntity));
+            await mockRepo.dbSet.AddAsync(ToData(entity));
             await mockRepo.db.SaveChangesAsync();
-            var o = await mockRepo.GetEntityAsync(aData.id);
-            ArePropertiesEqual(aData, o.Data);
+            var o = await mockRepo.GetEntityAsync(data.id);
+            ArePropertiesEqual(data, o.Data);
 
-            await mockRepo.DeleteAsync(aData.id);
+            await mockRepo.DeleteAsync(data.id);
 
-            o = await mockRepo.GetEntityAsync(aEntity.id);
-            ArePropertiesNotEqual(aData, o.Data);
+            o = await mockRepo.GetEntityAsync(entity.id);
+            ArePropertiesNotEqual(data, o.Data);
         }
 
         [TestMethod]
         public async Task GetEntityAsyncTest()
         {
-            Assert.IsTrue(await mockRepo.AddAsync(aEntity));
-            ArePropertiesEqual(ToData(aEntity), ToData(await mockRepo.GetEntityAsync(aEntity.id)));
+            Assert.IsTrue(await mockRepo.AddAsync(entity));
+            ArePropertiesEqual(ToData(entity), ToData(await mockRepo.GetEntityAsync(entity.id)));
         }
 
         [TestMethod]
         public async Task GetEntityListAsyncTest2()
         {
-            await mockRepo.AddAsync(aEntity);
-            //TEntity aEntity2 = new TEntity(GetRandom.ObjectOf<TData>());
-            TEntity aEntity2 = CreateInstance<TEntity>(GetRandom.ObjectOf<TData>());
-            await mockRepo.AddAsync(aEntity2);
+            await mockRepo.AddAsync(entity);
+            //TEntity entity2 = new TEntity(GetRandom.ObjectOf<TData>());
+            TEntity entity2 = CreateInstance<TEntity>(GetRandom.ObjectOf<TData>());
+            await mockRepo.AddAsync(entity2);
             List<TEntity> addresses = await mockRepo.GetEntityListAsync();
-            ArePropertiesEqual(ToData(aEntity), addresses[1].Data);
-            ArePropertiesEqual(ToData(aEntity2), addresses[0].Data);
+            ArePropertiesEqual(ToData(entity), addresses[0].Data);
+            ArePropertiesEqual(ToData(entity2), addresses[1].Data);
             Assert.AreEqual(2, addresses.Count);
         }
 

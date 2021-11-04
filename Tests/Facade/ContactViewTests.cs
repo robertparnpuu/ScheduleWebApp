@@ -8,12 +8,10 @@ namespace Tests.Facade
     public class ContactViewTests : BaseViewTests<ContactView>
     {
         [TestMethod]
-        public void EmailTest() => IsProperty<string>(nameof(obj.email));
+        public void ContactTypeIdTest() => IsProperty<string>(nameof(obj.contactTypeId));
         [TestMethod]
-        public void PhoneNumberTest() => IsProperty<string>(nameof(obj.phoneNumber));
+        public void ContactValueTest() => IsProperty<string>(nameof(obj.contactValue));
         [TestMethod]
         public void AddressIdTest() => IsProperty<string>(nameof(obj.addressId));
-        [TestMethod]
-        public void FullAddressTest() => IsProperty<string>(nameof(obj.fullAddress));
     }
 }

@@ -12,11 +12,15 @@ namespace Tests.Domain.Common {
         where TData : class, IBaseEntity, new()
     {
         protected TEntity obj;
+
         [TestInitialize]
         public virtual void TestInitialize() => obj = CreateObject();
 
         [TestMethod]
         public void IdTest() => Assert.IsTrue(IsGuid(obj.Data.id));
+        [TestMethod]
+        public void CanCreate()
+            => Assert.IsInstanceOfType(new TEntity(), typeof(TEntity));
 
         protected virtual TEntity CreateObject() => GetRandom.ObjectOf<TEntity>();
 

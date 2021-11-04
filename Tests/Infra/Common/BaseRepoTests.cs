@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aids;
@@ -44,6 +43,13 @@ namespace Tests.Infra
             mockRepo.db.SaveChanges();
         }
         [TestMethod]
+        public void CanCreateEntity()
+            => Assert.IsInstanceOfType(new TEntity(), typeof(TEntity));
+        [TestMethod]
+        public void CanCreateData()
+            => Assert.IsInstanceOfType(new TData(), typeof(TData));
+
+        [TestMethod]
         public async Task AddAsyncTest()
         {
             var expected = ToData(aEntity);
@@ -85,20 +91,6 @@ namespace Tests.Infra
             Assert.IsTrue(await mockRepo.AddAsync(aEntity));
             ArePropertiesEqual(ToData(aEntity), ToData(await mockRepo.GetEntityAsync(aEntity.id)));
         }
-
-        //[TestMethod]
-        //public async Task GetEntityListAsyncTest2()
-        //{
-        //    await mockRepo.AddAsync(aEntity);
-        //    //TEntity aEntity2 = new TEntity(GetRandom.ObjectOf<TData>());
-        //    TEntity aEntity2 = CreateInstance<TEntity>(GetRandom.ObjectOf<TData>());
-        //    await mockRepo.AddAsync(aEntity2);
-        //    List<TEntity> addresses = await mockRepo.GetEntityListAsync();
-        //    ArePropertiesEqual(ToData(aEntity), addresses[1].Data);
-        //    ArePropertiesEqual(ToData(aEntity2), addresses[0].Data);
-        //    Assert.AreEqual(2, addresses.Count);
-        //}
-
         [TestMethod]
         public async Task GetEntityListAsyncTest()
         {

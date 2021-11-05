@@ -12,12 +12,17 @@ namespace PageModels
 {
     public class LocationModel : BaseModel<Location, LocationView>
     {
+
+        private ILocationRepo mockRepo;
+
         public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context) { }
+
 
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();
             Copy.Members(obj, view);
+
             return view;
         }
 

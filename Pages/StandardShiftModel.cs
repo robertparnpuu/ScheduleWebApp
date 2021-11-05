@@ -21,8 +21,8 @@ namespace PageModels
         {
             StandardShiftView view = new StandardShiftView();
             Copy.Members(obj, view);
-            view.locationName = obj.shiftLocation?.name;
-            view.occupationName = obj.shiftOccupation?.name;
+            view.locationName = obj?.shiftLocation?.name;
+            view.occupationName = obj?.shiftOccupation?.name;
             return view;
         }
 

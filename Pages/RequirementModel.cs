@@ -22,6 +22,7 @@ namespace PageModels
             view.locationName = obj.requirementLocation?.name;
             view.occupationName = obj.requirementOccupation?.name;
             view.weekDayName = obj.requirementWeekDay?.name;
+
             return view;
         }
 

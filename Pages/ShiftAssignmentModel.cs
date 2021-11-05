@@ -23,6 +23,7 @@ namespace PageModels
             Copy.Members(obj, view);
             view.locationName = obj.shiftAssignmentLocation?.name;
             view.personName = obj.shiftAssignmentPerson.fullName;
+
             return view;
         }
 

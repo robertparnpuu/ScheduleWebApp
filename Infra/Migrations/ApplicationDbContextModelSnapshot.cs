@@ -16,7 +16,7 @@ namespace Infra.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.10")
+                .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Data.AddressData", b =>
@@ -69,6 +69,31 @@ namespace Infra.Migrations
                     b.ToTable("Contact");
                 });
 
+            modelBuilder.Entity("Data.ContractData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("departmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("validFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("validTo")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Contract");
+                });
+
             modelBuilder.Entity("Data.DepartmentData", b =>
                 {
                     b.Property<string>("id")
@@ -99,28 +124,6 @@ namespace Infra.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("Data.OccupationAssignmentData", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("occupationId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("validFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("validTo")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("OccupationAssignment");
                 });
 
             modelBuilder.Entity("Data.OccupationData", b =>
@@ -154,6 +157,9 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("lastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("roleAssignmentId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -197,6 +203,9 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("roleId")
                         .HasColumnType("nvarchar(max)");
 
@@ -205,9 +214,6 @@ namespace Infra.Migrations
 
                     b.Property<DateTime>("validTo")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -238,11 +244,11 @@ namespace Infra.Migrations
                     b.Property<string>("locationId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("startTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -487,25 +493,6 @@ namespace Infra.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Data.WorkerData", b =>
-                {
-                    b.HasBaseType("Data.PersonData");
-
-                    b.Property<string>("departmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("occupationAssignmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("personId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("roleAssignmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("Worker");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -554,15 +541,6 @@ namespace Infra.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Data.WorkerData", b =>
-                {
-                    b.HasOne("Data.PersonData", null)
-                        .WithOne()
-                        .HasForeignKey("Data.WorkerData", "id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

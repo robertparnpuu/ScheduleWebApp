@@ -1,34 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.OccupationModel
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "_Create";
 }
 
-<h1>Create</h1>
-
-<h4>OccupationData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            @Html.Editor(model => model.item.id)
-            @Html.Editor(model => model.item.name)
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index" asp-route-handler="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<partial name="_EditOccupation.cshtml"/>

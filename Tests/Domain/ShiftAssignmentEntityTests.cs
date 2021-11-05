@@ -9,12 +9,20 @@ namespace Tests.Domain
     public class ShiftAssignmentEntityTests : BaseEntityTests<ShiftAssignment, ShiftAssignmentData>
     {
         [TestMethod]
-        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.workerId);
+        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.personId);
         [TestMethod]
         public void StartTimeTest() => isReadOnlyProperty(obj.Data.startTime);
         [TestMethod]
         public void EndTimeTest() => isReadOnlyProperty(obj.Data.endTime);
         [TestMethod]
         public void LocationIdTest() => isReadOnlyProperty(obj.Data.locationId);
+
+        [TestMethod]
+        public void LazyReadPersonTest() => LazyTest(() => obj.lazyReadPerson.IsValueCreated,
+        () => obj.person);
+
+        [TestMethod]
+        public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,
+        () => obj.location);
     }
 }

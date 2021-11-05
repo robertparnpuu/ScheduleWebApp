@@ -16,5 +16,12 @@ namespace Tests.Domain
         public void LocationTest() => isReadOnlyProperty(obj.Data.locationId);
         [TestMethod]
         public void OccupationTest() => isReadOnlyProperty(obj.Data.occupationId);
+
+        [TestMethod]
+        public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,
+        () => obj.shiftLocation);
+        [TestMethod]
+        public void LazyReadOccupationTest() => LazyTest(() => obj.lazyReadOccupation.IsValueCreated,
+        () => obj.shiftOccupation);
     }
 }

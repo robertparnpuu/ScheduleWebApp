@@ -1,0 +1,8 @@
+﻿@using Core.Extensions
+@model PageModels.StandardShiftModel
+
+@Html.Editor(model => model.item.name)
+@Html.Editor(model => model.item.startTime)
+@Html.Editor(model => model.item.endTime)
+@Html.Select(model => model.item.locationId, Model.Locations, "-- Select location --")
+@Html.Select(model => model.item.occupationId, Model.Occupations, "-- Select occupation --")

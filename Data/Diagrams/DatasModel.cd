@@ -3,7 +3,7 @@
   <Class Name="Data.Common.BaseEntityData" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\BaseEntityData.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -14,6 +14,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\NamedEntityData.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Data.AddressData" Collapsed="true">
     <Position X="0.5" Y="2" Width="1.5" />
@@ -29,17 +30,17 @@
       <FileName>ContactData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.OccupationAssignmentData" Collapsed="true">
+  <Class Name="Data.ContractData" Collapsed="true">
     <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>OccupationAssignmentData.cs</FileName>
+      <HashCode>ACAAAAAAAAAAAAAAAIAAAAAAIAAAAAAEAAAAAAAgAAA=</HashCode>
+      <FileName>ContractData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.PersonData" Collapsed="true">
     <Position X="7.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAAAAAAAQAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAAAAAAAAQAAAAAAAAAACAAQAAA=</HashCode>
       <FileName>PersonData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,14 +54,14 @@
   <Class Name="Data.RoleAssignmentData" Collapsed="true">
     <Position X="5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAIAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>RoleAssignmentData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.ShiftAssignmentData" Collapsed="true">
     <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAIAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAAAAAAAgACAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>ShiftAssignmentData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -104,13 +105,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDayData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Data.WorkerData" Collapsed="true">
-    <Position X="9.75" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAABAAAAAAAEAAAAAAAQAAA=</HashCode>
-      <FileName>WorkerData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

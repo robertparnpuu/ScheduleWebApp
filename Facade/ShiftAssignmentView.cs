@@ -7,26 +7,25 @@ namespace Facade
     public class ShiftAssignmentView:BaseView
     {
         [Required]
-        public string workerId { get; set; }
+        [Display(Name = "Person")]
+        public string personId { get; set; }
         [Required]
+        [Display(Name = "Location name")]
         public string locationId { get; set; }
 
+        [Display(Name = "Person name")]
+        public string personName { get; set; }
 
-        [Required]
-        [Display(Name = "Workers name")]
-        public string workerName { get; set; }
-
-        [Required]
         [Display(Name = "Location")]
         public string locationName { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [Display(Name = "Shift start time")]
         public DateTime startTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
 

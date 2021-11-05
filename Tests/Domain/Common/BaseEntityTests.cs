@@ -3,6 +3,7 @@ using Domain.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Reflection;
+using Aids;
 
 namespace Tests.Domain.Common {
 
@@ -15,9 +16,9 @@ namespace Tests.Domain.Common {
         public virtual void TestInitialize() => obj = CreateObject();
 
         [TestMethod]
-        public void IdTest() => isReadOnlyProperty(obj.Data.id);
+        public void IdTest() => Assert.IsTrue(IsGuid(obj.Data.id));
 
-        protected virtual TEntity CreateObject() => new();
+        protected virtual TEntity CreateObject() => GetRandom.ObjectOf<TEntity>();
 
         protected virtual T getPropertyValue<T>(bool canWrite = false) => default;
 
@@ -25,6 +26,17 @@ namespace Tests.Domain.Common {
         {
             var actual = getPropertyValue<T>();
 
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void IsProperty<TResult>(string propertyName)
+        {
+            var propertyInfo = obj.GetType().GetProperty(propertyName);
+            Assert.IsNotNull(propertyInfo);
+
+            var expected = GetRandom.ValueOf<TResult>();
+            propertyInfo.SetValue(obj, expected);
+            var actual = propertyInfo.GetValue(obj);
             Assert.AreEqual(expected, actual);
         }
 
@@ -36,12 +48,38 @@ namespace Tests.Domain.Common {
 
             foreach (PropertyInfo property in properties)
             {
-                if (property.Name == "id") Assert.AreEqual("Unspecified", property.GetValue(obj));
-                else if (property.PropertyType == typeof(string)) Assert.AreEqual("-", property.GetValue(obj));
+                if (property.Name == "id") Assert.IsTrue(IsGuid(property.GetValue(obj)));                
+                else if (property.PropertyType == typeof(string)) Assert.IsTrue(ContainsOnly(",- ",property.GetValue(obj)));
                 else if (property.PropertyType == typeof(int)) Assert.IsNull(property.GetValue(obj));
                 else if (property.PropertyType == typeof(DateTime)) Assert.AreEqual(default(DateTime), property.GetValue(obj));
-                else if (property.PropertyType == typeof(object)) ;
+                else if (property.PropertyType == typeof(object));
             }
         }
+        
+        public static bool IsGuid(object value) 
+        { 
+            Guid x; 
+
+            return Guid.TryParse(value.ToString(), out x);
+        }
+        private bool ContainsOnly(string chars,dynamic format)
+        {
+            string allowableLetters = chars;
+
+            foreach (char c in format)
+            {
+                if (!allowableLetters.Contains(c.ToString()))
+                    return false;
+            }
+            return true;
+        }
+        protected static void LazyTest<TResult>(Func<bool> isValueCreated, Func<TResult> getValue, bool valueIsNull = true)
+        {
+            Assert.IsFalse(isValueCreated());
+            var d = getValue();
+            Assert.IsTrue(isValueCreated());
+            if (valueIsNull) Assert.IsNull(d); else Assert.IsNotNull(d);
+        }
     }
-}       
+    
+}

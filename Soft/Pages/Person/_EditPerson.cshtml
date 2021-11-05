@@ -1,0 +1,9 @@
+﻿@using Core.Extensions
+@model PageModels.PersonModel
+
+@Html.Editor(model => model.item.firstName)
+@Html.Editor(model => model.item.lastName)
+@Html.Editor(model => model.item.dateOfBirth)
+@Html.Editor(model => model.item.idCode)
+@Html.Select(model => model.item.contactId, Model.Contacts, "Select contact")
+

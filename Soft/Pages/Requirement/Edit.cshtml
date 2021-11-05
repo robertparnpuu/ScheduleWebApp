@@ -1,65 +1,8 @@
 ﻿@page
-@model Soft.Pages.Requirement.EditModel
+@model PageModels.RequirementModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "_Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>RequirementData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="RequirementData.locationId" class="control-label"></label>
-                <input asp-for="RequirementData.locationId" class="form-control" />
-                <span asp-validation-for="RequirementData.locationId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequirementData.occupationId" class="control-label"></label>
-                <input asp-for="RequirementData.occupationId" class="form-control" />
-                <span asp-validation-for="RequirementData.occupationId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequirementData.weekDayId" class="control-label"></label>
-                <input asp-for="RequirementData.weekDayId" class="form-control" />
-                <span asp-validation-for="RequirementData.weekDayId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequirementData.startTime" class="control-label"></label>
-                <input asp-for="RequirementData.startTime" class="form-control" />
-                <span asp-validation-for="RequirementData.startTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequirementData.endTime" class="control-label"></label>
-                <input asp-for="RequirementData.endTime" class="form-control" />
-                <span asp-validation-for="RequirementData.endTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequirementData.minEmployees" class="control-label"></label>
-                <input asp-for="RequirementData.minEmployees" class="form-control" />
-                <span asp-validation-for="RequirementData.minEmployees" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequirementData.maxEmployees" class="control-label"></label>
-                <input asp-for="RequirementData.maxEmployees" class="form-control" />
-                <span asp-validation-for="RequirementData.maxEmployees" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="RequirementData.id" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<partial name="_EditRequirement.cshtml" />

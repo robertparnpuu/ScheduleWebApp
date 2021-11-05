@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PageModels.Common.BaseModel" Collapsed="true">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\BaseModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PageModels.Common.BaseModel&lt;TEntity, TView&gt;" Collapsed="true">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAQAAAAAAAIBAAAAA0AQAAAABDAAAAAAAEEkAAAAAA=</HashCode>
+      <FileName>Common\BaseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.AddressModel" Collapsed="true">
+    <Position X="1.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>AddressModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.ContactModel" Collapsed="true">
+    <Position X="8" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ContactModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.ContractModel" Collapsed="true">
+    <Position X="3.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAKAAAAACAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <FileName>ContractModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.DepartmentModel" Collapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DepartmentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.LocationModel" Collapsed="true">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>LocationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.OccupationModel" Collapsed="true">
+    <Position X="10.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>OccupationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.PersonModel" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>PersonModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.RequirementModel" Collapsed="true">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAKAAAAAAIAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>RequirementModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.ShiftAssignmentModel" Collapsed="true">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAIAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <FileName>ShiftAssignmentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PageModels.StandardShiftModel" Collapsed="true">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAKAAAAAAIAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>StandardShiftModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

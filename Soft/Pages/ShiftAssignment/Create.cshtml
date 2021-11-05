@@ -1,54 +1,8 @@
 ﻿@page
-@model Soft.Pages.ShiftAssignment.CreateModel
+@model PageModels.ShiftAssignmentModel
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "_Create";
 }
 
-<h1>Create</h1>
-
-<h4>ShiftAssignmentData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ShiftAssignmentData.workerId" class="control-label"></label>
-                <input asp-for="ShiftAssignmentData.workerId" class="form-control" />
-                <span asp-validation-for="ShiftAssignmentData.workerId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShiftAssignmentData.locationId" class="control-label"></label>
-                <input asp-for="ShiftAssignmentData.locationId" class="form-control" />
-                <span asp-validation-for="ShiftAssignmentData.locationId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShiftAssignmentData.startTime" class="control-label"></label>
-                <input asp-for="ShiftAssignmentData.startTime" class="form-control" />
-                <span asp-validation-for="ShiftAssignmentData.startTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShiftAssignmentData.endTime" class="control-label"></label>
-                <input asp-for="ShiftAssignmentData.endTime" class="form-control" />
-                <span asp-validation-for="ShiftAssignmentData.endTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShiftAssignmentData.id" class="control-label"></label>
-                <input asp-for="ShiftAssignmentData.id" class="form-control" />
-                <span asp-validation-for="ShiftAssignmentData.id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<partial name="_EditShiftAssignment.cshtml" />

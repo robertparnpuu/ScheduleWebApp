@@ -7,27 +7,31 @@ namespace Facade
     public class StandardShiftView: BaseView
     {
         [Required]
-        public string occupationId { get; set; }
-        [Required]
-        public string locationId { get; set; }
-
+        [Display(Name = "Name")]
+        public string name { get; set; }
 
         [Required]
-        [Display(Name = "Occupation")]
-        public string occupationName { get; set; }
-
-        [Required]
-        [Display(Name = "Location")]
-        public string locationName { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [Display(Name = "Shift start time")]
         public DateTime startTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Time)]
         [Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
+
+        [Display(Name = "Occupation")]
+        public string occupationId { get; set; }
+
+        [Display(Name = "Location")]
+        public string locationId { get; set; }
+
+        [Display(Name = "Occupation")]
+        public string occupationName { get; set; }
+
+        [Display(Name = "Location")]
+        public string locationName { get; set; }
+
+       
     }
 }

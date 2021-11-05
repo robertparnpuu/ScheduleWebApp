@@ -1,20 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.OccupationModel
 
 @{
-    ViewData["Title"] = "Delete";
+    Layout = "_Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
- @Html.Show(model => model.item.name)
-    
-    <form method="post">
-        <input type="hidden" asp-for="item.id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
-</div>
+<partial name="_ShowOccupation.cshtml" />

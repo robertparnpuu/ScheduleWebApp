@@ -1,10 +1,12 @@
 ﻿using System;
+using Core;
 using Data;
 using Domain.Common;
 using Domain.Repos;
 
 namespace Domain
 {
+    
     public class PartyContact : BaseEntity<PartyContactData>
     {
         public PartyContact() : this(null)
@@ -17,8 +19,9 @@ namespace Domain
             lazyReadAddress = GetLazy<Address, IAddressRepo>(x => x?.GetEntity(addressId));
         }
 
-        public string contact => partyContactContact.contacts;
-        public string fullAddress => partyContactAddress.fullAddress;
+        public string partyId => Data?.partyId ?? "-";
+        public string fullContact => partyContactContact?.contacts ?? "-";
+        public string fullAddress => partyContactAddress?.fullAddress ?? "-";
 
         public string contactId => Data?.contactId ?? "-";
         public Contact partyContactContact => lazyReadContact.Value;
@@ -28,9 +31,8 @@ namespace Domain
         public Address partyContactAddress => lazyReadAddress.Value;
         internal Lazy<Address> lazyReadAddress { get; }
 
-        public string partyId => Data?.partyId ?? "-";
-        public Address partyContactParty => lazyReadParty.Value;
-        internal Lazy<Address> lazyReadParty { get; }
+       
+
 
     }
 }

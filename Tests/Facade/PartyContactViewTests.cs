@@ -13,5 +13,9 @@ namespace Tests.Facade
         public void PartyIdTest() => IsProperty<string>(nameof(obj.partyId));
         [TestMethod]
         public void AddressIdTest() => IsProperty<string>(nameof(obj.addressId));
+        [TestMethod]
+        public void FullContactTest() => IsProperty<string>(nameof(obj.fullContact));
+        [TestMethod]
+        public void FullAddressTest() => IsProperty<string>(nameof(obj.fullAddress));
     }
 }

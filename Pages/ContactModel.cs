@@ -1,18 +1,15 @@
 ﻿using Aids;
 using Data;
 using Domain;
-using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
 {
     public class ContactModel : BaseModel<Contact, ContactView>
     {
-        //TODO: Concurrency pls
         public ContactModel(IContactRepo r, ApplicationDbContext context) : base(r, context)
         {
         }

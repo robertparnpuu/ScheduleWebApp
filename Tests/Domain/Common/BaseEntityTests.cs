@@ -34,6 +34,7 @@ namespace Tests.Domain.Common {
         }
         
         [TestMethod]
+        // ReSharper disable once ExcessiveIndentation
         public void TestAllDefaultProperties()
         {
             var type = obj.GetType();

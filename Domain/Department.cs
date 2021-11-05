@@ -15,6 +15,8 @@ namespace Domain
         }
 
         public string name => Data?.name ?? "-";
+        public string fullAddress => departmentPartyContact?.fullAddress ?? "-";
+        public string fullContact => departmentPartyContact?.fullContact ?? "-";
 
         public string partyContactId => Data?.partyContactId ?? "-";
         public PartyContact departmentPartyContact => lazyReadPartyContact.Value;

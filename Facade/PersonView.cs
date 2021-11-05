@@ -32,5 +32,10 @@ namespace Facade
         [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
 
+        [Display(Name = "Address")]
+        public string fullAddress { get; set; }
+        [Display(Name = "Contacts")]
+        public string fullContact { get; set; }
+
     }
 }

@@ -12,15 +12,16 @@ namespace PageModels
 {
     public class LocationModel : BaseModel<Location, LocationView>
     {
-        //TODO: Concurrency pls
+        private ILocationRepo mockRepo;
+
         public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context) { }
+
 
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();
             Copy.Members(obj, view);
-            //view.fullAddress = obj.locationContact.contactAddress?.fullAddress;
-            view.fullContact = obj.locationContact?.fullContact;
+            view.fullContact = obj?.locationContact?.fullContact;
             return view;
         }
 

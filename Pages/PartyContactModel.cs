@@ -31,8 +31,16 @@ namespace PageModels
         {
             get
             {
+                var list = new GetRepo().Instance<IContactRepo>().GetById();
+                return new SelectList(list, "id", "id", item?.contactId);
+            }
+        }
+        public SelectList Addresses
+        {
+            get
+            {
                 var list = new GetRepo().Instance<IAddressRepo>().GetById();
-                return new SelectList(list, "id", "city", item?.contactId);
+                return new SelectList(list, "id", "id", item?.addressId);
             }
         }
     }

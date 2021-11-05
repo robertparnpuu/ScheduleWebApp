@@ -25,6 +25,7 @@ namespace Tests.Infra.Initializer
             TestDb.RemoveRange(TestDb.Departments);
             TestDb.RemoveRange(TestDb.Locations);
             TestDb.RemoveRange(TestDb.Occupations);
+            TestDb.RemoveRange(TestDb.PartyContacts);
             TestDb.RemoveRange(TestDb.Persons);
             TestDb.RemoveRange(TestDb.Requirements);
             TestDb.RemoveRange(TestDb.RoleAssignments);
@@ -39,12 +40,13 @@ namespace Tests.Infra.Initializer
         public void InitializeNewDbTrueTest()
         {
             DbInitializer.Initialize(TestDb,true);
-            Assert.AreEqual(2, TestDb.Addresses.Count());
-            Assert.AreEqual(4, TestDb.Contacts.Count());
-            Assert.AreEqual(0, TestDb.Contracts.Count());
+            Assert.AreEqual(10, TestDb.Addresses.Count());
+            Assert.AreEqual(10, TestDb.Contacts.Count());
+            Assert.AreEqual(4, TestDb.Contracts.Count());
             Assert.AreEqual(3, TestDb.Departments.Count());
             Assert.AreEqual(3, TestDb.Locations.Count());
             Assert.AreEqual(4, TestDb.Occupations.Count());
+            Assert.AreEqual(10, TestDb.PartyContacts.Count());
             Assert.AreEqual(4, TestDb.Persons.Count());
             Assert.AreEqual(7, TestDb.Requirements.Count());
             Assert.AreEqual(0, TestDb.RoleAssignments.Count());
@@ -66,6 +68,8 @@ namespace Tests.Infra.Initializer
             Assert.AreEqual(count, TestDb.Departments.Count());
             Assert.AreEqual(count, TestDb.Locations.Count());
             Assert.AreEqual(count, TestDb.Occupations.Count());
+            Assert.AreEqual(count, TestDb.PartyContacts.Count());
+            Assert.AreEqual(count, TestDb.Persons.Count());
             Assert.AreEqual(count, TestDb.Requirements.Count());
             Assert.AreEqual(count, TestDb.RoleAssignments.Count());
             Assert.AreEqual(count, TestDb.Roles.Count());
@@ -82,6 +86,7 @@ namespace Tests.Infra.Initializer
             TestDb.Departments.Add(GetRandom.ObjectOf<DepartmentData>());
             TestDb.Locations.Add(GetRandom.ObjectOf<LocationData>());
             TestDb.Occupations.Add(GetRandom.ObjectOf<OccupationData>());
+            TestDb.PartyContacts.Add(GetRandom.ObjectOf<PartyContactData>());
             TestDb.Persons.Add(GetRandom.ObjectOf<PersonData>());
             TestDb.Requirements.Add(GetRandom.ObjectOf<RequirementData>());
             TestDb.RoleAssignments.Add(GetRandom.ObjectOf<RoleAssignmentData>());

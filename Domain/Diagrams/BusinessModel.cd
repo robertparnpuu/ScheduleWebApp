@@ -74,10 +74,10 @@
       <Property Name="role" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Domain.Address" Collapsed="true">
+  <Class Name="Domain.Address">
     <Position X="18.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAQAAAAAAAAAAAAAACAAAAAAAAABCAAAABAAAAIA=</HashCode>
+      <HashCode>AADAAQAAAAAAAAAAAAAACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -194,7 +194,7 @@
   <Class Name="Domain.PartyContact">
     <Position X="15.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAEAAABAAAAQAAAAAEAAAAAEQAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAEAAABAAAAQAABAAAAAAAAEQAAAA=</HashCode>
       <FileName>PartyContact.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

@@ -10,8 +10,6 @@ namespace Tests.Domain
     {
 
         [TestMethod]
-        public void PartyContactIdTest() => isReadOnlyProperty(obj.Data.partyContactId);
-        [TestMethod]
         public void EmailTest() => isReadOnlyProperty(obj.Data.email);
         [TestMethod]
         public void PhoneNumberTest() => isReadOnlyProperty(obj.Data.phoneNumber);

@@ -10,16 +10,16 @@ namespace Tests.Domain
     {
 
         [TestMethod]
-        public void PersonIdTest() => isReadOnlyProperty(obj.Data.personId);
-        [TestMethod]
-        public void AddressIdTest() => isReadOnlyProperty(obj.Data.addressId);
+        public void PartyIdTest() => isReadOnlyProperty(obj.Data.partyId);
         [TestMethod]
         public void ContactIdTest() => isReadOnlyProperty(obj.Data.contactId);
         [TestMethod]
+        public void AddressIdTest() => isReadOnlyProperty(obj.Data.addressId);
+        [TestMethod]
+        public void LazyReadContactTest() => LazyTest(() => obj.lazyReadContact.IsValueCreated,
+        () => obj.partyContactContact);
+        [TestMethod]
         public void LazyReadAddressTest() => LazyTest(() => obj.lazyReadAddress.IsValueCreated,
         () => obj.partyContactAddress);
-        [TestMethod]
-        public void LazyReadPartyContactTest() => LazyTest(() => obj.lazyReadContact.IsValueCreated,
-        () => obj.partyContactContact);
     }
 }

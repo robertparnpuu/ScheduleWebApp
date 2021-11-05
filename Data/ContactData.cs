@@ -5,7 +5,6 @@ namespace Data
     {
         public string phoneNumber { get; set;  }
         public string email {  get; set; }
-        public string partyContactId { get; set;  }
 
     }
 }

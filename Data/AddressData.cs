@@ -11,6 +11,5 @@ namespace Data
         public string zipCode { get; set; }
         public string region { get; set;  }
         public string country {  get; set; }
-        public string partyContactId { get; set; }
     }
 }

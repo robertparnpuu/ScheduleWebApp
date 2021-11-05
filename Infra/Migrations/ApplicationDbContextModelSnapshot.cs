@@ -36,6 +36,9 @@ namespace Infra.Migrations
                     b.Property<string>("houseNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("partyContactId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("region")
                         .HasColumnType("nvarchar(max)");
 
@@ -55,10 +58,10 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("addressId")
+                    b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("email")
+                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneNumber")
@@ -99,10 +102,10 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("contactId")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("name")
+                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -115,10 +118,10 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("contactId")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("name")
+                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -139,13 +142,29 @@ namespace Infra.Migrations
                     b.ToTable("Occupation");
                 });
 
-            modelBuilder.Entity("Data.PersonData", b =>
+            modelBuilder.Entity("Data.PartyContactData", b =>
                 {
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("addressId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("contactId")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("partyId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("PartyContact");
+                });
+
+            modelBuilder.Entity("Data.PersonData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");
@@ -157,6 +176,9 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("lastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("roleAssignmentId")

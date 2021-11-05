@@ -10,6 +10,8 @@ namespace Tests.Facade
         [TestMethod]
         public void ContactIdTest() => IsProperty<string>(nameof(obj.contactId));
         [TestMethod]
-        public void AddressIdTest() => IsProperty<string>(nameof(obj.personId));
+        public void PartyIdTest() => IsProperty<string>(nameof(obj.partyId));
+        [TestMethod]
+        public void AddressIdTest() => IsProperty<string>(nameof(obj.addressId));
     }
 }

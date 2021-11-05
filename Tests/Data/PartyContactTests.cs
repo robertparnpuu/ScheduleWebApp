@@ -11,6 +11,6 @@ namespace Tests.Data
         [TestMethod]
         public void ContactIdTest() => IsProperty<string>(nameof(obj.contactId));
         [TestMethod]
-        public void PersonIdTest() => IsProperty<string>(nameof(obj.personId));
+        public void PartyIdTest() => IsProperty<string>(nameof(obj.partyId));
     }
 }

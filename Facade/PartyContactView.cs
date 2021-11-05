@@ -6,12 +6,14 @@ namespace Facade
     public class PartyContactView : BaseView
     {
         [Required]
-        [Display(Name = "PersonID")]
-        public string personId { get; set; }
+        [Display(Name = "PartyID")]
+        public string partyId { get; set; }
         [Required]
-        [Display(Name = "Phone Nr")]
+        [Display(Name = "ContactId")]
         public string contactId { get; set; }
-
+        [Required]
+        [Display(Name = "AddressId")]
+        public string addressId { get; set; }
     }
 }
 

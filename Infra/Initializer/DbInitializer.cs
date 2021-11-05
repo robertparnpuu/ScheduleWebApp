@@ -64,22 +64,22 @@ namespace Infra.Initializer
             new ContactData()
             {
                 id = "contactId1",
-            addressId = "addressId1"
+            //addressId = "addressId1"
             },
             new ContactData()
                 {
                 id = "contactId2",
-                addressId = "addressId1"
+                //addressId = "addressId1"
             },
             new ContactData()
             {
                 id = "contactId3",
-            addressId = "addressId2"
+            //addressId = "addressId2"
             },
             new ContactData()
             {
                 id = "contactId4",
-                addressId = "addressId1"
+               // addressId = "addressId1"
             }
             };
             dataBase.Contacts.AddRange(contacts);

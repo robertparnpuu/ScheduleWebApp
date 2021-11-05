@@ -10,10 +10,10 @@ namespace Tests.Data
     {
 
         [TestMethod]
-        public void AddressIdTest() => IsProperty<string>(nameof(obj.addressId));
+        public void PartyContactIdTest() => IsProperty<string>(nameof(obj.partyContactId));
         [TestMethod]
-        public void ContactTypeIdTest() => IsProperty<string>(nameof(obj.contactTypeId));
+        public void EmailTest() => IsProperty<string>(nameof(obj.email));
         [TestMethod]
-        public void ContactValueTest() => IsProperty<string>(nameof(obj.contactValue));
+        public void PhoneNumberTest() => IsProperty<string>(nameof(obj.phoneNumber));
     }
 }

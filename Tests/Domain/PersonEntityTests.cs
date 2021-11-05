@@ -20,6 +20,7 @@ namespace Tests.Domain
         public void RoleAssignmentIdTest() => isReadOnlyProperty(obj.Data.roleAssignmentId);
 
         [TestMethod]
-        public void LazyReadAddressTest() => Assert.Inconclusive();
+        public void LazyReadPartyContactTest() => LazyTest(() => obj.lazyReadPartyContact.IsValueCreated,
+        () => obj.personPartyContact);
     }
 }

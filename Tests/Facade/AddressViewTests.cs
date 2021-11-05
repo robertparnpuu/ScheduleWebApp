@@ -22,5 +22,7 @@ namespace Tests.Facade
 
         [TestMethod]
         public void CountryTest() => IsProperty<string>(nameof(obj.country));
+        [TestMethod]
+        public void partyContactIdTest() => IsProperty<string>(nameof(obj.partyContactID));
     }
 }

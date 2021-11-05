@@ -14,7 +14,6 @@ namespace Infra
             : base(options) { }
         public DbSet<AddressData> Addresses { get; set; }
         public DbSet<ContactData> Contacts { get; set; }
-        public DbSet<ContactTypeData> ContactTypes { get; set; }
         public DbSet<ContractData> Contracts { get; set; }
         public DbSet<DepartmentData> Departments { get; set; }
         public DbSet<LocationData> Locations { get; set; }
@@ -36,7 +35,6 @@ namespace Infra
 
             modelBuilder.Entity<AddressData>().ToTable("Address");
             modelBuilder.Entity<ContactData>().ToTable("Contact");
-            modelBuilder.Entity<ContactTypeData>().ToTable("ContactType");
             modelBuilder.Entity<ContractData>().ToTable("Contract");
             modelBuilder.Entity<DepartmentData>().ToTable("Department");
             modelBuilder.Entity<LocationData>().ToTable("Location");

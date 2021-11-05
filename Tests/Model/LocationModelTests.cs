@@ -1,8 +1,6 @@
-﻿using Data;
-using Domain;
+﻿using Domain;
 using Domain.Repos;
 using Facade;
-using Infra;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PageModels;
 using Tests.Model.Common;

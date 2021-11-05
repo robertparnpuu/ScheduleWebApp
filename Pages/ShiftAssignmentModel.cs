@@ -21,8 +21,8 @@ namespace PageModels
         {
             ShiftAssignmentView view = new ShiftAssignmentView();
             Copy.Members(obj, view);
-            view.locationName = obj.location?.name;
-            view.personName = obj.person.fullName;
+            view.locationName = obj?.location?.name;
+            view.personName = obj?.person?.fullName;
             return view;
         }
 

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Core;
 using Domain.Repos;
 
-namespace Tests.Model
+namespace Tests.Model.Common
 {
     public abstract class TestRepo<TClass> : IRepo<TClass> where TClass : IBaseEntity
     {

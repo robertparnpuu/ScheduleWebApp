@@ -21,7 +21,7 @@ namespace PageModels
         {
             ContactView view = new ContactView();
             Copy.Members(obj, view);
-            view.fullAddress = obj.contactAddress?.fullAddress;
+            view.fullAddress = obj?.contactAddress?.fullAddress;
             return view;
         }
 

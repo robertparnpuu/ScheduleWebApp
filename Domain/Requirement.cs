@@ -27,8 +27,8 @@ namespace Domain
         public int? minEmployees => Data?.minEmployees;
         public int? maxEmployees => Data?.maxEmployees;
 
-        public DateTime? startTime => Data?.startTime;
-        public DateTime? endTime => Data?.endTime;
+        public DateTime? startTime => Data?.startTime ?? DateTime.MinValue;
+        public DateTime? endTime => Data?.endTime ?? DateTime.MinValue;
 
         //TODO: oleks vajalik, et saaks valida mitmed päevad ühele nõudele
         public string weekDayId => Data?.weekDayId ?? "-";

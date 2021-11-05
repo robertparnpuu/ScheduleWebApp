@@ -10,7 +10,8 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.items[0].id)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].partyId)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].contactId)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].contacts)</th>
             <th></th>
         </tr>
     </thead>
@@ -20,7 +21,8 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.id)</td>
             <td>@Html.DisplayFor(modelItem => item.partyId)</td>
-            <td>@Html.DisplayFor(modelItem => item.contactId)</td>
+            <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
+            <td>@Html.DisplayFor(modelItem => item.contacts)</td>
             <td>
                 <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
                 <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |

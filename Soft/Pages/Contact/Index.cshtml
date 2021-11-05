@@ -11,7 +11,6 @@
             <th>@Html.DisplayNameFor(model => model.items[0].id)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].partyContactId)</th>
             <th></th>
         </tr>
     </thead>
@@ -22,7 +21,6 @@
             <td>@Html.DisplayFor(modelItem => item.id)</td>
             <td>@Html.DisplayFor(modelItem => item.email)</td>
             <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
-            <td>@Html.DisplayFor(modelItem => item.partyContactId)</td>
             <td>
                 <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
                 <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |

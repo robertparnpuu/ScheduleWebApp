@@ -12,9 +12,5 @@ namespace Facade
         [Required]
         [Display(Name = "Phone Nr")]
         public string phoneNumber { get; set; }
-
-        [Required]
-        [Display(Name = "PartyContactId")]  
-        public string partyContactId { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace PageModels
         {
             ContactView view = new ContactView();
             Copy.Members(obj, view);
+
             return view;
         }
 

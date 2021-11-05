@@ -18,7 +18,7 @@ namespace Domain
 
         public string firstName => Data?.firstName ?? "-";
         public string lastName => Data?.lastName ?? "-";
-        public DateTime? dateOfBirth => Data?.dateOfBirth;
+        public DateTime? dateOfBirth => Data?.dateOfBirth ?? DateTime.MinValue;
         public string idCode => Data?.idCode ?? "-";
         public string roleAssignmentId => Data?.roleAssignmentId ?? "-";
 

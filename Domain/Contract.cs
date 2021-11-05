@@ -28,8 +28,8 @@ namespace Domain
         public Department contractDepartment => lazyReadDepartment.Value;
         internal Lazy<Department> lazyReadDepartment { get; }
 
-        public DateTime validFrom => Data.validFrom;
-        public DateTime validTo => Data.validTo;
+        public DateTime validFrom => Data?.validFrom ?? DateTime.MinValue;
+        public DateTime validTo => Data?.validTo?? DateTime.MinValue;
 
 
     }

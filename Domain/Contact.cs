@@ -12,5 +12,7 @@ namespace Domain
         }
         public string email => Data?.email ?? "-";
         public string phoneNumber => Data?.phoneNumber ?? "-";
+
+        public string contacts => $"{email}, {phoneNumber}";
     }
 }

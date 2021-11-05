@@ -14,6 +14,10 @@ namespace Facade
         [Required]
         [Display(Name = "AddressId")]
         public string addressId { get; set; }
+        [Display(Name = "Address")]
+        public string fullAddress { get; set; }
+        [Display(Name = "Contacts")]
+        public string contacts { get; set; }
     }
 }
 

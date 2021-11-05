@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Aids;
+﻿using Aids;
 using Data;
 using Domain;
 using Domain.Common;

@@ -17,7 +17,8 @@ namespace Domain
             lazyReadAddress = GetLazy<Address, IAddressRepo>(x => x?.GetEntity(addressId));
         }
 
-        public string partyId => Data?.partyId ?? "-";
+        public string contact => partyContactContact.contacts;
+        public string fullAddress => partyContactAddress.fullAddress;
 
         public string contactId => Data?.contactId ?? "-";
         public Contact partyContactContact => lazyReadContact.Value;
@@ -26,6 +27,10 @@ namespace Domain
         public string addressId => Data?.addressId ?? "-";
         public Address partyContactAddress => lazyReadAddress.Value;
         internal Lazy<Address> lazyReadAddress { get; }
+
+        public string partyId => Data?.partyId ?? "-";
+        public Address partyContactParty => lazyReadParty.Value;
+        internal Lazy<Address> lazyReadParty { get; }
 
     }
 }

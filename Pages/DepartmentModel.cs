@@ -19,8 +19,8 @@ namespace PageModels
         {
             DepartmentView view = new DepartmentView();
             Copy.Members(obj, view);
-            view.departmentEmail = obj.departmentContact?.email;
-            view.departmentPhoneNr = obj.departmentContact?.phoneNumber;
+            view.departmentEmail = obj?.departmentContact?.email;
+            view.departmentPhoneNr = obj?.departmentContact?.phoneNumber;
             return view;
         }
 

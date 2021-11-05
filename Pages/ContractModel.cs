@@ -21,9 +21,9 @@ namespace PageModels
         {
             ContractView view = new ContractView();
             Copy.Members(obj, view);
-            view.occupationName = obj.occupation?.name;
-            view.personName = obj.person?.fullName;
-            view.departmentName = obj.department?.name;
+            view.occupationName = obj?.occupation?.name;
+            view.personName = obj?.person?.fullName;
+            view.departmentName = obj?.department?.name;
             return view;
         }
 

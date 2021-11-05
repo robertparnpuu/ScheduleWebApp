@@ -16,7 +16,7 @@ namespace Domain
 
         public string email => Data?.email ?? "-";
         public string phoneNumber => Data?.phoneNumber ?? "-";
-        public string fullContact => $"{email}, {phoneNumber}";
+        public string fullContact => $"{email}, {phoneNumber}" ?? "-";
 
         public string addressId => Data?.addressId ?? "-";
         public Address contactAddress => lazyReadAddress.Value;

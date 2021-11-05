@@ -15,9 +15,7 @@ namespace Tests.Facade
         [TestMethod]
         public void IdCodeTest() => IsProperty<string>(nameof(obj.idCode));
         [TestMethod]
-        public void ContactIdTest() => IsProperty<string>(nameof(obj.contactId));
-        [TestMethod]
-        public void FullContactTest() => IsProperty<string>(nameof(obj.fullContact));
+        public void PartyContactIdTest() => IsProperty<string>(nameof(obj.partyContactId));
         [TestMethod]
         public void DateOfBirthTest() => IsProperty<DateTime>(nameof(obj.dateOfBirth));
     }

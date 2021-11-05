@@ -8,17 +8,12 @@ namespace Tests.Domain
     [TestClass]
     public class ContactEntityTests : BaseEntityTests<Contact, ContactData>
     {
-        [TestMethod]
-        public void ApartmentNumberTest() => isReadOnlyProperty(obj.Data.email);
 
         [TestMethod]
-        public void StreetNameTest() => isReadOnlyProperty(obj.Data.phoneNumber);
-
+        public void PartyContactIdTest() => isReadOnlyProperty(obj.Data.partyContactId);
         [TestMethod]
-        public void HouseNumberTest() => isReadOnlyProperty(obj.Data.addressId);
-
+        public void EmailTest() => isReadOnlyProperty(obj.Data.email);
         [TestMethod]
-        public void LazyReadAddressTest() => LazyTest(() => obj.lazyReadAddress.IsValueCreated,
-        () => obj.contactAddress);
+        public void PhoneNumberTest() => isReadOnlyProperty(obj.Data.phoneNumber);
     }
 }

@@ -26,12 +26,12 @@
   <Class Name="Data.ContactData" Collapsed="true">
     <Position X="5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>ContactData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.ContractData" Collapsed="true">
-    <Position X="7.25" Y="2" Width="1.5" />
+    <Position X="9.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAIAAAAAAIAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>ContractData.cs</FileName>
@@ -40,7 +40,7 @@
   <Class Name="Data.PersonData" Collapsed="true">
     <Position X="7.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAAAAAAAQAAAAAAAAAACAAQAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAAACAAQAAA=</HashCode>
       <FileName>PersonData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -105,6 +105,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDayData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.ContactTypeData" Collapsed="true">
+    <Position X="2.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContactTypeData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.PartyContactData" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>PartyContactData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

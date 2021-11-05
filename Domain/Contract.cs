@@ -17,15 +17,15 @@ namespace Domain
         }
 
         public string occupationId => Data?.occupationId ?? "-";
-        public Occupation occupation => lazyReadOccupation.Value;
+        public Occupation contractOccupation => lazyReadOccupation.Value;
         internal Lazy<Occupation> lazyReadOccupation { get; }
 
         public string personId => Data.personId ?? "-";
-        public Person person => lazyReadPerson.Value;
+        public Person contractPerson => lazyReadPerson.Value;
         internal Lazy<Person> lazyReadPerson { get; }
 
         public string departmentId => Data?.departmentId ?? "-";
-        public Department department => lazyReadDepartment.Value;
+        public Department contractDepartment => lazyReadDepartment.Value;
         internal Lazy<Department> lazyReadDepartment { get; }
 
         public DateTime validFrom => Data.validFrom;

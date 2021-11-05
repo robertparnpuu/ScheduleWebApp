@@ -16,14 +16,14 @@ namespace Domain
         }
 
         public string personId => Data?.personId ?? "-";
-        public Person person => lazyReadPerson.Value;
+        public Person shiftAssignmentPerson => lazyReadPerson.Value;
         internal Lazy<Person> lazyReadPerson { get; }
 
         public DateTime startTime => Data.startTime;
         public DateTime endTime => Data.endTime;
 
         public string locationId => Data?.locationId ?? "-";
-        public Location location => lazyReadLocation.Value;
+        public Location shiftAssignmentLocation => lazyReadLocation.Value;
         internal Lazy<Location> lazyReadLocation { get; }
     }
 }

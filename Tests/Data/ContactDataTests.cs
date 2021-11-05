@@ -8,11 +8,12 @@ namespace Tests.Data
     [TestClass]
     public class ContactDataTests:IdBaseDataTests<ContactData,BaseEntityData>
     {
+
+        [TestMethod]
+        public void PartyContactIdTest() => IsProperty<string>(nameof(obj.partyContactId));
         [TestMethod]
         public void EmailTest() => IsProperty<string>(nameof(obj.email));
         [TestMethod]
         public void PhoneNumberTest() => IsProperty<string>(nameof(obj.phoneNumber));
-        [TestMethod]
-        public void AddressTest() => IsProperty<string>(nameof(obj.addressId));
     }
 }

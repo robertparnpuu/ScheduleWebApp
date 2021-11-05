@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aids;
@@ -42,6 +41,13 @@ namespace Tests.Infra
             mockRepo.dbSet.RemoveRange(mockRepo.dbSet);
             mockRepo.db.SaveChanges();
         }
+        [TestMethod]
+        public void CanCreateEntity()
+            => Assert.IsInstanceOfType(new TEntity(), typeof(TEntity));
+        [TestMethod]
+        public void CanCreateData()
+            => Assert.IsInstanceOfType(new TData(), typeof(TData));
+
         [TestMethod]
         public async Task AddAsyncTest()
         {

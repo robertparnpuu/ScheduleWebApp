@@ -9,6 +9,6 @@ namespace Tests.Data
     public class LocationDataTests:NamedBaseDataTests<LocationData, NamedEntityData>
     {
         [TestMethod]
-        public void ContactTest() => IsProperty<string>(nameof(obj.contactId));
+        public void ContactTest() => IsProperty<string>(nameof(obj.partyContactId));
     }
 }

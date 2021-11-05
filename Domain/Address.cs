@@ -1,5 +1,4 @@
-﻿using System;
-using Data;
+﻿using Data;
 using Domain.Common;
 
 namespace Domain
@@ -16,6 +15,6 @@ namespace Domain
         public string zipCode => Data?.zipCode ?? "-";
         public string region => Data?.region ?? "-";
         public string country => Data?.country ?? "-";
-        public string fullAddress => $"{streetName} {houseNumber}, {zipCode} {city}";
+        public string partyContactId => Data?.partyContactId ?? "-";
     }
 }

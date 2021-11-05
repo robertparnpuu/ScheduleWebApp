@@ -19,10 +19,10 @@ namespace Tests.Domain
 
         [TestMethod]
         public void LazyReadPersonTest() => LazyTest(() => obj.lazyReadPerson.IsValueCreated,
-        () => obj.person);
+        () => obj.shiftAssignmentPerson);
 
         [TestMethod]
         public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,
-        () => obj.location);
+        () => obj.shiftAssignmentLocation);
     }
 }

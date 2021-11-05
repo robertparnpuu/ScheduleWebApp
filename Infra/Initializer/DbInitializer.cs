@@ -64,30 +64,22 @@ namespace Infra.Initializer
             new ContactData()
             {
                 id = "contactId1",
-                email = "contact1@hot.ee",
-                phoneNumber = "56111111",
-                addressId = "addressId1"
+            //addressId = "addressId1"
             },
             new ContactData()
                 {
                 id = "contactId2",
-                email = "contact2@hot.ee",
-                phoneNumber = "56222222",
-                addressId = "addressId1"
+                //addressId = "addressId1"
             },
             new ContactData()
             {
                 id = "contactId3",
-                email = "contact3@hot.ee",
-                phoneNumber = "56333333",
-                addressId = "addressId2"
+            //addressId = "addressId2"
             },
             new ContactData()
             {
                 id = "contactId4",
-                email = "contact4@hot.ee",
-                phoneNumber = "56444444",
-                addressId = "addressId1"
+               // addressId = "addressId1"
             }
             };
             dataBase.Contacts.AddRange(contacts);
@@ -104,19 +96,19 @@ namespace Infra.Initializer
             {
                 id = "departmentId1",
                 name = "Müük",
-                contactId = "contactId1"
+                partyContactId = "partyContactId1"
             },
             new DepartmentData()
             {
                 id = "departmentId2",
                 name = "Finants",
-                contactId = "contactId2"
+                partyContactId = "partyContactId2"
             },
             new DepartmentData()
             {
                 id = "departmentId3",
                 name = "Reklaam",
-                contactId = "contactId3"
+                partyContactId = "partyContactId3"
             }
             };
             dataBase.Departments.AddRange(departments);
@@ -132,19 +124,19 @@ namespace Infra.Initializer
             {
                 id = "locationId1",
                 name = "Mustamäe ladu",
-                contactId = "contactId3"
+                partyContactId = "partyContactId3"
             },
             new LocationData()
             {
                 id = "locationId2",
                 name = "Lasnamäe ladu",
-                contactId = "contactId3"
+                partyContactId = "partyContactId3"
             },
             new LocationData()
             {
                 id = "locationId3",
                 name = "Õismäe restoran",
-                contactId = "contactId4"
+                partyContactId = "partyContactId4"
             }
             };
             dataBase.Locations.AddRange(locations);
@@ -194,7 +186,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId1",
             idCode = "39000000000",
             dateOfBirth =DateTime.Parse("2021-04-01"),
-            contactId = "contactId1"
             },
             new PersonData
             {
@@ -204,7 +195,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId1",
             idCode = "39111111111",
             dateOfBirth =DateTime.Parse("2020-05-02"),
-            contactId = "contactId2"
             },
             new PersonData
             {
@@ -214,7 +204,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId2",
             idCode = "39222222222",
             dateOfBirth =DateTime.Parse("2019-06-03"),
-            contactId = "contactId2"
             },
             new PersonData
             {
@@ -224,7 +213,6 @@ namespace Infra.Initializer
             roleAssignmentId = "roleAssignmentId2",
             idCode = "39333333333",
             dateOfBirth =DateTime.Parse("2018-07-04"),
-            contactId = "contactId3"
             }
             };
             dataBase.Persons.AddRange(people);

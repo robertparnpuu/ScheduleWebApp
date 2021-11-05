@@ -2,4 +2,4 @@
 @model PageModels.DepartmentModel
 
 @Html.Editor(model => model.item.name)
-@Html.Select(model => model.item.contactId, Model.Contacts, "-- Select contact --")
+@Html.Select(model => model.item.partyContactId, Model.PartyContacts, "-- Select contact --")

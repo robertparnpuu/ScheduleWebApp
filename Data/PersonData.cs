@@ -10,6 +10,6 @@ namespace Data
         public string roleAssignmentId {  get; set; }
         public string idCode { get; set; }
         public DateTime dateOfBirth { get; set;  }
-        public string contactId { get; set; }
+        public string partyContactId { get; set; }
     }
 }

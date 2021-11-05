@@ -21,7 +21,6 @@ namespace PageModels
         {
             ContactView view = new ContactView();
             Copy.Members(obj, view);
-            view.fullAddress = obj?.contactAddress?.fullAddress;
             return view;
         }
 
@@ -32,13 +31,6 @@ namespace PageModels
             return new Contact(data);
         }
 
-        public SelectList Addresses
-        { 
-            get
-            {
-                var list = new GetRepo().Instance<IAddressRepo>().GetById();
-                return new SelectList(list, "id", "fullAddress", item?.addressId);
-            }
-        }
+       
     }
 }

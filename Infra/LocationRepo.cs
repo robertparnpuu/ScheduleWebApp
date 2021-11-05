@@ -11,5 +11,6 @@ namespace Infra
 
         public override Location ToEntity(LocationData d) => new(d);
         public override LocationData ToData(Location e) => e?.Data ?? new LocationData();
+
     }
 }

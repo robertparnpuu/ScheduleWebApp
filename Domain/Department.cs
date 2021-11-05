@@ -20,7 +20,5 @@ namespace Domain
         public PartyContact departmentPartyContact => lazyReadPartyContact.Value;
         internal Lazy<PartyContact> lazyReadPartyContact { get; }
 
-        //TODO: LIST
-        //public List<Worker> workers;
     }
 }

@@ -15,6 +15,6 @@ namespace Domain
         public string zipCode => Data?.zipCode ?? "-";
         public string region => Data?.region ?? "-";
         public string country => Data?.country ?? "-";
-        public string fullAddress => $"{streetName} {houseNumber}-{apartmentNumber}, {zipCode}, {city},{region},{country}";
+        public string partyContactId => Data?.partyContactId ?? "-";
     }
 }

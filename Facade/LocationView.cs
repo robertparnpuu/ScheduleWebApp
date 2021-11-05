@@ -9,10 +9,7 @@ namespace Facade
         [Display(Name = "Location name")]
         public string name { get; set; }
         [Required]
-        [Display(Name = "Contact")]
-        public string contactId { get; set; }
-        [Display(Name = "Contacts")]
-        public string fullContact { get; set; }
-
+        [Display(Name = "PartyContactId")]
+        public string partyContactId { get; set; }
     }
 }

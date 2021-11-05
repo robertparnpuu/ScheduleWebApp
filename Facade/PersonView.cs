@@ -6,8 +6,9 @@ namespace Facade
 {
     public class PersonView:BaseView
     {
-        [Display(Name = "Contact")]
-        public string contactId { get; set; }
+        [Required]
+        [Display(Name = "PartContactId")]
+        public string partyContactId { get; set; }
 
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "First name max length is 50 characters")]
@@ -31,7 +32,5 @@ namespace Facade
         [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
 
-        [Display(Name = "Contact")]
-        public string fullContact { get; set; }
     }
 }

@@ -28,6 +28,10 @@ namespace Facade
         [Required]
         [Display(Name = "Country")]
         public string country { get; set; }
+        [Required]
+        [Display(Name = "PartyContactId")]
+        public string partyContactID{ get; set; }
+
 
     }
 }

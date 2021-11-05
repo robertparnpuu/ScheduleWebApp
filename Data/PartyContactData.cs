@@ -6,5 +6,6 @@ namespace Data
     {
         public string personId { get; set; }
         public string contactId { get; set; }
+        public string addressId { get; set; }
     }
 }

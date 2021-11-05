@@ -7,7 +7,7 @@ namespace Facade
     public class PersonView:BaseView
     {
         [Required]
-        [Display(Name = "PartContactId")]
+        [Display(Name = "PartyContactId")]
         public string partyContactId { get; set; }
 
         [Required]

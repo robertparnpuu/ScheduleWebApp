@@ -29,13 +29,12 @@ namespace PageModels
             return new Person(data);
         }
 
-
-        public SelectList Contacts
+        public SelectList PartyContacts
         {
             get
             {
-                var list = new GetRepo().Instance<IContactRepo>().GetById();
-                return new SelectList(list, "id", "fullContact", item?.contactId);
+                var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
+                return new SelectList(list, "id", "id", item?.partyContactId);
             }
         }
     }

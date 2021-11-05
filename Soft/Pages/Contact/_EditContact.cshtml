@@ -1,6 +1,6 @@
 ﻿@using Core.Extensions
 @model PageModels.ContactModel
 
-@Html.Editor(model => model.item.contactTypeId)
-@Html.Editor(model => model.item.contactValue)
-@Html.Select(model => model.item.addressId, Model.Addresses, "-- Select Address --")
+@Html.Editor(model => model.item.email)
+@Html.Editor(model => model.item.phoneNumber)
+@Html.Editor(model => model.item.partyContactId)

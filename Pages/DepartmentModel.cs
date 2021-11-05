@@ -12,7 +12,6 @@ namespace PageModels
 {
     public class DepartmentModel : BaseModel<Department, DepartmentView>
     {
-        //TODO: Concurrency pls
         public DepartmentModel(IDepartmentRepo r, ApplicationDbContext context) : base(r, context) { }
 
         protected internal override DepartmentView ToView(Department obj)
@@ -29,12 +28,12 @@ namespace PageModels
             return new Department(data);
         }
 
-        public SelectList Contacts
+        public SelectList PartyContacts
         { 
             get
             {
-                var list = new GetRepo().Instance<IContactRepo>().GetById();
-                return new SelectList(list, "id", "email", item?.contactId);
+                var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
+                return new SelectList(list, "id", "id", item?.partyContactId);
             }
         }
     }

@@ -12,14 +12,12 @@ namespace PageModels
 {
     public class LocationModel : BaseModel<Location, LocationView>
     {
-        //TODO: Concurrency pls
         public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context) { }
 
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();
             Copy.Members(obj, view);
-            //view.fullAddress = obj.locationContact.contactAddress?.fullAddress;
             return view;
         }
 
@@ -30,12 +28,12 @@ namespace PageModels
             return new Location(data);
         }
 
-        public SelectList Contacts
+        public SelectList PartyContacts
         {
             get
             {
-                var list = new GetRepo().Instance<IContactRepo>().GetById();
-                return new SelectList(list, "id", "fullContact", item?.contactId);
+                var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
+                return new SelectList(list, "id", "id", item?.partyContactId);
             }
         }
     }

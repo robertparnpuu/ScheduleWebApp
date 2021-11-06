@@ -20,8 +20,9 @@ namespace PageModels
         [BindProperty]
         public List<StandardShiftView> standardShifts { get; set; }
 
-        [BindProperty]
-        public ShiftAssignmentView shiftAssignment { get; set; }
+        //Causes ModelState invalid
+        //[BindProperty]
+        //public ShiftAssignmentView shiftAssignment { get; set; }
 
         [BindProperty]
         public ScheduleView scheduleView {  get; set; }
@@ -44,16 +45,28 @@ namespace PageModels
             scheduleView = new ScheduleView();
             var obj = ssRepo.GetEntity(ssId);
             scheduleView.locationId = obj.locationId;
+
+            VMToSession();
         }
 
         public async Task<IActionResult> OnPostSelectDateAsync()
         {
-            
-            return RedirectToPage("./ScheduleTEST");
+            //View topib scheduleviewi, ning kasutame VMToSession et scheduleViewist teha edasi antav Json sessionis
+            //Hetkel ei leidnud moodust sessionit ise muuta, ehk topin olemasolevad viewi ja siis kirjutan sessioni yle
+            scheduleView.locationId = SessionHelper.GetObjectFromJson<ScheduleView>(HttpContext.Session, "scheduleView")
+            .locationId;
+            VMToSession();
+            return RedirectToPage("ScheduleTEST", new {handler = "ScheduleTEST"});
+        }
+
+        private void VMToSession()
+        {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "scheduleView", scheduleView);
         }
 
         public async Task OnGetScheduleTESTAsync()
         {
+            scheduleView = SessionHelper.GetObjectFromJson<ScheduleView>(HttpContext.Session, "scheduleView");
         }
 
         protected internal StandardShiftView SSToView(StandardShift obj)

@@ -11,30 +11,30 @@ namespace Facade
 {
     public class ScheduleView
     {
-        [Required]
-        [Display(Name = "Person")]
-        public string personId { get; set; }
-        [Required]
-        [Display(Name = "Location name")]
+        //[Required]
+        //[Display(Name = "Person")]
+        //public string personId { get; set; }
+        //[Required]
+        //[Display(Name = "Location name")]
         public string locationId { get; set; }
 
-        [Display(Name = "Person name")]
+        //[Display(Name = "Person name")]
         public string personName { get; set; }
 
-        [Display(Name = "Location")]
+        //[Display(Name = "Location")]
         public string locationName { get; set; }
 
-        [Display(Name = "Occupation")]
+        //[Display(Name = "Occupation")]
         public string occupationName { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Shift start time")]
+        //[Required]
+        //[DataType(DataType.DateTime)]
+        //[Display(Name = "Shift start time")]
         public DateTime startTime { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Shift end time")]
+        //[Required]
+        //[DataType(DataType.DateTime)]
+        //[Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
 
         [DataType(DataType.Date)]

@@ -22,7 +22,7 @@ namespace Soft
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
-            
+            services.AddSession();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -72,7 +72,7 @@ namespace Soft
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

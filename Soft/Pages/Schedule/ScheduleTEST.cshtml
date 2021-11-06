@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.ScheduleModel
 
 @{
@@ -14,5 +15,6 @@
         <th>@Html.DisplayFor(model => model.scheduleView.dateChoice)</th>
     </tr>
     </thead>
-    
 </table>
+@Html.Show(model => model.scheduleView.locationId)
+@Html.Show(model => model.scheduleView.dateChoice)

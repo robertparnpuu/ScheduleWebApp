@@ -18,8 +18,7 @@ namespace Infra.Migrations
                     city = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     zipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     region = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    country = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    country = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,8 +70,7 @@ namespace Infra.Migrations
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

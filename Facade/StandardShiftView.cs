@@ -22,13 +22,11 @@ namespace Facade
 
         [Display(Name = "Occupation")]
         public string occupationId { get; set; }
-
-        [Display(Name = "Location")]
-        public string locationId { get; set; }
-
         [Display(Name = "Occupation")]
         public string occupationName { get; set; }
-
+        
+        [Display(Name = "Location")]
+        public string locationId { get; set; }
         [Display(Name = "Location")]
         public string locationName { get; set; }
 

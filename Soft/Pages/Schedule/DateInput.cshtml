@@ -1,0 +1,21 @@
+﻿@page
+@using Core.Extensions
+@model PageModels.ScheduleModel
+
+@{
+    Layout = "_Layout";
+}
+
+@*<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            
+    @Html.Editor(model => model.scheduleView.dateChoice)
+
+   
+    <a asp-page="ScheduleTEST" asp-route-handler="ScheduleTEST">               
+        <input type="submit" value="Choose date" class="btn btn-dark" />
+    </a>
+    @*<div>
+        <a asp-page="ScheduleTEST" asp-route-handler="ScheduleTEST">Choose date</a>
+    </div>*@
+@*</form>*@

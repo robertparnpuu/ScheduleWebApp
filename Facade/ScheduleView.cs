@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Core;
 using Facade.Common;
 
 namespace Facade
 {
-    public class ShiftAssignmentView:BaseView
+    public class ScheduleView
     {
         [Required]
         [Display(Name = "Person")]
@@ -31,5 +36,9 @@ namespace Facade
         [DataType(DataType.DateTime)]
         [Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Date")]
+        public DateTime dateChoice { get; set; }
     }
 }

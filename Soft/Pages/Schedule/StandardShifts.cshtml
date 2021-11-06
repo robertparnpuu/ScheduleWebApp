@@ -1,0 +1,34 @@
+﻿@page
+@model PageModels.ScheduleModel
+
+@{
+    Layout = "_Index";
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.standardShifts[0].name)</th>
+        <th>@Html.DisplayNameFor(model => model.standardShifts[0].startTime)</th>
+        <th>@Html.DisplayNameFor(model => model.standardShifts[0].endTime)</th>
+        <th>@Html.DisplayNameFor(model => model.standardShifts[0].locationName)</th>
+        <th>@Html.DisplayNameFor(model => model.standardShifts[0].occupationName)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.standardShifts)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.name)</td>
+            <td>@Html.DisplayFor(modelItem => item.startTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.endTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.locationName)</td>
+            <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
+            <td>
+                <a asp-page="./DateInput" asp-route-handler="SelectDate" asp-route-ssId="@item.id">Select</a> |
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

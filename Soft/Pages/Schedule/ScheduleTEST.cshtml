@@ -1,0 +1,18 @@
+﻿@page
+@model PageModels.ScheduleModel
+
+@{
+    Layout = "_Index";
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.scheduleView.locationId)</th>
+        <th>@Html.DisplayFor(model => model.scheduleView.locationId)</th>
+        <th>@Html.DisplayNameFor(model => model.scheduleView.dateChoice)</th>
+        <th>@Html.DisplayFor(model => model.scheduleView.dateChoice)</th>
+    </tr>
+    </thead>
+    
+</table>

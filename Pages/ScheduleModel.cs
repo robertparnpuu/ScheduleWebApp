@@ -8,13 +8,14 @@ using Domain;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PageModels.Common;
 
 namespace PageModels
 {
-    public class ScheduleModel : BaseModel
+    public class ScheduleModel : PageModel
     {
         [BindProperty]
         public List<StandardShiftView> standardShifts { get; set; }
@@ -27,6 +28,7 @@ namespace PageModels
 
         protected readonly IRepo<StandardShift> ssRepo;
         protected readonly ApplicationDbContext _context;
+        
         public ScheduleModel(IStandardShiftRepo sShiftRepo, ApplicationDbContext context)
         {
             ssRepo = sShiftRepo;
@@ -46,6 +48,7 @@ namespace PageModels
 
         public async Task<IActionResult> OnPostSelectDateAsync()
         {
+            
             return RedirectToPage("./ScheduleTEST");
         }
 

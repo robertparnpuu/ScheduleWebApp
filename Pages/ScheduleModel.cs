@@ -20,6 +20,8 @@ namespace PageModels
     {
         [BindProperty]
         public List<StandardShiftView> standardShifts { get; set; }
+        [BindProperty]
+        public List<PersonView> people { get; set; }
 
         //Causes ModelState invalid
         //[BindProperty]
@@ -29,11 +31,13 @@ namespace PageModels
         public ShiftAssignmentView shiftAssignment {  get; set; }
 
         protected readonly IRepo<StandardShift> ssRepo;
+        protected readonly IRepo<Person> pRepo;
         protected readonly ApplicationDbContext _context;
         
-        public ScheduleModel(IStandardShiftRepo sShiftRepo, ApplicationDbContext context)
+        public ScheduleModel(IStandardShiftRepo sShiftRepo, IPersonRepo personRepo, ApplicationDbContext context)
         {
             ssRepo = sShiftRepo;
+            pRepo = personRepo;
             _context = context;
         }
         public async Task OnGetIndexAsync()
@@ -65,6 +69,18 @@ namespace PageModels
         public async Task OnGetScheduleTESTAsync()
         {
             shiftAssignment = SessionHelper.GetObjectFromJson<ShiftAssignmentView>(HttpContext.Session, "shiftAssignment");
+            people = (await pRepo.GetEntityListAsync()).Select(PersonToView).ToList();
+        }
+
+        public async Task OnGetConfirmAssignmentAsync(string pId)
+        {
+            shiftAssignment = new ShiftAssignmentView();
+            ObjToShiftAssignmentView(SessionHelper.GetObjectFromJson<ShiftAssignmentView>(HttpContext.Session, "shiftAssignment"));
+            shiftAssignment.personId = pId;
+            PersonView person = PersonToView(await pRepo.GetEntityAsync(pId));
+            shiftAssignment.personName = person.fullName;
+
+            VMToSession();
         }
 
         internal DateTime CombineDateAndTime(DateTime date, DateTime time) => 
@@ -100,6 +116,13 @@ namespace PageModels
             Copy.Members(obj, view);
             view.locationName = obj?.shiftLocation?.name;
             view.occupationName = obj?.shiftOccupation?.name;
+            return view;
+        }
+
+        protected internal PersonView PersonToView(Person obj)
+        {
+            PersonView view = new PersonView();
+            Copy.Members(obj, view);
             return view;
         }
     }

@@ -9,13 +9,26 @@
 <table class="table">
     <thead>
     <tr>
-        @*<th>@Html.DisplayNameFor(model => model.scheduleView.locationId)</th>
-        <th>@Html.DisplayFor(model => model.scheduleView.locationId)</th>
-        <th>@Html.DisplayNameFor(model => model.scheduleView.dateChoice)</th>
-        <th>@Html.DisplayFor(model => model.scheduleView.dateChoice)</th>*@
+        <th>@Html.DisplayNameFor(model => model.people[0].fullName)</th>
+        <th>@Html.DisplayNameFor(model => model.people[0].fullContact)</th>
+        <th></th>
     </tr>
     </thead>
+    <tbody>
+    @foreach (var item in Model.people)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.fullName)</td>
+            <td>@Html.DisplayFor(modelItem => item.fullContact)</td>
+            <td>
+                <a asp-page="./ConfirmAssignment" asp-route-handler="ConfirmAssignment" asp-route-pId="@item.id">Select</a>
+            </td>
+        </tr>
+    }
+    </tbody>
 </table>
+
+
 @Html.Show(model => model.shiftAssignment.locationName)
 @Html.Show(model => model.shiftAssignment.occupationName)
 @Html.Show(model => model.shiftAssignment.startTime)

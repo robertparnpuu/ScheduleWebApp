@@ -34,8 +34,10 @@ namespace Facade
 
         [Display(Name = "Address")]
         public string fullAddress { get; set; }
-        [Display(Name = "Contacts")]
+        [Display(Name = "Contact")]
         public string fullContact { get; set; }
+        [Display(Name = "Name")]
+        public string fullName { get; set; }
 
     }
 }

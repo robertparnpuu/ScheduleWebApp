@@ -1,0 +1,14 @@
+﻿@page
+@using Core.Extensions
+@model PageModels.ScheduleModel
+
+@{
+    Layout = "_Layout";
+}
+
+@Html.Show(model => model.shiftAssignment.locationName)
+@Html.Show(model => model.shiftAssignment.occupationName)
+@Html.Show(model => model.shiftAssignment.personName)
+@Html.Show(model => model.shiftAssignment.startTime)
+@Html.Show(model => model.shiftAssignment.endTime)
+@Html.Show(model => model.shiftAssignment.dateChoice)

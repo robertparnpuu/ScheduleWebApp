@@ -9,12 +9,15 @@
 <table class="table">
     <thead>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.scheduleView.locationId)</th>
+        @*<th>@Html.DisplayNameFor(model => model.scheduleView.locationId)</th>
         <th>@Html.DisplayFor(model => model.scheduleView.locationId)</th>
         <th>@Html.DisplayNameFor(model => model.scheduleView.dateChoice)</th>
-        <th>@Html.DisplayFor(model => model.scheduleView.dateChoice)</th>
+        <th>@Html.DisplayFor(model => model.scheduleView.dateChoice)</th>*@
     </tr>
     </thead>
 </table>
-@Html.Show(model => model.scheduleView.locationId)
-@Html.Show(model => model.scheduleView.dateChoice)
+@Html.Show(model => model.shiftAssignment.locationName)
+@Html.Show(model => model.shiftAssignment.occupationName)
+@Html.Show(model => model.shiftAssignment.startTime)
+@Html.Show(model => model.shiftAssignment.endTime)
+@Html.Show(model => model.shiftAssignment.dateChoice)

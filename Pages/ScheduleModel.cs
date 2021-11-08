@@ -48,6 +48,7 @@ namespace PageModels
         public async Task OnGetSelectDateAsync(string ssId)
         {
             shiftAssignment = new ShiftAssignmentView();
+            shiftAssignment.dateChoice = DateTime.Now;
             var obj = ssRepo.GetEntity(ssId);
             ObjToShiftAssignmentView(obj);
 

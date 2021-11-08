@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
-using System.Text;
 using System.Threading.Tasks;
 using Aids;
 using Domain;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PageModels.Common;
 
 namespace PageModels
 {
@@ -22,10 +18,6 @@ namespace PageModels
         public List<StandardShiftView> standardShifts { get; set; }
         [BindProperty]
         public List<PersonView> people { get; set; }
-
-        //Causes ModelState invalid
-        //[BindProperty]
-        //public ShiftAssignmentView shiftAssignment { get; set; }
 
         [BindProperty]
         public ShiftAssignmentView shiftAssignment {  get; set; }
@@ -40,17 +32,15 @@ namespace PageModels
             pRepo = personRepo;
             _context = context;
         }
-        public async Task OnGetIndexAsync()
-        {
-            standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
-        }
+        public async Task OnGetIndexAsync() => standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
+        
 
         public async Task OnGetSelectDateAsync(string ssId)
         {
             shiftAssignment = new ShiftAssignmentView();
             shiftAssignment.dateChoice = DateTime.Now;
-            var obj = ssRepo.GetEntity(ssId);
-            ObjToShiftAssignmentView(obj);
+            StandardShiftView ssView = SSToView(await ssRepo.GetEntityAsync(ssId));
+            Copy.Members(ssView, shiftAssignment, "dateChoice");
 
             VMToSession();
         }
@@ -60,7 +50,7 @@ namespace PageModels
             //View topib scheduleviewi, ning kasutame VMToSession et scheduleViewist teha edasi antav Json sessionis
             //Hetkel ei leidnud moodust sessionit ise muuta, ehk topin olemasolevad viewi ja siis kirjutan sessioni yle
             
-            ObjToShiftAssignmentView(SessionHelper.GetObjectFromJson<ShiftAssignmentView>(HttpContext.Session, "shiftAssignment"));
+            Copy.Members(GetSessionObject("shiftAssignment"), shiftAssignment, "dateChoice");
             shiftAssignment.startTime = CombineDateAndTime(shiftAssignment.dateChoice, shiftAssignment.startTime);
             shiftAssignment.endTime = CombineDateAndTime(shiftAssignment.dateChoice, shiftAssignment.endTime);
             VMToSession();
@@ -69,47 +59,31 @@ namespace PageModels
 
         public async Task OnGetScheduleTESTAsync()
         {
-            shiftAssignment = SessionHelper.GetObjectFromJson<ShiftAssignmentView>(HttpContext.Session, "shiftAssignment");
+            shiftAssignment = GetSessionObject("shiftAssignment");
             people = (await pRepo.GetEntityListAsync()).Select(PersonToView).ToList();
         }
 
         public async Task OnGetConfirmAssignmentAsync(string pId)
         {
             shiftAssignment = new ShiftAssignmentView();
-            ObjToShiftAssignmentView(SessionHelper.GetObjectFromJson<ShiftAssignmentView>(HttpContext.Session, "shiftAssignment"));
-            shiftAssignment.personId = pId;
+            Copy.Members(GetSessionObject("shiftAssignment"), shiftAssignment, "dateChoice");
             PersonView person = PersonToView(await pRepo.GetEntityAsync(pId));
+            shiftAssignment.personId = person.id;
             shiftAssignment.personName = person.fullName;
 
             VMToSession();
         }
 
-        internal DateTime CombineDateAndTime(DateTime date, DateTime time) => 
-        new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
-        
+        protected internal void VMToSession() =>
+        HttpContext.Session.SetObjectAsJson("shiftAssignment", shiftAssignment);
 
-        private void ObjToShiftAssignmentView(dynamic obj)
-        {
-            //veri bäd pls refactor
-            shiftAssignment.locationId = obj.locationId;
-            shiftAssignment.occupationId = obj.occupationId;
+        protected internal ShiftAssignmentView GetSessionObject(string key) =>
+        HttpContext.Session.GetObjectFromJson<ShiftAssignmentView>(key);
 
-            shiftAssignment.locationName = obj.GetType() == typeof(ShiftAssignmentView)
-            ? obj.locationName
-            : obj.shiftLocation.name;
+        protected internal DateTime CombineDateAndTime(DateTime date, DateTime time) => 
+        new(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
 
-            shiftAssignment.occupationName = obj.GetType() == typeof(ShiftAssignmentView)
-            ? obj.occupationName
-            : obj.shiftOccupation.name;
-
-            shiftAssignment.startTime = obj.startTime;
-            shiftAssignment.endTime = obj.endTime;
-        }
-
-        private void VMToSession()
-        {
-            SessionHelper.SetObjectAsJson(HttpContext.Session, "shiftAssignment", shiftAssignment);
-        }
+        protected internal PersonView PersonToView(Person obj) => Copy.Members(obj, new PersonView());
 
         protected internal StandardShiftView SSToView(StandardShift obj)
         {
@@ -120,11 +94,5 @@ namespace PageModels
             return view;
         }
 
-        protected internal PersonView PersonToView(Person obj)
-        {
-            PersonView view = new PersonView();
-            Copy.Members(obj, view);
-            return view;
-        }
     }
 }

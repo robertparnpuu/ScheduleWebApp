@@ -13,7 +13,7 @@ namespace Facade
         [Display(Name = "Person")]
         public string personName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Location Id")]
         public string locationId { get; set; }
 

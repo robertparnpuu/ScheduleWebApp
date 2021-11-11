@@ -9,7 +9,6 @@ using Domain.Repos;
 using Facade;
 using Infra;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using PageModels.Common;
 
 namespace PageModels
@@ -20,30 +19,23 @@ namespace PageModels
         public List<StandardShiftView> standardShifts { get; set; }
         [BindProperty]
         public List<PersonView> people { get; set; }
-
-        //[BindProperty]
-        //public ShiftAssignmentView shiftAssignment {  get; set; }
-
+        
         protected readonly IRepo<StandardShift> ssRepo;
         protected readonly IRepo<Person> pRepo;
-        //protected readonly ApplicationDbContext _context;
         
         public ScheduleModel(IShiftAssignmentRepo r, IStandardShiftRepo sShiftRepo, IPersonRepo personRepo, ApplicationDbContext context) : base(r, context)
         {
-
             ssRepo = sShiftRepo;
             pRepo = personRepo;
-            //_context = context;
         }
         public async Task OnGetIndexAsync() => standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
         
-
         public async Task OnGetSelectDateAsync(string ssId)
         {
             item = new ShiftAssignmentView();
             item.dateChoice = DateTime.Now;
             StandardShiftView ssView = SSToView(await ssRepo.GetEntityAsync(ssId));
-            Copy.Members(ssView, item, "dateChoice");
+            Copy.Members(ssView, item, "dateChoice", "id");
 
             VMToSession();
         }
@@ -75,6 +67,20 @@ namespace PageModels
             item.personName = person.fullName;
 
             VMToSession();
+        }
+
+        public async Task<IActionResult> OnPostConfirmAssignmentAsync()
+        {
+            item = GetSessionObject("shiftAssignment");
+            ClearAndValidateItemModelState();
+            if (!ModelState.IsValid) return Page();
+            return await repo.AddAsync(ToEntity(item)) ? RedirectToPage("./StandardShifts", new { handler = "Index" }) : Page();
+        }
+
+        protected internal void ClearAndValidateItemModelState()
+        {
+            ModelState.Clear();
+            TryValidateModel(item);
         }
 
         protected internal void VMToSession() =>

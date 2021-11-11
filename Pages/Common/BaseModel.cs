@@ -38,38 +38,38 @@ namespace PageModels.Common
         public IList<TView> items { get; set; }
         protected internal abstract TView ToView(TEntity obj);
         protected internal abstract TEntity ToEntity(TView view);
-        internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
+        //internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
 
-        public virtual async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
-        public IActionResult OnGetCreate() => Page();
+        //public virtual async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
+        //public IActionResult OnGetCreate() => Page();
 
-        public async Task<IActionResult> OnGetDeleteAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
-        public async Task<IActionResult> OnGetDetailsAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
-        public async Task<IActionResult> OnGetEditAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
+        //public async Task<IActionResult> OnGetDeleteAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
+        //public async Task<IActionResult> OnGetDetailsAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
+        //public async Task<IActionResult> OnGetEditAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
 
-        protected internal virtual async Task<bool> GetItemAsync(string id)
-        {
-            if (id == null) return false;
+        //protected internal virtual async Task<bool> GetItemAsync(string id)
+        //{
+        //    if (id == null) return false;
 
-            item = ToView(await repo.GetEntityAsync(id));
+        //    item = ToView(await repo.GetEntityAsync(id));
 
-            return item != null && item.id != "Unspecified";
-        }
+        //    return item != null && item.id != "Unspecified";
+        //}
 
-        public virtual async Task<IActionResult> OnPostCreateAsync()
-        {
-            if (!ModelState.IsValid) return Page();
-            return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
-        }
-        public virtual async Task<IActionResult> OnPostDeleteAsync(string id)
-        {
-            if (id == null) return NotFound();
-            return await repo.DeleteAsync(id) ? IndexPage() : Page();
-        }
-        public virtual async Task<IActionResult> OnPostEditAsync()
-        {
-            if (!ModelState.IsValid) return Page();
-            return await repo.UpdateAsync(ToEntity(item)) ? IndexPage() : Page();
-        }
+        //public virtual async Task<IActionResult> OnPostCreateAsync()
+        //{
+        //    if (!ModelState.IsValid) return Page();
+        //    return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
+        //}
+        //public virtual async Task<IActionResult> OnPostDeleteAsync(string id)
+        //{
+        //    if (id == null) return NotFound();
+        //    return await repo.DeleteAsync(id) ? IndexPage() : Page();
+        //}
+        //public virtual async Task<IActionResult> OnPostEditAsync()
+        //{
+        //    if (!ModelState.IsValid) return Page();
+        //    return await repo.UpdateAsync(ToEntity(item)) ? IndexPage() : Page();
+        //}
     }
 }

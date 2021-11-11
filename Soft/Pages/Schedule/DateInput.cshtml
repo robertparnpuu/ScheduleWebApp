@@ -11,7 +11,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
-            @Html.Editor(model => model.shiftAssignment.dateChoice)
+            @Html.Editor(model => model.item.dateChoice)
             
             <a asp-page="./ScheduleTEST" asp-route-handler="ScheduleTEST">               
                 <input type="submit" value="Choose date" class="btn btn-dark" />

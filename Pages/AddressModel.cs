@@ -8,7 +8,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class AddressModel : BaseModel<Address, AddressView>
+    public class AddressModel : ViewedModel<Address, AddressView>
     {
         public AddressModel(IAddressRepo r, ApplicationDbContext context) : base(r, context) { }
 

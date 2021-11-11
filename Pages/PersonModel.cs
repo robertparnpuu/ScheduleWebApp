@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class PersonModel : BaseModel<Person, PersonView>
+    public class PersonModel : ViewedModel<Person, PersonView>
     {
         //TODO: Concurrency pls
         public PersonModel(IPersonRepo r, ApplicationDbContext context) : base(r, context) { }

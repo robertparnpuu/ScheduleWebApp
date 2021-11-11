@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class DepartmentModel : BaseModel<Department, DepartmentView>
+    public class DepartmentModel : ViewedModel<Department, DepartmentView>
     {
         public DepartmentModel(IDepartmentRepo r, ApplicationDbContext context) : base(r, context) { }
 

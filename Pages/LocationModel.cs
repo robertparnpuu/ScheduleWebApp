@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class LocationModel : BaseModel<Location, LocationView>
+    public class LocationModel : ViewedModel<Location, LocationView>
     {
 
         private ILocationRepo mockRepo;

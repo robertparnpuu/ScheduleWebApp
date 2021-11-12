@@ -10,6 +10,7 @@ namespace Tests.Model
     [TestClass] 
     public class ShiftAssignmentModelTests : ViewedModelTests<ShiftAssignment, ShiftAssignmentView>
     {
+        //Ebavalik kui kasutame peamiselt ikka ScheduleModelit?
         private class TestShiftAssignmentRepo : TestRepo<ShiftAssignment>, IShiftAssignmentRepo{ }
 
         [TestInitialize] public void TestInitialize()

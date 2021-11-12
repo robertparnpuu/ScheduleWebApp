@@ -46,8 +46,8 @@ namespace PageModels
             //Hetkel ei leidnud moodust sessionit ise muuta, ehk topin olemasolevad viewi ja siis kirjutan sessioni yle
             
             Copy.Members(GetSessionObject("shiftAssignment"), item, "dateChoice");
-            item.startTime = CombineDateAndTime(item.dateChoice, item.startTime);
-            item.endTime = CombineDateAndTime(item.dateChoice, item.endTime);
+            item.startTime = Combine.DateAndTime(item.dateChoice, item.startTime);
+            item.endTime = Combine.DateAndTime(item.dateChoice, item.endTime);
             VMToSession();
             return RedirectToPage("ChooseWorker", new {handler = "ChooseWorker" });
         }
@@ -88,9 +88,6 @@ namespace PageModels
 
         protected internal ShiftAssignmentView GetSessionObject(string key) =>
         HttpContext.Session.GetObjectFromJson<ShiftAssignmentView>(key);
-
-        protected internal DateTime CombineDateAndTime(DateTime date, DateTime time) => 
-        new(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
 
         protected internal PersonView PersonToView(Person obj) => Copy.Members(obj, new PersonView());
 

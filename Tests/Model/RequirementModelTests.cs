@@ -7,7 +7,7 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class RequirementModelTests : BaseModelTests<Requirement, RequirementView>
+    [TestClass] public class RequirementModelTests : ViewedModelTests<Requirement, RequirementView>
     {
         private class TestRequirementRepo : TestRepo<Requirement>, IRequirementRepo{ }
 

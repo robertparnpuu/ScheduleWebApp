@@ -7,7 +7,7 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class DepartmentModelTests : BaseModelTests<Department, DepartmentView>
+    [TestClass] public class DepartmentModelTests : ViewedModelTests<Department, DepartmentView>
     {
         private class TestDepartmentRepo : TestRepo<Department>, IDepartmentRepo{ }
 

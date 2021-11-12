@@ -26,7 +26,7 @@ namespace Core.Extensions {
         {
             return new()
             {
-                new HtmlString("<dd class=\"col-sm-2\">"),
+                new HtmlString("<dd class=\"col-sm-6\">"),
                 h.Raw(displayName),
                 new HtmlString("</dd>"),
                 new HtmlString("<dd class=\"col-sm-10\">"),

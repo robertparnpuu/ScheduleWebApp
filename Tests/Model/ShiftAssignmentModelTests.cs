@@ -7,7 +7,8 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class ShiftAssignmentModelTests : BaseModelTests<ShiftAssignment, ShiftAssignmentView>
+    [TestClass] 
+    public class ShiftAssignmentModelTests : ViewedModelTests<ShiftAssignment, ShiftAssignmentView>
     {
         private class TestShiftAssignmentRepo : TestRepo<ShiftAssignment>, IShiftAssignmentRepo{ }
 

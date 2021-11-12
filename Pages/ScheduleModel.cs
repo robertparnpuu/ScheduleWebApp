@@ -49,10 +49,10 @@ namespace PageModels
             item.startTime = CombineDateAndTime(item.dateChoice, item.startTime);
             item.endTime = CombineDateAndTime(item.dateChoice, item.endTime);
             VMToSession();
-            return RedirectToPage("ScheduleTEST", new {handler = "ScheduleTEST"});
+            return RedirectToPage("ChooseWorker", new {handler = "ChooseWorker" });
         }
 
-        public async Task OnGetScheduleTESTAsync()
+        public async Task OnGetChooseWorkerAsync()
         {
             item = GetSessionObject("shiftAssignment");
             people = (await pRepo.GetEntityListAsync()).Select(PersonToView).ToList();

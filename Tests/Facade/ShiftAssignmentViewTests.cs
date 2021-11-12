@@ -20,5 +20,7 @@ namespace Tests.Facade
         public void StartTimeTest() => IsProperty<DateTime>(nameof(obj.startTime));
         [TestMethod]
         public void EndTimeTest() => IsProperty<DateTime>(nameof(obj.endTime));
+        [TestMethod]
+        public void DateChoiceTest() => IsProperty<DateTime>(nameof(obj.dateChoice));
     }
 }

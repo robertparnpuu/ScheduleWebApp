@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Aids;
 using Data;
@@ -32,31 +33,19 @@ namespace PageModels
             Copy.Members(obj, view);
             return view;
         }
-
         protected internal PersonView PartyContactToView(Person obj)
         {
             PersonView view = ToView(obj);
             PartyContact p = partyContact.GetEntity(obj.partyContactId);
-            view = GetPartyContactToView(p, view);
+            Contact c = contact.GetEntity(obj.contactId);
+            Address a = address.GetEntity(obj.addressId);
+
+            view = Copy.Members(p, view, "id");
+            view = Copy.Members(c, view, "id");
+            view = Copy.Members(a, view, "id");
             return view;
         }
-
-        protected internal PersonView GetPartyContactToView(PartyContact objPartyContact, PersonView view)
-        {
-            Copy.Members(objPartyContact, view, "id");
-            return view;
-        }
-
-        protected internal override async Task<bool> GetItemAsync(string id)
-        {
-            if (id == null) return false;
-            Person w = (await repo.GetEntityAsync(id));
-            item = ToView(w);
-            PartyContact p = await partyContact.GetEntityAsync(item.partyContactId);
-            item = GetPartyContactToView(p, item);
-            return item != null && item.id != "Unspecified";
-        }
-
+        
         protected internal override Person ToEntity(PersonView view)
         {
             if (view is null) return null;
@@ -77,8 +66,6 @@ namespace PageModels
             if (view is null) return null;
             var data = Copy.Members(view, new ContactData(), "id");
             data.id = item.contactId;
-            //data.email = item.personEmail;
-            //data.phoneNumber = item.personPhoneNumber;
             return new Contact(data);
         }
         protected internal Address ToEntityAddress(PersonView view)
@@ -89,14 +76,14 @@ namespace PageModels
             return new Address(data);
         }
 
-        public SelectList PartyContacts
-        {
-            get
-            {
-                var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
-                return new SelectList(list, "id", "id", item?.partyContactId);
-            }
-        }
+        //public SelectList PartyContacts
+        //{
+        //    get
+        //    {
+        //        var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
+        //        return new SelectList(list, "id", "id", item?.partyContactId);
+        //    }
+        //}
 
         public override async Task<IActionResult> OnPostEditAsync()
         {
@@ -104,8 +91,8 @@ namespace PageModels
             return await contact.UpdateAsync(ToEntityContact(item)) &&
                    await address.UpdateAsync(ToEntityAddress(item)) &&
                    await partyContact.UpdateAsync(ToEntityPartyContact(item)) &&
-                   await repo.UpdateAsync(ToEntity(item)) ?
-            IndexPage() : Page();
+                   await repo.UpdateAsync(ToEntity(item)) 
+            ? IndexPage() : Page();
         }
 
         public override async Task<IActionResult> OnPostCreateAsync()

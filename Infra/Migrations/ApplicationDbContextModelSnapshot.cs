@@ -36,9 +36,6 @@ namespace Infra.Migrations
                     b.Property<string>("houseNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("partyContactId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("region")
                         .HasColumnType("nvarchar(max)");
 
@@ -59,9 +56,6 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneNumber")
@@ -165,6 +159,12 @@ namespace Infra.Migrations
                 {
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("addressId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("contactId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");

@@ -25,8 +25,16 @@ namespace Domain
         public string fullName => $"{firstName} {lastName}";
         public string fullAddress=> personPartyContact?.fullAddress ?? "-";
         public string fullContact => personPartyContact?.fullContact ?? "-";
+       
         public string partyContactId => Data?.partyContactId ?? "-";
         public PartyContact personPartyContact => lazyReadPartyContact.Value;
         internal Lazy<PartyContact> lazyReadPartyContact { get; }
+        public string partyId => personPartyContact.partyId;
+
+        public string email => personPartyContact.partyContactContact.email;
+        public string phoneNumber => personPartyContact.partyContactContact.phoneNumber;
+
+        public string contactId => personPartyContact.contactId;
+        public string addressId => personPartyContact.addressId;
     }
 }

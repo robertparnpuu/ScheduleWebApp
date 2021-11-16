@@ -6,10 +6,12 @@ namespace Facade
 {
     public class PersonView:BaseView
     {
-        [Required]
+        //[Required]
         [Display(Name = "PartyContactId")]
         public string partyContactId { get; set; }
-
+        public string contactId { get; set; }
+        public string addressId { get; set; }
+        public string partyId { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "First name max length is 50 characters")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
@@ -36,6 +38,9 @@ namespace Facade
         public string fullAddress { get; set; }
         [Display(Name = "Contacts")]
         public string fullContact { get; set; }
+
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
 
     }
 }

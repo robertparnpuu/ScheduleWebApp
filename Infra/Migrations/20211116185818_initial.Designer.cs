@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211116182921_initial")]
+    [Migration("20211116185818_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,12 +161,6 @@ namespace Infra.Migrations
                 {
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("addressId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("contactId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");

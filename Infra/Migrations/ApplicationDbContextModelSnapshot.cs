@@ -160,12 +160,6 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("addressId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("contactId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");
 

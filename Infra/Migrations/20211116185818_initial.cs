@@ -155,9 +155,7 @@ namespace Infra.Migrations
                     roleAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     idCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     dateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    contactId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    addressId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

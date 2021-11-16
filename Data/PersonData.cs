@@ -11,7 +11,5 @@ namespace Data
         public string idCode { get; set; }
         public DateTime dateOfBirth { get; set;  }
         public string partyContactId { get; set; }
-        public string contactId { get; set; }
-        public string addressId { get; set; }
     }
 }

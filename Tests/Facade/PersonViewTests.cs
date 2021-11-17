@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain;
 using Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Facade.Common;
@@ -6,7 +7,7 @@ using Tests.Facade.Common;
 namespace Tests.Facade
 {
     [TestClass]
-    public class PersonViewTests : BaseViewTests<WithContactView>
+    public class PersonViewTests : BaseViewTests<PersonView>
     {
         [TestMethod]
         public void FirstNameTest() => IsProperty<string>(nameof(obj.firstName));

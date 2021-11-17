@@ -18,12 +18,10 @@ namespace PageModels
         public LocationModel(ILocationRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
         ApplicationDbContext context) : base(r, pc, c, a, context) { }
 
-
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();
             Copy.Members(obj, view);
-
             return view;
         }
 
@@ -32,15 +30,6 @@ namespace PageModels
             if (view is null) return null;
             var data = Copy.Members(view, new LocationData());
             return new Location(data);
-        }
-
-        public SelectList PartyContacts
-        {
-            get
-            {
-                var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
-                return new SelectList(list, "id", "id", item?.partyContactId);
-            }
         }
     }
 }

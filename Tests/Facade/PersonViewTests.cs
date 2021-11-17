@@ -6,7 +6,7 @@ using Tests.Facade.Common;
 namespace Tests.Facade
 {
     [TestClass]
-    public class PersonViewTests : BaseViewTests<PersonView>
+    public class PersonViewTests : BaseViewTests<WithContactView>
     {
         [TestMethod]
         public void FirstNameTest() => IsProperty<string>(nameof(obj.firstName));

@@ -21,14 +21,14 @@ namespace Tests.Domain
 
         [TestMethod]
         public void LazyReadOccupationTest() => LazyTest(() => obj.lazyReadOccupation.IsValueCreated,
-        () => obj.occupation);
+        () => obj.contractOccupation);
 
         [TestMethod]
         public void LazyReadPersonTest() => LazyTest(() => obj.lazyReadPerson.IsValueCreated,
-        () => obj.person);
+        () => obj.contractPerson);
 
         [TestMethod]
         public void LazyReadDepartmentTest() => LazyTest(() => obj.lazyReadDepartment.IsValueCreated,
-        () => obj.department);
+        () => obj.contractDepartment);
     }
 }

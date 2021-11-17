@@ -19,8 +19,8 @@ namespace Tests.Facade
         public void ZipCodeTest() => IsProperty<string>(nameof(obj.zipCode));
         [TestMethod]
         public void RegionTest() => IsProperty<string>(nameof(obj.region));
-
         [TestMethod]
         public void CountryTest() => IsProperty<string>(nameof(obj.country));
+       
     }
 }

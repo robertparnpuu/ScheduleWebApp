@@ -10,18 +10,18 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class LocationModel : BaseModel<Location, LocationView>
+    public class LocationModel : WithContactModel<Location, LocationView>
     {
+
         private ILocationRepo mockRepo;
 
-        public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public LocationModel(ILocationRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
+        ApplicationDbContext context) : base(r, pc, c, a, context) { }
 
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();
             Copy.Members(obj, view);
-            view.fullContact = obj?.locationContact?.fullContact;
             return view;
         }
 
@@ -30,15 +30,6 @@ namespace PageModels
             if (view is null) return null;
             var data = Copy.Members(view, new LocationData());
             return new Location(data);
-        }
-
-        public SelectList Contacts
-        {
-            get
-            {
-                var list = new GetRepo().Instance<IContactRepo>().GetById();
-                return new SelectList(list, "id", "fullContact", item?.contactId);
-            }
         }
     }
 }

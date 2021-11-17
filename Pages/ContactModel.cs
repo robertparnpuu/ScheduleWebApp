@@ -1,18 +1,15 @@
 ﻿using Aids;
 using Data;
 using Domain;
-using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
 {
     public class ContactModel : BaseModel<Contact, ContactView>
     {
-        //TODO: Concurrency pls
         public ContactModel(IContactRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
@@ -21,7 +18,7 @@ namespace PageModels
         {
             ContactView view = new ContactView();
             Copy.Members(obj, view);
-            view.fullAddress = obj?.contactAddress?.fullAddress;
+
             return view;
         }
 
@@ -32,13 +29,6 @@ namespace PageModels
             return new Contact(data);
         }
 
-        public SelectList Addresses
-        { 
-            get
-            {
-                var list = new GetRepo().Instance<IAddressRepo>().GetById();
-                return new SelectList(list, "id", "fullAddress", item?.addressId);
-            }
-        }
+       
     }
 }

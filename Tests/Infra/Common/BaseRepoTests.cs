@@ -43,6 +43,13 @@ namespace Tests.Infra
             mockRepo.db.SaveChanges();
         }
         [TestMethod]
+        public void CanCreateEntity()
+            => Assert.IsInstanceOfType(new TEntity(), typeof(TEntity));
+        [TestMethod]
+        public void CanCreateData()
+            => Assert.IsInstanceOfType(new TData(), typeof(TData));
+
+        [TestMethod]
         public async Task AddAsyncTest()
         {
             var expected = ToData(entity);
@@ -85,18 +92,6 @@ namespace Tests.Infra
             ArePropertiesEqual(ToData(entity), ToData(await mockRepo.GetEntityAsync(entity.id)));
         }
 
-        [TestMethod]
-        public async Task GetEntityListAsyncTest2()
-        {
-            await mockRepo.AddAsync(entity);
-            //TEntity entity2 = new TEntity(GetRandom.ObjectOf<TData>());
-            TEntity entity2 = CreateInstance<TEntity>(GetRandom.ObjectOf<TData>());
-            await mockRepo.AddAsync(entity2);
-            List<TEntity> addresses = await mockRepo.GetEntityListAsync();
-            ArePropertiesEqual(ToData(entity), addresses[0].Data);
-            ArePropertiesEqual(ToData(entity2), addresses[1].Data);
-            Assert.AreEqual(2, addresses.Count);
-        }
 
         [TestMethod]
         public async Task GetEntityListAsyncTest()

@@ -11,9 +11,5 @@ namespace Tests.Facade
         public void EmailTest() => IsProperty<string>(nameof(obj.email));
         [TestMethod]
         public void PhoneNumberTest() => IsProperty<string>(nameof(obj.phoneNumber));
-        [TestMethod]
-        public void AddressIdTest() => IsProperty<string>(nameof(obj.addressId));
-        [TestMethod]
-        public void FullAddressTest() => IsProperty<string>(nameof(obj.fullAddress));
     }
 }

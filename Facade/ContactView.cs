@@ -10,15 +10,7 @@ namespace Facade
         public string email { get; set; }
 
         [Required]
-        [Display(Name = "Phone nr")]
+        [Display(Name = "Phone Nr")]
         public string phoneNumber { get; set; }
-
-        [Required]
-        [Display(Name = "Address")]  
-        public string addressId { get; set; }
-
-        [Display(Name = "Address")]
-        public string fullAddress { get; set; }
-        
     }
 }

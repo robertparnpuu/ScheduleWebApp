@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Pages\PageModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+
 </Project>

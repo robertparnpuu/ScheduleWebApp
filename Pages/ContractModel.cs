@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Aids;
+﻿using Aids;
 using Data;
 using Domain;
 using Domain.Common;
@@ -21,9 +20,10 @@ namespace PageModels
         {
             ContractView view = new ContractView();
             Copy.Members(obj, view);
-            view.occupationName = obj?.occupation?.name;
-            view.personName = obj?.person?.fullName;
-            view.departmentName = obj?.department?.name;
+            view.occupationName = obj?.contractOccupation?.name;
+            view.personName = obj?.contractPerson?.fullName;
+            view.departmentName = obj?.contractDepartment?.name;
+
             return view;
         }
 

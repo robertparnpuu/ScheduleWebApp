@@ -7,7 +7,6 @@ namespace Facade
 {
     public class AddressView:BaseView
     {
-        [Required]
         [Display(Name = "Apartment Nr")]
         public string apartmentNumber { get; set; }
         [Required]
@@ -28,6 +27,5 @@ namespace Facade
         [Required]
         [Display(Name = "Country")]
         public string country { get; set; }
-
     }
 }

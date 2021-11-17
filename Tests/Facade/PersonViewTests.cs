@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain;
 using Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Facade.Common;
@@ -15,10 +16,12 @@ namespace Tests.Facade
         [TestMethod]
         public void IdCodeTest() => IsProperty<string>(nameof(obj.idCode));
         [TestMethod]
-        public void ContactIdTest() => IsProperty<string>(nameof(obj.contactId));
+        public void PartyContactIdTest() => IsProperty<string>(nameof(obj.partyContactId));
+        [TestMethod]
+        public void DateOfBirthTest() => IsProperty<DateTime>(nameof(obj.dateOfBirth));
         [TestMethod]
         public void FullContactTest() => IsProperty<string>(nameof(obj.fullContact));
         [TestMethod]
-        public void DateOfBirthTest() => IsProperty<DateTime>(nameof(obj.dateOfBirth));
+        public void FullAddressTest() => IsProperty<string>(nameof(obj.fullAddress));
     }
 }

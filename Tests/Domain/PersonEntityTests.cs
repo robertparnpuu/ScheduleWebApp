@@ -17,10 +17,10 @@ namespace Tests.Domain
         [TestMethod]
         public void IdCodeTest() => isReadOnlyProperty(obj.Data.idCode);
         [TestMethod]
-        public void ContactIdTest() => isReadOnlyProperty(obj.Data.contactId);
+        public void RoleAssignmentIdTest() => isReadOnlyProperty(obj.Data.roleAssignmentId);
 
         [TestMethod]
-        public void LazyReadContactTest() => LazyTest(() => obj.lazyReadContact.IsValueCreated,
-        () => obj.personContact);
+        public void LazyReadPartyContactTest() => LazyTest(() => obj.lazyReadPartyContact.IsValueCreated,
+        () => obj.partyContact);
     }
 }

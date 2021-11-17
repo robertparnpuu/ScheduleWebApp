@@ -9,6 +9,5 @@ namespace Facade
         [Display(Name = "Occupation")]
         public string name { get; set; }
 
-        //TODO: töötajate list
     }
 }

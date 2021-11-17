@@ -14,14 +14,13 @@ namespace Tests.Facade.Common
         [TestInitialize]
         public virtual void TestInitialize() => obj = CreateObject();
         protected virtual TView CreateObject() => GetRandom.ObjectOf<TView>();
+
         [TestMethod]
         public void IdTest() => IsProperty<string>(nameof(obj.id));
-        public static bool IsGuid(object value)
-        {
-            Guid x;
+        [TestMethod]
+        public void CanCreate()
+            => Assert.IsInstanceOfType(new TView(), typeof(TView));
 
-            return Guid.TryParse(value.ToString(), out x);
-        }
         public void IsProperty<TResult>(string propertyName)
         {
             var propertyInfo = obj.GetType().GetProperty(propertyName);

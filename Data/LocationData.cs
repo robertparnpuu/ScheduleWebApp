@@ -1,9 +1,10 @@
-﻿using Data.Common;
+﻿using Core;
+using Data.Common;
 
 namespace Data
 {
-    public class LocationData : NamedEntityData
+    public class LocationData : WithContactData, INamedEntity
     {
-        public string contactId { get; set; }
+        public string name { get; set; }
     }
 }

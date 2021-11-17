@@ -1,5 +1,4 @@
 ﻿using Data;
-using Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,10 +14,11 @@ namespace Infra
             : base(options) { }
         public DbSet<AddressData> Addresses { get; set; }
         public DbSet<ContactData> Contacts { get; set; }
+        public DbSet<ContractData> Contracts { get; set; }
         public DbSet<DepartmentData> Departments { get; set; }
         public DbSet<LocationData> Locations { get; set; }
-        public DbSet<ContractData> Contracts { get; set; }
         public DbSet<OccupationData> Occupations { get; set; }
+        public DbSet<PartyContactData> PartyContacts { get; set; }
         public DbSet<PersonData> Persons { get; set; }
         public DbSet<RequirementData> Requirements { get; set; }
         public DbSet<RoleAssignmentData> RoleAssignments { get; set; }
@@ -35,10 +35,11 @@ namespace Infra
 
             modelBuilder.Entity<AddressData>().ToTable("Address");
             modelBuilder.Entity<ContactData>().ToTable("Contact");
+            modelBuilder.Entity<ContractData>().ToTable("Contract");
             modelBuilder.Entity<DepartmentData>().ToTable("Department");
             modelBuilder.Entity<LocationData>().ToTable("Location");
-            modelBuilder.Entity<ContractData>().ToTable("Contract");
             modelBuilder.Entity<OccupationData>().ToTable("Occupation");
+            modelBuilder.Entity<PartyContactData>().ToTable("PartyContact");
             modelBuilder.Entity<PersonData>().ToTable("Person");
             modelBuilder.Entity<RequirementData>().ToTable("Requirement");
             modelBuilder.Entity<RoleAssignmentData>().ToTable("RoleAssignment");

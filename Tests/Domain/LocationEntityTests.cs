@@ -9,9 +9,9 @@ namespace Tests.Domain
     public class LocationEntityTests : NamedEntityTests<Location, LocationData>
     {
         [TestMethod]
-        public void ContactIdTest() => isReadOnlyProperty(obj.Data.contactId);
+        public void ContactIdTest() => isReadOnlyProperty(obj.Data.partyContactId);
         [TestMethod]
-        public void LazyReadContactTest() => LazyTest(() => obj.lazyReadContact.IsValueCreated,
-        () => obj.locationContact);
+        public void LazyReadPartyContactTest() => LazyTest(() => obj.lazyReadPartyContact.IsValueCreated,
+        () => obj.partyContact);
     }
 }

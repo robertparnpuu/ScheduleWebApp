@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211105171532_Initial")]
-    partial class Initial
+    [Migration("20211117213819_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,9 +38,6 @@ namespace Infra.Migrations
                     b.Property<string>("houseNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("partyContactId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("region")
                         .HasColumnType("nvarchar(max)");
 
@@ -61,9 +58,6 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneNumber")

@@ -21,6 +21,6 @@ namespace Tests.Domain
 
         [TestMethod]
         public void LazyReadPartyContactTest() => LazyTest(() => obj.lazyReadPartyContact.IsValueCreated,
-        () => obj.personPartyContact);
+        () => obj.partyContact);
     }
 }

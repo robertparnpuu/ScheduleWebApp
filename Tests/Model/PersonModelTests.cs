@@ -14,7 +14,7 @@ namespace Tests.Model
         [TestInitialize] public void TestInitialize()
         {
             mockRepo = new TestPersonRepo();
-            pageModel = new PersonModel((IPersonRepo) mockRepo, null);
+            pageModel = new PersonModel((IPersonRepo) mockRepo, (IPartyContactRepo)mockRepo, (IContactRepo)mockRepo, (IAddressRepo)mockRepo, null);
         }
     }
 }

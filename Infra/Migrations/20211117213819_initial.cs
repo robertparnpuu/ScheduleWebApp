@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,8 +18,7 @@ namespace Infra.Migrations
                     city = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     zipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     region = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    country = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    country = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,8 +70,7 @@ namespace Infra.Migrations
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -100,8 +98,8 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -113,8 +111,8 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -4,12 +4,8 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class PersonView:BaseView
+    public class PersonView:WithContactView
     {
-        [Required]
-        [Display(Name = "PartyContactId")]
-        public string partyContactId { get; set; }
-
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "First name max length is 50 characters")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
@@ -31,11 +27,5 @@ namespace Facade
         [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
-
-        [Display(Name = "Address")]
-        public string fullAddress { get; set; }
-        [Display(Name = "Contacts")]
-        public string fullContact { get; set; }
-
     }
 }

@@ -1,9 +1,10 @@
-﻿using Data.Common;
+﻿using Core;
+using Data.Common;
 
 namespace Data
 {
-    public class DepartmentData : NamedEntityData
+    public class DepartmentData : WithContactData, INamedEntity
     {
-        public string partyContactId { get; set; }
+        public string name { get; set; }
     }
 }

@@ -2,4 +2,18 @@
 @model PageModels.LocationModel
 
 @Html.Editor(model => model.item.name)
-@Html.Select(model => model.item.partyContactId, Model.PartyContacts, "Select Contact")
+
+@Html.Editor(model => model.item.email)
+@Html.Editor(model => model.item.phoneNumber)
+
+@Html.Editor(model => model.item.streetName)
+@Html.Editor(model => model.item.houseNumber)
+@Html.Editor(model => model.item.apartmentNumber)
+@Html.Editor(model => model.item.zipCode)
+@Html.Editor(model => model.item.city)
+@Html.Editor(model => model.item.region)
+@Html.Editor(model => model.item.country)
+
+<input type="hidden" asp-for="item.contactId" />
+<input type="hidden" asp-for="item.addressId" />
+<input type="hidden" asp-for="item.partyContactId" />

@@ -13,25 +13,25 @@ namespace Domain
             lazyReadPartyContact = GetLazy<PartyContact, IPartyContactRepo>(x => x?.GetEntity(partyContactId));
         }
 
-        public string contactId => personPartyContact.contactId;
-        public string addressId => personPartyContact.addressId;
+        public string contactId => partyContact.contactId;
+        public string addressId => partyContact.addressId;
         public string partyContactId => Data?.partyContactId ?? "-";
 
-        public PartyContact personPartyContact => lazyReadPartyContact.Value;
+        public PartyContact partyContact => lazyReadPartyContact.Value;
         internal Lazy<PartyContact> lazyReadPartyContact { get; }
-        public string partyId => personPartyContact.partyId;
+        public string partyId => partyContact.partyId;
 
 
-        public string email => personPartyContact.partyContactContact.email;
-        public string phoneNumber => personPartyContact.partyContactContact.phoneNumber;
+        public string email => partyContact.partyContactContact.email;
+        public string phoneNumber => partyContact.partyContactContact.phoneNumber;
 
 
-        public string apartmentNumber => personPartyContact.partyContactAddress.apartmentNumber;
-        public string streetName => personPartyContact.partyContactAddress.streetName;
-        public string houseNumber => personPartyContact.partyContactAddress.houseNumber;
-        public string city => personPartyContact.partyContactAddress.city;
-        public string zipCode => personPartyContact.partyContactAddress.zipCode;
-        public string region => personPartyContact.partyContactAddress.region;
-        public string country => personPartyContact.partyContactAddress.country;
+        public string apartmentNumber => partyContact.partyContactAddress.apartmentNumber;
+        public string streetName => partyContact.partyContactAddress.streetName;
+        public string houseNumber => partyContact.partyContactAddress.houseNumber;
+        public string city => partyContact.partyContactAddress.city;
+        public string zipCode => partyContact.partyContactAddress.zipCode;
+        public string region => partyContact.partyContactAddress.region;
+        public string country => partyContact.partyContactAddress.country;
     }
 }

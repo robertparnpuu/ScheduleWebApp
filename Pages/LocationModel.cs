@@ -10,12 +10,13 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class LocationModel : BaseModel<Location, LocationView>
+    public class LocationModel : WithContactModel<Location, LocationView>
     {
 
         private ILocationRepo mockRepo;
 
-        public LocationModel(ILocationRepo r, ApplicationDbContext context) : base(r, context) { }
+        public LocationModel(ILocationRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
+        ApplicationDbContext context) : base(r, pc, c, a, context) { }
 
 
         protected internal override LocationView ToView(Location obj)

@@ -5,21 +5,16 @@ using Domain.Repos;
 
 namespace Domain
 {
-    public class Location : BaseEntity<LocationData>
+    public class Location : WithContact<LocationData>
     {
         public Location() : this(null) { }
 
         public Location(LocationData d) : base(d)
-        {
-            lazyReadPartyContact = GetLazy<PartyContact, IPartyContactRepo>(x => x?.GetEntity(partyContactId));
-            //lazyReadContacts = new Lazy<ICollection<Contact>>(GetLocationContacts);
-        }
+        { }
         public string name => Data?.name ?? "-";
-        public string fullAddress => locationPartyContact?.fullAddress ?? "-";
-        public string fullContact => locationPartyContact?.fullContact ?? "-";
-        public string partyContactId => Data?.partyContactId ?? "-";
-        public PartyContact locationPartyContact => lazyReadPartyContact.Value;
-        internal Lazy<PartyContact> lazyReadPartyContact { get; }
+        public string fullAddress => partyContact?.fullAddress ?? "-";
+        public string fullContact => partyContact?.fullContact ?? "-";
+
 
         //public ICollection<Contact> locationContacts => lazyReadContacts.Value;
         //internal Lazy<ICollection<Contact>> lazyReadContacts { get; }

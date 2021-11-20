@@ -1,8 +1,4 @@
-﻿using Aids;
-using Core;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Core;
 
 namespace Tests.Model.Common
 {
@@ -12,6 +8,5 @@ namespace Tests.Model.Common
     {
         protected dynamic pageModel;
         protected TestRepo<TEntity> mockRepo;
-
     }
 }

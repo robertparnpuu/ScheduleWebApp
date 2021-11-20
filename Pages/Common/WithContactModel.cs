@@ -89,9 +89,7 @@ namespace PageModels.Common
         return await contact.AddAsync(ToEntityContact(item)) &&
                await address.AddAsync(ToEntityAddress(item)) &&
                await partyContact.AddAsync(ToEntityPartyContact(item)) &&
-               await repo.AddAsync(ToEntity(item))
-        ? IndexPage()
-        : Page();
+               await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
     }
     }
 }

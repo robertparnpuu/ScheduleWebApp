@@ -7,14 +7,18 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class DepartmentModelTests : ViewedModelTests<Department, DepartmentView>
+    [TestClass] public class DepartmentModelTests : WithContactModelTests<Department, DepartmentView>
     {
         private class TestDepartmentRepo : TestRepo<Department>, IDepartmentRepo{ }
 
         [TestInitialize] public void TestInitialize()
         {
             mockRepo = new TestDepartmentRepo();
-            pageModel = new DepartmentModel((IDepartmentRepo) mockRepo, (IPartyContactRepo)mockRepo, (IContactRepo)mockRepo, (IAddressRepo)mockRepo, null);
+            mockRepoContact = new TestContactRepo();
+            mockRepoAddress = new TestAddressRepo();
+            mockRepoPartyContact = new TestPartyContactRepo();
+            pageModel = new DepartmentModel((IDepartmentRepo) mockRepo, (IPartyContactRepo)mockRepoPartyContact, 
+            (IContactRepo)mockRepoContact, (IAddressRepo)mockRepoAddress, null);
         }
     }
 }

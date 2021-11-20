@@ -11,7 +11,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ContractModel : BaseModel<Contract, ContractView>
+    public class ContractModel : ViewedModel<Contract, ContractView>
     {
         //TODO: Concurrency pls
         public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }

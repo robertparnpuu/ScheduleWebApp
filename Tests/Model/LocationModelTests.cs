@@ -7,7 +7,7 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class LocationModelTests : BaseModelTests<Location, LocationView>
+    [TestClass] public class LocationModelTests : ViewedModelTests<Location, LocationView>
     {
         private class TestLocationRepo : TestRepo<Location>, ILocationRepo{ }
 

@@ -7,7 +7,7 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class OccupationModelTests : BaseModelTests<Occupation, OccupationView>
+    [TestClass] public class OccupationModelTests : ViewedModelTests<Occupation, OccupationView>
     {
         private class TestOccupationRepo : TestRepo<Occupation>, IOccupationRepo{ }
 

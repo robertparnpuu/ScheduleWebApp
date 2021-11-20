@@ -10,6 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
+
     public class LocationModel : WithContactModel<Location, LocationView>
     {
 

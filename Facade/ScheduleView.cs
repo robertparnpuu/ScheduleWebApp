@@ -1,27 +1,29 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Core;
 using Facade.Common;
 
 namespace Facade
 {
-    public class ShiftAssignmentView:BaseView
+    public class ScheduleView
     {
         [Required]
-        [Display(Name = "Person Id")]
-        public string personId { get; set; }
         [Display(Name = "Person")]
-        public string personName { get; set; }
-
-        //[Required]
-        [Display(Name = "Location Id")]
+        public string personId { get; set; }
+        [Required]
+        [Display(Name = "Location name")]
         public string locationId { get; set; }
+
+        [Display(Name = "Person name")]
+        public string personName { get; set; }
 
         [Display(Name = "Location")]
         public string locationName { get; set; }
 
-        [Display(Name = "Occupation Id")]
-        public string occupationId { get; set; }
         [Display(Name = "Occupation")]
         public string occupationName { get; set; }
 

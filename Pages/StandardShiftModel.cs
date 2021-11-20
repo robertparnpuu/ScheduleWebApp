@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class StandardShiftModel : BaseModel<StandardShift, StandardShiftView>
+    public class StandardShiftModel : ViewedModel<StandardShift, StandardShiftView>
     {
         //TODO: Concurrency pls
         public StandardShiftModel(IStandardShiftRepo r, ApplicationDbContext context) : base(r, context)

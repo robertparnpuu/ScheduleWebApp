@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ShiftAssignmentModel : BaseModel<ShiftAssignment, ShiftAssignmentView>
+    public class ShiftAssignmentModel : ViewedModel<ShiftAssignment, ShiftAssignmentView>
     {
         //TODO: Concurrency pls
         public ShiftAssignmentModel(IShiftAssignmentRepo r, ApplicationDbContext context) : base(r, context)

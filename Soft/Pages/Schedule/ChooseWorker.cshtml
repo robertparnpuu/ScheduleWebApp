@@ -1,0 +1,29 @@
+﻿@page
+@using Core.Extensions
+@model PageModels.ScheduleModel
+
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.people[0].fullName)</th>
+        <th>@Html.DisplayNameFor(model => model.people[0].fullContact)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.people)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.fullName)</td>
+            <td>@Html.DisplayFor(modelItem => item.fullContact)</td>
+            <td>
+                <a asp-page="./ConfirmAssignment" asp-route-handler="ConfirmAssignment" asp-route-pId="@item.id">Select</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

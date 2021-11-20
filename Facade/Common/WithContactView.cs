@@ -1,12 +1,30 @@
-﻿
-
-using Facade.Common;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Facade.Common;
 
-namespace Facade
+namespace Facade.Common
 {
-    public class AddressView:BaseView
+    public abstract class WithContactView:BaseView
     {
+        [Display(Name = "PartyContactId")]
+        public string partyContactId { get; set; }
+        public string contactId { get; set; }
+        public string addressId { get; set; }
+        public string partyId { get; set; }
+
+        [Display(Name = "Address")]
+        public string fullAddress { get; set; }
+        [Display(Name = "Contacts")]
+        public string fullContact { get; set; }
+
+        [Required]
+        [Display(Name = "E-mail")]
+        public string email { get; set; }
+
+        [Required]
+        [Display(Name = "Phone nr")]
+        public string phoneNumber { get; set; }
+
         [Display(Name = "Apartment Nr")]
         public string apartmentNumber { get; set; }
         [Required]

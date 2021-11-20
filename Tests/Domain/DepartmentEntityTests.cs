@@ -12,6 +12,6 @@ namespace Tests.Domain
         public void ContactIdTest() => isReadOnlyProperty(obj.Data.partyContactId);
         [TestMethod]
         public void LazyReadContactTest() => LazyTest(() => obj.lazyReadPartyContact.IsValueCreated,
-        () => obj.departmentPartyContact);
+        () => obj.partyContact);
     }
 }

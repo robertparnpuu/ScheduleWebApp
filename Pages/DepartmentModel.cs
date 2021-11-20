@@ -10,9 +10,10 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class DepartmentModel : ViewedModel<Department, DepartmentView>
+    public class DepartmentModel : WithContactModel<Department, DepartmentView>
     {
-        public DepartmentModel(IDepartmentRepo r, ApplicationDbContext context) : base(r, context) { }
+        public DepartmentModel(IDepartmentRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
+        ApplicationDbContext context) : base(r, pc, c, a, context) { }
 
         protected internal override DepartmentView ToView(Department obj)
         {
@@ -26,15 +27,6 @@ namespace PageModels
             if (view is null) return null;
             var data = Copy.Members(view, new DepartmentData());
             return new Department(data);
-        }
-
-        public SelectList PartyContacts
-        { 
-            get
-            {
-                var list = new GetRepo().Instance<IPartyContactRepo>().GetById();
-                return new SelectList(list, "id", "id", item?.partyContactId);
-            }
         }
     }
 }

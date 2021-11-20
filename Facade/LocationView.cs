@@ -3,7 +3,7 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class LocationView:BaseView
+    public class LocationView:WithContactView
     {
         [Required]
         [Display(Name = "Location name")]
@@ -12,8 +12,6 @@ namespace Facade
         public string fullAddress { get; set; }
         [Display(Name = "Contacts")]
         public string fullContact { get; set; }
-        [Required]
-        [Display(Name = "PartyContactId")]
-        public string partyContactId { get; set; }
+ 
     }
 }

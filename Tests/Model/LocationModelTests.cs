@@ -14,7 +14,7 @@ namespace Tests.Model
         [TestInitialize] public void TestInitialize()
         {
             mockRepo = new TestLocationRepo();
-            pageModel = new LocationModel((ILocationRepo) mockRepo, null);
+            pageModel = new LocationModel((ILocationRepo) mockRepo, (IPartyContactRepo)mockRepo, (IContactRepo)mockRepo, (IAddressRepo)mockRepo, null);
         }
     }
 }

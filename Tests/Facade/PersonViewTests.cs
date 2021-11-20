@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain;
 using Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Facade.Common;

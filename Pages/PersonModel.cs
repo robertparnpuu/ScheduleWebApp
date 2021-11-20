@@ -25,6 +25,7 @@ namespace PageModels
         {
             PersonView view = new PersonView();
             Copy.Members(obj, view);
+            view.fullName = obj.fullName;
             return view;
         }
 

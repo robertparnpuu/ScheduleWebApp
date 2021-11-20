@@ -64,7 +64,7 @@ namespace PageModels
             Copy.Members(GetSessionObject("shiftAssignment"), item, "dateChoice");
             PersonView person = PersonToView(await pRepo.GetEntityAsync(pId));
             item.personId = person.id;
-            item.personName = person.fullName;
+            item.personName = person.firstName+" "+person.lastName;
 
             VMToSession();
         }

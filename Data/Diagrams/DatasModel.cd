@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Data.Common.BaseEntityData" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\BaseEntityData.cs</FileName>
@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Data.Common.NamedEntityData" Collapsed="true">
-    <Position X="4" Y="5" Width="1.5" />
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\NamedEntityData.cs</FileName>
@@ -17,109 +17,121 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Data.AddressData" Collapsed="true">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAQAAAAAAAAAAAAAACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>AddressData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.ContactData" Collapsed="true">
-    <Position X="5" Y="2" Width="1.5" />
+    <Position X="4" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContactData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.ContractData" Collapsed="true">
-    <Position X="9.5" Y="2" Width="1.5" />
+    <Position X="5.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAIAAAAAAIAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>ContractData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.PersonData" Collapsed="true">
-    <Position X="7.25" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAAACAAQAAA=</HashCode>
-      <FileName>PersonData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Data.RequirementData" Collapsed="true">
-    <Position X="2.75" Y="3.75" Width="1.5" />
+    <Position X="7" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAACAACIAAAAAAgACAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>RequirementData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.RoleAssignmentData" Collapsed="true">
-    <Position X="5" Y="3.75" Width="1.5" />
+    <Position X="8.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAIAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>RoleAssignmentData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.ShiftAssignmentData" Collapsed="true">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+    <Position X="10" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAgACAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>ShiftAssignmentData.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Data.PartyContactData" Collapsed="true">
+    <Position X="11.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAABAAAAAAAAEAAAAA=</HashCode>
+      <FileName>PartyContactData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Common.WithContactData" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <InheritanceLine Type="Data.Common.BaseEntityData" ManuallyRouted="true">
+      <Path>
+        <Point X="1.25" Y="1.441" />
+        <Point X="1.25" Y="2.104" />
+        <Point X="0.248" Y="2.104" />
+        <Point X="0.248" Y="5.596" />
+        <Point X="2" Y="5.596" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\WithContactData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Class Name="Data.StandardShiftData" Collapsed="true">
-    <Position X="2.75" Y="2" Width="1.5" />
+    <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAACAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>StandardShiftData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.DepartmentData" Collapsed="true">
-    <Position X="2.75" Y="6.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DepartmentData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Data.LocationData" Collapsed="true">
-    <Position X="0.5" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>LocationData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Data.OccupationData" Collapsed="true">
-    <Position X="0.5" Y="6.25" Width="1.5" />
+    <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OccupationData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.RoleData" Collapsed="true">
-    <Position X="5" Y="6.25" Width="1.5" />
+    <Position X="5.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RoleData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.WeekDayData" Collapsed="true">
-    <Position X="7.25" Y="6.25" Width="1.5" />
+    <Position X="7" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDayData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.ContactTypeData" Collapsed="true">
-    <Position X="2.75" Y="7.5" Width="1.5" />
+  <Class Name="Data.PersonData" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ContactTypeData.cs</FileName>
+      <HashCode>EAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAAACAAQAAA=</HashCode>
+      <FileName>PersonData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.PartyContactData" Collapsed="true">
-    <Position X="7.25" Y="2" Width="1.5" />
+  <Class Name="Data.DepartmentData" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>PartyContactData.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DepartmentData.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.LocationData" Collapsed="true">
+    <Position X="5.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LocationData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

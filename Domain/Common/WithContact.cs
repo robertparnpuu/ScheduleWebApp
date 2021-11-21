@@ -1,9 +1,8 @@
 ﻿using System;
 using Data.Common;
-using Domain.Common;
 using Domain.Repos;
 
-namespace Domain
+namespace Domain.Common
 {
     public abstract class WithContact<TData> : BaseEntity<TData>
     where TData : WithContactData, new()

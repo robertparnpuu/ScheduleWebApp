@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class WeekDayRepo : BaseRepo<WeekDayData, WeekDay>, IWeekDayRepo
+    public class WeekDayRepo : PagedRepo<WeekDayData, WeekDay>, IWeekDayRepo
     {
         public WeekDayRepo(ApplicationDbContext c) : base(c, c?.WeekDays) { }
 

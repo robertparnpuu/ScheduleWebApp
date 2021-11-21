@@ -1,11 +1,9 @@
 ﻿using Aids;
 using Data;
 using Domain;
-using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
@@ -18,7 +16,7 @@ namespace PageModels
 
         public LocationModel(ILocationRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
         ApplicationDbContext context) : base(r, pc, c, a, context) { }
-
+        public override string PageTitle => "Locations";
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();

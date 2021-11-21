@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class ShiftAssignmentRepo : BaseRepo<ShiftAssignmentData, ShiftAssignment>, IShiftAssignmentRepo
+    public class ShiftAssignmentRepo : PagedRepo<ShiftAssignmentData, ShiftAssignment>, IShiftAssignmentRepo
     {
         public ShiftAssignmentRepo(ApplicationDbContext c) : base(c, c?.ShiftAssignments) { }
 

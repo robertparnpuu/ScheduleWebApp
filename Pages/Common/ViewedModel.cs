@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Core;
 using Domain.Repos;
 using Infra;
@@ -13,15 +9,15 @@ namespace PageModels.Common
     //Mõtleb kas vaja, hakkasin looma selleks et kasutada genericutega
     //BaseModelit ShiftAssignmentide jaoks
 
-    public abstract class ViewedModel<TEntity, TView> : BaseModel<TEntity, TView>
+    public abstract class ViewedModel<TEntity, TView> : ViewModel<TEntity, TView>
     where TEntity : class, IBaseEntity, new()
-    where TView : class, IBaseEntity, new()
+    where TView : class, IBaseEntityData, new()
     {
         protected ViewedModel(IRepo<TEntity> r, ApplicationDbContext context) : base(r, context) { }
         
         internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
 
-        public virtual async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
+        //public virtual async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
         public IActionResult OnGetCreate() => Page();
 
         public async Task<IActionResult> OnGetDeleteAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();

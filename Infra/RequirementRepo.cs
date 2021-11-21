@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class RequirementRepo : BaseRepo<RequirementData, Requirement>, IRequirementRepo
+    public class RequirementRepo : PagedRepo<RequirementData, Requirement>, IRequirementRepo
     {
         public RequirementRepo(ApplicationDbContext c) : base(c, c?.Requirements) { }
 

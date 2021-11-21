@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class StandardShiftRepo : BaseRepo<StandardShiftData, StandardShift>, IStandardShiftRepo
+    public class StandardShiftRepo : PagedRepo<StandardShiftData, StandardShift>, IStandardShiftRepo
     {
         public StandardShiftRepo(ApplicationDbContext c) : base(c, c?.StandardShifts) { }
 

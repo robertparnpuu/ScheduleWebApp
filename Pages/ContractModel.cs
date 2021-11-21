@@ -15,7 +15,7 @@ namespace PageModels
     {
         //TODO: Concurrency pls
         public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public override string PageTitle => "Contracts";
         protected internal override ContractView ToView(Contract obj)
         {
             ContractView view = new ContractView();

@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class AddressRepo : BaseRepo<AddressData, Address>, IAddressRepo
+    public class AddressRepo : PagedRepo<AddressData, Address>, IAddressRepo
     {
         public AddressRepo(ApplicationDbContext c) : base(c, c?.Addresses){ }
 

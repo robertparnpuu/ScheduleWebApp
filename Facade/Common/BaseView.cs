@@ -2,5 +2,5 @@
 
 namespace Facade.Common
 {
-    public abstract class BaseView : UniqueItem, IBaseEntity { }
+    public abstract class BaseView : UniqueItem, IBaseEntityData { }
 }

@@ -13,13 +13,13 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ScheduleModel : BaseModel<ShiftAssignment, ShiftAssignmentView>
+    public class ScheduleModel : PagedModel<ShiftAssignment, ShiftAssignmentView>
     {
         [BindProperty]
         public List<StandardShiftView> standardShifts { get; set; }
         [BindProperty]
         public List<PersonView> people { get; set; }
-        
+        public override string PageTitle => "Schedules";
         protected readonly IRepo<StandardShift> ssRepo;
         protected readonly IRepo<Person> pRepo;
         

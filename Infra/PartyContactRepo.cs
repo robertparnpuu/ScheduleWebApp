@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class PartyContactRepo : BaseRepo<PartyContactData, PartyContact>, IPartyContactRepo
+    public class PartyContactRepo : PagedRepo<PartyContactData, PartyContact>, IPartyContactRepo
     {
         public PartyContactRepo(ApplicationDbContext c) : base(c, c?.PartyContacts) { }
 

@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class ContractRepo : BaseRepo<ContractData, Contract>, IContractRepo
+    public class ContractRepo : PagedRepo<ContractData, Contract>, IContractRepo
     {
         public ContractRepo(ApplicationDbContext c) : base(c, c?.Contracts) { }
 

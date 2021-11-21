@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class OccupationRepo : BaseRepo<OccupationData, Occupation>, IOccupationRepo
+    public class OccupationRepo : PagedRepo<OccupationData, Occupation>, IOccupationRepo
     {
         public OccupationRepo(ApplicationDbContext c) : base(c, c?.Occupations) { }
 

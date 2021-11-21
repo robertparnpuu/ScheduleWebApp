@@ -1,15 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Aids;
+﻿using Aids;
 using Data;
 using Domain;
-using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
@@ -20,7 +14,7 @@ namespace PageModels
         public PersonModel(IPersonRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a, 
         ApplicationDbContext context) : base(r,pc,c,a, context)
         { }
-
+        public override string PageTitle => "Persons";
         protected internal override PersonView ToView(Person obj)
         {
             PersonView view = new PersonView();

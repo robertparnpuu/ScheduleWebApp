@@ -14,7 +14,7 @@ namespace PageModels
     {
         public DepartmentModel(IDepartmentRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
         ApplicationDbContext context) : base(r, pc, c, a, context) { }
-
+        public override string PageTitle => "Departments";
         protected internal override DepartmentView ToView(Department obj)
         {
             DepartmentView view = new DepartmentView();

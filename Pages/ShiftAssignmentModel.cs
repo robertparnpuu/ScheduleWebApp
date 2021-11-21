@@ -12,7 +12,6 @@ namespace PageModels
 {
     public class ShiftAssignmentModel : ViewedModel<ShiftAssignment, ShiftAssignmentView>
     {
-        //TODO: Concurrency pls
         public ShiftAssignmentModel(IShiftAssignmentRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
@@ -26,7 +25,7 @@ namespace PageModels
 
             return view;
         }
-
+        //TODO 12. siia vaja filtrid
         protected internal override ShiftAssignment ToEntity(ShiftAssignmentView view)
         {
             if (view is null) return null;

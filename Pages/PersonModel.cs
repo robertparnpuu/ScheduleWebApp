@@ -10,7 +10,6 @@ namespace PageModels
 {
     public class PersonModel : WithContactModel<Person,PersonView>
     {
-        //TODO: Concurrency pls
         public PersonModel(IPersonRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a, 
         ApplicationDbContext context) : base(r,pc,c,a, context)
         { }
@@ -22,7 +21,7 @@ namespace PageModels
             view.fullName = obj?.fullName;
             return view;
         }
-
+        //TODO 9. siia vaja filtrid
         protected internal override Person ToEntity(PersonView view)
         {
             if (view is null) return null;

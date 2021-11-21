@@ -10,7 +10,7 @@ namespace Infra.Common {
         private string currentFilter;
         private string searchString;
         protected FilteredRepo(DbContext c = null, DbSet<TData> s = null) :base(c, s) { }
-        protected internal override IQueryable<TData> CreateSql() => applyFilters(CreateSql());
+        protected internal override IQueryable<TData> CreateSql() => applyFilters(base.CreateSql());
         protected internal virtual IQueryable<TData> applyFilters(IQueryable<TData> query) => query;
         
         public virtual int? PageIndex { get; set; }

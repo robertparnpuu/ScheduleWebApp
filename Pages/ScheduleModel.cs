@@ -51,7 +51,7 @@ namespace PageModels
             VMToSession();
             return RedirectToPage("ChooseWorker", new {handler = "ChooseWorker" });
         }
-
+        //TODO, 3. Siit peab kasutama Contractis olevat personit
         public async Task OnGetChooseWorkerAsync()
         {
             item = GetSessionObject("shiftAssignment");
@@ -82,7 +82,7 @@ namespace PageModels
             ModelState.Clear();
             TryValidateModel(item);
         }
-
+        //TODO 11. siia vaja filtrid
         protected internal void VMToSession() =>
         HttpContext.Session.SetObjectAsJson("shiftAssignment", item);
 

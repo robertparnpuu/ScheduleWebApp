@@ -10,16 +10,15 @@ namespace PageModels
 {
     public class OccupationModel: ViewedModel<Occupation, OccupationView>
     {
-        //TODO: Concurrency pls
         public OccupationModel(IOccupationRepo r, ApplicationDbContext context) : base(r, context) { }
-        public override string PageTitle => "Occupations";
+        public override string PageTitle => "Occupation";
         protected internal override OccupationView ToView(Occupation obj)
         {
             OccupationView view = new OccupationView();
             Copy.Members(obj, view);
             return view;
         }
-
+        //TODO 8. usiia vaja filtrid
         protected internal override Occupation ToEntity(OccupationView view)
         {
             if (view is null) return null;

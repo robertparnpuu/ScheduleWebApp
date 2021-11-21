@@ -14,7 +14,7 @@ namespace Domain
             lazyReadLocation= GetLazy<Location, ILocationRepo>(x => x?.GetEntity(locationId));
             lazyReadPerson = GetLazy<Person, IPersonRepo>(x => x?.GetEntity(personId));
         }
-
+        //TODO 17.person muutub contractiks(ENTITY; DATA JMS VEEL VAJA )
         public string personId => Data?.personId ?? "-";
         public Person shiftAssignmentPerson => lazyReadPerson.Value;
         internal Lazy<Person> lazyReadPerson { get; }

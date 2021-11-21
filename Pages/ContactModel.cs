@@ -29,6 +29,5 @@ namespace PageModels
             return new Contact(data);
         }
 
-       
     }
 }

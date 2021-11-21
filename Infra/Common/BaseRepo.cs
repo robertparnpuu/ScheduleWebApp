@@ -1,6 +1,5 @@
 ﻿using Core;
 using Data.Common;
-using Domain.Repos;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,8 +39,8 @@ namespace Infra.Common
         }
 
         public async Task<List<TData>> GetEntityListAsync()=> (await GetDataListAsync()).ToList();
-        protected internal Task<List<TData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
-        protected internal List<TData> GetDropDownList() => dbSet.AsNoTracking().ToList();
+        protected internal Task<List<TData>> GetDataListAsync() => CreateSql().ToListAsync();
+        protected internal List<TData> GetDropDownList() => CreateSql().ToList();
 
         //public async Task<TData> GetEntityAsync(string id)=> (await GetDataAsync(id));
         public TData GetData(string id) => GetDataAsync(id).GetAwaiter().GetResult();

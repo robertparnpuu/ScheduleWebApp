@@ -66,17 +66,6 @@ namespace Core.Extensions {
             var s = TableData(h.Raw(data));
             return new HtmlContentBuilder(s);
         }
-        public static IHtmlContent RowImage<TModel>(
-            this IHtmlHelper<TModel> _,
-            string imageStr, int? height = null) {
-            var s = TableData(
-                new HtmlString(
-                    $"<img src=\"{imageStr}\" alt=\"not uploaded\" "+
-                    $"height={height??defaultHeight} />"
-                    )
-                );
-            return new HtmlContentBuilder(s);
-        }
 
         internal static string[] setDefaultLabels(string[] handlers) {
             var l = new List<string>(handlers);

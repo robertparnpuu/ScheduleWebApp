@@ -13,7 +13,6 @@ namespace PageModels
 {
     public class ContractModel : ViewedModel<Contract, ContractView>
     {
-        //TODO: Concurrency pls
         public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }
         public override string PageTitle => "Contracts";
         protected internal override ContractView ToView(Contract obj)
@@ -26,7 +25,7 @@ namespace PageModels
 
             return view;
         }
-
+        //TODO 6. siia vaja filtrid
         protected internal override Contract ToEntity(ContractView view)
         {
             if (view is null) return null;

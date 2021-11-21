@@ -12,7 +12,6 @@ namespace PageModels
 {
     public class StandardShiftModel : ViewedModel<StandardShift, StandardShiftView>
     {
-        //TODO: Concurrency pls
         public StandardShiftModel(IStandardShiftRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
@@ -25,7 +24,7 @@ namespace PageModels
             view.occupationName = obj?.shiftOccupation?.name;
             return view;
         }
-
+        //TODO 13. siia vaja filtrid
         protected internal override StandardShift ToEntity(StandardShiftView view)
         {
             if (view is null) return null;

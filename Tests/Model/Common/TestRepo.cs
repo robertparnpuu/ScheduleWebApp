@@ -9,7 +9,20 @@ namespace Tests.Model.Common
     {
         public object result { get; set; } = null;
         public List<string> actions { get; } = new();
+        public int? PageIndex { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
+        public int TotalPages => throw new System.NotImplementedException();
+
+        public bool HasNextPage => throw new System.NotImplementedException();
+
+        public bool HasPreviousPage => throw new System.NotImplementedException();
+
+        public int PageSize { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public string CurrentFilter { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public string SearchString { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public string SortOrder { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+        public string CurrentSort => throw new System.NotImplementedException();
 
         public async Task<bool> AddAsync(TClass obj) => await Complete($"Add {obj?.id}"); 
         public async Task<bool> DeleteAsync(string id) => await Complete($"Delete {id}");

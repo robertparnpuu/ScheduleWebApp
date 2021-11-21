@@ -1,13 +1,42 @@
 ﻿@model PageModels.Common.BaseModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Model.PageTitle;
     Layout = "_Layout";
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-route-handler="Create" asp-page="Create">Create New</a>
+    <a asp-page="Create" asp-route-handler="Create">Create New</a>
 </p>
- 
+<form asp-page="./Index" method="get">
+    <input type="hidden" name="Handler" value="Index" />
+    <input type="hidden" name="CurrentFilter" value="@Model.CurrentFilter" />
+    <div class="form-group">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index" asp-route-handler="Index">Back to full List</a>
+        </p>
+    </div>
+</form>
 @RenderBody()
+<a asp-page="./Index"
+   asp-route-handler="Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-handler="Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

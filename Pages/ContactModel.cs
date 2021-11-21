@@ -13,7 +13,7 @@ namespace PageModels
         public ContactModel(IContactRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
-
+        public override string PageTitle => "Contacts";
         protected internal override ContactView ToView(Contact obj)
         {
             ContactView view = new ContactView();
@@ -29,6 +29,5 @@ namespace PageModels
             return new Contact(data);
         }
 
-       
     }
 }

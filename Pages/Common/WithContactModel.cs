@@ -19,7 +19,6 @@ namespace PageModels.Common
     protected IContactRepo contact;
     protected IAddressRepo address;
 
-    //TODO: Concurrency pls
     protected WithContactModel(IRepo<TEntity> r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
     ApplicationDbContext context) : base(r, context)
     {

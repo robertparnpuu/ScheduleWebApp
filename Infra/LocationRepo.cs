@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class LocationRepo : BaseRepo<LocationData, Location>, ILocationRepo
+    public class LocationRepo : PagedRepo<LocationData, Location>, ILocationRepo
     {
         public LocationRepo(ApplicationDbContext c) : base(c, c?.Locations) { }
 

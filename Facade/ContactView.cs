@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Core;
 using Facade.Common;
 
 namespace Facade

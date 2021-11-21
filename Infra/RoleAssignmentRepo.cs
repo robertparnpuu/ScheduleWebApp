@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class RoleAssignmentRepo : BaseRepo<RoleAssignmentData, RoleAssignment>, IRoleAssignmentRepo
+    public class RoleAssignmentRepo : PagedRepo<RoleAssignmentData, RoleAssignment>, IRoleAssignmentRepo
     {
         public RoleAssignmentRepo(ApplicationDbContext c) : base(c, c?.RoleAssignments) { }
 

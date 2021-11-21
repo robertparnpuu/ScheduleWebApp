@@ -1,6 +1,5 @@
 ﻿using Core;
 using Data.Common;
-using Domain.Repos;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using Aids;
 
 namespace Infra.Common
 {
-    public abstract class BaseRepo<TData, TEntity> : BaseRepo<TData>, IRepo<TEntity>
+    public abstract class BaseRepo<TData, TEntity> : BaseRepo<TData>
     where TData : BaseEntityData, IBaseEntityData, new()
     {
         protected BaseRepo(DbContext c = null, DbSet<TData> s = null) : base(c, s) { }
@@ -25,7 +24,6 @@ namespace Infra.Common
         public TEntity GetEntity(string id) => ToEntity(GetData(id));
 
         public List<TEntity> GetById() => GetDropDownList().Select(ToEntity).ToList();
-
     }
 
     public abstract class BaseRepo<TData>
@@ -41,12 +39,12 @@ namespace Infra.Common
         }
 
         public async Task<List<TData>> GetEntityListAsync()=> (await GetDataListAsync()).ToList();
-        protected internal Task<List<TData>> GetDataListAsync() => dbSet.AsNoTracking().ToListAsync();
-        protected internal List<TData> GetDropDownList() => dbSet.AsNoTracking().ToList();
+        protected internal Task<List<TData>> GetDataListAsync() => CreateSql().ToListAsync();
+        protected internal List<TData> GetDropDownList() => CreateSql().ToList();
 
         //public async Task<TData> GetEntityAsync(string id)=> (await GetDataAsync(id));
         public TData GetData(string id) => GetDataAsync(id).GetAwaiter().GetResult();
-
+        protected internal virtual IQueryable<TData> CreateSql() => dbSet.AsNoTracking();
         protected internal async Task<TData> GetDataAsync(string id)
         {
             if (id is null) return null;

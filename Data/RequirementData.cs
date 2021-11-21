@@ -9,7 +9,6 @@ namespace Data
         public string locationId { get; set;  }
         public string occupationId { get; set;  }
         public string weekDayId { get; set; }
-        //Todo: Better name than startTimeClock
         public DateTime startTime {  get; set; }
         public DateTime endTime {  get; set; }
 

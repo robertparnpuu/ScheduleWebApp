@@ -5,7 +5,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class DepartmentRepo : BaseRepo<DepartmentData, Department>, IDepartmentRepo
+    public class DepartmentRepo : PagedRepo<DepartmentData, Department>, IDepartmentRepo
     {
         public DepartmentRepo(ApplicationDbContext c) : base(c, c?.Departments) { }
 

@@ -30,5 +30,6 @@ namespace Facade
 
         [Display(Name = "Full name")]
         public string fullName { get; set; }
+        //TODO 5. siin katki vaade
     }
 }

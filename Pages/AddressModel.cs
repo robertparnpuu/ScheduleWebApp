@@ -11,7 +11,7 @@ namespace PageModels
     public class AddressModel : ViewedModel<Address, AddressView>
     {
         public AddressModel(IAddressRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public override string PageTitle => "Addresses";
         protected internal override AddressView ToView(Address obj)
         {
             AddressView view = new AddressView();

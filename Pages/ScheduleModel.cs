@@ -19,7 +19,7 @@ namespace PageModels
         public List<StandardShiftView> standardShifts { get; set; }
         [BindProperty]
         public List<PersonView> people { get; set; }
-        public override string PageTitle => "Schedules";
+        public override string PageTitle => "Schedule";
         protected readonly IRepo<StandardShift> ssRepo;
         protected readonly IRepo<Person> pRepo;
         

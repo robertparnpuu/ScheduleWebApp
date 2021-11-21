@@ -14,7 +14,7 @@ namespace PageModels
     {
         //TODO: 2. Needs checkboxes for weekdays
         public RequirementModel(IRequirementRepo r, ApplicationDbContext context) : base(r, context) { }
-        public override string PageTitle => "Requirements";
+        public override string PageTitle => "Requirement";
         protected internal override RequirementView ToView(Requirement obj)
         {
             RequirementView view = new RequirementView();

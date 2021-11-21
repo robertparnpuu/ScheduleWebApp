@@ -13,7 +13,7 @@ namespace PageModels
     public class PartyContactModel : ViewedModel<PartyContact, PartyContactView>
     {
         public PartyContactModel(IPartyContactRepo r, ApplicationDbContext context) : base(r, context) { }
-        public override string PageTitle => "PartyContacts";
+        public override string PageTitle => "PartyContact";
         protected internal override PartyContactView ToView(PartyContact obj)
         {
             PartyContactView view = new PartyContactView();

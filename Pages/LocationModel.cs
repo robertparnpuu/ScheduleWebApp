@@ -14,7 +14,7 @@ namespace PageModels
         
         public LocationModel(ILocationRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
         ApplicationDbContext context) : base(r, pc, c, a, context) { }
-        public override string PageTitle => "Locations";
+        public override string PageTitle => "Location";
         protected internal override LocationView ToView(Location obj)
         {
             LocationView view = new LocationView();

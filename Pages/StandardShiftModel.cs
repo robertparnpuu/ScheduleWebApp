@@ -15,7 +15,7 @@ namespace PageModels
         public StandardShiftModel(IStandardShiftRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
-        public override string PageTitle => "StandardShifts";
+        public override string PageTitle => "StandardShift";
         protected internal override StandardShiftView ToView(StandardShift obj)
         {
             StandardShiftView view = new StandardShiftView();

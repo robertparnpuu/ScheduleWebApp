@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.ContractModel
 
 @{
@@ -7,31 +8,27 @@
 
 <table class="table">
     <thead>
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.item.personId)</th>
-        <th>@Html.DisplayNameFor(model => model.item.occupationId)</th>
-        <th>@Html.DisplayNameFor(model => model.item.departmentId)</th>
-        <th>@Html.DisplayNameFor(model => model.item.validFrom)</th>
-        <th>@Html.DisplayNameFor(model => model.item.validTo)</th>
-
-        <th></th>
-    </tr>
+        <tr>
+            @Html.TableSortHeader(x => x.item.personName, Model)
+            @Html.TableSortHeader(x => x.item.occupationName, Model)
+            @Html.TableSortHeader(x => x.item.departmentName, Model)
+            @Html.TableSortHeader(x => x.item.validFrom, Model)
+            @Html.TableSortHeader(x => x.item.validTo, Model)
+            <th></th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.items)
+    @foreach (var i in Model.items)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.personName)</td>
-            <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
-            <td>@Html.DisplayFor(modelItem => item.departmentName)</td>
-            <td>@Html.DisplayFor(modelItem => item.validFrom)</td>
-            <td>@Html.DisplayFor(modelItem => item.validTo)</td>
-            <td>
-                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            @Html.RowData(x => i.personName)
+            @Html.RowData(x => i.occupationName)
+            @Html.RowData(x => i.departmentName)
+            @Html.RowData(x => i.validFrom)
+            @Html.RowData(x => i.validTo)
+            @Html.RowButtons(Model.PageUrl, $"{i.id}")
         </tr>
     }
     </tbody>
+
 </table>

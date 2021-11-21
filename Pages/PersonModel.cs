@@ -13,7 +13,7 @@ namespace PageModels
         public PersonModel(IPersonRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a, 
         ApplicationDbContext context) : base(r,pc,c,a, context)
         { }
-        public override string PageTitle => "Persons";
+        public override string PageTitle => "Person";
         protected internal override PersonView ToView(Person obj)
         {
             PersonView view = new PersonView();

@@ -15,7 +15,7 @@ namespace PageModels
         public ShiftAssignmentModel(IShiftAssignmentRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
-        public override string PageTitle => "ShiftAssignments";
+        public override string PageTitle => "ShiftAssignment";
         protected internal override ShiftAssignmentView ToView(ShiftAssignment obj)
         {
             ShiftAssignmentView view = new ShiftAssignmentView();

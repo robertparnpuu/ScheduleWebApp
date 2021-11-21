@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using System.Linq;
+using Data;
 using Domain;
 using Domain.Repos;
 using Infra.Common;
@@ -11,5 +12,12 @@ namespace Infra
 
         public override Contract ToEntity(ContractData d) => new(d);
         public override ContractData ToData(Contract e) => e?.Data ?? new ContractData();
+        protected internal override IQueryable<ContractData> applyFilters(IQueryable<ContractData> query)
+        {
+            if (SearchString is null) return query;
+            return query.Where(
+            x => x.personId.Contains(SearchString));
+            //TODO 6 selle järgi ei ole mõtet ju otsida?
+        }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using Aids;
 using Data;
 using Domain;
-using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels

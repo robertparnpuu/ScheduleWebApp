@@ -11,9 +11,7 @@ namespace PageModels
 
     public class LocationModel : WithContactModel<Location, LocationView>
     {
-
-        private ILocationRepo mockRepo;
-
+        
         public LocationModel(ILocationRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
         ApplicationDbContext context) : base(r, pc, c, a, context) { }
         public override string PageTitle => "Locations";

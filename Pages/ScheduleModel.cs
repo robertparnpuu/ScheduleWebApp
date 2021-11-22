@@ -18,15 +18,15 @@ namespace PageModels
         [BindProperty]
         public List<StandardShiftView> standardShifts { get; set; }
         [BindProperty]
-        public List<PersonView> people { get; set; }
+        public List<ContractView> contracts { get; set; }
         public override string PageTitle => "Schedule";
         protected readonly IRepo<StandardShift> ssRepo;
-        protected readonly IRepo<Person> pRepo;
+        protected readonly IRepo<Contract> cRepo;
         
-        public ScheduleModel(IShiftAssignmentRepo r, IStandardShiftRepo sShiftRepo, IPersonRepo personRepo, ApplicationDbContext context) : base(r, context)
+        public ScheduleModel(IShiftAssignmentRepo r, IStandardShiftRepo sShiftRepo, IContractRepo contractRepo, ApplicationDbContext context) : base(r, context)
         {
             ssRepo = sShiftRepo;
-            pRepo = personRepo;
+            cRepo = contractRepo;
         }
         public async Task OnGetIndexAsync() => standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
         
@@ -55,16 +55,16 @@ namespace PageModels
         public async Task OnGetChooseWorkerAsync()
         {
             item = GetSessionObject("shiftAssignment");
-            people = (await pRepo.GetEntityListAsync()).Select(PersonToView).ToList();
+            contracts = (await cRepo.GetEntityListAsync()).Select(ContractToView).ToList();
         }
 
-        public async Task OnGetConfirmAssignmentAsync(string pId)
+        public async Task OnGetConfirmAssignmentAsync(string cId)
         {
             item = new ShiftAssignmentView();
             Copy.Members(GetSessionObject("shiftAssignment"), item, "dateChoice");
-            PersonView person = PersonToView(await pRepo.GetEntityAsync(pId));
-            item.personId = person.id;
-            item.personName = person.firstName+" "+person.lastName;
+            ContractView contract = ContractToView(await cRepo.GetEntityAsync(cId));
+            item.contractId = contract.id;
+            item.personName = contract.personName;
 
             VMToSession();
         }
@@ -89,7 +89,17 @@ namespace PageModels
         protected internal ShiftAssignmentView GetSessionObject(string key) =>
         HttpContext.Session.GetObjectFromJson<ShiftAssignmentView>(key);
 
-        protected internal PersonView PersonToView(Person obj) => Copy.Members(obj, new PersonView());
+        protected internal ContractView ContractToView(Contract obj)
+        {
+            ContractView view = new ContractView();
+            Copy.Members(obj, view);
+            view.occupationName = obj?.contractOccupation?.name;
+            view.personName = obj?.contractPerson?.fullName;
+            view.departmentName = obj?.contractDepartment?.name;
+            view.fullContact = obj?.contractPerson?.fullContact;
+
+            return view;
+        }
 
         protected internal StandardShiftView SSToView(StandardShift obj)
         {

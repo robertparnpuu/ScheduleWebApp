@@ -9,7 +9,7 @@ namespace Tests.Domain
     public class ShiftAssignmentEntityTests : BaseEntityTests<ShiftAssignment, ShiftAssignmentData>
     {
         [TestMethod]
-        public void WorkerIdTest() => isReadOnlyProperty(obj.Data.personId);
+        public void ContractIdTest() => isReadOnlyProperty(obj.Data.contractId);
         [TestMethod]
         public void StartTimeTest() => isReadOnlyProperty(obj.Data.startTime);
         [TestMethod]
@@ -18,8 +18,8 @@ namespace Tests.Domain
         public void LocationIdTest() => isReadOnlyProperty(obj.Data.locationId);
 
         [TestMethod]
-        public void LazyReadPersonTest() => LazyTest(() => obj.lazyReadPerson.IsValueCreated,
-        () => obj.shiftAssignmentPerson);
+        public void LazyReadContractTest() => LazyTest(() => obj.lazyReadContract.IsValueCreated,
+        () => obj.shiftAssignmentContract);
 
         [TestMethod]
         public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,

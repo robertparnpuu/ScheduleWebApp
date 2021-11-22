@@ -212,7 +212,7 @@ namespace Infra.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    personId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    contractId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     locationId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     startTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     endTime = table.Column<DateTime>(type: "datetime2", nullable: false)

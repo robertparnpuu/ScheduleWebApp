@@ -9,7 +9,7 @@ namespace Tests.Facade
     public class ShiftAssignmentViewTests : BaseViewTests<ShiftAssignmentView>
     {
         [TestMethod]
-        public void PersonIdTest() => IsProperty<string>(nameof(obj.personId));
+        public void ContractIdTest() => IsProperty<string>(nameof(obj.contractId));
         [TestMethod]
         public void LocationIdTest() => IsProperty<string>(nameof(obj.locationId));
         [TestMethod]

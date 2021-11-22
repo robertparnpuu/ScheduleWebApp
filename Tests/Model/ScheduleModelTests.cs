@@ -17,17 +17,17 @@ namespace Tests.Model
     {
         private class TestShiftAssignmentRepo : TestRepo<ShiftAssignment>, IShiftAssignmentRepo { }
         private class TestStandardShiftRepo : TestRepo<StandardShift>, IStandardShiftRepo { }
-        private class TestPersonRepo : TestRepo<Person>, IPersonRepo { }
+        private class TestContractRepo : TestRepo<Contract>, IContractRepo { }
         
         protected TestRepo<StandardShift> ssRepo;
-        protected TestRepo<Person> pRepo;
+        protected TestRepo<Contract> cRepo;
 
         [TestInitialize] public void TestInitialize()
         {
             mockRepo = new TestShiftAssignmentRepo();
             ssRepo = new TestStandardShiftRepo();
-            pRepo = new TestPersonRepo();
-            pageModel = new ScheduleModel((IShiftAssignmentRepo)mockRepo, (IStandardShiftRepo) ssRepo, (IPersonRepo) pRepo, null);
+            cRepo = new TestContractRepo();
+            pageModel = new ScheduleModel((IShiftAssignmentRepo)mockRepo, (IStandardShiftRepo) ssRepo, (IContractRepo) cRepo, null);
         }
 
     }

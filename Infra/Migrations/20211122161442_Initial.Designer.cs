@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211120111114_Initial")]
+    [Migration("20211122161442_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -256,13 +256,13 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("contractId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("endTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("locationId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("personId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("startTime")

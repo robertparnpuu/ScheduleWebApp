@@ -27,7 +27,8 @@ namespace Facade
 
         [Display(Name = "Department")]
         public string departmentName { get; set; }
-
+        [Display(Name = "Contacts")]
+        public string fullContact { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

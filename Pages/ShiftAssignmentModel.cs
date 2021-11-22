@@ -21,7 +21,7 @@ namespace PageModels
             ShiftAssignmentView view = new ShiftAssignmentView();
             Copy.Members(obj, view);
             view.locationName = obj?.shiftAssignmentLocation?.name;
-            view.personName = obj?.shiftAssignmentPerson?.fullName;
+            view.personName = obj?.shiftAssignmentContract?.contractPerson.fullName;
 
             return view;
         }
@@ -33,12 +33,12 @@ namespace PageModels
             return new ShiftAssignment(data);
         }
 
-        public SelectList Persons
+        public SelectList Contracts
         {
             get
             {
-                var list = new GetRepo().Instance<IPersonRepo>().GetById();
-                return new SelectList(list, "id", "fullName", item?.personId);
+                var list = new GetRepo().Instance<IContractRepo>().GetById();
+                return new SelectList(list, "id", "personName", item?.contractId);
             }
         }
         public SelectList Locations

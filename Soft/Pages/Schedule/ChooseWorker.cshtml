@@ -9,19 +9,21 @@
 <table class="table">
     <thead>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.people[0].fullName)</th>
-        <th>@Html.DisplayNameFor(model => model.people[0].fullContact)</th>
+        <th>@Html.DisplayNameFor(model => model.contracts[0].personName)</th>
+        <th>@Html.DisplayNameFor(model => model.contracts[0].occupationName)</th>
+        <th>@Html.DisplayNameFor(model => model.contracts[0].fullContact)</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.people)
+    @foreach (var item in Model.contracts)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.fullName)</td>
+            <td>@Html.DisplayFor(modelItem => item.personName)</td>
+            <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
             <td>@Html.DisplayFor(modelItem => item.fullContact)</td>
             <td>
-                <a asp-page="./ConfirmAssignment" asp-route-handler="ConfirmAssignment" asp-route-pId="@item.id">Select</a>
+                <a asp-page="./ConfirmAssignment" asp-route-handler="ConfirmAssignment" asp-route-cId="@item.id">Select</a>
             </td>
         </tr>
     }

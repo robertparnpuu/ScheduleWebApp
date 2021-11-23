@@ -18,7 +18,7 @@ namespace PageModels
             Copy.Members(obj, view);
             return view;
         }
-        //TODO 8. usiia vaja filtrid
+
         protected internal override Occupation ToEntity(OccupationView view)
         {
             if (view is null) return null;

@@ -21,7 +21,7 @@ namespace Domain
         internal Lazy<Occupation> lazyReadOccupation { get; }
 
         public string personId => Data.personId ?? "-";
-        public string personName => contractPerson.fullName ?? "-"; //Required for selectlists
+        public string personName => contractPerson?.fullName ?? "-"; //Required for selectlists
         public Person contractPerson => lazyReadPerson.Value;
         internal Lazy<Person> lazyReadPerson { get; }
 

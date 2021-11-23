@@ -20,8 +20,6 @@ namespace Tests.Facade
         [TestMethod]
         public void DateOfBirthTest() => IsProperty<DateTime>(nameof(obj.dateOfBirth));
         [TestMethod]
-        public void FullContactTest() => IsProperty<string>(nameof(obj.fullContact));
-        [TestMethod]
         public void FullAddressTest() => IsProperty<string>(nameof(obj.fullAddress));
     }
 }

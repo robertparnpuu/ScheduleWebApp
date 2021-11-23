@@ -1,6 +1,4 @@
 ﻿
-@inject SignInManager<IdentityUser> _signInManager
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,12 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Contract/Index">Contract</a>
                         </li>
-                        @if (_signInManager.IsSignedIn(User) @*&& User.IsInRole("Admin")*@)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Department/Index">Department</a>
-                            </li>
-                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Department/Index">Department</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Location/Index">Location</a>
                         </li>

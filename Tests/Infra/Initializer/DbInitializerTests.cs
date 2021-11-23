@@ -90,7 +90,7 @@ namespace Tests.Infra.Initializer
             TestDb.Persons.Add(GetRandom.ObjectOf<PersonData>());
             TestDb.Requirements.Add(GetRandom.ObjectOf<RequirementData>());
             TestDb.RoleAssignments.Add(GetRandom.ObjectOf<RoleAssignmentData>());
-            TestDb.Roles.Add(GetRandom.ObjectOf<RoleData>());
+            //TestDb.Roles.Add(GetRandom.ObjectOf<RoleData>());
             TestDb.ShiftAssignments.Add(GetRandom.ObjectOf<ShiftAssignmentData>());
             TestDb.StandardShifts.Add(GetRandom.ObjectOf<StandardShiftData>());
             TestDb.WeekDays.Add(GetRandom.ObjectOf<WeekDayData>());

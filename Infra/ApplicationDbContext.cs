@@ -1,10 +1,13 @@
 ﻿using Data;
+using Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Infra
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public ApplicationDbContext() : this(
             new DbContextOptionsBuilder<ApplicationDbContext>().Options)
@@ -22,7 +25,7 @@ namespace Infra
         public DbSet<PersonData> Persons { get; set; }
         public DbSet<RequirementData> Requirements { get; set; }
         public DbSet<RoleAssignmentData> RoleAssignments { get; set; }
-        public DbSet<RoleData> Roles { get; set; }
+        public DbSet<RoleData> Roles2 { get; set; }
         public DbSet<ShiftAssignmentData> ShiftAssignments { get; set; }
         public DbSet<StandardShiftData> StandardShifts { get; set; }
         public DbSet<WeekDayData> WeekDays { get; set; }
@@ -43,11 +46,18 @@ namespace Infra
             modelBuilder.Entity<PersonData>().ToTable("Person");
             modelBuilder.Entity<RequirementData>().ToTable("Requirement");
             modelBuilder.Entity<RoleAssignmentData>().ToTable("RoleAssignment");
-            modelBuilder.Entity<RoleData>().ToTable("Role");
+            //modelBuilder.Entity<RoleData>().ToTable("Role");
             modelBuilder.Entity<ShiftAssignmentData>().ToTable("ShiftAssignment");
             modelBuilder.Entity<StandardShiftData>().ToTable("StandardShift");
             modelBuilder.Entity<WeekDayData>().ToTable("WeekDay");
 
+            modelBuilder.Entity<ApplicationUser>().ToTable("User");
+            modelBuilder.Entity<ApplicationRole>().ToTable("Role");
+            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
         }
     }

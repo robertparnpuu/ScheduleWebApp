@@ -13,6 +13,5 @@ namespace Domain
 
         public string name => Data?.name ?? "-";
         public string fullAddress => partyContact?.fullAddress ?? "-";
-        public string fullContact => partyContact?.fullContact ?? "-";
     }
 }

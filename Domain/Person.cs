@@ -19,7 +19,6 @@ namespace Domain
 
         public string fullName => $"{firstName} {lastName}";
         public string fullAddress=> partyContact?.fullAddress ?? "-";
-        public string fullContact => partyContact?.fullContact ?? "-";
 
     }
 }

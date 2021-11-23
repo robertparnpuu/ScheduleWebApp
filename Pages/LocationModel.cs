@@ -21,7 +21,7 @@ namespace PageModels
             Copy.Members(obj, view);
             return view;
         }
-        //TODO 15. siia vaja filtrid
+
         protected internal override Location ToEntity(LocationView view)
         {
             if (view is null) return null;

@@ -21,7 +21,6 @@ namespace PageModels
             view.fullName = obj?.fullName;
             return view;
         }
-        //TODO 9. siia vaja filtrid
         protected internal override Person ToEntity(PersonView view)
         {
             if (view is null) return null;

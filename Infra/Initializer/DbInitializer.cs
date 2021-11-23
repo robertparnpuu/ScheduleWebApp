@@ -10,6 +10,7 @@ namespace Infra.Initializer
         public static void Initialize(ApplicationDbContext dataBase, bool newDb)
         {
             dataBase.SaveChanges();
+
             InitializeAddress(dataBase, newDb);
             InitializeContact(dataBase, newDb);
             InitializeContract(dataBase, newDb);

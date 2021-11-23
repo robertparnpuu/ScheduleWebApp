@@ -6,6 +6,9 @@ using Domain.Common;
 using Infra;
 using Infra.Initializer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNet.Identity;
+using Domain;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Soft
 {
@@ -14,7 +17,7 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            CreateAndDropDb(host, true);
+            CreateAndDropDb(host, false);
             GetRepo.SetProvider(host.Services);
             host.Run();
         }
@@ -25,10 +28,14 @@ namespace Soft
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                if(newDb) 
+                //var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                //var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
+                //RoleSeed.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
+                if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
                 DbInitializer.Initialize(context, newDb);
+                
             }
             catch (Exception ex)
             {

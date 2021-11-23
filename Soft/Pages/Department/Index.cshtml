@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.DepartmentModel
 
 @{
@@ -8,7 +9,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.items[0].name)</th>
+            <th>@Html.TableSortHeader(x => x.item.name, Model)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
@@ -19,7 +20,7 @@
         @foreach (var item in Model.items)
         {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.name)</td>
+            <td>@Html.RowData(x => item.name)</td>
             <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
             <td>@Html.DisplayFor(modelItem => item.email)</td>
             <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>

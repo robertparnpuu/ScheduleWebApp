@@ -14,11 +14,11 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var i in Model.items)
+        @foreach (var item in Model.items)
         {
         <tr>
-            @Html.RowData(x => i.name)
-            @Html.RowButtons(Model.PageUrl, $"{i.id}")
+            @Html.RowData(x => item.name)
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
         }
     </tbody>

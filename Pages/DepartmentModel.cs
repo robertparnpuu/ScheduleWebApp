@@ -19,7 +19,7 @@ namespace PageModels
             Copy.Members(obj, view);
             return view;
         }
-        //TODO 7. siia vaja filtrid
+        
         protected internal override Department ToEntity(DepartmentView view)
         {
             if (view is null) return null;

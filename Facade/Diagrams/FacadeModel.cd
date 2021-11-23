@@ -25,7 +25,7 @@
   <Class Name="Facade.ContractView" Collapsed="true">
     <Position X="5.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAABAAAIAAAAAAIAAAAAAEAAAIAAEgAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAABAAAIAAAAIAIAAAAAAEAAAIAAEgAAA=</HashCode>
       <FileName>ContractView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,7 +53,7 @@
   <Class Name="Facade.ShiftAssignmentView" Collapsed="true">
     <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAACAAAAhAAAAAgACAAAAAAABAEAAAIAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAACAAAAhAAAAAgACAAAAAAABAAAAAKAAAAAAA=</HashCode>
       <FileName>ShiftAssignmentView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -97,6 +97,13 @@
     <TypeIdentifier>
       <HashCode>EAAAAAAAAABAAAAAEACAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>PersonView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.ScheduleView" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAhAAAAAgACAAAAAAABAEAAAIAAAAAAA=</HashCode>
+      <FileName>ScheduleView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -3,7 +3,7 @@ using Domain.Repos;
 using Infra;
 
 namespace PageModels.Common {
-    public abstract class OrderedModel<TEntity, TView> :FilteredModel<TEntity, TView>
+    public abstract class OrderedModel<TEntity, TView> :FilteredModel<TEntity, TView>,IFilteredRepo
         where TEntity : class, IBaseEntity, new()
         where TView : class, IBaseEntityData, new() {
         protected OrderedModel(IRepo<TEntity> r, ApplicationDbContext c = null) :base(r, c) { }

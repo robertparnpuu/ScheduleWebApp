@@ -12,7 +12,6 @@ namespace Tests.Domain.Common {
         where TData : class, IBaseEntity, new()
     {
         protected TEntity obj;
-        //TODO 16. FACADE JA INFRA TESTID
         [TestInitialize]
         public virtual void TestInitialize() => obj = CreateObject();
 

@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.AddressModel
 
 @{
@@ -28,12 +29,7 @@
                 <td>@Html.DisplayFor(modelItem => item.city)</td>
                 <td>@Html.DisplayFor(modelItem => item.region)</td>
                 <td>@Html.DisplayFor(modelItem => item.country)</td>
-
-                <td>
-                    <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                    <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-                </td>
+                <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
             </tr>
         }
     </tbody>

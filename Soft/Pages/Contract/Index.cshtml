@@ -9,25 +9,25 @@
 <table class="table">
     <thead>
         <tr>
-            @Html.TableSortHeader(x => x.item.personName, Model)
-            @Html.TableSortHeader(x => x.item.occupationName, Model)
-            @Html.TableSortHeader(x => x.item.departmentName, Model)
-            @Html.TableSortHeader(x => x.item.validFrom, Model)
-            @Html.TableSortHeader(x => x.item.validTo, Model)
+            <th>@Html.DisplayNameFor(model => model.items[0].personName)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].occupationName)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].departmentName)</th>
+            <th>@Html.TableSortHeader(x => x.item.validFrom, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.validTo, Model)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var i in Model.items)
+    @foreach (var item in Model.items)
     {
         <tr>
-            @Html.RowData(x => i.personName)
-            @Html.RowData(x => i.occupationName)
-            @Html.RowData(x => i.departmentName)
-            @Html.RowData(x => i.validFrom)
-            @Html.RowData(x => i.validTo)
-            @Html.RowButtons(Model.PageUrl, $"{i.id}")
-        </tr>
+            <td>@Html.DisplayFor(modelItem => item.personName)</td>
+            <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
+            <td>@Html.DisplayFor(modelItem => item.departmentName)</td>
+            <td>@Html.RowData(x => item.validFrom)</td>
+            <td>@Html.RowData(x => item.validTo)</td>
+            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
+</tr>
     }
     </tbody>
 

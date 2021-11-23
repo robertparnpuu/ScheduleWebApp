@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.RequirementModel
 
 @{
@@ -10,11 +11,11 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.items[0].locationId)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].occupationId)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].weekDayId)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].startTime)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].endTime)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].minEmployees)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].maxEmployees)</th>
+            <th>@Html.TableSortHeader(x => x.item.weekDayId, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.startTime, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.endTime, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.minEmployees, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.maxEmployees, Model)</th>
             <th></th>
         </tr>
     </thead>
@@ -23,17 +24,12 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.locationName)</td>
             <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
-            <td>@Html.DisplayFor(modelItem => item.weekDayName)</td>
-            <td>@Html.DisplayFor(modelItem => item.startTime)</td>
-            <td>@Html.DisplayFor(modelItem => item.endTime)</td>
-            <td>@Html.DisplayFor(modelItem => item.minEmployees)</td>
-            <td>@Html.DisplayFor(modelItem => item.maxEmployees)</td>
-
-            <td>
-                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            <td>@Html.RowData(x => item.weekDayName)</td>
+            <td>@Html.RowData(x => item.startTime)</td>
+            <td>@Html.RowData(x => item.endTime)</td>
+            <td>@Html.RowData(x => item.minEmployees)</td>
+            <td>@Html.RowData(x => item.maxEmployees)</td>
+            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
         </tr>
 }
     </tbody>

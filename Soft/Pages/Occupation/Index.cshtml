@@ -9,7 +9,7 @@
 <table class="table">
     <thead>
         <tr>
-            @Html.TableSortHeader(x => x.item.name, Model)
+            <th>@Html.TableSortHeader(x => x.item.name, Model)</th>
             <th></th>
         </tr>
     </thead>
@@ -17,8 +17,8 @@
         @foreach (var item in Model.items)
         {
         <tr>
-            @Html.RowData(x => item.name)
-            @Html.RowButtons(Model.PageUrl, $"{item.id}")
+            <td>@Html.RowData(x => item.name)</td>
+            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
         </tr>
         }
     </tbody>

@@ -28,8 +28,6 @@ namespace Tests.Infra.Initializer
             TestDb.RemoveRange(TestDb.PartyContacts);
             TestDb.RemoveRange(TestDb.Persons);
             TestDb.RemoveRange(TestDb.Requirements);
-            TestDb.RemoveRange(TestDb.RoleAssignments);
-            TestDb.RemoveRange(TestDb.Roles);
             TestDb.RemoveRange(TestDb.ShiftAssignments);
             TestDb.RemoveRange(TestDb.StandardShifts);
             TestDb.RemoveRange(TestDb.WeekDays);
@@ -49,8 +47,6 @@ namespace Tests.Infra.Initializer
             Assert.AreEqual(10, TestDb.PartyContacts.Count());
             Assert.AreEqual(4, TestDb.Persons.Count());
             Assert.AreEqual(7, TestDb.Requirements.Count());
-            Assert.AreEqual(0, TestDb.RoleAssignments.Count());
-            Assert.AreEqual(0, TestDb.Roles.Count());
             Assert.AreEqual(3, TestDb.ShiftAssignments.Count());
             Assert.AreEqual(3, TestDb.StandardShifts.Count());
             Assert.AreEqual(7, TestDb.WeekDays.Count());
@@ -71,8 +67,6 @@ namespace Tests.Infra.Initializer
             Assert.AreEqual(count, TestDb.PartyContacts.Count());
             Assert.AreEqual(count, TestDb.Persons.Count());
             Assert.AreEqual(count, TestDb.Requirements.Count());
-            Assert.AreEqual(count, TestDb.RoleAssignments.Count());
-            Assert.AreEqual(count, TestDb.Roles.Count());
             Assert.AreEqual(count, TestDb.ShiftAssignments.Count());
             Assert.AreEqual(count, TestDb.StandardShifts.Count());
             Assert.AreEqual(count, TestDb.WeekDays.Count());
@@ -89,8 +83,6 @@ namespace Tests.Infra.Initializer
             TestDb.PartyContacts.Add(GetRandom.ObjectOf<PartyContactData>());
             TestDb.Persons.Add(GetRandom.ObjectOf<PersonData>());
             TestDb.Requirements.Add(GetRandom.ObjectOf<RequirementData>());
-            TestDb.RoleAssignments.Add(GetRandom.ObjectOf<RoleAssignmentData>());
-            //TestDb.Roles.Add(GetRandom.ObjectOf<RoleData>());
             TestDb.ShiftAssignments.Add(GetRandom.ObjectOf<ShiftAssignmentData>());
             TestDb.StandardShifts.Add(GetRandom.ObjectOf<StandardShiftData>());
             TestDb.WeekDays.Add(GetRandom.ObjectOf<WeekDayData>());

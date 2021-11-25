@@ -11,6 +11,10 @@ namespace Tests.Facade
         [TestMethod]
         public void ContractIdTest() => IsProperty<string>(nameof(obj.contractId));
         [TestMethod]
+        public void OccupationIdTest() => IsProperty<string>(nameof(obj.occupationId));
+        [TestMethod]
+        public void OccupationNameTest() => IsProperty<string>(nameof(obj.occupationName));
+        [TestMethod]
         public void LocationIdTest() => IsProperty<string>(nameof(obj.locationId));
         [TestMethod]
         public void PersonNameTest() => IsProperty<string>(nameof(obj.personName));

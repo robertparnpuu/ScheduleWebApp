@@ -96,6 +96,7 @@ namespace PageModels
             view.occupationName = obj?.contractOccupation?.name;
             view.personName = obj?.contractPerson?.fullName;
             view.departmentName = obj?.contractDepartment?.name;
+            view.fullContact = obj?.contractPerson.partyContact.partyContactContact.contacts;
 
             return view;
         }

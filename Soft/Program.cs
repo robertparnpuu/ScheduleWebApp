@@ -6,8 +6,6 @@ using Domain.Common;
 using Infra;
 using Infra.Initializer;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Soft
 {
@@ -16,7 +14,7 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            
+            //selle trueks muutmine kustutab ära ka kasutajad ja rollid hetkel
             CreateAndDropDb(host, false);
             GetRepo.SetProvider(host.Services);
             host.Run();
@@ -34,8 +32,7 @@ namespace Soft
                 if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
-                DbInitializer.Initialize(context, newDb);
-                
+                DbInitializer.Initialize(context, newDb);                
             }
             catch (Exception ex)
             {

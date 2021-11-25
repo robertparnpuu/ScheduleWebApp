@@ -22,39 +22,60 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Schedule/StandardShifts">Create Schedule</a>
                             </li>
                         }
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("tere")|| User.IsInRole("Admin"))
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Contract/Index">Contract</a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Department/Index">Department</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Location/Index">Location</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Occupation/Index">Occupation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Person/Index">Person</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/StandardShift/Index">StandardShift</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Requirement/Index">Requirement</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/ShiftAssignment/Index">ShiftAssignment</a>
-                        </li>
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Department/Index">Department</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Location/Index">Location</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Occupation/Index">Occupation</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Person/Index">Person</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/StandardShift/Index">StandardShift</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Requirement/Index">Requirement</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/ShiftAssignment/Index">ShiftAssignment</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

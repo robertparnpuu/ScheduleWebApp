@@ -14,7 +14,8 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            CreateAndDropDb(host, true);
+            //selle trueks muutmine kustutab ära ka kasutajad ja rollid hetkel
+            CreateAndDropDb(host, false);
             GetRepo.SetProvider(host.Services);
             host.Run();
         }
@@ -25,10 +26,13 @@ namespace Soft
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                if(newDb) 
+                //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                //ContextSeed.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
+                if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
-                DbInitializer.Initialize(context, newDb);
+                DbInitializer.Initialize(context, newDb);                
             }
             catch (Exception ex)
             {

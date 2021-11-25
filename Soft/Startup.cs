@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Infra;
+using Domain;
+using Microsoft.AspNetCore.Http;
 
 namespace Soft
 {
@@ -27,10 +29,14 @@ namespace Soft
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
             services.AddRazorPages();
             AddServices(services);
+            services.AddLogging();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         }
 
@@ -45,8 +51,6 @@ namespace Soft
             services.AddTransient<IPartyContactRepo, PartyContactRepo>();
             services.AddTransient<IPersonRepo, PersonRepo>();
             services.AddTransient<IRequirementRepo, RequirementRepo>();
-            services.AddTransient<IRoleRepo, RoleRepo>();
-            services.AddTransient<IRoleAssignmentRepo, RoleAssignmentRepo>();
             services.AddTransient<IShiftAssignmentRepo, ShiftAssignmentRepo>();
             services.AddTransient<IStandardShiftRepo, StandardShiftRepo>();
             services.AddTransient<IWeekDayRepo, WeekDayRepo>();

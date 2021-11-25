@@ -26,7 +26,7 @@ namespace Tests.Model.Common
             mockRepo.result = result;
             return pageModel.OnGetEditAsync(id).GetAwaiter().GetResult();
         }
-        protected object OnPostCreateAsync(dynamic newItem = null)
+        protected virtual object OnPostCreateAsync(dynamic newItem = null)
         {
             pageModel.item = newItem;
             return pageModel.OnPostCreateAsync().GetAwaiter().GetResult();
@@ -129,7 +129,7 @@ namespace Tests.Model.Common
             Assert.AreEqual(null, pageModel.ToEntity(null));
         }
         [TestMethod]
-        public void OnPostCreateTestIsCallingAdd()
+        public virtual void OnPostCreateTestIsCallingAdd()
         {
             var o = CreateNew.Instance<TView>();
             OnPostCreateAsync(o);

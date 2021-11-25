@@ -133,23 +133,5 @@
       <Property Name="partyContactAddress" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="ApplicationUser" Collapsed="true">
-    <Position X="12" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>ApplicationUser.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ApplicationRole" Collapsed="true">
-    <Position X="10.25" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ApplicationUser.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser&lt;TKey&gt;" Collapsed="true">
-    <Position X="12" Y="1.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

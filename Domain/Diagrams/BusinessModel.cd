@@ -10,7 +10,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Department.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,6 +22,7 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="shiftAssignmentLocation" />
+      <Property Name="shiftAssignmentContract" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Requirement" Collapsed="true">
@@ -49,7 +50,7 @@
   <Class Name="Domain.Location" Collapsed="true">
     <Position X="7.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Location.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -60,29 +61,12 @@
       <FileName>Occupation.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Domain.Role" Collapsed="true">
-    <Position X="5.5" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Role.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Domain.WeekDay" Collapsed="true">
     <Position X="9.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDay.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Domain.RoleAssignment" Collapsed="true">
-    <Position X="1.5" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAQAAACAAAAAAAAABIAIAAAAAAEAAAAAACgAAA=</HashCode>
-      <FileName>RoleAssignment.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="role" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Address" Collapsed="true">
     <Position X="13.5" Y="1.5" Width="1.5" />
@@ -125,51 +109,8 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAGAAAIAAAAAAAAAAAAACAAQAAA=</HashCode>
+      <HashCode>EAAAAAAAAABAAAAAEAGAAAAAAAAAAAAAAAAACAAQAAA=</HashCode>
       <FileName>Person.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Domain.Roles.Manager" Collapsed="true">
-    <Position X="8.75" Y="9" Width="1.5" />
-    <InheritanceLine Type="Domain.Role" ManuallyRouted="true" FixedFromPoint="true">
-      <Path>
-        <Point X="7" Y="9.875" />
-        <Point X="7.375" Y="9.875" />
-        <Point X="7.375" Y="9.346" />
-        <Point X="8.75" Y="9.346" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Roles\Manager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Domain.Roles.Scheduler" Collapsed="true">
-    <Position X="10.25" Y="9" Width="1.5" />
-    <InheritanceLine Type="Domain.Role" FixedFromPoint="true">
-      <Path>
-        <Point X="7" Y="9.875" />
-        <Point X="11" Y="9.875" />
-        <Point X="11" Y="9.691" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Roles\Scheduler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Domain.Roles.Viewer" Collapsed="true">
-    <Position X="11.75" Y="9" Width="1.5" />
-    <InheritanceLine Type="Domain.Role" FixedFromPoint="true">
-      <Path>
-        <Point X="7" Y="9.875" />
-        <Point X="12.5" Y="9.875" />
-        <Point X="12.5" Y="9.691" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Roles\Viewer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.StandardShift" Collapsed="true">
@@ -207,7 +148,7 @@
   <Class Name="Domain.PartyContact" Collapsed="true">
     <Position X="13.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAEAEABAIAAQAABAAAAAAAAEQAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAEAEABAAAAQAABAAAAAAAAEQAAAA=</HashCode>
       <FileName>PartyContact.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

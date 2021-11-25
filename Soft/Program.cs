@@ -14,7 +14,7 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            CreateAndDropDb(host, false);
+            CreateAndDropDb(host, true);
             GetRepo.SetProvider(host.Services);
             host.Run();
         }

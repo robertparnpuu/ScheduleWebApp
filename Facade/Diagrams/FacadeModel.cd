@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Facade.Common.BaseView" Collapsed="true">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+  <Class Name="Facade.Common.BaseView">
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\BaseView.cs</FileName>
@@ -9,80 +9,101 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Facade.AddressView" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="0.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAQAAAAAAAAAAAAAACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>AddressView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Facade.ContactView" Collapsed="true">
-    <Position X="7.25" Y="2.5" Width="1.5" />
+    <Position X="3" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAEAAAAAAEAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContactView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Facade.ContractView" Collapsed="true">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+    <Position X="5.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAABAAAIAAAAAAIAAAAAAEAAAIAAEgAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAABAAAIAAAAIAIAAAAAAEAAAIAAEgAAA=</HashCode>
       <FileName>ContractView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Facade.DepartmentView" Collapsed="true">
-    <Position X="7.25" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAgAAAAQAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DepartmentView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Facade.LocationView" Collapsed="true">
-    <Position X="2.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAQAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>LocationView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Facade.OccupationView" Collapsed="true">
-    <Position X="9.5" Y="2.5" Width="1.5" />
+    <Position X="7.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OccupationView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Facade.PersonView" Collapsed="true">
-    <Position X="2.75" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAABAAAAAEAAAAAIAAQAAAAAAAAAACAAAAAA=</HashCode>
-      <FileName>PersonView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Facade.RequirementView" Collapsed="true">
-    <Position X="9.5" Y="3.75" Width="1.5" />
+    <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAACAACIhAAAAAgACAAAAAAAAAAAAAACQAAAAA=</HashCode>
       <FileName>RequirementView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Facade.RoleAssignmentView" Collapsed="true">
-    <Position X="5" Y="2.5" Width="1.5" />
+    <Position X="2.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAIAAAAAAEAAAIAAAgABA=</HashCode>
       <FileName>RoleAssignmentView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Facade.ShiftAssignmentView" Collapsed="true">
-    <Position X="0.5" Y="5" Width="1.5" />
+    <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAgAAAAAgACAAAAAAAAAEAAAIAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAACAAAAhAAAAAgACAAAAAAABAAAAAKAAAAAAA=</HashCode>
       <FileName>ShiftAssignmentView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Facade.StandardShiftView" Collapsed="true">
-    <Position X="5" Y="3.75" Width="1.5" />
+    <Position X="7.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAACAAAAhAAAAAgACAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>StandardShiftView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.Common.WithContactView" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAQAAAAAAAAAgAAEACAIAAUAABABCAAAABEAAAIA=</HashCode>
+      <FileName>Common\WithContactView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.PartyContactView" Collapsed="true">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAQAABAAAAAAAAEAAAAA=</HashCode>
+      <FileName>PartyContactView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.LocationView" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LocationView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.DepartmentView" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DepartmentView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.PersonView" Collapsed="true">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAABAAAAAEACAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>PersonView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.ScheduleView" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAhAAAAAgACAAAAAAABAEAAAIAAAAAAA=</HashCode>
+      <FileName>ScheduleView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

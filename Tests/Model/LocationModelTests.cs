@@ -7,14 +7,18 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class LocationModelTests : BaseModelTests<Location, LocationView>
+    [TestClass] public class LocationModelTests : WithContactModelTests<Location, LocationView>
     {
         private class TestLocationRepo : TestRepo<Location>, ILocationRepo{ }
 
         [TestInitialize] public void TestInitialize()
         {
             mockRepo = new TestLocationRepo();
-            pageModel = new LocationModel((ILocationRepo) mockRepo, (IPartyContactRepo)mockRepo, (IContactRepo)mockRepo, (IAddressRepo)mockRepo, null);
+            mockRepoContact = new TestContactRepo();
+            mockRepoAddress = new TestAddressRepo();
+            mockRepoPartyContact = new TestPartyContactRepo();
+            pageModel = new LocationModel((ILocationRepo)mockRepo, (IPartyContactRepo)mockRepoPartyContact,
+            (IContactRepo)mockRepoContact, (IAddressRepo)mockRepoAddress, null);
         }
     }
 }

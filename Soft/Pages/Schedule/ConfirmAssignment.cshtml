@@ -1,0 +1,20 @@
+﻿@page
+@using Core.Extensions
+@model PageModels.ScheduleModel
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+        @Html.Show(model => model.item.locationName)
+        @Html.Show(model => model.item.occupationName)
+        @Html.Show(model => model.item.personName)
+        @Html.Show(model => model.item.startTime)
+        @Html.Show(model => model.item.endTime)
+        <div class="col-sm-2">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

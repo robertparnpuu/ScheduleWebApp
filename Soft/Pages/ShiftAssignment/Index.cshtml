@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.ShiftAssignmentModel
 
 @{
@@ -10,8 +11,8 @@
     <tr>
         <th>@Html.DisplayNameFor(model => model.item.personName)</th>
         <th>@Html.DisplayNameFor(model => model.item.locationName)</th>
-        <th>@Html.DisplayNameFor(model => model.item.startTime)</th>
-        <th>@Html.DisplayNameFor(model => model.item.endTime)</th>
+        <th>@Html.TableSortHeader(x => x.item.startTime, Model)</th>
+        <th>@Html.TableSortHeader(x => x.item.endTime, Model)</th>
 
         <th></th>
     </tr>
@@ -22,13 +23,9 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.personName)</td>
             <td>@Html.DisplayFor(modelItem => item.locationName)</td>
-            <td>@Html.DisplayFor(modelItem => item.startTime)</td>
-            <td>@Html.DisplayFor(modelItem => item.endTime)</td>
-            <td>
-                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            <td>@Html.RowData(x => item.startTime)</td>
+            <td>@Html.RowData(x => item.endTime)</td>
+            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
         </tr>
     }
     </tbody>

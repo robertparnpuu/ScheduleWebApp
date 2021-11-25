@@ -10,7 +10,7 @@ using Tests.Model.Common;
 namespace Tests.Model
 {
     [TestClass]
-    public class PartyContactModelTests : BaseModelTests<PartyContact, PartyContactView>
+    public class PartyContactModelTests : ViewedModelTests<PartyContact, PartyContactView>
     {
         private class TestPartyContactRepo : TestRepo<PartyContact>, IPartyContactRepo { }
 

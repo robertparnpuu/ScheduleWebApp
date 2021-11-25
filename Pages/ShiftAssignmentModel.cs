@@ -10,23 +10,22 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ShiftAssignmentModel : BaseModel<ShiftAssignment, ShiftAssignmentView>
+    public class ShiftAssignmentModel : ViewedModel<ShiftAssignment, ShiftAssignmentView>
     {
-        //TODO: Concurrency pls
         public ShiftAssignmentModel(IShiftAssignmentRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
-
+        public override string PageTitle => "ShiftAssignment";
         protected internal override ShiftAssignmentView ToView(ShiftAssignment obj)
         {
             ShiftAssignmentView view = new ShiftAssignmentView();
             Copy.Members(obj, view);
             view.locationName = obj?.shiftAssignmentLocation?.name;
-            view.personName = obj?.shiftAssignmentPerson?.fullName;
+            view.personName = obj?.shiftAssignmentContract?.contractPerson.fullName;
 
             return view;
         }
-
+        //TODO 12. siia vaja filtrid
         protected internal override ShiftAssignment ToEntity(ShiftAssignmentView view)
         {
             if (view is null) return null;
@@ -34,12 +33,12 @@ namespace PageModels
             return new ShiftAssignment(data);
         }
 
-        public SelectList Persons
+        public SelectList Contracts
         {
             get
             {
-                var list = new GetRepo().Instance<IPersonRepo>().GetById();
-                return new SelectList(list, "id", "fullName", item?.personId);
+                var list = new GetRepo().Instance<IContractRepo>().GetById();
+                return new SelectList(list, "id", "personName", item?.contractId);
             }
         }
         public SelectList Locations

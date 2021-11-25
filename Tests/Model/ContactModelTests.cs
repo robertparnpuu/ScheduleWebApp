@@ -7,7 +7,7 @@ using Tests.Model.Common;
 
 namespace Tests.Model
 {
-    [TestClass] public class ContactModelTests : BaseModelTests<Contact, ContactView>
+    [TestClass] public class ContactModelTests : ViewedModelTests<Contact, ContactView>
     {
         private class TestContactRepo : TestRepo<Contact>, IContactRepo{ }
 

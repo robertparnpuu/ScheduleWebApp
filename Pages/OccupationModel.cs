@@ -8,11 +8,10 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class OccupationModel: BaseModel<Occupation, OccupationView>
+    public class OccupationModel: ViewedModel<Occupation, OccupationView>
     {
-        //TODO: Concurrency pls
         public OccupationModel(IOccupationRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public override string PageTitle => "Occupation";
         protected internal override OccupationView ToView(Occupation obj)
         {
             OccupationView view = new OccupationView();

@@ -232,7 +232,7 @@ namespace Infra.Initializer
             },
             new ContractData()
             {
-            id = "contactId2",
+            id = "contractId2",
             personId = "personId2",
             occupationId = "occupationId2",
             departmentId = "departmentId3",
@@ -572,7 +572,7 @@ namespace Infra.Initializer
             new ShiftAssignmentData()
             {
                 id="shiftAssignmentId1",
-                personId = "personId1",
+                contractId = "contractId1",
                 locationId = "locationId1",
                 startTime = DateTime.Parse("2021-04-01"),
                 endTime = DateTime.Parse("2021-04-01"),
@@ -580,7 +580,7 @@ namespace Infra.Initializer
             new ShiftAssignmentData()
             {
                 id="shiftAssignmentId2",
-                personId = "personId1",
+                contractId = "contractId1",
                 locationId = "locationId2",
                 startTime = DateTime.Parse("2021-04-02"),
                 endTime = DateTime.Parse("2021-04-02"),
@@ -588,7 +588,7 @@ namespace Infra.Initializer
             new ShiftAssignmentData()
             {
                 id="shiftAssignmentId3",
-                personId = "personId2",
+                contractId = "contractId2",
                 locationId = "locationId3",
                 startTime = DateTime.Parse("2021-04-03"),
                 endTime = DateTime.Parse("2021-04-03"),
@@ -609,8 +609,8 @@ namespace Infra.Initializer
                 name="mustamäe ladu, kokk 9-5",
                 locationId = "locationId1",
                 occupationId = "occupationId1",
-                startTime = DateTime.Parse("2021-04-01"),
-                endTime = DateTime.Parse("2021-04-01"),
+                startTime = DateTime.Parse("2021-04-01T09:00:00"),
+                endTime = DateTime.Parse("2021-04-01T17:00:00"),
             },
             new StandardShiftData()
             {
@@ -618,8 +618,8 @@ namespace Infra.Initializer
                 name="mustamäe ladu, kokk, hommikune, nädalavahetus",
                 locationId = "locationId1",
                 occupationId = "occupationId1",
-                startTime = DateTime.Parse("2021-04-01"),
-                endTime = DateTime.Parse("2021-04-01"),
+                startTime = DateTime.Parse("2021-04-01T07:00:00"),
+                endTime = DateTime.Parse("2021-04-01T14:00:00"),
             },
             new StandardShiftData()
             {
@@ -627,8 +627,8 @@ namespace Infra.Initializer
                 name="Lasnamäe ladu, laomees 6-12",
                 locationId = "locationId2",
                 occupationId = "occupationId3",
-                startTime = DateTime.Parse("2021-04-01"),
-                endTime = DateTime.Parse("2021-04-01"),
+                startTime = DateTime.Parse("2021-04-01T06:00:00"),
+                endTime = DateTime.Parse("2021-04-01T12:00:00"),
             }
             };
             dataBase.StandardShifts.AddRange(ss);

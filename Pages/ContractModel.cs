@@ -6,16 +6,14 @@ using Domain.Repos;
 using Facade;
 using Infra;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using PageModels.Common;
 
 namespace PageModels
 {
-    public class ContractModel : BaseModel<Contract, ContractView>
+    public class ContractModel : ViewedModel<Contract, ContractView>
     {
-        //TODO: Concurrency pls
         public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public override string PageTitle => "Contract";
         protected internal override ContractView ToView(Contract obj)
         {
             ContractView view = new ContractView();
@@ -26,7 +24,6 @@ namespace PageModels
 
             return view;
         }
-
         protected internal override Contract ToEntity(ContractView view)
         {
             if (view is null) return null;

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repos
 {
-    public interface IRepo<T>
+    public interface IRepo<T> : IPagedRepo, IFilteredRepo, IOrderedRepo
     {
         Task<List<T>> GetEntityListAsync();
         Task<T> GetEntityAsync(string id);

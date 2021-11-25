@@ -1,7 +1,5 @@
-﻿using System;
-using Data;
+﻿using Data;
 using Domain.Common;
-using Domain.Repos;
 
 namespace Domain
 {
@@ -13,12 +11,6 @@ namespace Domain
         { }
         public string name => Data?.name ?? "-";
         public string fullAddress => partyContact?.fullAddress ?? "-";
-        public string fullContact => partyContact?.fullContact ?? "-";
 
-
-        //public ICollection<Contact> locationContacts => lazyReadContacts.Value;
-        //internal Lazy<ICollection<Contact>> lazyReadContacts { get; }
-        //internal ICollection<Contact> GetLocationContacts()
-        //    => new GetRepo().Instance<IContactRepo>()?.GetByLocationId(id);
     }
 }

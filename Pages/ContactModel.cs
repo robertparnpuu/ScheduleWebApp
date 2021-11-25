@@ -8,12 +8,12 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ContactModel : BaseModel<Contact, ContactView>
+    public class ContactModel : ViewedModel<Contact, ContactView>
     {
         public ContactModel(IContactRepo r, ApplicationDbContext context) : base(r, context)
         {
         }
-
+        public override string PageTitle => "Contact";
         protected internal override ContactView ToView(Contact obj)
         {
             ContactView view = new ContactView();
@@ -29,6 +29,5 @@ namespace PageModels
             return new Contact(data);
         }
 
-       
     }
 }

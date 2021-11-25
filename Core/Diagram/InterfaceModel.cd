@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Core.UniqueItem" Collapsed="true">
-    <Position X="6.75" Y="1" Width="1.5" />
+    <Position X="0.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>UniqueItem.cs</FileName>
@@ -15,17 +15,10 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Core.IBaseEntityData" Collapsed="true">
-    <Position X="3.5" Y="2.25" Width="1.5" />
+    <Position X="3.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>IBaseEntityData.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Core.IBasePage" Collapsed="true">
-    <Position X="8.5" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IBasePage.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Core.INamedEntity" Collapsed="true">
@@ -35,11 +28,18 @@
       <FileName>INamedEntity.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Core.IFullNameEntity" Collapsed="true">
-    <Position X="0.75" Y="3.75" Width="1.5" />
+  <Interface Name="Core.IWithContact" Collapsed="true">
+    <Position X="5.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IFullNameEntity.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IWithContact.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.IBaseModel" Collapsed="true">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAQkAAAAAAAgAAAAAAAACAAAAA=</HashCode>
+      <FileName>IBaseModel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

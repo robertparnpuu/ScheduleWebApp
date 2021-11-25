@@ -8,10 +8,10 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class AddressModel : BaseModel<Address, AddressView>
+    public class AddressModel : ViewedModel<Address, AddressView>
     {
         public AddressModel(IAddressRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public override string PageTitle => "Address";
         protected internal override AddressView ToView(Address obj)
         {
             AddressView view = new AddressView();

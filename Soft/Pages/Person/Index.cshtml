@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.PersonModel
 
 @{
@@ -8,33 +9,28 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.items[0].firstName)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].lastName)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].dateOfBirth)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].idCode)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
-            <th></th>
-        </tr>
+            <th>@Html.TableSortHeader(x => x.item.firstName, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.lastName, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.dateOfBirth, Model)</th>
+                <th>@Html.DisplayNameFor(model => model.items[0].idCode)</th>
+                <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
+                <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
+                <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
+                <th></th>
+</tr>
     </thead>
     <tbody>
         @foreach (var item in Model.items)
         {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.firstName)</td>
-            <td>@Html.DisplayFor(modelItem => item.lastName)</td>
-            <td>@Html.DisplayFor(modelItem => item.dateOfBirth)</td>
+            <td>@Html.RowData(x => item.firstName)</td>
+            <td>@Html.RowData(x => item.lastName)</td>
+            <td>@Html.RowData(x => item.dateOfBirth)</td>
             <td>@Html.DisplayFor(modelItem => item.idCode)</td>
             <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
-            <td>@Html.DisplayFor(modelItem => item.fullContact)</td>
             <td>@Html.DisplayFor(modelItem => item.email)</td>
             <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
-            <td>
-                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
         </tr>
         }
     </tbody>

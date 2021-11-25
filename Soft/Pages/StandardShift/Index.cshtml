@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.StandardShiftModel
 
 @{
@@ -8,9 +9,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.items[0].name)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].startTime)</th>
-            <th>@Html.DisplayNameFor(model => model.items[0].endTime)</th>
+            <th>@Html.TableSortHeader(x => x.item.name, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.startTime, Model)</th>
+            <th>@Html.TableSortHeader(x => x.item.endTime, Model)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].locationName)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].occupationName)</th>
             <th></th>
@@ -20,16 +21,12 @@
     @foreach (var item in Model.items)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.name)</td>
-            <td>@Html.DisplayFor(modelItem => item.startTime)</td>
-            <td>@Html.DisplayFor(modelItem => item.endTime)</td>
+            <td>@Html.RowData(x => item.name)</td>
+            <td>@Html.RowData(x => item.startTime)</td>
+            <td>@Html.RowData(x => item.endTime)</td>
             <td>@Html.DisplayFor(modelItem => item.locationName)</td>
             <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
-            <td>
-                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
         </tr>
     }
     </tbody>

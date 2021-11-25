@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Core;
 using Domain.Repos;
 using Infra;
@@ -10,66 +8,42 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace PageModels.Common
 {
 
-    public abstract class BaseModel : PageModel, IBasePage
-    { 
-        [BindProperty] 
-        public IBaseEntity item { get; set; }
+    public abstract class BaseModel : PageModel, IBaseModel
+    {
+        [BindProperty] public IBaseEntity item { get; set; }
+        public virtual string SortOrder { get; set; }
+        public abstract string CurrentSort { get; }
+        public virtual string CurrentFilter { get; set; }
+        public virtual string SearchString { get; set; }
+        public virtual bool HasPreviousPage { get; protected set; }
+        public virtual bool HasNextPage { get; protected set; }
+        public virtual int? PageIndex { get; set; }
+        public abstract string PageTitle { get; }
+        public virtual string PageUrl => PageTitle;
     }
 
     public abstract class BaseModel<TEntity, TView> : BaseModel
-    where TEntity : class, IBaseEntity, new()
-    where TView : class, IBaseEntity, new()
-    {
-        protected readonly IRepo<TEntity> repo;
-        protected readonly ApplicationDbContext _context;
-
-        protected BaseModel(IRepo<TEntity> r, ApplicationDbContext context)
+        where TEntity : class, IBaseEntity, new()
+        where TView : class, IBaseEntity, new()
         {
-            repo = r;
-            _context = context;
-        }
+            protected readonly IRepo<TEntity> repo;
+            protected readonly ApplicationDbContext _context;
 
-        [BindProperty]
-        public new TView item
-        {
-            get => (TView)base.item;
-            set => base.item = value;
-        }
-        public IList<TView> items { get; set; }
-        protected internal abstract TView ToView(TEntity obj);
-        protected internal abstract TEntity ToEntity(TView view);
-        internal IActionResult IndexPage() => RedirectToPage("./Index", new { handler = "Index" });
+            protected BaseModel(IRepo<TEntity> r, ApplicationDbContext context)
+            {
+                repo = r;
+                _context = context;
+            }
 
-        public virtual async Task OnGetIndexAsync() => items = (await repo.GetEntityListAsync()).Select(ToView).ToList();
-        public IActionResult OnGetCreate() => Page();
+            [BindProperty]
+            public new TView item
+            {
+                get => (TView)base.item;
+                set => base.item = value;
+            }
 
-        public async Task<IActionResult> OnGetDeleteAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
-        public async Task<IActionResult> OnGetDetailsAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
-        public virtual async Task<IActionResult> OnGetEditAsync(string id) => await GetItemAsync(id) ? Page() : NotFound();
-
-        protected internal virtual async Task<bool> GetItemAsync(string id)
-        {
-            if (id == null) return false;
-
-            item = ToView(await repo.GetEntityAsync(id));
-
-            return item != null && item.id != "Unspecified";
-        }
-
-        public virtual async Task<IActionResult> OnPostCreateAsync()
-        {
-            if (!ModelState.IsValid) return Page();
-            return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
-        }
-        public virtual async Task<IActionResult> OnPostDeleteAsync(string id)
-        {
-            if (id == null) return NotFound();
-            return await repo.DeleteAsync(id) ? IndexPage() : Page();
-        }
-        public virtual async Task<IActionResult> OnPostEditAsync()
-        {
-            if (!ModelState.IsValid) return Page();
-            return await repo.UpdateAsync(ToEntity(item)) ? IndexPage() : Page();
+            public IList<TView> items { get; set; }
+            protected internal abstract TView ToView(TEntity obj);
+            protected internal abstract TEntity ToEntity(TView view);
         }
     }
-}

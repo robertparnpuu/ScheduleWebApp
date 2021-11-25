@@ -27,5 +27,8 @@ namespace Facade
         [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]
         public DateTime dateOfBirth { get; set; }
+
+        [Display(Name = "Full name")]
+        public string fullName { get; set; }
     }
 }

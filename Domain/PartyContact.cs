@@ -1,5 +1,4 @@
 ﻿using System;
-using Core;
 using Data;
 using Domain.Common;
 using Domain.Repos;
@@ -20,7 +19,6 @@ namespace Domain
         }
 
         public string partyId => Data?.partyId ?? "-";
-        public string fullContact => partyContactContact?.contacts ?? "-";
         public string fullAddress => partyContactAddress?.fullAddress ?? "-";
 
         public string contactId => Data?.contactId ?? "-";

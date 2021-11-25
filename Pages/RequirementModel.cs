@@ -10,11 +10,11 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class RequirementModel: BaseModel<Requirement, RequirementView>
+    public class RequirementModel: ViewedModel<Requirement, RequirementView>
     {
-        //TODO: Needs checkboxes for weekdays
+        //TODO: 2. Needs checkboxes for weekdays
         public RequirementModel(IRequirementRepo r, ApplicationDbContext context) : base(r, context) { }
-
+        public override string PageTitle => "Requirement";
         protected internal override RequirementView ToView(Requirement obj)
         {
             RequirementView view = new RequirementView();
@@ -25,7 +25,7 @@ namespace PageModels
 
             return view;
         }
-
+        //TODO 10. siia vaja filtrid
         protected internal override Requirement ToEntity(RequirementView view)
         {
             if (view is null) return null;

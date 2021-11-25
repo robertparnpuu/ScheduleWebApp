@@ -6,7 +6,7 @@ using Infra.Common;
 
 namespace Infra
 {
-    public class ContactRepo : BaseRepo<ContactData, Contact>, IContactRepo
+    public class ContactRepo : PagedRepo<ContactData, Contact>, IContactRepo
     {
         public ContactRepo(ApplicationDbContext c) : base(c, c?.Contacts) { }
 

@@ -12,7 +12,6 @@ namespace Tests.Domain.Common {
         where TData : class, IBaseEntity, new()
     {
         protected TEntity obj;
-
         [TestInitialize]
         public virtual void TestInitialize() => obj = CreateObject();
 

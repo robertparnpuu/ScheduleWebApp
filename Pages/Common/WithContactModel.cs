@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PageModels.Common
 {
-    public abstract class WithContactModel<TEntity, TView> : BaseModel<TEntity, TView>
+    public abstract class WithContactModel<TEntity, TView> : ViewedModel<TEntity, TView>
     where TEntity : class, IBaseEntity, new() 
     where TView : WithContactView, new()
     {
@@ -19,7 +19,6 @@ namespace PageModels.Common
     protected IContactRepo contact;
     protected IAddressRepo address;
 
-    //TODO: Concurrency pls
     protected WithContactModel(IRepo<TEntity> r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a,
     ApplicationDbContext context) : base(r, context)
     {
@@ -28,20 +27,7 @@ namespace PageModels.Common
         address = a;
     }
 
-        protected internal TView PartyContactToView(TEntity obj)
-        {
-            TView view = ToView(obj);
-            PartyContact p = partyContact.GetEntity(view.partyContactId);
-            Contact c = contact.GetEntity(view.contactId);
-            Address a = address.GetEntity(view.addressId);
-
-            view = Copy.Members(p, view, "id");
-            view = Copy.Members(c, view, "id");
-            view = Copy.Members(a, view, "id");
-            return view;
-        }
-
-        protected internal PartyContact ToEntityPartyContact(TView view)
+    protected internal PartyContact ToEntityPartyContact(TView view)
     {
         if (view is null) return null;
         var data = Copy.Members(view, new PartyContactData(), "id");
@@ -102,9 +88,7 @@ namespace PageModels.Common
         return await contact.AddAsync(ToEntityContact(item)) &&
                await address.AddAsync(ToEntityAddress(item)) &&
                await partyContact.AddAsync(ToEntityPartyContact(item)) &&
-               await repo.AddAsync(ToEntity(item))
-        ? IndexPage()
-        : Page();
+               await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
     }
     }
 }

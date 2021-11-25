@@ -14,8 +14,6 @@ namespace Facade.Common
 
         [Display(Name = "Address")]
         public string fullAddress { get; set; }
-        [Display(Name = "Contacts")]
-        public string fullContact { get; set; }
 
         [Required]
         [Display(Name = "E-mail")]

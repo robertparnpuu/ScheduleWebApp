@@ -38,6 +38,8 @@ namespace Infra.Common
         {
             return (await GetDataListAsync(s1, s2)).Select(ToEntity).ToList();
         }
+
+
         internal virtual IQueryable<TData> addSkipAndTake(IQueryable<TData> query) {
             if (pageIndex < 1) return query;
             return query

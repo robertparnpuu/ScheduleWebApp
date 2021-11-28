@@ -39,6 +39,8 @@ namespace Infra.Common
             db = c;
             dbSet = d;
         }
+        
+        public string ErrorMessage { get; protected set; }
 
         public async Task<List<TData>> GetEntityListAsync()=> (await GetDataListAsync()).ToList();
         protected internal Task<List<TData>> GetDataListAsync() => CreateSql().ToListAsync();

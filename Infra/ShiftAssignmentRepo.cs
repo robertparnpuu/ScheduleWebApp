@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core;
 
 namespace Infra
 {
@@ -22,24 +23,29 @@ namespace Infra
             return await dbSet.Where(x => x.startTime >= dt1 && x.startTime <= dt2).ToListAsync();
         }
 
-        public override Task<bool> AddAsync(ShiftAssignmentData obj)
+        public override async Task<bool> AddAsync(ShiftAssignmentData obj)
         {
-            IsPersonFree(ToEntity(obj));
-            return base.AddAsync(obj);
+            if (IsPersonFree(ToEntity(obj))) return await base.AddAsync(obj);
+            ErrorMessage = ErrorMessages.PersonNotFree;
+            return false;
+
         }
 
-        //private bool IsRequirementsMet(ShiftAssignment e)
-        //{
-        //    IsPersonFree();
-        //}
-
-        public bool IsPersonFree(ShiftAssignment e)
+        private bool IsRequirementsMet(ShiftAssignment e)
         {
-            var reservationInDataBase = dbSet.SingleOrDefault(
+            IsPersonFree(e);
+            return true;
+        }
+
+        private bool IsPersonFree(ShiftAssignment e)
+        {
+            //TODO hetkel ainult kuupäevaga, ei saanud tööle kellaajaliselt
+
+            var itemInDataBase = dbSet.SingleOrDefault(
             r => r.contractId == e.contractId && 
                  r.startTime.Date == e.startTime.Date &&
                  e.id != r.id);
-            return reservationInDataBase == null;
+            return itemInDataBase == null;
         }
     }
 }

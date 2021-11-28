@@ -14,5 +14,6 @@ namespace Domain.Repos
         Task<bool> UpdateAsync(T obj);
         T GetEntity(string id);
         List<T> GetById();
+        string ErrorMessage { get; }
     }
 }

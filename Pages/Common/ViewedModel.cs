@@ -36,7 +36,9 @@ namespace PageModels.Common
         public virtual async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid) return Page();
-            return await repo.AddAsync(ToEntity(item)) ? IndexPage() : Page();
+            if (await repo.AddAsync(ToEntity(item))) return IndexPage();
+            ErrorMessage = repo.ErrorMessage;
+            return Page();
         }
         public virtual async Task<IActionResult> OnPostDeleteAsync(string id)
         {

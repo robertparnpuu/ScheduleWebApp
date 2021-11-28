@@ -20,6 +20,8 @@ namespace PageModels.Common
         public virtual int? PageIndex { get; set; }
         public abstract string PageTitle { get; }
         public virtual string PageUrl => PageTitle;
+
+        public string ErrorMessage { get; protected set; }
     }
 
     public abstract class BaseModel<TEntity, TView> : BaseModel

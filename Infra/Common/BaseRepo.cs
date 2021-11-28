@@ -69,7 +69,7 @@ namespace Infra.Common
             return dbSet is not null;
         }
         
-        public async Task<bool> AddAsync(TData obj)
+        public virtual async Task<bool> AddAsync(TData obj)
         {
             if (obj is null) return false;
             if (dbSet is null) return false;

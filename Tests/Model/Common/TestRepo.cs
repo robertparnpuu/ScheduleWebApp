@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core;
 using Domain.Repos;
@@ -30,6 +31,11 @@ namespace Tests.Model.Common
 
         public List<TClass> GetById() => throw new System.NotImplementedException();
         public async Task<List<TClass>> GetEntityListAsync() => await GetList("List");
+        public Task<List<TClass>> GetEntityListAsync(DateTime dt1, DateTime dt2)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<TClass> GetEntityAsync(string id) => await Item($"Get {id}");
         public TClass GetEntity(string id) => GetWithId($"Get {id}");
         private async Task<TClass> Item(string v) => await Complete(v, (TClass)result);

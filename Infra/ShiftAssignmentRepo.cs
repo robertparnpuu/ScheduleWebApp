@@ -21,5 +21,25 @@ namespace Infra
         {
             return await dbSet.Where(x => x.startTime >= dt1 && x.startTime <= dt2).ToListAsync();
         }
+
+        public override Task<bool> AddAsync(ShiftAssignmentData obj)
+        {
+            IsPersonFree(ToEntity(obj));
+            return base.AddAsync(obj);
+        }
+
+        //private bool IsRequirementsMet(ShiftAssignment e)
+        //{
+        //    IsPersonFree();
+        //}
+
+        public bool IsPersonFree(ShiftAssignment e)
+        {
+            var reservationInDataBase = dbSet.SingleOrDefault(
+            r => r.contractId == e.contractId && 
+                 r.startTime.Date == e.startTime.Date &&
+                 e.id != r.id);
+            return reservationInDataBase == null;
+        }
     }
 }

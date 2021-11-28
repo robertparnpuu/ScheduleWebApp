@@ -1,10 +1,11 @@
-﻿@inject SignInManager<ApplicationUser> signInManager
+﻿@using PageModels.Extensions
+@inject SignInManager<ApplicationUser> signInManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Soft</title>
+    <title>@ViewData["Title"] - HR Platform</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -12,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Soft</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">HR Platform</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,13 +29,40 @@
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Schedule/StandardShifts">Create Schedule</a>
                             </li>
                         }
+
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {@Html.DropMenu("Shifts",
+                        new Link("Standard Shifts", new Uri("/StandardShift?handler=index", UriKind.Relative)),
+                        new Link("Shift Assignments", new Uri("/ShiftAssignment?handler=index", UriKind.Relative)))}
+
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {@Html.DropMenu("Contacts",
+                       new Link("Persons", new Uri("/Person?handler=index", UriKind.Relative)),
+                       new Link("Departments", new Uri("/Department?handler=index", UriKind.Relative)),
+                       new Link("Locations", new Uri("/Location?handler=index", UriKind.Relative)))}
+                        
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Contract/Index">Contract</a>
                             </li>
                         }
+                        
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Occupation/Index">Occupation</a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Requirement/Index">Requirement</a>
+                            </li>
+                        }
+                        
+                        
+                        @*@if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Department/Index">Department</a>
@@ -49,15 +77,11 @@
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Occupation/Index">Occupation</a>
-                            </li>
-                        }
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
-                        {
-                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Person/Index">Person</a>
                             </li>
                         }
+
+
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
                         {
                             <li class="nav-item">
@@ -67,15 +91,10 @@
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Requirement/Index">Requirement</a>
-                            </li>
-                        }
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("ScheduleManager"))
-                        {
-                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/ShiftAssignment/Index">ShiftAssignment</a>
                             </li>
-                        }
+                        }*@
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

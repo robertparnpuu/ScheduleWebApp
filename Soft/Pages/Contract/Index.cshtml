@@ -6,7 +6,7 @@
 @{
     Layout = "_Index";
 }
-@if (signInManager.IsSignedIn(User) && User.IsInRole("tere"))
+@if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
     <table class="table">
         <thead>

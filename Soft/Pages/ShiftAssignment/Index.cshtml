@@ -6,6 +6,29 @@
     Layout = "_Index";
 }
 
+<div class="form-group">
+       <a asp-page="./Index"
+       asp-route-handler="Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       asp-route-weekOffset="@(Model.CurrentWeekOffset - 1)"
+       class="btn btn-dark">
+        ←
+    </a>
+    <button type="button" class="btn btn-dark" disabled>Current week + @Model.CurrentWeekOffset</button>
+    <a asp-page="./Index"
+       asp-route-handler="Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       asp-route-weekOffset="@(Model.CurrentWeekOffset + 1)"
+       class="btn btn-dark">
+        →
+    </a>
+</div>
+
+
 <table class="table">
     <thead>
     <tr>

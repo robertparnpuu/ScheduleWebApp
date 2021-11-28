@@ -1,5 +1,9 @@
-﻿namespace Domain.Repos
+﻿using System;
+
+namespace Domain.Repos
 {
     public interface IShiftAssignmentRepo : IRepo<ShiftAssignment>
-    { }
+    {
+       
+    }
 }

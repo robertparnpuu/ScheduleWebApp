@@ -8,7 +8,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ContactModel : ViewedModel<Contact, ContactView>
+    public class ContactModel : ViewModel<Contact, ContactView>
     {
         public ContactModel(IContactRepo r, ApplicationDbContext context) : base(r, context)
         {

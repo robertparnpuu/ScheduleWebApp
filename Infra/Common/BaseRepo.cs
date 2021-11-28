@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aids;
+using System;
 
 namespace Infra.Common
 {
@@ -17,6 +18,7 @@ namespace Infra.Common
         public abstract TData ToData(TEntity e);
 
         public new async Task<List<TEntity>> GetEntityListAsync() => (await base.GetEntityListAsync()).Select(ToEntity).ToList();
+        public virtual Task<List<TData>> GetDataListAsync(DateTime dt1, DateTime dt2) => CreateSql().ToListAsync();
         public async Task<TEntity> GetEntityAsync(string id) => ToEntity(await GetDataAsync(id));
         public async Task<bool> AddAsync(TEntity obj) => await AddAsync(ToData(obj));
         public async Task<bool> UpdateAsync(TEntity obj) => await UpdateAsync(ToData(obj));

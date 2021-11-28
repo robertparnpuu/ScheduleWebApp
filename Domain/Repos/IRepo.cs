@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Domain.Repos
@@ -6,6 +7,7 @@ namespace Domain.Repos
     public interface IRepo<T> : IPagedRepo, IFilteredRepo, IOrderedRepo
     {
         Task<List<T>> GetEntityListAsync();
+        Task<List<T>> GetEntityListAsync(DateTime dt1, DateTime dt2);
         Task<T> GetEntityAsync(string id);
         Task<bool> DeleteAsync(string id);
         Task<bool> AddAsync(T obj);

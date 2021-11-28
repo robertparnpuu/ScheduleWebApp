@@ -6,7 +6,7 @@ using Infra;
 using Microsoft.AspNetCore.Mvc;
 
 namespace PageModels.Common {
-    public abstract class ViewModel<TEntity, TView> :PagedModel<TEntity, TView>
+    public abstract class ViewModel<TEntity, TView> :ViewedModel<TEntity, TView>
         where TEntity : class, IBaseEntity, new()
         where TView : class, IBaseEntityData, new() {
         protected ViewModel(IRepo<TEntity> r, ApplicationDbContext c = null) :base(r, c) { }

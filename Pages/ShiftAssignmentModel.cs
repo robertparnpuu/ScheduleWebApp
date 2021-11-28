@@ -5,8 +5,12 @@ using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PageModels
 {
@@ -16,6 +20,28 @@ namespace PageModels
         {
         }
         public override string PageTitle => "ShiftAssignment";
+
+        public int CurrentWeekOffset = 0;
+
+        public async Task<IActionResult> OnGetIndexAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex, int weekOffset = 0)
+        {
+            //repo = (IShiftAssignmentRepo)repo;
+            int dayFromWeekStart = (int)DateTime.Now.DayOfWeek;
+            if (dayFromWeekStart == 0) dayFromWeekStart = 6;
+            else dayFromWeekStart -= 1;
+            DateTime start = DateTime.Today.AddDays(-dayFromWeekStart + weekOffset * 7);
+            DateTime end = DateTime.Today.AddDays(1 + weekOffset * 7);
+            PageIndex = pageIndex;
+            SearchString = searchString;
+            CurrentFilter = currentFilter;
+            SortOrder = sortOrder;
+            CurrentWeekOffset = weekOffset;
+
+            items = (await repo.GetEntityListAsync(start, end)).Select(ToView).ToList();
+            
+            return Page();
+        }
+
         protected internal override ShiftAssignmentView ToView(ShiftAssignment obj)
         {
             ShiftAssignmentView view = new ShiftAssignmentView();

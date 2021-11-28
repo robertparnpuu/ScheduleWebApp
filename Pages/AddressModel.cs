@@ -8,7 +8,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class AddressModel : ViewedModel<Address, AddressView>
+    public class AddressModel : ViewModel<Address, AddressView>
     {
         public AddressModel(IAddressRepo r, ApplicationDbContext context) : base(r, context) { }
         public override string PageTitle => "Address";

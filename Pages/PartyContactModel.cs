@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace PageModels
 {
-    public class PartyContactModel : ViewedModel<PartyContact, PartyContactView>
+    public class PartyContactModel : ViewModel<PartyContact, PartyContactView>
     {
         public PartyContactModel(IPartyContactRepo r, ApplicationDbContext context) : base(r, context) { }
         public override string PageTitle => "PartyContact";

@@ -141,7 +141,7 @@
   <Class Name="PageModels.ShiftAssignmentModel" Collapsed="true">
     <Position X="11" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIAAAAAAIAAAAAAQAAAAAAAAAMAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIAAAAAAIAAAAAARAQAAAAAAAMAAAAAAA=</HashCode>
       <FileName>ShiftAssignmentModel.cs</FileName>
     </TypeIdentifier>
   </Class>

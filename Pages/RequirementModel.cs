@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class RequirementModel: ViewedModel<Requirement, RequirementView>
+    public class RequirementModel: ViewModel<Requirement, RequirementView>
     {
         //TODO: 2. Needs checkboxes for weekdays
         public RequirementModel(IRequirementRepo r, ApplicationDbContext context) : base(r, context) { }

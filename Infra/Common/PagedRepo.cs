@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core;
 using Data.Common;
 using Domain.Repos;
@@ -21,6 +23,8 @@ namespace Infra.Common
         public virtual bool HasNextPage => pageIndex < TotalPages;
         public virtual bool HasPreviousPage => pageIndex > 1;
         public virtual int PageSize { get; set; } = DefaultPageSize;
+     
+
         internal int getTotalPages(in int pageSize) {
             var count = getItemsCount();
             var pages = countTotalPages(count, pageSize);
@@ -28,8 +32,12 @@ namespace Infra.Common
         }
         internal static int countTotalPages(int count, in int pageSize) 
             => (int)Math.Ceiling( count / (double)pageSize);
-        internal int getItemsCount() => base.CreateSql().Count();
+        internal virtual int getItemsCount() => base.CreateSql().Count();
         protected internal override IQueryable<TData> CreateSql() => addSkipAndTake(base.CreateSql());
+        public async Task<List<TEntity>> GetEntityListAsync(DateTime s1, DateTime s2)
+        {
+            return (await GetDataListAsync(s1, s2)).Select(ToEntity).ToList();
+        }
         internal virtual IQueryable<TData> addSkipAndTake(IQueryable<TData> query) {
             if (pageIndex < 1) return query;
             return query

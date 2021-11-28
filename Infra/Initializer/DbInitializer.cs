@@ -10,6 +10,7 @@ namespace Infra.Initializer
         public static void Initialize(ApplicationDbContext dataBase, bool newDb)
         {
             dataBase.SaveChanges();
+
             InitializeAddress(dataBase, newDb);
             InitializeContact(dataBase, newDb);
             InitializeContract(dataBase, newDb);
@@ -218,7 +219,7 @@ namespace Infra.Initializer
         public static void InitializeContract(ApplicationDbContext dataBase, bool newDb)
         {
             if (!newDb)
-                if (dataBase.Contacts.Any()) return;
+                if (dataBase.Contracts.Any()) return;
             var contracts = new[]
             {
             new ContractData()
@@ -600,7 +601,7 @@ namespace Infra.Initializer
         public static void InitializeStandardShift(ApplicationDbContext dataBase, bool newDb)
         {
             if (!newDb)
-                if (dataBase.ShiftAssignments.Any()) return;
+                if (dataBase.StandardShifts.Any()) return;
             var ss = new[]
             {
             new StandardShiftData()

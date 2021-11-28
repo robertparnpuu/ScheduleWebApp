@@ -7,6 +7,7 @@ namespace Domain.Common
     public abstract class WithContact<TData> : BaseEntity<TData>
     where TData : WithContactData, new()
     {
+        public WithContact() : this(null) { }
         protected WithContact(TData d):base (d)
         {
             lazyReadPartyContact = GetLazy<PartyContact, IPartyContactRepo>(x => x?.GetEntity(partyContactId));

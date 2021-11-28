@@ -1,10 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Facade.Common;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Facade.Common
 {
-    public abstract class WithContactView:BaseView
+    public class WithContactView:BaseView
     {
         [Display(Name = "PartyContactId")]
         public string partyContactId { get; set; }

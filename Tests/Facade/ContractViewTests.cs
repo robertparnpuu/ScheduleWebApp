@@ -24,5 +24,7 @@ namespace Tests.Facade
         public void ValidFromTest() => IsProperty<DateTime>(nameof(obj.validFrom));
         [TestMethod]
         public void ValidToTest() => IsProperty<DateTime>(nameof(obj.validTo));
+        [TestMethod]
+        public void FullContactTest() => IsProperty<string>(nameof(obj.fullContact));
     }
 }

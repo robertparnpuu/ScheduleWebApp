@@ -17,7 +17,6 @@ namespace Infra
             if (SearchString is null) return query;
             return query.Where(
             x => x.personId.Contains(SearchString));
-            //TODO 6 selle järgi ei ole mõtet ju otsida?
         }
     }
 }

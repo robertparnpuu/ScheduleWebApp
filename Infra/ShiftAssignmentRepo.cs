@@ -21,5 +21,10 @@ namespace Infra
         {
             return await dbSet.Where(x => x.startTime >= dt1 && x.startTime <= dt2).ToListAsync();
         }
+
+        public Task<List<ShiftAssignment>> GetEntityListAsync(DateTime dt1, DateTime dt2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

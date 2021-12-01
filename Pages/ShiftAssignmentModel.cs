@@ -16,8 +16,10 @@ namespace PageModels
 {
     public class ShiftAssignmentModel : ViewedModel<ShiftAssignment, ShiftAssignmentView>
     {
+        private IShiftAssignmentRepo saRepo;
         public ShiftAssignmentModel(IShiftAssignmentRepo r, ApplicationDbContext context) : base(r, context)
         {
+            saRepo = r;
         }
         public override string PageTitle => "ShiftAssignment";
 
@@ -37,7 +39,7 @@ namespace PageModels
             SortOrder = sortOrder;
             CurrentWeekOffset = weekOffset;
 
-            items = (await repo.GetEntityListAsync(start, end)).Select(ToView).ToList();
+            items = (await saRepo.GetEntityListAsync(start, end)).Select(ToView).ToList();
             
             return Page();
         }

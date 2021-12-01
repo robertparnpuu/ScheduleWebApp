@@ -34,10 +34,7 @@ namespace Infra.Common
             => (int)Math.Ceiling( count / (double)pageSize);
         internal virtual int getItemsCount() => base.CreateSql().Count();
         protected internal override IQueryable<TData> CreateSql() => addSkipAndTake(base.CreateSql());
-        //public async Task<List<TEntity>> GetEntityListAsync(DateTime s1, DateTime s2)
-        //{
-        //    return (await GetDataListAsync(s1, s2)).Select(ToEntity).ToList();
-        //}
+        
         internal virtual IQueryable<TData> addSkipAndTake(IQueryable<TData> query) {
             if (pageIndex < 1) return query;
             return query

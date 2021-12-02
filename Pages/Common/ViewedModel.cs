@@ -9,7 +9,7 @@ namespace PageModels.Common
     //Mõtleb kas vaja, hakkasin looma selleks et kasutada genericutega
     //BaseModelit ShiftAssignmentide jaoks
 
-    public abstract class ViewedModel<TEntity, TView> : ViewModel<TEntity, TView>
+    public abstract class ViewedModel<TEntity, TView> : PagedModel<TEntity, TView>
     where TEntity : class, IBaseEntity, new()
     where TView : class, IBaseEntityData, new()
     {

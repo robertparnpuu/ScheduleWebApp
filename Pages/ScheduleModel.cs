@@ -5,31 +5,34 @@ using System.Threading.Tasks;
 using Aids;
 using Data;
 using Domain;
+using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
 {
     public class ScheduleModel : PagedModel<ShiftAssignment, ShiftAssignmentView>
     {
-        [BindProperty]
-        public List<StandardShiftView> standardShifts { get; set; }
-        [BindProperty]
-        public List<ContractView> contracts { get; set; }
+        [BindProperty] public List<StandardShiftView> standardShifts { get; set; }
+        [BindProperty] public List<ContractView> contracts { get; set; }
         public override string PageTitle => "Schedule";
         protected readonly IRepo<StandardShift> ssRepo;
         protected readonly IRepo<Contract> cRepo;
-        
-        public ScheduleModel(IShiftAssignmentRepo r, IStandardShiftRepo sShiftRepo, IContractRepo contractRepo, ApplicationDbContext context) : base(r, context)
+
+        public ScheduleModel(IShiftAssignmentRepo r, IStandardShiftRepo sShiftRepo, IContractRepo contractRepo,
+        ApplicationDbContext context) : base(r, context)
         {
             ssRepo = sShiftRepo;
             cRepo = contractRepo;
         }
-        public async Task OnGetIndexAsync() => standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
-        
+
+        public async Task OnGetIndexAsync() =>
+        standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
+
         public async Task OnGetSelectDateAsync(string ssId)
         {
             item = new ShiftAssignmentView();
@@ -44,13 +47,14 @@ namespace PageModels
         {
             //View topib scheduleviewi, ning kasutame VMToSession et scheduleViewist teha edasi antav Json sessionis
             //Hetkel ei leidnud moodust sessionit ise muuta, ehk topin olemasolevad viewi ja siis kirjutan sessioni yle
-            
+
             Copy.Members(GetSessionObject("shiftAssignment"), item, "dateChoice");
             item.startTime = Combine.DateAndTime(item.dateChoice, item.startTime);
             item.endTime = Combine.DateAndTime(item.dateChoice, item.endTime);
             VMToSession();
-            return RedirectToPage("ChooseWorker", new {handler = "ChooseWorker" });
+            return RedirectToPage("ChooseWorker", new { handler = "ChooseWorker" });
         }
+
         //TODO, 3. Siit peab kasutama Contractis olevat personit
         public async Task OnGetChooseWorkerAsync()
         {
@@ -74,7 +78,9 @@ namespace PageModels
             item = GetSessionObject("shiftAssignment");
             ClearAndValidateItemModelState();
             if (!ModelState.IsValid) return Page();
-            return await repo.AddAsync(ToEntity(item)) ? RedirectToPage("./StandardShifts", new { handler = "Index" }) : Page();
+            return await repo.AddAsync(ToEntity(item))
+            ? RedirectToPage("./StandardShifts", new { handler = "Index" })
+            : Page();
         }
 
         protected internal void ClearAndValidateItemModelState()
@@ -82,6 +88,7 @@ namespace PageModels
             ModelState.Clear();
             TryValidateModel(item);
         }
+
         //TODO 11. siia vaja filtrid
         protected internal void VMToSession() =>
         HttpContext.Session.SetObjectAsJson("shiftAssignment", item);
@@ -123,5 +130,34 @@ namespace PageModels
             var data = Copy.Members(view, new ShiftAssignmentData());
             return new ShiftAssignment(data);
         }
+
+        public SelectList Contracts
+        {
+            get
+            {
+                var list = new GetRepo().Instance<IContractRepo>().GetById();
+                return new SelectList(list, "id", "personName", item?.contractId);
+            }
+        }
+
+        public SelectList Locations
+        {
+            get
+            {
+                var list = new GetRepo().Instance<ILocationRepo>().GetById();
+                return new SelectList(list, "id", "name", item?.locationId);
+
+            }
+        }
+
+        public SelectList Occupations
+        {
+            get
+            {
+                var list = new GetRepo().Instance<IOccupationRepo>().GetById();
+                return new SelectList(list, "id", "name", item?.occupationId);
+
+            }
+        }
     }
-}
+} 

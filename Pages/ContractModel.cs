@@ -10,7 +10,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class ContractModel : ViewedModel<Contract, ContractView>
+    public class ContractModel : ViewModel<Contract, ContractView>
     {
         public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }
         public override string PageTitle => "Contract";

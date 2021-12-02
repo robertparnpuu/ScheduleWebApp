@@ -15,7 +15,13 @@ namespace Tests.Model
     [TestClass]
     public class ScheduleModelTests : BaseModelTests<ShiftAssignment, ShiftAssignmentView>
     {
-        private class TestShiftAssignmentRepo : TestRepo<ShiftAssignment>, IShiftAssignmentRepo { }
+        private class TestShiftAssignmentRepo : TestRepo<ShiftAssignment>, IShiftAssignmentRepo
+        {
+            public Task<List<ShiftAssignment>> GetEntityListAsync(DateTime dt1, DateTime dt2)
+            {
+                throw new NotImplementedException();
+            }
+        }
         private class TestStandardShiftRepo : TestRepo<StandardShift>, IStandardShiftRepo { }
         private class TestContractRepo : TestRepo<Contract>, IContractRepo { }
         

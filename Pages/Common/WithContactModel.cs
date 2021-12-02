@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PageModels.Common
 {
-    public abstract class WithContactModel<TEntity, TView> : ViewedModel<TEntity, TView>
+    public abstract class WithContactModel<TEntity, TView> : ViewModel<TEntity, TView>
     where TEntity : class, IBaseEntity, new() 
     where TView : WithContactView, new()
     {

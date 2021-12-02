@@ -8,7 +8,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    public class OccupationModel: ViewedModel<Occupation, OccupationView>
+    public class OccupationModel: ViewModel<Occupation, OccupationView>
     {
         public OccupationModel(IOccupationRepo r, ApplicationDbContext context) : base(r, context) { }
         public override string PageTitle => "Occupation";

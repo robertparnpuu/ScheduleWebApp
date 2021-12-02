@@ -6,13 +6,36 @@
     Layout = "_Index";
 }
 
+<div class="form-group">
+       <a asp-page="./Index"
+       asp-route-handler="Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       asp-route-weekOffset="@(Model.CurrentWeekOffset - 1)"
+       class="btn btn-dark">
+        ←
+    </a>
+    <button type="button" class="btn btn-dark" disabled>Current week + @Model.CurrentWeekOffset</button>
+    <a asp-page="./Index"
+       asp-route-handler="Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       asp-route-weekOffset="@(Model.CurrentWeekOffset + 1)"
+       class="btn btn-dark">
+        →
+    </a>
+</div>
+
+
 <table class="table">
     <thead>
     <tr>
         <th>@Html.DisplayNameFor(model => model.item.personName)</th>
         <th>@Html.DisplayNameFor(model => model.item.locationName)</th>
-        <th>@Html.TableSortHeader(x => x.item.startTime, Model)</th>
-        <th>@Html.TableSortHeader(x => x.item.endTime, Model)</th>
+        @Html.TableSortHeader(x => x.item.startTime, Model)
+        @Html.TableSortHeader(x => x.item.endTime, Model)
 
         <th></th>
     </tr>
@@ -23,9 +46,9 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.personName)</td>
             <td>@Html.DisplayFor(modelItem => item.locationName)</td>
-            <td>@Html.RowData(x => item.startTime)</td>
-            <td>@Html.RowData(x => item.endTime)</td>
-            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
+            @Html.RowData(x => item.startTime)
+            @Html.RowData(x => item.endTime)
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
     }
     </tbody>

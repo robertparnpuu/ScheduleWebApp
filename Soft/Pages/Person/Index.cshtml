@@ -9,28 +9,28 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.TableSortHeader(x => x.item.firstName, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.lastName, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.dateOfBirth, Model)</th>
-                <th>@Html.DisplayNameFor(model => model.items[0].idCode)</th>
-                <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
-                <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
-                <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
-                <th></th>
+            @Html.TableSortHeader(x => x.item.firstName, Model)
+            @Html.TableSortHeader(x => x.item.lastName, Model)
+            @Html.TableSortHeader(x => x.item.dateOfBirth, Model)
+            <th>@Html.DisplayNameFor(model => model.items[0].idCode)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
+            <th></th>
 </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.items)
         {
         <tr>
-            <td>@Html.RowData(x => item.firstName)</td>
-            <td>@Html.RowData(x => item.lastName)</td>
-            <td>@Html.RowData(x => item.dateOfBirth)</td>
+            @Html.RowData(x => item.firstName)
+            @Html.RowData(x => item.lastName)
+            @Html.RowData(x => item.dateOfBirth)
             <td>@Html.DisplayFor(modelItem => item.idCode)</td>
             <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
             <td>@Html.DisplayFor(modelItem => item.email)</td>
             <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
-            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
         }
     </tbody>

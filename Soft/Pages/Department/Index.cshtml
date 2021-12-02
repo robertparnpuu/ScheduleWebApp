@@ -9,7 +9,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.TableSortHeader(x => x.item.name, Model)</th>
+            @Html.TableSortHeader(x => x.item.name, Model)
             <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
@@ -20,11 +20,11 @@
         @foreach (var item in Model.items)
         {
         <tr>
-            <td>@Html.RowData(x => item.name)</td>
+            @Html.RowData(x => item.name)
             <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
             <td>@Html.DisplayFor(modelItem => item.email)</td>
             <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
-            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
         }
     </tbody>

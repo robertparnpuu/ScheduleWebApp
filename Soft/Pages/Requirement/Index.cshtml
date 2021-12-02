@@ -11,11 +11,11 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.items[0].locationId)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].occupationId)</th>
-            <th>@Html.TableSortHeader(x => x.item.weekDayId, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.startTime, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.endTime, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.minEmployees, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.maxEmployees, Model)</th>
+            @Html.TableSortHeader(x => x.item.weekDayId, Model)
+            @Html.TableSortHeader(x => x.item.startTime, Model)
+            @Html.TableSortHeader(x => x.item.endTime, Model)
+            @Html.TableSortHeader(x => x.item.minEmployees, Model)
+            @Html.TableSortHeader(x => x.item.maxEmployees, Model)
             <th></th>
         </tr>
     </thead>
@@ -24,12 +24,12 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.locationName)</td>
             <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
-            <td>@Html.RowData(x => item.weekDayName)</td>
-            <td>@Html.RowData(x => item.startTime)</td>
-            <td>@Html.RowData(x => item.endTime)</td>
-            <td>@Html.RowData(x => item.minEmployees)</td>
-            <td>@Html.RowData(x => item.maxEmployees)</td>
-            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
+            @Html.RowData(x => item.weekDayName)
+            @Html.RowData(x => item.startTime)
+            @Html.RowData(x => item.endTime)
+            @Html.RowData(x => item.minEmployees)
+            @Html.RowData(x => item.maxEmployees)
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
 }
     </tbody>

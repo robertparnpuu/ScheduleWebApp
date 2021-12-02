@@ -9,9 +9,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.TableSortHeader(x => x.item.name, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.startTime, Model)</th>
-            <th>@Html.TableSortHeader(x => x.item.endTime, Model)</th>
+            @Html.TableSortHeader(x => x.item.name, Model)
+            @Html.TableSortHeader(x => x.item.startTime, Model)
+            @Html.TableSortHeader(x => x.item.endTime, Model)
             <th>@Html.DisplayNameFor(model => model.items[0].locationName)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].occupationName)</th>
             <th></th>
@@ -21,12 +21,12 @@
     @foreach (var item in Model.items)
     {
         <tr>
-            <td>@Html.RowData(x => item.name)</td>
-            <td>@Html.RowData(x => item.startTime)</td>
-            <td>@Html.RowData(x => item.endTime)</td>
+            @Html.RowData(x => item.name)
+            @Html.RowData(x => item.startTime)
+            @Html.RowData(x => item.endTime)
             <td>@Html.DisplayFor(modelItem => item.locationName)</td>
             <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
-            <td>@Html.RowButtons(Model.PageUrl, $"{item.id}")</td>
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
     }
     </tbody>

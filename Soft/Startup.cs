@@ -1,14 +1,14 @@
 using Domain.Repos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Infra;
+using Domain;
+using Microsoft.AspNetCore.Http;
 
 namespace Soft
 {
@@ -21,20 +21,41 @@ namespace Soft
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
             services.AddRazorPages();
-            services.AddTransient<IOccupationRepo, OccupationRepo>();
+            AddServices(services);
+            services.AddLogging();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void AddServices(IServiceCollection services)
+        {
+            services.AddTransient<IOccupationRepo, OccupationRepo>();
+            services.AddTransient<IAddressRepo, AddressRepo>();
+            services.AddTransient<IContactRepo, ContactRepo>();
+            services.AddTransient<IDepartmentRepo, DepartmentRepo>();
+            services.AddTransient<ILocationRepo, LocationRepo>();
+            services.AddTransient<IContractRepo, ContractRepo>();
+            services.AddTransient<IPartyContactRepo, PartyContactRepo>();
+            services.AddTransient<IPersonRepo, PersonRepo>();
+            services.AddTransient<IRequirementRepo, RequirementRepo>();
+            services.AddTransient<IShiftAssignmentRepo, ShiftAssignmentRepo>();
+            services.AddTransient<IStandardShiftRepo, StandardShiftRepo>();
+            services.AddTransient<IWeekDayRepo, WeekDayRepo>();
+        }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -45,7 +66,6 @@ namespace Soft
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -56,7 +76,7 @@ namespace Soft
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

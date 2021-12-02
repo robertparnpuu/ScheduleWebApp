@@ -1,60 +1,37 @@
 ﻿@page
-@model Soft.Pages.Person.IndexModel
+@using Core.Extensions
+@model PageModels.PersonModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.personData[0].firstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.personData[0].lastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.personData[0].idCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.personData[0].dateOfBirth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.personData[0].contactId)
-            </th>
+            @Html.TableSortHeader(x => x.item.firstName, Model)
+            @Html.TableSortHeader(x => x.item.lastName, Model)
+            @Html.TableSortHeader(x => x.item.dateOfBirth, Model)
+            <th>@Html.DisplayNameFor(model => model.items[0].idCode)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
             <th></th>
-        </tr>
+</tr>
     </thead>
     <tbody>
-@foreach (var item in Model.personData) {
+        @foreach (var item in Model.items)
+        {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contactId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            @Html.RowData(x => item.firstName)
+            @Html.RowData(x => item.lastName)
+            @Html.RowData(x => item.dateOfBirth)
+            <td>@Html.DisplayFor(modelItem => item.idCode)</td>
+            <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
+            <td>@Html.DisplayFor(modelItem => item.email)</td>
+            <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
-}
+        }
     </tbody>
 </table>

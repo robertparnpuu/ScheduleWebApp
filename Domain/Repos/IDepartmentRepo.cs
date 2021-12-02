@@ -1,6 +1,6 @@
 ﻿namespace Domain.Repos
 {
-    interface IDepartmentRepo:IRepo<Department>
+    public interface IDepartmentRepo:IRepo<Department>
     {
     }
 }

@@ -6,9 +6,9 @@ using Tests.Data.Common;
 namespace Tests.Data
 {
     [TestClass]
-    public class DepartmentDataTests:NamedBaseDataTests<DepartmentData,NamedEntityData>
+    public class DepartmentDataTests : WithContactDataTests<DepartmentData, WithContactData>
     {
         [TestMethod]
-        public void ContactTest() => IsProperty<string>(nameof(obj.contactId));
+        public void NameTest() => IsProperty<string>(nameof(obj.name));
     }
 }

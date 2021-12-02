@@ -1,48 +1,29 @@
 ﻿@page
-@model Soft.Pages.Contact.IndexModel
+@using Core.Extensions
+@model PageModels.ContactModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactData[0].email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactData[0].phoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactData[0].addressId)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.items[0].id)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ContactData) {
+        @foreach (var item in Model.items)
+        {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.addressId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.id)</td>
+            <td>@Html.DisplayFor(modelItem => item.email)</td>
+            <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
-}
+        }
     </tbody>
 </table>

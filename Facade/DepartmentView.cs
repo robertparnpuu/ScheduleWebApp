@@ -3,11 +3,13 @@ using Facade.Common;
 
 namespace Facade
 {
-    public class DepartmentView: BaseView
+    public class DepartmentView: WithContactView
     {
         [Display(Name = "Department name")]
         public string name { get; set; }
-        public string contactId { get; set; }
-
+        [Display(Name = "Address")]
+        public string fullAddress { get; set; }
+        [Display(Name = "Contacts")]
+        public string fullContact { get; set; }
     }
 }

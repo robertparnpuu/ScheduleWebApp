@@ -2,7 +2,8 @@
 using Domain.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Reflection;
+using Aids;
+// ReSharper disable InconsistentNaming
 
 namespace Tests.Domain.Common {
 
@@ -15,9 +16,12 @@ namespace Tests.Domain.Common {
         public virtual void TestInitialize() => obj = CreateObject();
 
         [TestMethod]
-        public void IdTest() => isReadOnlyProperty(obj.Data.id);
+        public void IdTest() => Assert.IsTrue(IsGuid(obj.Data.id));
+        [TestMethod]
+        public void CanCreate()
+            => Assert.IsInstanceOfType(new TEntity(), typeof(TEntity));
 
-        protected virtual TEntity CreateObject() => new();
+        protected virtual TEntity CreateObject() => GetRandom.ObjectOf<TEntity>();
 
         protected virtual T getPropertyValue<T>(bool canWrite = false) => default;
 
@@ -27,21 +31,41 @@ namespace Tests.Domain.Common {
 
             Assert.AreEqual(expected, actual);
         }
-
+        
         [TestMethod]
+        // ReSharper disable once ExcessiveIndentation
         public void TestAllDefaultProperties()
         {
-            Type type = obj.GetType();
-            PropertyInfo[] properties = type.GetProperties();
+            var type = obj.GetType();
+            var properties = type.GetProperties();
 
-            foreach (PropertyInfo property in properties)
+            foreach (var property in properties)
             {
-                if (property.Name == "id") Assert.AreEqual("Unspecified", property.GetValue(obj));
-                else if (property.PropertyType == typeof(string)) Assert.AreEqual("-", property.GetValue(obj));
+                if (property.Name == "id") Assert.IsTrue(IsGuid(property.GetValue(obj)));                
+                else if (property.PropertyType == typeof(string)) Assert.IsTrue(ContainsOnly(",- ",property.GetValue(obj)));
                 else if (property.PropertyType == typeof(int)) Assert.IsNull(property.GetValue(obj));
                 else if (property.PropertyType == typeof(DateTime)) Assert.AreEqual(default(DateTime), property.GetValue(obj));
-                else if (property.PropertyType == typeof(object)) ;
             }
         }
+        
+        public static bool IsGuid(object value) => Guid.TryParse(value.ToString(), out _);
+
+        private static bool ContainsOnly(string chars,dynamic format)
+        {
+            foreach (char c in format)
+            {
+                if (!chars.Contains(c.ToString()))
+                    return false;
+            }
+            return true;
+        }
+        protected static void LazyTest<TResult>(Func<bool> isValueCreated, Func<TResult> getValue, bool valueIsNull = true)
+        {
+            Assert.IsFalse(isValueCreated());
+            var d = getValue();
+            Assert.IsTrue(isValueCreated());
+            if (valueIsNull) Assert.IsNull(d); else Assert.IsNotNull(d);
+        }
     }
-}       
+    
+}

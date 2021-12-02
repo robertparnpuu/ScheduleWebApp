@@ -1,36 +1,26 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.OccupationModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a  asp-route-handler="Create" asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.items[0].name)
-            </th>
+            @Html.TableSortHeader(x => x.item.name, Model)
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.items) {
+        @foreach (var item in Model.items)
+        {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-handler="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-handler="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            @Html.RowData(x => item.name)
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
-}
+        }
     </tbody>
+
 </table>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Facade.Common;
 
@@ -7,28 +8,35 @@ namespace Facade
     public class ShiftAssignmentView:BaseView
     {
         [Required]
-        public string workerId { get; set; }
-        [Required]
+        [Display(Name = "Person")]
+        public string contractId { get; set; }
+        [Display(Name = "Person")]
+        public string personName { get; set; }
+
+        //[Required]
+        [Display(Name = "Location")]
         public string locationId { get; set; }
 
-
-        [Required]
-        [Display(Name = "Workers name")]
-        public string workerName { get; set; }
-
-        [Required]
         [Display(Name = "Location")]
         public string locationName { get; set; }
 
+        [Display(Name = "Occupation Id")]
+        public string occupationId { get; set; }
+        [Display(Name = "Occupation")]
+        public string occupationName { get; set; }
+
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Shift start time")]
         public DateTime startTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Shift end time")]
         public DateTime endTime { get; set; }
 
+        [DataType(DataType.Date)]
+        [Display(Name = "Date")]
+        public DateTime dateChoice { get; set; }
     }
 }

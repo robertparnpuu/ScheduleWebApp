@@ -1,5 +1,4 @@
-﻿using System;
-using Data;
+﻿using Data;
 using Domain.Common;
 
 namespace Domain
@@ -16,5 +15,8 @@ namespace Domain
         public string zipCode => Data?.zipCode ?? "-";
         public string region => Data?.region ?? "-";
         public string country => Data?.country ?? "-";
+        public string fullAddress => $"{streetName} {houseNumber}-{apartmentNumber},{city} {zipCode}, {region}, {country}";
+
+        //TODO 18. vaata üle kõik diagrammid
     }
 }

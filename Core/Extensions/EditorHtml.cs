@@ -22,13 +22,14 @@ namespace Core.Extensions {
             return new HtmlContentBuilder(s);
         }
         internal static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> h,
-            Expression<Func<TModel, TResult>> e, string displayName) {
+            Expression<Func<TModel, TResult>> e, string displayName)
+        {
             return new()
             {
-                new HtmlString("<dd class=\"col-sm-2\">"),
+                new HtmlString("<dd class=\"col-sm-10\">"),
                 h.Raw(displayName),
                 new HtmlString("</dd>"),
-                new HtmlString("<dd class=\"col-sm-10\">"),
+                new HtmlString("<dd /*class=\"col-sm-10\"*/>"),
                 h.EditorFor(e, new {htmlAttributes = new {@class = "form-control"}}),
                 h.ValidationMessageFor(e, "", new {@class = "text-danger"}),
                 new HtmlString("</dd>")

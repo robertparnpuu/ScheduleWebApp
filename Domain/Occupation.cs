@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Data;
+﻿using Data;
 using Domain.Common;
 
 namespace Domain
@@ -9,8 +8,5 @@ namespace Domain
         public Occupation() : this(null) { }
         public Occupation(OccupationData d) : base(d) { }
         public string name => Data?.name ?? "-";
-
-        //TODO: Worker list
-       // public List<Worker> workers;
     }
 }

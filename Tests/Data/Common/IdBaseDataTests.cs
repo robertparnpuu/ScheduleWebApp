@@ -8,6 +8,6 @@ namespace Tests.Data.Common
         where TBaseClass : class
     {
         [TestMethod]
-        public void IDTest() => IsProperty<string>(nameof(obj.id));
+        public void IdTest() => IsProperty<string>(nameof(obj.id));
     }
 }

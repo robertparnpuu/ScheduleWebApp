@@ -22,5 +22,16 @@ namespace Tests.Domain
         public void EndTimeClockTest() => isReadOnlyProperty(obj.Data.endTime);
         [TestMethod]
         public void WeekdayIdTest() => isReadOnlyProperty(obj.Data.weekDayId);
+
+        [TestMethod]
+        public void LazyReadLocationTest() => LazyTest(() => obj.lazyReadLocation.IsValueCreated,
+        () => obj.requirementLocation);
+        [TestMethod]
+        public void LazyReadOccupationTest() => LazyTest(() => obj.lazyReadOccupation.IsValueCreated,
+        () => obj.requirementOccupation);
+
+        [TestMethod]
+        public void LazyReadWeekDayTest() => LazyTest(() => obj.lazyReadWeekDay.IsValueCreated,
+        () => obj.requirementWeekDay);
     }
 }

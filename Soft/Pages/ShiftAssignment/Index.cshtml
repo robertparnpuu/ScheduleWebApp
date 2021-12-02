@@ -1,54 +1,55 @@
 ﻿@page
-@model Soft.Pages.ShiftAssignment.IndexModel
+@using Core.Extensions
+@model PageModels.ShiftAssignmentModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
+<div class="form-group">
+       <a asp-page="./Index"
+       asp-route-handler="Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       asp-route-weekOffset="@(Model.CurrentWeekOffset - 1)"
+       class="btn btn-dark">
+        ←
+    </a>
+    <button type="button" class="btn btn-dark" disabled>Current week + @Model.CurrentWeekOffset</button>
+    <a asp-page="./Index"
+       asp-route-handler="Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       asp-route-weekOffset="@(Model.CurrentWeekOffset + 1)"
+       class="btn btn-dark">
+        →
+    </a>
+</div>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].workerId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].locationId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].startTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.shiftAssignmentData[0].endTime)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.item.personName)</th>
+        <th>@Html.DisplayNameFor(model => model.item.locationName)</th>
+        @Html.TableSortHeader(x => x.item.startTime, Model)
+        @Html.TableSortHeader(x => x.item.endTime, Model)
+
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.shiftAssignmentData) {
+    @foreach (var item in Model.items)
+    {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.workerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.locationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.startTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endTime)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.personName)</td>
+            <td>@Html.DisplayFor(modelItem => item.locationName)</td>
+            @Html.RowData(x => item.startTime)
+            @Html.RowData(x => item.endTime)
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
-}
+    }
     </tbody>
 </table>

@@ -1,16 +1,8 @@
 ﻿@page
-@using Core.Extensions
 @model PageModels.OccupationModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
-
-@Html.Show(model => model.item.name)
-
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.item.id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<partial name="_ShowOccupation.cshtml" />

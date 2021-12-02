@@ -1,60 +1,33 @@
 ﻿@page
-@model Soft.Pages.StandardShift.IndexModel
+@using Core.Extensions
+@model PageModels.StandardShiftModel
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.standardShiftData[0].locationId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.standardShiftData[0].occupationId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.standardShiftData[0].startTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.standardShiftData[0].endTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.standardShiftData[0].name)
-            </th>
+            @Html.TableSortHeader(x => x.item.name, Model)
+            @Html.TableSortHeader(x => x.item.startTime, Model)
+            @Html.TableSortHeader(x => x.item.endTime, Model)
+            <th>@Html.DisplayNameFor(model => model.items[0].locationName)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].occupationName)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.standardShiftData) {
+    @foreach (var item in Model.items)
+    {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.locationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.occupationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.startTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            @Html.RowData(x => item.name)
+            @Html.RowData(x => item.startTime)
+            @Html.RowData(x => item.endTime)
+            <td>@Html.DisplayFor(modelItem => item.locationName)</td>
+            <td>@Html.DisplayFor(modelItem => item.occupationName)</td>
+            @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
-}
+    }
     </tbody>
 </table>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Core;
 using Facade.Common;
 
 namespace Facade
@@ -10,34 +11,7 @@ namespace Facade
         public string email { get; set; }
 
         [Required]
-        [Display(Name = "Phone nr")]
+        [Display(Name = "Phone Nr")]
         public string phoneNumber { get; set; }
-
-        [Display(Name = "Apartment nr")]
-        public string apartmentNumber { get; set; }
-
-        [Required]
-        [Display(Name = "Street")]
-        public string streetName { get; set; }
-
-        [Required]
-        [Display(Name = "House number")]
-        public string houseNumber { get; set; }
-
-        [Required]
-        [Display(Name = "City")]
-        public string city { get; set; }
-
-        [Required]
-        [Display(Name = "Zipcode")]
-        public string zipCode { get; set; }
-
-        [Required]
-        [Display(Name = "Region")]
-        public string region { get; set; }
-
-        [Required]
-        [Display(Name = "Country")]
-        public string country { get; set; }
     }
 }

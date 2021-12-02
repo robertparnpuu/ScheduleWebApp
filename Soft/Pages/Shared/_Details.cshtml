@@ -1,0 +1,14 @@
+﻿@model PageModels.Common.BaseModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@RenderBody()
+
+<div>
+    <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@Model.item.id">Edit</a>
+    <a asp-page="Index" asp-route-handler="Index">Back to List</a>
+</div>

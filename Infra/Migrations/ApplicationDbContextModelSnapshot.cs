@@ -16,8 +16,79 @@ namespace Infra.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.10")
+                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+                });
 
             modelBuilder.Entity("Data.AddressData", b =>
                 {
@@ -55,9 +126,6 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("addressId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
@@ -69,15 +137,40 @@ namespace Infra.Migrations
                     b.ToTable("Contact");
                 });
 
+            modelBuilder.Entity("Data.ContractData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("departmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("occupationId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("personId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("validFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("validTo")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Contract");
+                });
+
             modelBuilder.Entity("Data.DepartmentData", b =>
                 {
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("contactId")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("name")
+                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -90,37 +183,15 @@ namespace Infra.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("contactId")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("name")
+                    b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
                     b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("Data.OccupationAssignmentData", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("occupationId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("validFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("validTo")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("OccupationAssignment");
                 });
 
             modelBuilder.Entity("Data.OccupationData", b =>
@@ -136,13 +207,29 @@ namespace Infra.Migrations
                     b.ToTable("Occupation");
                 });
 
-            modelBuilder.Entity("Data.PersonData", b =>
+            modelBuilder.Entity("Data.PartyContactData", b =>
                 {
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("addressId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("contactId")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("partyId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("PartyContact");
+                });
+
+            modelBuilder.Entity("Data.PersonData", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");
@@ -154,6 +241,12 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("lastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("partyContactId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("roleAssignmentId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -192,45 +285,13 @@ namespace Infra.Migrations
                     b.ToTable("Requirement");
                 });
 
-            modelBuilder.Entity("Data.RoleAssignmentData", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("roleId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("validFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("validTo")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("RoleAssignment");
-                });
-
-            modelBuilder.Entity("Data.RoleData", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Role");
-                });
-
             modelBuilder.Entity("Data.ShiftAssignmentData", b =>
                 {
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("contractId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("endTime")
                         .HasColumnType("datetime2");
@@ -240,9 +301,6 @@ namespace Infra.Migrations
 
                     b.Property<DateTime>("startTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("workerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
@@ -338,71 +396,6 @@ namespace Infra.Migrations
                     b.ToTable("AspNetRoleClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -430,12 +423,10 @@ namespace Infra.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -472,12 +463,10 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -485,25 +474,6 @@ namespace Infra.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Data.WorkerData", b =>
-                {
-                    b.HasBaseType("Data.PersonData");
-
-                    b.Property<string>("departmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("occupationAssignmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("personId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("roleAssignmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("Worker");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -517,7 +487,7 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -526,7 +496,7 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -541,7 +511,7 @@ namespace Infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -550,19 +520,10 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Data.WorkerData", b =>
-                {
-                    b.HasOne("Data.PersonData", null)
-                        .WithOne()
-                        .HasForeignKey("Data.WorkerData", "id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

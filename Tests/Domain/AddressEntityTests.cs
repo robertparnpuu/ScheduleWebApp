@@ -22,7 +22,6 @@ namespace Tests.Domain
         public void RegionTest() => isReadOnlyProperty(obj.Data.region);
         [TestMethod]
         public void CountryTest() => isReadOnlyProperty(obj.Data.country);
-
     }
 }
 

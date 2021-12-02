@@ -1,58 +1,8 @@
 ﻿@page
-@model Soft.Pages.Person.CreateModel
+@model PageModels.PersonModel
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "_Create";
 }
 
-<h1>Create</h1>
-
-<h4>PersonData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="PersonData.firstName" class="control-label"></label>
-                <input asp-for="PersonData.firstName" class="form-control" />
-                <span asp-validation-for="PersonData.firstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonData.lastName" class="control-label"></label>
-                <input asp-for="PersonData.lastName" class="form-control" />
-                <span asp-validation-for="PersonData.lastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonData.idCode" class="control-label"></label>
-                <input asp-for="PersonData.idCode" class="form-control" />
-                <span asp-validation-for="PersonData.idCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonData.dateOfBirth" class="control-label"></label>
-                <input asp-for="PersonData.dateOfBirth" class="form-control" />
-                <span asp-validation-for="PersonData.dateOfBirth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonData.contactId" class="control-label"></label>
-                <input asp-for="PersonData.contactId" class="form-control" />
-                <span asp-validation-for="PersonData.contactId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonData.id" class="control-label"></label>
-                <select asp-for="PersonData.id" class ="form-control" asp-items="ViewBag.id"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<partial name="_EditPerson.cshtml" />

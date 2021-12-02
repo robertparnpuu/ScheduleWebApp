@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Aids;
@@ -30,17 +31,66 @@ namespace PageModels
             cRepo = contractRepo;
         }
 
-        public async Task OnGetIndexAsync() =>
-        standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
-
-        public async Task OnGetSelectDateAsync(string ssId)
-        {
+        public async Task OnGetIndexAsync()
+        { 
+            standardShifts = (await ssRepo.GetEntityListAsync()).Select(SSToView).ToList();
             item = new ShiftAssignmentView();
-            item.dateChoice = DateTime.Now;
-            StandardShiftView ssView = SSToView(await ssRepo.GetEntityAsync(ssId));
+            item.startTime = DateTime.Now;
+            item.endTime = DateTime.Now;      
+        }
+
+        public RedirectToPageResult OnPostStandardShifts()
+        {
+
+            StandardShiftView ssView = new StandardShiftView()
+            {
+            startTime = item.startTime,
+            endTime = item.endTime,
+            locationId = item.locationId,
+            occupationId = item.occupationId
+            };
             Copy.Members(ssView, item, "dateChoice", "id");
 
             VMToSession();
+            return RedirectToPage("SelectDate", new { handler = "SelectDate" });
+        }
+
+        public async Task OnGetSelectDateAsync(string? ssId)
+        {
+            Copy.Members(GetSessionObject("shiftAssignment"), item, "dateChoice");
+            //item = new ShiftAssignmentView();
+            item.dateChoice = DateTime.Now;
+            if (ssId is not null)
+            {
+                StandardShiftView ssView = SSToView(await ssRepo.GetEntityAsync(ssId));
+                Copy.Members(ssView, item, "dateChoice", "id");
+            }
+            else
+            {
+                //StandardShiftView ssView = new StandardShiftView()
+                //{
+                //startTime = OStringToDateTime(startTime), 
+                //endTime = OStringToDateTime(endTime), 
+                //locationId = locationId,
+                //occupationId = occupationId
+                //};
+                //Copy.Members(ssView, item, "dateChoice", "id");
+
+                //VMToSession();
+            }
+            VMToSession();
+        }
+
+        public string DateTimeToOString(DateTime dt)
+        {
+            string str = dt.ToString("O");
+            return str;
+        }
+
+        public DateTime OStringToDateTime(string str)
+        {
+            DateTime dt = DateTime.ParseExact(str, "O", CultureInfo.InvariantCulture);
+            return dt;
         }
 
         public async Task<IActionResult> OnPostSelectDateAsync()

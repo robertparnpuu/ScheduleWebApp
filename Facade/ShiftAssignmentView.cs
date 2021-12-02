@@ -28,11 +28,13 @@ namespace Facade
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Shift start time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"{0:hh\:mm}")]
         public DateTime startTime { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Shift end time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"{0:hh\:mm}")]
         public DateTime endTime { get; set; }
 
         [DataType(DataType.Date)]

@@ -4,27 +4,26 @@ using Domain.Repos;
 using Infra.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Infra
 {
     public class ShiftAssignmentRepo : PagedRepo<ShiftAssignmentData, ShiftAssignment>, IShiftAssignmentRepo
     {
         public ShiftAssignmentRepo(ApplicationDbContext c) : base(c, c?.ShiftAssignments) { }
-
+        public DateTime startTime { get; set; }
+        public DateTime endTime { get; set; }
         public override ShiftAssignment ToEntity(ShiftAssignmentData d) => new(d);
         public override ShiftAssignmentData ToData(ShiftAssignment e) => e?.Data ?? new ShiftAssignmentData();
+        
+        protected internal override IQueryable<ShiftAssignmentData> BaseCreateSql() => dbSet.AsNoTracking().Where(x => x.startTime >= startTime && x.startTime <= endTime);
 
-        public override async Task<List<ShiftAssignmentData>> GetDataListAsync(DateTime dt1, DateTime dt2)
+        protected internal override IQueryable<ShiftAssignmentData> applyFilters(IQueryable<ShiftAssignmentData> query)
         {
-            return await dbSet.Where(x => x.startTime >= dt1 && x.startTime <= dt2).ToListAsync();
-        }
-
-        public async Task<List<ShiftAssignment>> GetEntityListAsync(DateTime s1, DateTime s2)
-        {
-            return (await GetDataListAsync(s1, s2)).Select(ToEntity).ToList();
+            if (SearchString is null) return query;
+            return query.Where(
+            x => x.startTime.ToString().Contains(SearchString) ||
+                 x.endTime.ToString().Contains(SearchString));
         }
     }
 }

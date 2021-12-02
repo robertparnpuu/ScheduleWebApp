@@ -8,13 +8,13 @@ namespace Facade
     public class ShiftAssignmentView:BaseView
     {
         [Required]
-        [Display(Name = "Contract Id")]
+        [Display(Name = "Person")]
         public string contractId { get; set; }
         [Display(Name = "Person")]
         public string personName { get; set; }
 
         //[Required]
-        [Display(Name = "Location Id")]
+        [Display(Name = "Location")]
         public string locationId { get; set; }
 
         [Display(Name = "Location")]

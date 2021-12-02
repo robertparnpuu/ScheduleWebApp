@@ -31,15 +31,19 @@ namespace PageModels
             int dayFromWeekStart = (int)DateTime.Now.DayOfWeek;
             if (dayFromWeekStart == 0) dayFromWeekStart = 6;
             else dayFromWeekStart -= 1;
+            //TODO: 11:59:59
             DateTime start = DateTime.Today.AddDays(-dayFromWeekStart + weekOffset * 7);
-            DateTime end = DateTime.Today.AddDays(1 + weekOffset * 7);
+            DateTime end = start.AddDays(7).AddSeconds(-1);
+
             PageIndex = pageIndex;
             SearchString = searchString;
             CurrentFilter = currentFilter;
             SortOrder = sortOrder;
             CurrentWeekOffset = weekOffset;
 
-            items = (await saRepo.GetEntityListAsync(start, end)).Select(ToView).ToList();
+            saRepo.startTime = start;
+            saRepo.endTime = end;
+            items = (await saRepo.GetEntityListAsync()).Select(ToView).ToList();
             
             return Page();
         }

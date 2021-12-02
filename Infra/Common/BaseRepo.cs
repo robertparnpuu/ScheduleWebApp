@@ -46,7 +46,8 @@ namespace Infra.Common
 
         //public async Task<TData> GetEntityAsync(string id)=> (await GetDataAsync(id));
         public TData GetData(string id) => GetDataAsync(id).GetAwaiter().GetResult();
-        protected internal virtual IQueryable<TData> CreateSql() => dbSet.AsNoTracking();
+        protected internal virtual IQueryable<TData> CreateSql() => BaseCreateSql();
+        protected internal virtual IQueryable<TData> BaseCreateSql() => dbSet.AsNoTracking();
         protected internal async Task<TData> GetDataAsync(string id)
         {
             if (id is null) return null;

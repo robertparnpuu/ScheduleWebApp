@@ -1,4 +1,5 @@
 ﻿@page
+@using Core.Extensions
 @model PageModels.ScheduleModel
 
 @{
@@ -19,6 +20,17 @@
     </tr>
     </thead>
     <tbody>
+    <tr>
+        <td>@Html.Select(model => model.item.contractId, Model.Contracts, "-- Select --")</td>
+        <td>@Html.Editor(model => model.item.startTime)</td>
+        <td>@Html.Editor(model => model.item.endTime)</td>
+        <td>@Html.Select(model => model.item.locationId, Model.Locations, "-- Select --")</td>
+        <td>@Html.Select(model => model.item.occupationId, Model.Occupations, "-- Select --")</td>
+        <td>
+            @*<a asp-page="./DateInput" asp-route-handler="SelectDate" asp-route-ssId="item.id">Select</a>*@
+        </td>
+        
+    </tr>
     @foreach (var item in Model.standardShifts)
     {
         <tr>

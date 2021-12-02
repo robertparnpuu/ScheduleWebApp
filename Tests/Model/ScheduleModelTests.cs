@@ -21,6 +21,9 @@ namespace Tests.Model
             {
                 throw new NotImplementedException();
             }
+
+            public DateTime startTime { get; set; }
+            public DateTime endTime { get; set; }
         }
         private class TestStandardShiftRepo : TestRepo<StandardShift>, IStandardShiftRepo { }
         private class TestContractRepo : TestRepo<Contract>, IContractRepo { }

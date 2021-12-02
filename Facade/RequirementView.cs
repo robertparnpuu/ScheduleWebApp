@@ -9,15 +9,18 @@ namespace Facade
         [Required]
         [Display(Name = "Location")]
         public string locationId { get; set; }
+        [Display(Name = "Location")]
         public string locationName { get; set; }
 
         [Required]
         [Display(Name = "Occupation")]
         public string occupationId { get; set; }
+        [Display(Name = "Occupation")]
         public string occupationName { get; set; }
 
         [Display(Name = "Weekday")]
         public string weekDayId { get; set; }
+        [Display(Name = "Weekday")]
         public string weekDayName { get; set; }
 
         [DataType(DataType.Time)]

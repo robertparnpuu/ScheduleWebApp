@@ -26,13 +26,11 @@ namespace Core.Extensions {
         {
             return new()
             {
-                new HtmlString("<dd class=\"col-sm-10\">"),
+                new HtmlString("<div class=\"form-group\">"),
                 h.Raw(displayName),
-                new HtmlString("</dd>"),
-                new HtmlString("<dd /*class=\"col-sm-10\"*/>"),
-                h.EditorFor(e, new {htmlAttributes = new {@class = "form-control"}}),
-                h.ValidationMessageFor(e, "", new {@class = "text-danger"}),
-                new HtmlString("</dd>")
+                h.EditorFor(e, new { htmlAttributes = new { @class = "form-control" } }),
+                h.ValidationMessageFor(e, "", new { @class = "text-danger" }),
+            new HtmlString("</div>")
             };
         }
     }

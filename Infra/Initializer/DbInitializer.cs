@@ -649,7 +649,7 @@ namespace Infra.Initializer
             new WeekDayData()
             {
             id = "2",
-            name = "TuesDay"
+            name = "Tuesday"
             },
             new WeekDayData()
             {

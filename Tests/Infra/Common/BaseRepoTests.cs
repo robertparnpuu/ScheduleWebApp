@@ -94,7 +94,7 @@ namespace Tests.Infra
 
 
         [TestMethod]
-        public async Task GetEntityListAsyncTest()
+        public virtual async Task GetEntityListAsyncTest()
         {
             var l = await mockRepo.GetEntityListAsync();
             Assert.AreEqual(0, l.Count);

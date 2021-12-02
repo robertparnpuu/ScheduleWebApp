@@ -25,13 +25,12 @@ namespace PageModels
 
         public int CurrentWeekOffset = 0;
 
+        //TODO: Refaktoreerida
         public async Task<IActionResult> OnGetIndexAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex, int weekOffset = 0)
         {
-            //repo = (IShiftAssignmentRepo)repo;
             int dayFromWeekStart = (int)DateTime.Now.DayOfWeek;
             if (dayFromWeekStart == 0) dayFromWeekStart = 6;
             else dayFromWeekStart -= 1;
-            //TODO: 11:59:59
             DateTime start = DateTime.Today.AddDays(-dayFromWeekStart + weekOffset * 7);
             DateTime end = start.AddDays(7).AddSeconds(-1);
 

@@ -16,10 +16,8 @@ namespace Tests.Model
         //Ebavalik kui kasutame peamiselt ikka ScheduleModelit?
         private class TestShiftAssignmentRepo : TestRepo<ShiftAssignment>, IShiftAssignmentRepo
         {
-            public Task<List<ShiftAssignment>> GetEntityListAsync(DateTime dt1, DateTime dt2)
-            {
-                throw new NotImplementedException();
-            }
+            public DateTime startTime { get; set; }
+            public DateTime endTime { get; set; }
         }
 
         [TestInitialize] public void TestInitialize()

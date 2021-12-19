@@ -4,10 +4,12 @@ using Domain;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Authorization;
 using PageModels.Common;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class AddressModel : ViewModel<Address, AddressView>
     {
         public AddressModel(IAddressRepo r, ApplicationDbContext context) : base(r, context) { }

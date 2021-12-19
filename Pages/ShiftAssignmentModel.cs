@@ -11,9 +11,11 @@ using PageModels.Common;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Scheduler")]
     public class ShiftAssignmentModel : ViewedModel<ShiftAssignment, ShiftAssignmentView>
     {
         private IShiftAssignmentRepo saRepo;

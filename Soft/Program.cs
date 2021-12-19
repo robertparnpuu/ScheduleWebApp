@@ -28,9 +28,7 @@ namespace Soft
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                ContextSeed.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
+                SeedUsersAndRoles(services);
                 if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
@@ -48,5 +46,14 @@ namespace Soft
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        protected static void SeedUsersAndRoles(IServiceProvider s)
+        {
+            var roleManager = s.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = s.GetRequiredService<UserManager<ApplicationUser>>();
+            UserInitializer.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
+            UserInitializer.SeedSuperAdminAsync(userManager, roleManager).GetAwaiter().GetResult();
+            UserInitializer.SeedUsersAsync(userManager, roleManager).GetAwaiter().GetResult();
+        }
     }
 }

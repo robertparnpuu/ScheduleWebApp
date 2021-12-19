@@ -1,11 +1,11 @@
 ﻿
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Threading.Tasks;
+using Domain;
+using Microsoft.AspNetCore.Identity;
 
 public static class ContextSeed
 {
-    public static async Task SeedRolesAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+    public static async Task SeedRolesAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
     {
         //Seed Roles
         await roleManager.CreateAsync(new IdentityRole(Enums.Roles.Admin.ToString()));

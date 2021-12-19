@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using Domain;
 using Domain.Common;
 using Infra;
 using Infra.Initializer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 
 namespace Soft
 {
@@ -26,9 +28,9 @@ namespace Soft
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-                //ContextSeed.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                ContextSeed.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
                 if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();

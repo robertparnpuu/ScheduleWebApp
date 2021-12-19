@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-public class ApplicationUser: IdentityUser
+namespace Domain
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public ApplicationUser() : base()
+    public class ApplicationUser: IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+      
     }
 }
 //public class ApplicationRoleManager : RoleManager<Application>

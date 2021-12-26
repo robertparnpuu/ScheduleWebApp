@@ -18,6 +18,7 @@ namespace PageModels
     [Authorize(Roles = "Admin, Viewer")]
     public class CalendarModel : PageModel
     {
+        // Kasutame FullCalendar JS libraryt
         protected readonly IShiftAssignmentRepo repo;
         protected readonly ApplicationDbContext _context;
 

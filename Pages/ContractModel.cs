@@ -5,11 +5,13 @@ using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class ContractModel : ViewModel<Contract, ContractView>
     {
         public ContractModel(IContractRepo r, ApplicationDbContext context) : base(r, context) { }

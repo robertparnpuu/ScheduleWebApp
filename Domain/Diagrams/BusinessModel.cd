@@ -21,8 +21,8 @@
       <FileName>ShiftAssignment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="shiftAssignmentLocation" />
       <Property Name="shiftAssignmentContract" />
+      <Property Name="shiftAssignmentLocation" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Requirement" Collapsed="true">
@@ -165,6 +165,13 @@
     <ShowAsAssociation>
       <Property Name="partyContact" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="ApplicationUser" Collapsed="true">
+    <Position X="4.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ApplicationUser.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

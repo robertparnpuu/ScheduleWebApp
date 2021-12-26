@@ -55,11 +55,35 @@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                        <div>
-                            <p>Adminn kasutaja: superadmin, parool: Super1.</p>
-                            <p>Manager kasutaja: manager, parool: Manager1.</p>
-                            <p>ScheduleManager kasutaja: sm, parool: Sm12345.</p>
-                        </div>
+                    <div>
+                        <table width=100%>
+                            <tr>
+                                <td>Õigused</td>
+                                <td>Kasutaja</td>
+                                <td>Parool</td>
+                            </tr>
+                            <tr>
+                                <td>Admin/KÕIK</td>
+                                <td>superadmin</td>
+                                <td>"Super1."</td>
+                            </tr>
+                            <tr>
+                                <td>Scheduler,Viewer</td>
+                                <td>scheduler</td>
+                                <td>"Scheduler1."</td>
+                            </tr>
+                            <tr>
+                                <td>Manager,Viewer</td>
+                                <td>manager</td>
+                                <td>"Manager1."</td>
+                            </tr>
+                            <tr>
+                                <td>Viewer</td>
+                                <td>viewer</td>
+                                <td>"Viewer1."</td>
+                            </tr>
+                        </table>
+                    </div>
                 }
                 else
                 {

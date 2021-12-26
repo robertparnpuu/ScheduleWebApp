@@ -575,24 +575,24 @@ namespace Infra.Initializer
                 id="shiftAssignmentId1",
                 contractId = "contractId1",
                 locationId = "locationId1",
-                startTime = DateTime.Parse("2021-04-01"),
-                endTime = DateTime.Parse("2021-04-01"),
+                startTime = DateTime.Parse("2021-12-01T07:00:00"),
+                endTime = DateTime.Parse("2021-12-01T13:00:00"),
             },
             new ShiftAssignmentData()
             {
                 id="shiftAssignmentId2",
                 contractId = "contractId1",
                 locationId = "locationId2",
-                startTime = DateTime.Parse("2021-04-02"),
-                endTime = DateTime.Parse("2021-04-02"),
+                startTime = DateTime.Parse("2021-12-02T09:00:00"),
+                endTime = DateTime.Parse("2021-12-02T17:00:00"),
             },
             new ShiftAssignmentData()
             {
                 id="shiftAssignmentId3",
                 contractId = "contractId2",
                 locationId = "locationId3",
-                startTime = DateTime.Parse("2021-04-03"),
-                endTime = DateTime.Parse("2021-04-03"),
+                startTime = DateTime.Parse("2021-12-03T11:00:00"),
+                endTime = DateTime.Parse("2021-12-03T16:00:00"),
             }
             };
             dataBase.ShiftAssignments.AddRange(sa);

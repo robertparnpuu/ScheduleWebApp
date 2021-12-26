@@ -62,6 +62,13 @@
                             </li>
                         }
                         
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Calendar/Index">Calendar</a>
+                            </li>
+                        }
+                        
                         
                         @*@if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
                         {

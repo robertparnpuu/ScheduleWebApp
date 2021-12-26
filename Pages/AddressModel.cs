@@ -9,7 +9,7 @@ using PageModels.Common;
 
 namespace PageModels
 {
-    [Authorize(Roles = "Admin,Manager")]
+    [Authorize(Roles = "Admin")]
     public class AddressModel : ViewModel<Address, AddressView>
     {
         public AddressModel(IAddressRepo r, ApplicationDbContext context) : base(r, context) { }
@@ -27,5 +27,6 @@ namespace PageModels
             var data = Copy.Members(view, new AddressData());
             return new Address(data);
         }
+        
     }
 }

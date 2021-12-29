@@ -1,0 +1,30 @@
+﻿@page
+@using Core.Extensions
+@model PageModels.UserModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h1>Choose a person</h1>
+
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @Html.Editor(model => model.item.userName)
+            @Html.Editor(model => model.item.password)
+            @Html.Select(model => model.item.userPersonId, Model.Persons, "Select person")
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

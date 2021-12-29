@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211226121628_Intial")]
-    partial class Intial
+    [Migration("20211229081411_userandperson")]
+    partial class userandperson
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -316,6 +316,9 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")

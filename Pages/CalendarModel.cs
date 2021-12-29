@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Aids;
 using Domain;
 using Domain.Repos;
 using Facade;
@@ -34,9 +33,13 @@ namespace PageModels
 
         public async Task<IActionResult> OnGetIndexAsync()
         {
+            ClaimsPrincipal currentuser = User;
+            var currentUserId = currentuser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var user = _context.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var personId = user.PersonId;
             repo.startTime = DateTime.MinValue;
             repo.endTime = DateTime.MaxValue;
-            items = (await repo.GetEntityListAsync()).Select(ToCalendarView).ToList();
+            items = (await repo.GetEntityListAsync()).Select(ToCalendarView).Where(x=>x.personId==personId).ToList();
             itemsAsJson = JsonConvert.SerializeObject(items);
             return Page();
         }
@@ -55,6 +58,7 @@ namespace PageModels
         protected internal CalendarView ToCalendarView(ShiftAssignment obj)
         {
             CalendarView view = new CalendarView();
+            view.personId = obj.shiftAssignmentContract.personId;
             view.id = obj.id;
             view.title = $"{obj.shiftAssignmentContract.contractOccupation.name}. {obj.shiftAssignmentLocation.name}";
             view.start = obj.startTime;

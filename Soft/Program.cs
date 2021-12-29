@@ -9,6 +9,7 @@ using Infra.Initializer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace Soft
 {
     public class Program
@@ -16,7 +17,6 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            //selle trueks muutmine kustutab ära ka kasutajad ja rollid hetkel
             CreateAndDropDb(host, false);
             GetRepo.SetProvider(host.Services);
             host.Run();
@@ -28,10 +28,10 @@ namespace Soft
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                SeedUsersAndRoles(services);
                 if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
+                SeedUsersAndRoles(services);
                 DbInitializer.Initialize(context, newDb);                
             }
             catch (Exception ex)

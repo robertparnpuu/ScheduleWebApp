@@ -1,7 +1,6 @@
 ﻿using System;
 using Data;
 using Domain.Common;
-using Domain.Repos;
 
 namespace Domain
 {

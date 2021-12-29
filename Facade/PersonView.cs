@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.ComponentModel.DataAnnotations;
 using Facade.Common;
 
@@ -30,5 +30,6 @@ namespace Facade
 
         [Display(Name = "Full name")]
         public string fullName { get; set; }
+
     }
 }

@@ -22,7 +22,7 @@ namespace PageModels
             PersonView view = new PersonView();
             Copy.Members(obj, view);
             view.fullName = obj?.fullName;
-            view.userName = _context.Users.FirstOrDefault(x => x.PersonId == obj.id)?.UserName.ToString();
+            view.userName = _context?.Users.FirstOrDefault(x => x.PersonId == obj.id)?.UserName.ToString();
        return view;
         }
         protected internal override Person ToEntity(PersonView view)

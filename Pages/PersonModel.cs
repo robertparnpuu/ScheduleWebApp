@@ -1,4 +1,5 @@
-﻿using Aids;
+﻿using System.Linq;
+using Aids;
 using Data;
 using Domain;
 using Domain.Repos;
@@ -21,7 +22,8 @@ namespace PageModels
             PersonView view = new PersonView();
             Copy.Members(obj, view);
             view.fullName = obj?.fullName;
-            return view;
+            view.userName = _context.Users.FirstOrDefault(x => x.PersonId == obj.id)?.UserName.ToString();
+       return view;
         }
         protected internal override Person ToEntity(PersonView view)
         {

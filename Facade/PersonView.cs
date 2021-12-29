@@ -31,5 +31,8 @@ namespace Facade
         [Display(Name = "Full name")]
         public string fullName { get; set; }
 
+        [Display(Name = "Username")]
+        public string userName { get; set; }
+
     }
 }

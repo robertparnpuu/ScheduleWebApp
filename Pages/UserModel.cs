@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Domain;
 using Domain.Common;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.WebUtilities;
 
 
 namespace PageModels
@@ -43,9 +46,19 @@ namespace PageModels
 
         public virtual async Task<IActionResult> OnPostCreateAsync()
         {
-            if (!ModelState.IsValid) return Page();
-            ApplicationUser user = ToApplicationUser(item);
-            await _userManager.CreateAsync(user, item.password);
+            if (ModelState.IsValid)
+            {
+                var user = ToApplicationUser(item);
+                var result = await _userManager.CreateAsync(user, item.password);
+                if (result.Succeeded)
+                {
+                    return RedirectToPage("./UserCreated");
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
             return Page();
         }
 
@@ -62,5 +75,7 @@ namespace PageModels
             newUser.PhoneNumberConfirmed = true;
             return newUser;
         }
+
+
     }
 } 

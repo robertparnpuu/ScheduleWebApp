@@ -17,6 +17,7 @@
 
             @Html.Editor(model => model.item.userName)
             @Html.Editor(model => model.item.password)
+            @Html.Editor(model => model.item.confirmPassword)
             @Html.Select(model => model.item.userPersonId, Model.Persons, "Select person")
 
             <div class="form-group">

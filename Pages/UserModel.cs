@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Core;
 using Domain;
 using Domain.Common;
 using Domain.Repos;
@@ -46,7 +47,7 @@ namespace PageModels
         {
             if (!ModelState.IsValid) return Page();
             var user = ToApplicationUser(item);
-            if (!IsPersonNotUser(user)) return Page();
+            if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
             var result = await _userManager.CreateAsync(user, item.password);
             if (result.Succeeded) return RedirectToPage("./UserCreated");
             foreach (var error in result.Errors)

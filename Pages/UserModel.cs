@@ -47,6 +47,7 @@ namespace PageModels
         {
             if (!ModelState.IsValid) return Page();
             var user = ToApplicationUser(item);
+            if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
             var result = await _userManager.CreateAsync(user, item.password);
             if (result.Succeeded) return RedirectToPage("./UserCreated");
@@ -74,6 +75,12 @@ namespace PageModels
         private bool IsPersonNotUser(ApplicationUser user)
         {
             var result = _context.Users.FirstOrDefault(x => x.PersonId == user.PersonId);
+            return result == null;
+        }
+
+        private bool IsUserNameFree(ApplicationUser user)
+        {
+            var result = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
             return result == null;
         }
     }

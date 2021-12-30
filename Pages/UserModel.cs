@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Text;
-using System.Text.Encodings.Web;
+using System.Linq;
 using System.Threading.Tasks;
+using Core;
 using Domain;
 using Domain.Common;
 using Domain.Repos;
@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.WebUtilities;
 
 
 namespace PageModels
@@ -46,18 +45,15 @@ namespace PageModels
 
         public virtual async Task<IActionResult> OnPostCreateAsync()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return Page();
+            var user = ToApplicationUser(item);
+            if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
+            if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
+            var result = await _userManager.CreateAsync(user, item.password);
+            if (result.Succeeded) return RedirectToPage("./UserCreated");
+            foreach (var error in result.Errors)
             {
-                var user = ToApplicationUser(item);
-                var result = await _userManager.CreateAsync(user, item.password);
-                if (result.Succeeded)
-                {
-                    return RedirectToPage("./UserCreated");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                ModelState.AddModelError(string.Empty, error.Description);
             }
             return Page();
         }
@@ -76,6 +72,16 @@ namespace PageModels
             return newUser;
         }
 
+        private bool IsPersonNotUser(ApplicationUser user)
+        {
+            var result = _context.Users.FirstOrDefault(x => x.PersonId == user.PersonId);
+            return result == null;
+        }
 
+        private bool IsUserNameFree(ApplicationUser user)
+        {
+            var result = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
+            return result == null;
+        }
     }
 } 

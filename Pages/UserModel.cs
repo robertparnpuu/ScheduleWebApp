@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace PageModels
@@ -49,14 +51,17 @@ namespace PageModels
             if (ModelState.IsValid)
             {
                 var user = ToApplicationUser(item);
-                var result = await _userManager.CreateAsync(user, item.password);
-                if (result.Succeeded)
+                if (IsPersonNotUser(user))
                 {
-                    return RedirectToPage("./UserCreated");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    var result = await _userManager.CreateAsync(user, item.password);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToPage("./UserCreated");
+                    }
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
                 }
             }
             return Page();
@@ -74,6 +79,16 @@ namespace PageModels
             newUser.EmailConfirmed = true;
             newUser.PhoneNumberConfirmed = true;
             return newUser;
+        }
+
+        private bool IsPersonNotUser(ApplicationUser user)
+        {
+            var result = _context.Users.FirstOrDefault(x => x.PersonId == user.PersonId);
+            if (result == null)
+            {
+                return true;
+            }
+            return false;
         }
 
 

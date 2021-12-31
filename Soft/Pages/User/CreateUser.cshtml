@@ -19,6 +19,7 @@
             @Html.Editor(model => model.item.password)
             @Html.Editor(model => model.item.confirmPassword)
             @Html.Select(model => model.item.userPersonId, Model.Persons, "Select person")
+            @Html.Select(model => model.role.Id, Model.Roles, "Select role")
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

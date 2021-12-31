@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Core;
 using Domain;
@@ -22,15 +23,19 @@ namespace PageModels
         protected readonly IPersonRepo repo;
         protected readonly ApplicationDbContext _context;
         [BindProperty] public UserView item { get; set; }
+        [BindProperty] public IdentityRole role { get; set; }
 
         protected readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserModel(IPersonRepo r, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public UserModel(IPersonRepo r, ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             repo = r;
             _context = context;
             item = new UserView();
+            role = new IdentityRole();
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public SelectList Persons
@@ -41,6 +46,16 @@ namespace PageModels
                 return new SelectList(list, "id", "fullName", item?.userPersonId);
             }
         }
+
+        public SelectList Roles
+        {
+            get
+            {
+                var list = _roleManager.Roles.ToList();
+                return new SelectList(list, "Id", "Name", role?.Id);
+            }
+        }
+
         public IActionResult OnGetCreate() => Page();
 
         public virtual async Task<IActionResult> OnPostCreateAsync()
@@ -49,9 +64,15 @@ namespace PageModels
             var user = ToApplicationUser(item);
             if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
-            var result = await _userManager.CreateAsync(user, item.password);
-            if (result.Succeeded) return RedirectToPage("./UserCreated");
-            foreach (var error in result.Errors)
+            var userResult = await _userManager.CreateAsync(user, item.password);
+            IdentityRole chosenRole = _roleManager.FindByIdAsync(role.Id).GetAwaiter().GetResult();
+            var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
+            if (userResult.Succeeded && roleResult.Succeeded) return RedirectToPage("./UserCreated");
+            foreach (var error in userResult.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            foreach (var error in roleResult.Errors)
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }

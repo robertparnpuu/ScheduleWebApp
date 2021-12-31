@@ -20,22 +20,22 @@ namespace PageModels
     [Authorize(Roles = "Admin")]
     public class UserModel : PageModel
     {
-        protected readonly IPersonRepo repo;
-        protected readonly ApplicationDbContext _context;
         [BindProperty] public UserView item { get; set; }
         [BindProperty] public IdentityRole role { get; set; }
 
-        protected readonly UserManager<ApplicationUser> _userManager;
+        private readonly IPersonRepo repo;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public UserModel(IPersonRepo r, ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             repo = r;
             _context = context;
-            item = new UserView();
-            role = new IdentityRole();
             _userManager = userManager;
             _roleManager = roleManager;
+            item = new UserView();
+            role = new IdentityRole();
         }
 
         public SelectList Persons
@@ -64,8 +64,9 @@ namespace PageModels
             var user = ToApplicationUser(item);
             if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
-            var userResult = await _userManager.CreateAsync(user, item.password);
             IdentityRole chosenRole = _roleManager.FindByIdAsync(role.Id).GetAwaiter().GetResult();
+
+            var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
             if (userResult.Succeeded && roleResult.Succeeded) return RedirectToPage("./UserCreated");
             foreach (var error in userResult.Errors)

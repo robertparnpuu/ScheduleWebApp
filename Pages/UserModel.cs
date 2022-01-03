@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using Core;
 using Domain;
 using Domain.Common;
 using Domain.Repos;
@@ -14,10 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace PageModels
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Manager")]
     public class UserModel : PageModel
     {
         [BindProperty] public UserView item { get; set; }

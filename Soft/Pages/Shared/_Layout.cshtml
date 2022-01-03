@@ -31,45 +31,45 @@
                             </li>
                         }
 
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Scheduler"))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Scheduler")))
                         {@Html.DropMenu("Shifts",
                         new Link("Standard Shifts", new Uri("/StandardShift?handler=index", UriKind.Relative)),
                         new Link("Shift Assignments", new Uri("/ShiftAssignment?handler=index", UriKind.Relative)))}
 
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Manager")))
                         {@Html.DropMenu("Contacts",
                        new Link("Persons", new Uri("/Person?handler=index", UriKind.Relative)),
                        new Link("Departments", new Uri("/Department?handler=index", UriKind.Relative)),
                        new Link("Locations", new Uri("/Location?handler=index", UriKind.Relative)))}
                         
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Manager")))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Create" asp-page="/User/CreateUser">Create User</a>
                             </li>
                         }
 
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Manager")))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Contract/Index">Contract</a>
                             </li>
                         }
                         
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Manager")))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Occupation/Index">Occupation</a>
                             </li>
                         }
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Scheduler"))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Scheduler")))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Requirement/Index">Requirement</a>
                             </li>
                         }
                         
-                        @if (signInManager.IsSignedIn(User))
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Admin") || User.IsInRole("Viewer")))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-route-handler="Index" asp-page="/Calendar/Index">Calendar</a>

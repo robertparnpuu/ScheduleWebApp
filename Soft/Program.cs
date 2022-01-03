@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using Domain;
 using Domain.Common;
 using Infra;
 using Infra.Initializer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace Soft
 {
@@ -14,7 +17,6 @@ namespace Soft
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            //selle trueks muutmine kustutab ära ka kasutajad ja rollid hetkel
             CreateAndDropDb(host, false);
             GetRepo.SetProvider(host.Services);
             host.Run();
@@ -26,12 +28,10 @@ namespace Soft
             try
             {
                 var context = services.GetService<ApplicationDbContext>();
-                //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-                //ContextSeed.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
                 if (newDb) 
                     context?.Database?.EnsureDeleted();
                 context?.Database?.EnsureCreated();
+                SeedUsersAndRoles(services);
                 DbInitializer.Initialize(context, newDb);                
             }
             catch (Exception ex)
@@ -46,5 +46,14 @@ namespace Soft
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        protected static void SeedUsersAndRoles(IServiceProvider s)
+        {
+            var roleManager = s.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = s.GetRequiredService<UserManager<ApplicationUser>>();
+            UserInitializer.SeedRolesAsync(userManager, roleManager).GetAwaiter().GetResult();
+            UserInitializer.SeedSuperAdminAsync(userManager, roleManager).GetAwaiter().GetResult();
+            UserInitializer.SeedUsersAsync(userManager, roleManager).GetAwaiter().GetResult();
+        }
     }
 }

@@ -5,11 +5,13 @@ using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Scheduler")]
     public class RequirementModel: ViewModel<Requirement, RequirementView>
     {
         //TODO: 2. Needs checkboxes for weekdays

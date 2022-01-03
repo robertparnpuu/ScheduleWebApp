@@ -44,22 +44,15 @@
       <FileName>RequirementData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.RoleAssignmentData" Collapsed="true">
+  <Class Name="Data.ShiftAssignmentData" Collapsed="true">
     <Position X="8.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAIAAAAAAEAAAAAAAgAAA=</HashCode>
-      <FileName>RoleAssignmentData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Data.ShiftAssignmentData" Collapsed="true">
-    <Position X="10" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAAgACAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAAAAAAAgACAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>ShiftAssignmentData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Data.PartyContactData" Collapsed="true">
-    <Position X="11.5" Y="2" Width="1.5" />
+    <Position X="10" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAABAAAAAAAAEAAAAA=</HashCode>
       <FileName>PartyContactData.cs</FileName>
@@ -96,15 +89,8 @@
       <FileName>OccupationData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Data.RoleData" Collapsed="true">
-    <Position X="5.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RoleData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Data.WeekDayData" Collapsed="true">
-    <Position X="7" Y="4.25" Width="1.5" />
+    <Position X="5.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDayData.cs</FileName>

@@ -16,8 +16,9 @@
             <th>@Html.DisplayNameFor(model => model.items[0].fullAddress)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].email)</th>
             <th>@Html.DisplayNameFor(model => model.items[0].phoneNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.items[0].userName)</th>
             <th></th>
-</tr>
+        </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.items)
@@ -30,6 +31,7 @@
             <td>@Html.DisplayFor(modelItem => item.fullAddress)</td>
             <td>@Html.DisplayFor(modelItem => item.email)</td>
             <td>@Html.DisplayFor(modelItem => item.phoneNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.userName)</td>
             @Html.RowButtons(Model.PageUrl, $"{item.id}")
         </tr>
         }

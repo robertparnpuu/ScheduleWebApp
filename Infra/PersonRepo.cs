@@ -11,6 +11,7 @@ namespace Infra
         public PersonRepo(ApplicationDbContext c) : base(c, c?.Persons) { }
 
         public override Person ToEntity(PersonData d) => new(d);
+
         public override PersonData ToData(Person e) => e?.Data ?? new PersonData();
         protected internal override IQueryable<PersonData> applyFilters(IQueryable<PersonData> query)
         {

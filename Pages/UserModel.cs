@@ -62,6 +62,7 @@ namespace PageModels
             if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
             IdentityRole chosenRole = _roleManager.FindByIdAsync(role.Id).GetAwaiter().GetResult();
+            if (!CanAssignRole(chosenRole)) return RedirectToPage("./CantAssignRole");
 
             var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
@@ -75,7 +76,7 @@ namespace PageModels
                 ModelState.AddModelError(string.Empty, error.Description);
             }
             return Page();
-        }
+         }
 
         protected internal ApplicationUser ToApplicationUser(UserView obj)
         {
@@ -102,5 +103,11 @@ namespace PageModels
             var result = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
             return result == null;
         }
-    }
-} 
+        private bool CanAssignRole(IdentityRole role)
+        {
+            if (role.Name == "Manager" && !(User.IsInRole("Admin"))) return false;
+            if (role.Name == "Admin" && !(User.IsInRole("Admin"))) return false;
+            return User.IsInRole("Admin") || User.IsInRole("Manager");
+        }
+     }
+}

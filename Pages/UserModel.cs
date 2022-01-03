@@ -66,6 +66,7 @@ namespace PageModels
 
             var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
+            if (chosenRole.Name != "Viewer") await _userManager.AddToRoleAsync(user, "Viewer");
             if (userResult.Succeeded && roleResult.Succeeded) return RedirectToPage("./UserCreated");
             foreach (var error in userResult.Errors)
             {

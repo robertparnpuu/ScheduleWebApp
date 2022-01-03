@@ -1,22 +1,23 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using IdentityUser = Microsoft.AspNetCore.Identity.IdentityUser;
 
-public class ApplicationUser: IdentityUser
+namespace Domain
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public ApplicationUser() : base()
+    public class ApplicationUser: IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PersonId { get; set; }
+        protected Person person { get; set; }
+
     }
 }
-//public class ApplicationRoleManager : RoleManager<Application>
+//public class ApplicationRoleManager : Microsoft.AspNetCore.Identity.RoleManager<MediaTypeNames.Application>
 //{
 //    public ApplicationRoleManager(IRoleStore<IdentityRole, string> roleStore)
 //        : base(roleStore)
 //    {
 //    }
+
 
 //    public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext context)
 //    {
@@ -33,22 +34,22 @@ public class ApplicationUser: IdentityUser
 //}
 //public class ApplicationUserManager : UserManager<ApplicationUser>
 //{
-//    private RoleManager<ApplicationRole> _roleManager;
+//    private RoleManager<IdentityRole> _roleManager;
 
 //    public ApplicationUserManager(IUserStore<ApplicationUser> store)
 //        : base(store)
 //    {
-//        _roleManager = new RoleManager<ApplicationRole>(new RoleStore<ApplicationRole>());
+//        _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
 //    }
 
-//    public async Task<IList<ApplicationRole>> GetModelRolesAsync(string userId)
+//    public async Task<IList<IdentityRole>> GetModelRolesAsync(string userId)
 //    {
 //        IList<string> roleNames = await base.GetRolesAsync(userId.ToString());
 
-//        var identityRoles = new List<ApplicationRole>();
+//        var identityRoles = new List<IdentityRole>();
 //        foreach (var roleName in roleNames)
 //        {
-//            ApplicationRole role = await _roleManager.FindByNameAsync(roleName);
+//            IdentityRole role = await _roleManager.FindByNameAsync(roleName);
 //            identityRoles.Add(role);
 //        }
 

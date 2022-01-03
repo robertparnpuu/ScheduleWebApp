@@ -1,13 +1,16 @@
-﻿using Aids;
+﻿using System.Linq;
+using Aids;
 using Data;
 using Domain;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Authorization;
 using PageModels.Common;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class PersonModel : WithContactModel<Person,PersonView>
     {
         public PersonModel(IPersonRepo r, IPartyContactRepo pc, IContactRepo c, IAddressRepo a, 
@@ -19,7 +22,8 @@ namespace PageModels
             PersonView view = new PersonView();
             Copy.Members(obj, view);
             view.fullName = obj?.fullName;
-            return view;
+            view.userName = _context?.Users.FirstOrDefault(x => x.PersonId == obj.id)?.UserName.ToString();
+       return view;
         }
         protected internal override Person ToEntity(PersonView view)
         {

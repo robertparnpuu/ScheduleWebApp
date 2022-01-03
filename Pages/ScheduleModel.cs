@@ -9,12 +9,14 @@ using Domain.Common;
 using Domain.Repos;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PageModels.Common;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Scheduler")]
     public class ScheduleModel : PagedModel<ShiftAssignment, ShiftAssignmentView>
     {
         [BindProperty] public List<StandardShiftView> standardShifts { get; set; }

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PageModels
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class PartyContactModel : ViewModel<PartyContact, PartyContactView>
     {
         public PartyContactModel(IPartyContactRepo r, ApplicationDbContext context) : base(r, context) { }

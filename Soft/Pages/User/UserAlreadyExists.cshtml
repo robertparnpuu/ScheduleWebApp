@@ -1,0 +1,12 @@
+﻿@page
+@model PageModels.UserModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Sorry! This person already has a user!</h2>
+
+<div>
+    <a asp-page="/User/CreateUser" asp-route-handler="Create">Go back!</a>
+</div>

@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+using System.Xml;
 using Data;
 using Domain.Common;
-using Domain.Repos;
 
 namespace Domain
 {
@@ -9,7 +10,7 @@ namespace Domain
     {
         public Person() : this(null) { }
 
-        public Person(PersonData d):base(d) { }
+        public Person(PersonData d) : base(d) { }
 
         public string firstName => Data?.firstName ?? "-";
         public string lastName => Data?.lastName ?? "-";
@@ -19,7 +20,5 @@ namespace Domain
 
         public string fullName => $"{firstName} {lastName}";
         public string fullAddress=> partyContact?.fullAddress ?? "-";
-        
-
     }
 }

@@ -1,0 +1,12 @@
+﻿@page
+@model PageModels.UserModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>You do not have the permissions to assign that role</h2>
+
+<div>
+    <a asp-page="/User/CreateUser" asp-route-handler="Create">Go back!</a>
+</div>

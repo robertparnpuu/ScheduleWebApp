@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using Core;
 using Domain;
 using Domain.Common;
 using Domain.Repos;
@@ -14,10 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace PageModels
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Manager")]
     public class UserModel : PageModel
     {
         [BindProperty] public UserView item { get; set; }
@@ -65,8 +62,10 @@ namespace PageModels
             if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
             IdentityRole chosenRole = _roleManager.FindByIdAsync(role.Id).GetAwaiter().GetResult();
+            if (!CanAssignRole(chosenRole)) return RedirectToPage("./CantAssignRole");
             var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
+            if (chosenRole.Name != "Viewer") await _userManager.AddToRoleAsync(user, "Viewer");
             if (userResult.Succeeded && roleResult.Succeeded) return RedirectToPage("./UserCreated");
             foreach (var error in userResult.Errors)
             {
@@ -77,7 +76,7 @@ namespace PageModels
                 ModelState.AddModelError(string.Empty, error.Description);
             }
             return Page();
-        }
+         }
 
         protected internal ApplicationUser ToApplicationUser(UserView obj)
         {
@@ -104,5 +103,11 @@ namespace PageModels
             var result = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
             return result == null;
         }
-    }
-} 
+        private bool CanAssignRole(IdentityRole role)
+        {
+            if (role.Name == "Manager" && !(User.IsInRole("Admin"))) return false;
+            if (role.Name == "Admin" && !(User.IsInRole("Admin"))) return false;
+            return User.IsInRole("Admin") || User.IsInRole("Manager");
+        }
+     }
+}

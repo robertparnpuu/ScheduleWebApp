@@ -63,7 +63,6 @@ namespace PageModels
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
             IdentityRole chosenRole = _roleManager.FindByIdAsync(role.Id).GetAwaiter().GetResult();
             if (!CanAssignRole(chosenRole)) return RedirectToPage("./CantAssignRole");
-
             var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
             if (chosenRole.Name != "Viewer") await _userManager.AddToRoleAsync(user, "Viewer");
@@ -93,13 +92,13 @@ namespace PageModels
             return newUser;
         }
 
-        private bool IsPersonNotUser(ApplicationUser user)
+        internal bool IsPersonNotUser(ApplicationUser user)
         {
             var result = _context.Users.FirstOrDefault(x => x.PersonId == user.PersonId);
             return result == null;
         }
 
-        private bool IsUserNameFree(ApplicationUser user)
+        internal bool IsUserNameFree(ApplicationUser user)
         {
             var result = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
             return result == null;

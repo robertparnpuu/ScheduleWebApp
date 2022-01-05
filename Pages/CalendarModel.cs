@@ -33,16 +33,22 @@ namespace PageModels
 
         public async Task<IActionResult> OnGetIndexAsync()
         {
-            ClaimsPrincipal currentuser = User;
-            var currentUserId = currentuser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentuser = User;
+            var currentUserId = currentuser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var user = _context.Users.FirstOrDefault(x => x.Id == currentUserId);
-            var personId = user.PersonId;
-            repo.startTime = DateTime.MinValue;
-            repo.endTime = DateTime.MaxValue;
-            items = (await repo.GetEntityListAsync()).Select(ToCalendarView).Where(x=>x.personId==personId).ToList();
+            if (user != null)
+            {
+                var personId = user.PersonId;
+                repo.startTime = DateTime.MinValue;
+                repo.endTime = DateTime.MaxValue;
+                items = (await repo.GetEntityListAsync()).Select(ToCalendarView).Where(x => x.personId == personId).ToList();
+
+            }
             itemsAsJson = JsonConvert.SerializeObject(items);
             return Page();
         }
+
+            
 
         // Õigem lahendus oleks API-ga
         // https://www.youtube.com/watch?v=39J0mSKM0QU tegi sellise lahendusega
@@ -57,12 +63,12 @@ namespace PageModels
 
         protected internal CalendarView ToCalendarView(ShiftAssignment obj)
         {
-            CalendarView view = new CalendarView();
-            view.personId = obj.shiftAssignmentContract.personId;
-            view.id = obj.id;
-            view.title = $"{obj.shiftAssignmentContract.contractOccupation.name}. {obj.shiftAssignmentLocation.name}";
-            view.start = obj.startTime;
-            view.end = obj.endTime;
+            var view = new CalendarView
+            {personId = obj.shiftAssignmentContract?.personId,
+            id = obj.id,
+            title = $"{obj.shiftAssignmentContract?.contractOccupation.name}. {obj.shiftAssignmentLocation?.name}",
+            start = obj.startTime,
+            end = obj.endTime};
             return view;
         }
     }

@@ -95,7 +95,6 @@ namespace Tests.Model
             return lookupNormalizer.Object;
         }
 
-
         [TestMethod] public void OnGetCreateReturnsPageTest()
         {
             var result = _pageModel.OnGetCreate();

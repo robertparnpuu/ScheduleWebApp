@@ -16,5 +16,11 @@ namespace Tests.Model
             mockRepo = new TestContactRepo();
             pageModel = new ContactModel((IContactRepo) mockRepo, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Contact", pageModel.PageTitle);
+        }
     }
 }

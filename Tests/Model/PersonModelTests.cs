@@ -20,5 +20,11 @@ namespace Tests.Model
             pageModel = new PersonModel((IPersonRepo)mockRepo, (IPartyContactRepo)mockRepoPartyContact,
             (IContactRepo)mockRepoContact, (IAddressRepo)mockRepoAddress, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Person", pageModel.PageTitle);
+        }
     }
 }

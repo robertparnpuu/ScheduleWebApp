@@ -38,7 +38,7 @@ namespace PageModels
         {
             get
             {
-                var list = new GetRepo().Instance<IOccupationRepo>().GetById();
+                var list = new GetRepo().Instance<IOccupationRepo>()?.GetById();
                 return new SelectList(list, "id", "name", item?.occupationId);
             }
         }

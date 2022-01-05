@@ -16,5 +16,11 @@ namespace Tests.Model
             mockRepo = new TestContractRepo();
             pageModel = new ContractModel((IContractRepo) mockRepo, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Contract", pageModel.PageTitle);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Aids;
+﻿using System.Xml;
+using Aids;
 using Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

@@ -20,5 +20,11 @@ namespace Tests.Model
             pageModel = new LocationModel((ILocationRepo)mockRepo, (IPartyContactRepo)mockRepoPartyContact,
             (IContactRepo)mockRepoContact, (IAddressRepo)mockRepoAddress, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Location", pageModel.PageTitle);
+        }
     }
 }

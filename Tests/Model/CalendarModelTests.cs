@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Aids;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,11 +6,8 @@ using Domain;
 using Domain.Repos;
 using Facade;
 using Infra;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Moq;
 using Tests.Model.Common;
 using PageModels;
 using IdentityRole = Microsoft.AspNetCore.Identity.IdentityRole;

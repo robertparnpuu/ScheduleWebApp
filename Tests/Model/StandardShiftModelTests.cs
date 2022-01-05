@@ -10,11 +10,16 @@ namespace Tests.Model
     [TestClass] public class StandardShiftModelTests : ViewedModelTests<StandardShift, StandardShiftView>
     {
         private class TestStandardShiftRepo : TestRepo<StandardShift>, IStandardShiftRepo{ }
-
         [TestInitialize] public void TestInitialize()
         {
             mockRepo = new TestStandardShiftRepo();
             pageModel = new StandardShiftModel((IStandardShiftRepo) mockRepo, null);
+        }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("StandardShift", pageModel.PageTitle);
         }
     }
 }

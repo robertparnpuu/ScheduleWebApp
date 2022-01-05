@@ -4,8 +4,6 @@ using Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PageModels;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Tests.Model.Common;
 
 namespace Tests.Model
@@ -24,6 +22,12 @@ namespace Tests.Model
         {
             mockRepo = new TestShiftAssignmentRepo();
             pageModel = new ShiftAssignmentModel((IShiftAssignmentRepo) mockRepo, null);
+        }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("ShiftAssignment", pageModel.PageTitle);
         }
     }
 }

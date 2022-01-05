@@ -16,5 +16,11 @@ namespace Tests.Model
             mockRepo = new TestAddressRepo();
             pageModel = new AddressModel((IAddressRepo) mockRepo, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Address", pageModel.PageTitle);
+        }
     }
 }

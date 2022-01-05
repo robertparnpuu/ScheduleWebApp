@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using Domain.Repos;
+using Facade;
 using Infra;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,8 @@ namespace Tests.Model
         private ApplicationDbContext _testDb;
         private List<ApplicationUser> _users;
         private List<IdentityRole> _roles;
-        private Dictionary<ApplicationUser, String> _usersAndRoles;
+        private Dictionary<ApplicationUser, string> _usersAndRoles;
+        private UserView _item;
 
         [TestInitialize]
         public void TestInitialize()
@@ -53,6 +55,7 @@ namespace Tests.Model
             .UseInMemoryDatabase("TestDb").Options;
             _testDb = new ApplicationDbContext(options);
             _pageModel = new UserModel((IPersonRepo)_repo, _testDb, _userManager, null);
+            _item = new UserView();
         }
 
         public static Mock<UserManager<TUser>> MockUserManager<TUser>(List<TUser> userList, Dictionary<TUser, string> userRoleList) 
@@ -67,6 +70,7 @@ namespace Tests.Model
             mgr.Setup(x => x.CreateAsync(It.IsAny<TUser>(), It.IsAny<string>())).ReturnsAsync(IdentityResult.Success).Callback<TUser, string>((x, y) => userList.Add(x));
             mgr.Setup(x => x.UpdateAsync(It.IsAny<TUser>())).ReturnsAsync(IdentityResult.Success);
             mgr.Setup(x => x.AddToRoleAsync(It.IsAny<TUser>(), It.IsAny<string>())).ReturnsAsync(IdentityResult.Success).Callback<TUser, string>(userRoleList.Add);
+            
             return mgr;
         }
         public static Mock<RoleManager<TRole>> MockRoleManager<TRole>(List<TRole> list, IRoleStore<TRole> store = null)
@@ -117,9 +121,19 @@ namespace Tests.Model
             Assert.AreEqual(3, _roles.Count);
         }
 
-        [TestMethod] public void IsPersonNotUserTest() => 
-        Assert.IsTrue(_pageModel.IsPersonNotUser(GetUser()));
-        
+        [TestMethod]
+        public void IsPersonNotUserTest()
+        {
+            var result = _pageModel.IsPersonNotUser(GetUser());
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void IsUserNameFreeTest()
+        {
+            var result = _pageModel.IsUserNameFree(GetUser());
+            Assert.IsTrue(result);
+        }
 
         [TestMethod]
         public async Task CanCreateUserWithRoleTest()
@@ -152,6 +166,13 @@ namespace Tests.Model
         private static IdentityRole GetRole()
         {
             return new IdentityRole() {Id = "3", Name = "Admin"};
+        }
+
+        [TestMethod]
+        public void ToApplicationUserTest()
+        {
+            var result = _pageModel.ToApplicationUser(_item);
+            Assert.IsInstanceOfType(result, typeof(ApplicationUser));
         }
     }
 }

@@ -65,7 +65,7 @@ namespace PageModels
             if (!CanAssignRole(chosenRole)) return RedirectToPage("./CantAssignRole");
             var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
-            if (chosenRole.Name != "Viewer") await _userManager.AddToRoleAsync(user, "Viewer");
+            if (chosenRole.Name != Enums.Roles.Viewer.ToString()) await _userManager.AddToRoleAsync(user, Enums.Roles.Viewer.ToString());
             if (userResult.Succeeded && roleResult.Succeeded) return RedirectToPage("./UserCreated");
             foreach (var error in userResult.Errors)
             {
@@ -105,9 +105,9 @@ namespace PageModels
         }
         private bool CanAssignRole(IdentityRole role)
         {
-            if (role.Name == "Manager" && !(User.IsInRole("Admin"))) return false;
-            if (role.Name == "Admin" && !(User.IsInRole("Admin"))) return false;
-            return User.IsInRole("Admin") || User.IsInRole("Manager");
+            if (role.Name == Enums.Roles.Manager.ToString() && !(User.IsInRole(Enums.Roles.Admin.ToString()))) return false;
+            if (role.Name == Enums.Roles.Admin.ToString() && !(User.IsInRole(Enums.Roles.Admin.ToString()))) return false;
+            return User.IsInRole(Enums.Roles.Admin.ToString()) || User.IsInRole(Enums.Roles.Manager.ToString());
         }
      }
 }

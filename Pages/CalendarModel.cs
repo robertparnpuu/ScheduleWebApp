@@ -17,7 +17,6 @@ namespace PageModels
     [Authorize(Roles = "Admin, Viewer")]
     public class CalendarModel : PageModel
     {
-        // Kasutame FullCalendar JS libraryt
         protected readonly IShiftAssignmentRepo repo;
         protected readonly ApplicationDbContext _context;
 
@@ -42,7 +41,6 @@ namespace PageModels
                 repo.startTime = DateTime.MinValue;
                 repo.endTime = DateTime.MaxValue;
                 items = (await repo.GetEntityListAsync()).Select(ToCalendarView).Where(x => x.personId == personId).ToList();
-
             }
             itemsAsJson = JsonConvert.SerializeObject(items);
             return Page();

@@ -3,14 +3,14 @@
   <Class Name="Infra.Common.BaseRepo&lt;TData, TEntity&gt;" Collapsed="true">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABAAEgAAAAAAgAAAAEBCAAAIA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAABAAEgAAAAAAgAAAAEBCAAAIA=</HashCode>
       <FileName>Common\BaseRepo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Infra.Common.BaseRepo&lt;TData&gt;" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAEAAAEAAQQAAAAQAAABEAAAAAAAggCAAAACIAAIA=</HashCode>
+      <HashCode>AAQAEAAAEAAQQAAAAQAAABECAAAAAAggCAAAACIAAIA=</HashCode>
       <FileName>Common\BaseRepo.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -41,7 +41,7 @@
   <Class Name="Infra.DepartmentRepo" Collapsed="true">
     <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEBAAAAAA=</HashCode>
       <FileName>DepartmentRepo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -49,7 +49,7 @@
   <Class Name="Infra.LocationRepo" Collapsed="true">
     <Position X="2.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEBAAAAAA=</HashCode>
       <FileName>LocationRepo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -65,7 +65,7 @@
   <Class Name="Infra.PersonRepo" Collapsed="true">
     <Position X="4.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEBAAAAAA=</HashCode>
       <FileName>PersonRepo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -81,7 +81,7 @@
   <Class Name="Infra.ShiftAssignmentRepo" Collapsed="true">
     <Position X="4.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgACACAEAAAAAAAAAEBAAAAAA=</HashCode>
       <FileName>ShiftAssignmentRepo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -130,22 +130,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
       <FileName>PartyContactRepo.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infra.RoleAssignmentRepo" Collapsed="true">
-    <Position X="2.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
-      <FileName>RoleAssignmentRepo.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Infra.RoleRepo" Collapsed="true">
-    <Position X="0.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAA=</HashCode>
-      <FileName>RoleRepo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

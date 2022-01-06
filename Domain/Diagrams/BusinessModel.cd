@@ -4,9 +4,9 @@
     <Position X="4.75" Y="1" Width="1.5" />
     <InheritanceLine Type="Domain.Common.WithContact&lt;TData&gt;" FixedToPoint="true">
       <Path>
-        <Point X="12" Y="2.75" />
-        <Point X="12" Y="1.543" />
-        <Point X="6.25" Y="1.543" />
+        <Point X="8.75" Y="4.5" />
+        <Point X="8.75" Y="1.375" />
+        <Point X="6.25" Y="1.375" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.ShiftAssignment" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+    <Position X="2.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAACEAAAAAAAAAgACAAAAAAAAAAAAACAAAAgAA=</HashCode>
       <FileName>ShiftAssignment.cs</FileName>
@@ -26,15 +26,24 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Requirement" Collapsed="true">
-    <Position X="7.75" Y="5.5" Width="1.5" />
-    <AssociationLine Name="requirementLocation" Type="Domain.Location">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <AssociationLine Name="requirementLocation" Type="Domain.Location" FixedFromPoint="true">
+      <Path>
+        <Point X="7.25" Y="4.5" />
+        <Point X="7.25" Y="2.441" />
+      </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="-1.524" Y="1.102" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="requirementOccupation" Type="Domain.Occupation">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.035" Y="0.052" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="requirementWeekDay" Type="Domain.WeekDay">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="0.115" Y="-0.248" Height="0.182" Width="1.802" />
+        <Position X="-0.231" Y="0.065" Height="0.182" Width="1.802" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -48,44 +57,56 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Location" Collapsed="true">
-    <Position X="7.75" Y="2.5" Width="1.5" />
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="Domain.Common.WithContact&lt;TData&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="4.5" />
+        <Point X="8.75" Y="2.188" />
+        <Point X="8.25" Y="2.188" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Location.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.Occupation" Collapsed="true">
-    <Position X="4" Y="5.25" Width="1.5" />
+    <Position X="3" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Occupation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.WeekDay" Collapsed="true">
-    <Position X="9.75" Y="6.5" Width="1.5" />
+    <Position X="6" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WeekDay.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.Address" Collapsed="true">
-    <Position X="13.5" Y="1.5" Width="1.5" />
+    <Position X="10.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAQAAAAAAAAAAAAEACAAAAAAAAABCAAAABAAAAIA=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.Contract" Collapsed="true">
-    <Position X="1" Y="5.25" Width="1.5" />
-    <AssociationLine Name="contractOccupation" Type="Domain.Occupation">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <AssociationLine Name="contractOccupation" Type="Domain.Occupation" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.312" Y="4.191" />
+        <Point X="2.312" Y="4.596" />
+        <Point X="3" Y="4.596" />
+      </Path>
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-0.133" Y="-0.303" Height="0.182" Width="1.577" />
+        <Position X="-0.191" Y="-0.303" Height="0.182" Width="1.577" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="contractDepartment" Type="Domain.Department" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="1.562" Y="5.25" />
-        <Point X="1.562" Y="1.292" />
+        <Point X="1.812" Y="3.5" />
+        <Point X="1.812" Y="1.292" />
         <Point X="4.75" Y="1.292" />
       </Path>
     </AssociationLine>
@@ -100,12 +121,12 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Person" Collapsed="true">
-    <Position X="4.75" Y="7.25" Width="1.5" />
+    <Position X="3" Y="6.25" Width="1.5" />
     <InheritanceLine Type="Domain.Common.WithContact&lt;TData&gt;" FixedToPoint="true">
       <Path>
-        <Point X="12" Y="3.441" />
-        <Point X="12" Y="7.625" />
-        <Point X="6.25" Y="7.625" />
+        <Point X="8.75" Y="5.191" />
+        <Point X="8.75" Y="6.625" />
+        <Point X="4.5" Y="6.625" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -114,19 +135,24 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.StandardShift" Collapsed="true">
-    <Position X="4" Y="3.75" Width="1.5" />
-    <AssociationLine Name="shiftLocation" Type="Domain.Location">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="1.157" Y="0.597" />
+    <Position X="3" Y="3" Width="1.5" />
+    <AssociationLine Name="shiftLocation" Type="Domain.Location" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="3.379" />
+        <Point X="6.938" Y="3.379" />
+        <Point X="6.938" Y="2.441" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.807" Y="0.597" Height="0.182" Width="1.226" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="shiftOccupation" Type="Domain.Occupation" FixedFromPoint="true">
       <Path>
-        <Point X="4.75" Y="4.441" />
-        <Point X="4.75" Y="5.25" />
+        <Point X="3.75" Y="3.691" />
+        <Point X="3.75" Y="4.25" />
       </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.254" Y="0.322" />
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.862" Y="0.322" Height="0.182" Width="1.207" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -139,14 +165,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Contact" Collapsed="true">
-    <Position X="13.5" Y="4" Width="1.5" />
+    <Position X="10.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contact.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Domain.PartyContact" Collapsed="true">
-    <Position X="13.5" Y="2.75" Width="1.5" />
+    <Position X="10.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAEAEABAAAAQAABAAAAAAAAEQAAAA=</HashCode>
       <FileName>PartyContact.cs</FileName>
@@ -157,7 +183,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Domain.Common.WithContact&lt;TData&gt;" Collapsed="true">
-    <Position X="11.25" Y="2.75" Width="1.5" />
+    <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AADAAQAAAAAAIAAgAAAACAAAAcAABABCAAAABEAAAIA=</HashCode>
       <FileName>Common\WithContact.cs</FileName>
@@ -166,8 +192,13 @@
       <Property Name="partyContact" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Domain.ApplicationUser">
-    <Position X="4.75" Y="8.5" Width="1.5" />
+  <Class Name="Domain.ApplicationUser" Collapsed="true">
+    <Position X="3" Y="7.25" Width="1.5" />
+    <AssociationLine Name="person" Type="Domain.Person">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.165" Y="0.052" Height="0.182" Width="0.937" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAg=</HashCode>
       <FileName>ApplicationUser.cs</FileName>

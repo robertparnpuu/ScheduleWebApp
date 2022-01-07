@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using Core;
 using Domain;
 using Domain.Common;
 using Domain.Repos;
@@ -14,10 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace PageModels
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Manager")]
     public class UserModel : PageModel
     {
         [BindProperty] public UserView item { get; set; }
@@ -65,9 +62,10 @@ namespace PageModels
             if (!IsUserNameFree(user)) return RedirectToPage("./UserNameAlreadyTaken");
             if (!IsPersonNotUser(user)) return RedirectToPage("./UserAlreadyExists");
             IdentityRole chosenRole = _roleManager.FindByIdAsync(role.Id).GetAwaiter().GetResult();
-
+            if (!CanAssignRole(chosenRole)) return RedirectToPage("./CantAssignRole");
             var userResult = await _userManager.CreateAsync(user, item.password);
             var roleResult = await _userManager.AddToRoleAsync(user, chosenRole.Name);
+            if (chosenRole.Name != Enums.Roles.Viewer.ToString()) await _userManager.AddToRoleAsync(user, Enums.Roles.Viewer.ToString());
             if (userResult.Succeeded && roleResult.Succeeded) return RedirectToPage("./UserCreated");
             foreach (var error in userResult.Errors)
             {
@@ -78,32 +76,40 @@ namespace PageModels
                 ModelState.AddModelError(string.Empty, error.Description);
             }
             return Page();
-        }
+         }
 
         protected internal ApplicationUser ToApplicationUser(UserView obj)
         {
-            ApplicationUser newUser = new ApplicationUser();
-            newUser.PersonId = obj.userPersonId;
-            newUser.Email = repo.GetEntity(obj.userPersonId).email;
-            newUser.FirstName = repo.GetEntity(obj.userPersonId).firstName;
-            newUser.LastName = repo.GetEntity(obj.userPersonId).lastName;
-            newUser.UserName = obj.userName;
-            newUser.Id = Guid.NewGuid().ToString();
-            newUser.EmailConfirmed = true;
-            newUser.PhoneNumberConfirmed = true;
+            var newUser = new ApplicationUser
+            {
+            PersonId = obj.userPersonId,
+            Email = repo.GetEntity(obj.userPersonId)?.email,
+            FirstName = repo.GetEntity(obj.userPersonId)?.firstName,
+            LastName = repo.GetEntity(obj.userPersonId)?.lastName,
+            UserName = obj.userName,
+            Id = Guid.NewGuid().ToString(),
+            EmailConfirmed = true,
+            PhoneNumberConfirmed = true
+            };
             return newUser;
         }
 
-        private bool IsPersonNotUser(ApplicationUser user)
+        internal bool IsPersonNotUser(ApplicationUser user)
         {
             var result = _context.Users.FirstOrDefault(x => x.PersonId == user.PersonId);
             return result == null;
         }
 
-        private bool IsUserNameFree(ApplicationUser user)
+        internal bool IsUserNameFree(ApplicationUser user)
         {
             var result = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
             return result == null;
         }
-    }
-} 
+        internal bool CanAssignRole(IdentityRole role)
+        {
+            if (role.Name == Enums.Roles.Manager.ToString() && !(User.IsInRole(Enums.Roles.Admin.ToString()))) return false;
+            if (role.Name == Enums.Roles.Admin.ToString() && !(User.IsInRole(Enums.Roles.Admin.ToString()))) return false;
+            return User.IsInRole(Enums.Roles.Admin.ToString()) || User.IsInRole(Enums.Roles.Manager.ToString());
+        }
+     }
+}

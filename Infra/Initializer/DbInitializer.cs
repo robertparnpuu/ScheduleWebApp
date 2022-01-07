@@ -141,6 +141,17 @@ namespace Infra.Initializer
             zipCode ="10101",
             region = "Harjumaa",
             country = "Eesti"
+            },
+            new AddressData
+            {
+            id="exampleAddress",
+            apartmentNumber = "05",
+            streetName = "Raja",
+            houseNumber = "3b",
+            city = "Tallinn",
+            zipCode ="12616",
+            region = "Harjumaa",
+            country = "Eesti"
             }
             };
             dataBase.Addresses.AddRange(addresses);
@@ -211,6 +222,12 @@ namespace Infra.Initializer
             id = "contactId10",
             email = "test10@hot.ee",
             phoneNumber = "56101010"
+            },
+            new ContactData()
+            {
+            id = "exampleContact",
+            email = "heli.kopter@hot.ee",
+            phoneNumber = "57401010"
             }
             };
             dataBase.Contacts.AddRange(contacts);
@@ -253,6 +270,14 @@ namespace Infra.Initializer
             id = "contractId4",
             personId = "personId3",
             occupationId = "occupationId4",
+            departmentId = "departmentId1",
+            validFrom = DateTime.Parse("2021-06-02"),
+            },
+            new ContractData()
+            {
+            id = "exampleContract",
+            personId = "examplePerson",
+            occupationId = "occupationId2",
             departmentId = "departmentId1",
             validFrom = DateTime.Parse("2021-06-02"),
             }
@@ -422,6 +447,13 @@ namespace Infra.Initializer
             partyId = "departmentId3",
             addressId="addressId10",
             contactId="contactId10"
+            },
+            new PartyContactData()
+            {
+            id = "exampleContact",
+            partyId = "examplePerson",
+            addressId="exampleAddress",
+            contactId="exampleContact"
             }
             };
             dataBase.PartyContacts.AddRange(contacts);
@@ -438,7 +470,6 @@ namespace Infra.Initializer
             id="personId1",
             firstName = "Lennart",
             lastName = "Meri",
-            roleAssignmentId = "roleAssignmentId1",
             idCode = "39000000000",
             dateOfBirth =DateTime.Parse("2021-04-01"),
             partyContactId = "partyContactId1"
@@ -448,7 +479,6 @@ namespace Infra.Initializer
             id="personId2",
             firstName = "Jakob",
             lastName = "Hurt",
-            roleAssignmentId = "roleAssignmentId1",
             idCode = "39111111111",
             dateOfBirth =DateTime.Parse("2020-05-02"),
             partyContactId = "partyContactId2"
@@ -458,7 +488,6 @@ namespace Infra.Initializer
             id="personId3",
             firstName = "Anton Hansen",
             lastName = "Tammsaare",
-            roleAssignmentId = "roleAssignmentId2",
             idCode = "39222222222",
             dateOfBirth =DateTime.Parse("2019-06-03"),
             partyContactId = "partyContactId3"
@@ -468,9 +497,17 @@ namespace Infra.Initializer
             id="personId4",
             firstName = "Jaak",
             lastName = "Peterson",
-            roleAssignmentId = "roleAssignmentId2",
             idCode = "39333333333",
             dateOfBirth =DateTime.Parse("2018-07-04"),
+            partyContactId = "partyContactId4"
+            },
+            new PersonData
+            {
+            id="examplePerson",
+            firstName = "Heli",
+            lastName = "Kopter",
+            idCode = "49409021234",
+            dateOfBirth =DateTime.Parse("1994-09-02"),
             partyContactId = "partyContactId4"
             }
             };
@@ -593,6 +630,94 @@ namespace Infra.Initializer
                 locationId = "locationId3",
                 startTime = DateTime.Parse("2021-12-30T11:00:00"),
                 endTime = DateTime.Parse("2021-12-30T16:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment1",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-08T11:00:00"),
+                endTime = DateTime.Parse("2022-01-08T16:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment2",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-09T08:30:00"),
+                endTime = DateTime.Parse("2022-01-09T15:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment3",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-10T09:00:00"),
+                endTime = DateTime.Parse("2022-01-10T17:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment4",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-11T11:00:00"),
+                endTime = DateTime.Parse("2022-01-11T18:30:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment5",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-12T06:00:00"),
+                endTime = DateTime.Parse("2022-01-12T15:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment6",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-13T11:30:00"),
+                endTime = DateTime.Parse("2022-01-13T18:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment7",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-17T08:00:00"),
+                endTime = DateTime.Parse("2022-01-17T16:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment8",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-18T10:00:00"),
+                endTime = DateTime.Parse("2022-01-18T18:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment9",
+                contractId = "exampleContract",
+                locationId = "locationId3",
+                startTime = DateTime.Parse("2022-01-19T12:30:00"),
+                endTime = DateTime.Parse("2022-01-19T19:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment10",
+                contractId = "exampleContract",
+                locationId = "locationId2",
+                startTime = DateTime.Parse("2022-01-15T12:30:00"),
+                endTime = DateTime.Parse("2022-01-15T19:00:00"),
+            },
+            new ShiftAssignmentData()
+            {
+                id="exampleShiftAssignment11",
+                contractId = "exampleContract",
+                locationId = "locationId1",
+                startTime = DateTime.Parse("2022-01-06T12:30:00"),
+                endTime = DateTime.Parse("2022-01-06T19:00:00"),
             }
             };
             dataBase.ShiftAssignments.AddRange(sa);

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -155,7 +155,6 @@ namespace Infra.Migrations
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     firstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     lastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    roleAssignmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     idCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     dateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     partyContactId = table.Column<string>(type: "nvarchar(max)", nullable: true)

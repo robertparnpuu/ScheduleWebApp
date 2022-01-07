@@ -1,6 +1,4 @@
-﻿using Data;
-
-namespace Domain.Repos
+﻿namespace Domain.Repos
 {
     public interface IOccupationRepo:IRepo<Occupation>
     {

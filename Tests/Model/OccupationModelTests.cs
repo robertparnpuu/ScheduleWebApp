@@ -16,5 +16,11 @@ namespace Tests.Model
             mockRepo = new TestOccupationRepo();
             pageModel = new OccupationModel((IOccupationRepo) mockRepo, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Occupation", pageModel.PageTitle);
+        }
     }
 }

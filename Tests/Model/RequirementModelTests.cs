@@ -16,5 +16,11 @@ namespace Tests.Model
             mockRepo = new TestRequirementRepo();
             pageModel = new RequirementModel((IRequirementRepo) mockRepo, null);
         }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Requirement", pageModel.PageTitle);
+        }
     }
 }

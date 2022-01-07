@@ -1,5 +1,4 @@
-﻿using Aids;
-using Domain;
+﻿using Domain;
 using Domain.Repos;
 using Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,6 +19,12 @@ namespace Tests.Model
             mockRepoPartyContact = new TestPartyContactRepo();
             pageModel = new DepartmentModel((IDepartmentRepo) mockRepo, (IPartyContactRepo)mockRepoPartyContact, 
             (IContactRepo)mockRepoContact, (IAddressRepo)mockRepoAddress, null);
+        }
+
+        [TestMethod]
+        public void PageTitleTest()
+        {
+            Assert.AreEqual("Department", pageModel.PageTitle);
         }
     }
 }

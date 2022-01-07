@@ -38,16 +38,16 @@ namespace Tests.Infra.Initializer
         public void InitializeNewDbTrueTest()
         {
             DbInitializer.Initialize(TestDb,true);
-            Assert.AreEqual(10, TestDb.Addresses.Count());
-            Assert.AreEqual(10, TestDb.Contacts.Count());
-            Assert.AreEqual(4, TestDb.Contracts.Count());
+            Assert.AreEqual(11, TestDb.Addresses.Count());
+            Assert.AreEqual(11, TestDb.Contacts.Count());
+            Assert.AreEqual(5, TestDb.Contracts.Count());
             Assert.AreEqual(3, TestDb.Departments.Count());
             Assert.AreEqual(3, TestDb.Locations.Count());
             Assert.AreEqual(4, TestDb.Occupations.Count());
-            Assert.AreEqual(10, TestDb.PartyContacts.Count());
-            Assert.AreEqual(4, TestDb.Persons.Count());
+            Assert.AreEqual(11, TestDb.PartyContacts.Count());
+            Assert.AreEqual(5, TestDb.Persons.Count());
             Assert.AreEqual(7, TestDb.Requirements.Count());
-            Assert.AreEqual(3, TestDb.ShiftAssignments.Count());
+            Assert.AreEqual(14, TestDb.ShiftAssignments.Count());
             Assert.AreEqual(3, TestDb.StandardShifts.Count());
             Assert.AreEqual(7, TestDb.WeekDays.Count());
         }

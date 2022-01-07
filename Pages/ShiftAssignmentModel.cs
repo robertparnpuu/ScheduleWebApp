@@ -19,6 +19,7 @@ namespace PageModels
     public class ShiftAssignmentModel : ViewedModel<ShiftAssignment, ShiftAssignmentView>
     {
         private IShiftAssignmentRepo saRepo;
+      
         public ShiftAssignmentModel(IShiftAssignmentRepo r, ApplicationDbContext context) : base(r, context)
         {
             saRepo = r;
@@ -27,7 +28,6 @@ namespace PageModels
 
         public int CurrentWeekOffset = 0;
 
-        //TODO: Refaktoreerida
         public async Task<IActionResult> OnGetIndexAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex, int weekOffset = 0)
         {
             int dayFromWeekStart = (int)DateTime.Now.DayOfWeek;
@@ -58,7 +58,7 @@ namespace PageModels
 
             return view;
         }
-        //TODO 12. siia vaja filtrid
+
         protected internal override ShiftAssignment ToEntity(ShiftAssignmentView view)
         {
             if (view is null) return null;

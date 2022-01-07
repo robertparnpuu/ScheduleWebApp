@@ -100,7 +100,25 @@ namespace Infra.Initializer
                         await userManager.AddToRoleAsync(viewer, Enums.Roles.Viewer.ToString());
                     }
                 }
-
+                var exampleUser = new ApplicationUser
+                {
+                    UserName = "HeliKopter",
+                    Email = "heli.kopter@hot.com",
+                    FirstName = "Heli",
+                    LastName = "Kopter",
+                    PersonId = "examplePerson",
+                    EmailConfirmed = true,
+                    PhoneNumberConfirmed = true
+                };
+                if (userManager.Users.All(u => u.Id != exampleUser.Id))
+                {
+                    var user = await userManager.FindByEmailAsync(exampleUser.Email);
+                    if (user == null)
+                    {
+                        await userManager.CreateAsync(exampleUser, "Heli1.");
+                        await userManager.AddToRoleAsync(exampleUser, Enums.Roles.Viewer.ToString());
+                    }
+                }
         }
     }
 }

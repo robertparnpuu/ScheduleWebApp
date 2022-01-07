@@ -7,10 +7,7 @@ namespace PageModels.Common {
     public abstract class FilteredModel<TEntity, TView> :BaseModel<TEntity, TView>,IFilteredRepo
         where TEntity : class, IBaseEntity, new()
         where TView : class, IBaseEntityData, new() {
-        protected FilteredModel(IRepo<TEntity> r, ApplicationDbContext c = null) : base(r, c)
-        {
-
-        }
+        protected FilteredModel(IRepo<TEntity> r, ApplicationDbContext c = null) : base(r, c) { }
 
         public IList<TView> Items { get; set; }
         public override string CurrentFilter {

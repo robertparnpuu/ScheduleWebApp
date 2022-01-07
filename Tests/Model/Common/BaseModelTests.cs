@@ -1,6 +1,4 @@
-﻿using Aids;
-using Core;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Core;
 
 namespace Tests.Model.Common
 {

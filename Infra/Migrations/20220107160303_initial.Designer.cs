@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220105104513_Initial")]
-    partial class Initial
+    [Migration("20220107160303_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -175,9 +175,6 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("partyContactId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("roleAssignmentId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");

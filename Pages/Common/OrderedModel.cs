@@ -8,7 +8,8 @@ namespace PageModels.Common {
         where TView : class, IBaseEntityData, new() {
         protected OrderedModel(IRepo<TEntity> r, ApplicationDbContext c = null) :base(r, c) { }
 
-        public override string SortOrder {
+        public override string SortOrder 
+        {
             get => repo.SortOrder;
             set => repo.SortOrder = value;
         }

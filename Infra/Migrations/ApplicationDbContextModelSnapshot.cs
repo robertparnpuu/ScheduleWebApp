@@ -175,9 +175,6 @@ namespace Infra.Migrations
                     b.Property<string>("partyContactId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("roleAssignmentId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("id");
 
                     b.ToTable("Person");

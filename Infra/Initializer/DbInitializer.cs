@@ -470,7 +470,6 @@ namespace Infra.Initializer
             id="personId1",
             firstName = "Lennart",
             lastName = "Meri",
-            roleAssignmentId = "roleAssignmentId1",
             idCode = "39000000000",
             dateOfBirth =DateTime.Parse("2021-04-01"),
             partyContactId = "partyContactId1"
@@ -480,7 +479,6 @@ namespace Infra.Initializer
             id="personId2",
             firstName = "Jakob",
             lastName = "Hurt",
-            roleAssignmentId = "roleAssignmentId1",
             idCode = "39111111111",
             dateOfBirth =DateTime.Parse("2020-05-02"),
             partyContactId = "partyContactId2"
@@ -490,7 +488,6 @@ namespace Infra.Initializer
             id="personId3",
             firstName = "Anton Hansen",
             lastName = "Tammsaare",
-            roleAssignmentId = "roleAssignmentId2",
             idCode = "39222222222",
             dateOfBirth =DateTime.Parse("2019-06-03"),
             partyContactId = "partyContactId3"
@@ -500,7 +497,6 @@ namespace Infra.Initializer
             id="personId4",
             firstName = "Jaak",
             lastName = "Peterson",
-            roleAssignmentId = "roleAssignmentId2",
             idCode = "39333333333",
             dateOfBirth =DateTime.Parse("2018-07-04"),
             partyContactId = "partyContactId4"
@@ -510,7 +506,6 @@ namespace Infra.Initializer
             id="examplePerson",
             firstName = "Heli",
             lastName = "Kopter",
-            roleAssignmentId = "roleAssignmentId2",
             idCode = "49409021234",
             dateOfBirth =DateTime.Parse("1994-09-02"),
             partyContactId = "partyContactId4"

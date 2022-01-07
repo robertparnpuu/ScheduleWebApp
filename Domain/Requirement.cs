@@ -30,7 +30,6 @@ namespace Domain
         public DateTime? startTime => Data?.startTime ?? DateTime.MinValue;
         public DateTime? endTime => Data?.endTime ?? DateTime.MinValue;
 
-        //TODO: 1. oleks vajalik, et saaks valida mitmed päevad ühele nõudele
         public string weekDayId => Data?.weekDayId ?? "-";
         public WeekDay requirementWeekDay => lazyReadWeekDay.Value;
         internal Lazy<WeekDay> lazyReadWeekDay { get; }

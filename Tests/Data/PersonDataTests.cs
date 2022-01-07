@@ -17,7 +17,5 @@ namespace Tests.Data
         public void IdCodeTest() => IsProperty<string>(nameof(obj.idCode));
         [TestMethod]
         public void DateOfBirthTest() => IsProperty<DateTime>(nameof(obj.dateOfBirth));
-        [TestMethod]
-        public void RoleAssignmentIdTest() => IsProperty<string>(nameof(obj.roleAssignmentId));
     }
 }

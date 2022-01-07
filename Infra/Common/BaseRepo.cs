@@ -43,8 +43,6 @@ namespace Infra.Common
         public async Task<List<TData>> GetEntityListAsync()=> (await GetDataListAsync()).ToList();
         protected internal Task<List<TData>> GetDataListAsync() => CreateSql().ToListAsync();
         protected internal List<TData> GetDropDownList() => CreateSql().ToList();
-
-        //public async Task<TData> GetEntityAsync(string id)=> (await GetDataAsync(id));
         public TData GetData(string id) => GetDataAsync(id).GetAwaiter().GetResult();
         protected internal virtual IQueryable<TData> CreateSql() => BaseCreateSql();
         protected internal virtual IQueryable<TData> BaseCreateSql() => dbSet.AsNoTracking();

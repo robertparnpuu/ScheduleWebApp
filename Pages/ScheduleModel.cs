@@ -47,17 +47,12 @@ namespace PageModels
 
         public async Task<IActionResult> OnPostSelectDateAsync()
         {
-            //View topib scheduleviewi, ning kasutame VMToSession et scheduleViewist teha edasi antav Json sessionis
-            //Hetkel ei leidnud moodust sessionit ise muuta, ehk topin olemasolevad viewi ja siis kirjutan sessioni yle
-
             Copy.Members(GetSessionObject("shiftAssignment"), item, "dateChoice");
             item.startTime = Combine.DateAndTime(item.dateChoice, item.startTime);
             item.endTime = Combine.DateAndTime(item.dateChoice, item.endTime);
             VMToSession();
             return RedirectToPage("ChooseWorker", new { handler = "ChooseWorker" });
         }
-
-        //TODO, 3. Siit peab kasutama Contractis olevat personit
         public async Task OnGetChooseWorkerAsync()
         {
             item = GetSessionObject("shiftAssignment");
@@ -90,8 +85,6 @@ namespace PageModels
             ModelState.Clear();
             TryValidateModel(item);
         }
-
-        //TODO 11. siia vaja filtrid
         protected internal void VMToSession() =>
         HttpContext.Session.SetObjectAsJson("shiftAssignment", item);
 

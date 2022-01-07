@@ -26,7 +26,6 @@ namespace PageModels
             view.occupationName = obj?.shiftOccupation?.name;
             return view;
         }
-        //TODO 13. siia vaja filtrid
         protected internal override StandardShift ToEntity(StandardShiftView view)
         {
             if (view is null) return null;

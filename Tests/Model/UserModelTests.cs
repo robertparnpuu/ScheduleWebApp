@@ -174,11 +174,5 @@ namespace Tests.Model
             var result = _pageModel.ToApplicationUser(_item);
             Assert.IsInstanceOfType(result, typeof(ApplicationUser));
         }
-
-        [TestMethod]
-        public void GetSelectListPersonTest()
-        {
-            Assert.IsNull(_pageModel.Persons.Count());
-        }
     }
 }

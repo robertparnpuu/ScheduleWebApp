@@ -46,18 +46,6 @@ namespace PageModels
             return Page();
         }
 
-            
-
-        // Õigem lahendus oleks API-ga
-        // https://www.youtube.com/watch?v=39J0mSKM0QU tegi sellise lahendusega
-        // Päris dokk https://fullcalendar.io/docs/events-json-feed
-        //public async Task<JsonResult> OnGetEventsAsync()
-        //{
-        //    repo.startTime = DateTime.MinValue;
-        //    repo.endTime = DateTime.MaxValue;
-        //    items = (await repo.GetEntityListAsync()).Select(ToCalendarView).ToList();
-        //    return new JsonResult(items);
-        //}
 
         protected internal CalendarView ToCalendarView(ShiftAssignment obj)
         {

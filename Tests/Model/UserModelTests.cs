@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -172,6 +173,12 @@ namespace Tests.Model
         {
             var result = _pageModel.ToApplicationUser(_item);
             Assert.IsInstanceOfType(result, typeof(ApplicationUser));
+        }
+
+        [TestMethod]
+        public void GetSelectListPersonTest()
+        {
+            Assert.IsNull(_pageModel.Persons.Count());
         }
     }
 }
